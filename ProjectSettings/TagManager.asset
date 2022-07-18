@@ -47,3 +47,6 @@ TagManager:
   - name: Platform
     uniqueID: 1654131031
     locked: 0
+  - name: Character
+    uniqueID: 3167251139
+    locked: 0
