@@ -5,11 +5,17 @@ public class BackgroundController : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
 
+    [Space]
     public TilemapRenderer firstGroundObject;
-
     public TilemapRenderer secondGroundObject;
-
     public TilemapRenderer outOfCameraGround;
+
+    [Space]
+    public SkyImage firstSkyImage;
+    public SkyImage secondSkyImage;
+    public SkyImage outOfCameraSkyImage;
+    
+    
 
     private void Update()
     {
@@ -34,5 +40,28 @@ public class BackgroundController : MonoBehaviour
 
             outOfCameraGround = secondGroundObject;
         }
+        if (_camera.transform.position.x >=
+            firstSkyImage.gameObject.transform.position.x + firstSkyImage.firstLayer.bounds.size.x)
+        {
+            var o = firstSkyImage.gameObject;
+            o.transform.position = new Vector3(
+                o.transform.position.x + (firstSkyImage.firstLayer.bounds.size.x + secondSkyImage.firstLayer.bounds.size.x),
+                o.transform.position.y, o.transform.position.z);
+
+            outOfCameraSkyImage = firstSkyImage;
+        }
+        
+        if (_camera.transform.position.x >=
+            secondSkyImage.gameObject.transform.position.x + secondSkyImage.firstLayer.bounds.size.x)
+        {
+            var o = secondSkyImage.gameObject;
+            o.transform.position = new Vector3(
+                o.transform.position.x + (firstSkyImage.firstLayer.bounds.size.x + secondSkyImage.firstLayer.bounds.size.x),
+                o.transform.position.y, o.transform.position.z);
+
+            outOfCameraSkyImage = secondSkyImage;
+        }
+       
+        
     }
 }
