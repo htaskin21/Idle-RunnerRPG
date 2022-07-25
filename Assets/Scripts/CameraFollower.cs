@@ -12,9 +12,4 @@ public class CameraFollower : MonoBehaviour
         mainCamera.transform.DOMoveX(-character.position.x - .3f, 1f).SetLoops(-1, LoopType.Incremental)
             .SetEase(Ease.Linear);
     }
-
-    private void Update()
-    {
-        //mainCamera.transform.DOMoveX(character.position.x, .9f);
-    }
 }

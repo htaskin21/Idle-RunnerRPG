@@ -1,58 +1,47 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace States
 {
-    public class State : MonoBehaviour
+    public abstract class State : MonoBehaviour
     {
-        public StateType name;
-        protected StateStep step;
-        protected GameObject enemy;
-        protected Animator animator;
-        protected CharacterMovement characterMovement;
-        protected State nextState;
+        public StateType stateType;
 
-        public State(GameObject _enemy, Animator _animator, CharacterMovement _characterMovement)
+        protected CharacterController characterController;
+
+        public UnityEvent OnEnter, OnExit;
+
+        public void InitializeState(CharacterController _characterController)
         {
-            step = StateStep.Enter;
-            this.enemy = _enemy;
-            animator = _animator;
-            this.characterMovement = _characterMovement;
+            characterController = _characterController;
         }
 
-        public virtual void Enter()
+        public void Enter()
         {
-            step = StateStep.Update;
+            OnEnter?.Invoke();
+            EnterState();
         }
 
-        public virtual void Update()
+        protected virtual void EnterState()
         {
-            step = StateStep.Update;
         }
 
-        public virtual void Exit()
+        public virtual void StateUpdate()
         {
-            step = StateStep.Exit;
         }
 
-        public State Process()
+        public virtual void StateFixedUpdate()
         {
-            if (step == StateStep.Enter)
-            {
-                Enter();
-            }
+        }
 
-            if (step == StateStep.Update)
-            {
-                Update();
-            }
+        public void Exit()
+        {
+            OnExit?.Invoke();
+            ExitState();
+        }
 
-            if (step == StateStep.Exit)
-            {
-                Exit();
-                return nextState;
-            }
-
-            return this;
+        protected virtual void ExitState()
+        {
         }
     }
 
@@ -62,14 +51,7 @@ namespace States
         Run,
         Attack,
         SpecialAttack,
-        Hurt,
-        Death
-    }
-
-    public enum StateStep
-    {
-        Enter,
-        Update,
-        Exit
+        Hit,
+        Die
     }
 }
