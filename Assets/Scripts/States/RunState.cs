@@ -8,17 +8,18 @@ namespace States
         public State attackState;
         private Tweener _runningTweener;
 
+
         protected override void EnterState()
         {
             characterController.AnimationController.PlayAnimation(AnimationType.Run);
-            _runningTweener = characterController.GetComponent<HeroMovement>().StartRunning();
+            characterController.GetComponent<HeroMovement>().OnHeroStartRunning?.Invoke();
 
             base.EnterState();
         }
 
         protected override void ExitState()
         {
-            _runningTweener.Kill();
+            characterController.GetComponent<HeroMovement>().OnHeroStopRunning?.Invoke();
             base.ExitState();
         }
     }
