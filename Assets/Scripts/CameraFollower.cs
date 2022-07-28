@@ -12,8 +12,8 @@ public class CameraFollower : MonoBehaviour
 
     private void Start()
     {
-        _heroMovement.OnHeroStartRunning += StartCameraMove;
-        _heroMovement.OnHeroStopRunning += StopCameraMove;
+        HeroMovement.OnHeroStartRunning += StartCameraMove;
+        HeroMovement.OnHeroStopRunning += StopCameraMove;
     }
 
     private void StartCameraMove()

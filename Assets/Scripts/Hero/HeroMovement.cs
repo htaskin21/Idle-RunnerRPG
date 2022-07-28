@@ -6,9 +6,9 @@ namespace Hero
 {
     public class HeroMovement : MonoBehaviour
     {
-        public Action OnHeroStartRunning;
+        public static Action OnHeroStartRunning;
 
-        public Action OnHeroStopRunning;
+        public static Action OnHeroStopRunning;
 
         private Tweener runningTweener = null;
 

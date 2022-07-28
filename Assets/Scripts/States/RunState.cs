@@ -12,14 +12,16 @@ namespace States
         protected override void EnterState()
         {
             characterController.AnimationController.PlayAnimation(AnimationType.Run);
-            characterController.GetComponent<HeroMovement>().OnHeroStartRunning?.Invoke();
+            //characterController.GetComponent<HeroMovement>().OnHeroStartRunning?.Invoke();
+            HeroMovement.OnHeroStartRunning?.Invoke();
 
             base.EnterState();
         }
 
         protected override void ExitState()
         {
-            characterController.GetComponent<HeroMovement>().OnHeroStopRunning?.Invoke();
+            HeroMovement.OnHeroStopRunning?.Invoke();
+            //characterController.GetComponent<HeroMovement>().OnHeroStopRunning?.Invoke();
             base.ExitState();
         }
     }

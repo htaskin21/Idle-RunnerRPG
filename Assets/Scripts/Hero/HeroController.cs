@@ -1,4 +1,3 @@
-using System;
 using States;
 using UnityEngine;
 
@@ -6,11 +5,8 @@ namespace Hero
 {
     public class HeroController : CharacterController
     {
-        [SerializeField] private HeroMovement _heroMovement;
-
-        public HeroMovement HeroMovement => _heroMovement;
-
-
+        public float attackPoint;
+        
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.A))
@@ -20,14 +16,6 @@ namespace Hero
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D col)
-        {
-            if (col.gameObject.CompareTag($"Enemy"))
-            {
-                var attackState = _states.Find(x => x.stateType == StateType.Attack);
-                TransitionToState(attackState);
-            }
-            
-        }
+      
     }
 }

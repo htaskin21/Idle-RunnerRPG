@@ -16,8 +16,10 @@ public class AnimationController : MonoBehaviour
                 Play("Run");
                 break;
             case AnimationType.Hit:
+                Play("Hit");
                 break;
             case AnimationType.Attack:
+                Play("Attack");
                 break;
             case AnimationType.SuperAttack:
                 break;

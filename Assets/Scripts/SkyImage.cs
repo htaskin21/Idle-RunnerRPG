@@ -16,8 +16,8 @@ public class SkyImage : MonoBehaviour
 
     private void Start()
     {
-        _heroMovement.OnHeroStartRunning += StartSkyImageMove;
-        _heroMovement.OnHeroStopRunning += StopSkyImageMove;
+        HeroMovement.OnHeroStartRunning += StartSkyImageMove;
+        HeroMovement.OnHeroStopRunning += StopSkyImageMove;
     }
 
     private void StartSkyImageMove()
