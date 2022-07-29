@@ -13,6 +13,9 @@ public class CharacterController : MonoBehaviour
     public State previousState = null;
 
     internal List<State> _states;
+    
+    public float healthPoint;
+    public float attackPoint;
 
     private void Awake()
     {

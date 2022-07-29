@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AnimationController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+
+    public UnityEvent OnAnimationEnd;
 
     public void PlayAnimation(AnimationType animationType)
     {
@@ -24,15 +27,26 @@ public class AnimationController : MonoBehaviour
             case AnimationType.SuperAttack:
                 break;
             case AnimationType.Die:
+                Play("Die");
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(animationType), animationType, null);
         }
     }
 
-    public void Play(string name)
+    private void Play(string name)
     {
         animator.Play(name, -1, 0f);
+    }
+
+    public void InvokeAnimationEnd()
+    {
+        OnAnimationEnd?.Invoke();
+    }
+
+    public void ResetAnimationEndEvent()
+    {
+        OnAnimationEnd.RemoveAllListeners();
     }
 }
 

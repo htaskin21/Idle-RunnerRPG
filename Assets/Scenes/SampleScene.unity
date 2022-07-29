@@ -1428,11 +1428,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 192654745}
+  - component: {fileID: 192654748}
+  - component: {fileID: 192654749}
   - component: {fileID: 192654747}
   - component: {fileID: 192654746}
   - component: {fileID: 192654750}
-  - component: {fileID: 192654748}
-  - component: {fileID: 192654749}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -1483,7 +1483,8 @@ MonoBehaviour:
   animationController: {fileID: 1007745937}
   currentState: {fileID: 0}
   previousState: {fileID: 0}
-  attackPoint: 0
+  healthPoint: 0
+  attackPoint: 20
 --- !u!61 &192654748
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1543,7 +1544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7c9bfe4e47f466097946af43539f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroController: {fileID: 0}
+  _heroController: {fileID: 192654747}
 --- !u!4 &403121186 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1283768377614680013, guid: c38122f34ccb2494da047e308f0b1ef9, type: 3}
@@ -1753,6 +1754,7 @@ GameObject:
   - component: {fileID: 616449993}
   - component: {fileID: 616449995}
   - component: {fileID: 616449994}
+  - component: {fileID: 616449996}
   m_Layer: 0
   m_Name: State
   m_TagString: Untagged
@@ -1794,6 +1796,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   idleState: {fileID: 616449995}
+  dieState: {fileID: 616449996}
 --- !u!114 &616449995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1815,6 +1818,25 @@ MonoBehaviour:
       m_Calls: []
   attackState: {fileID: 0}
   hitState: {fileID: 616449994}
+--- !u!114 &616449996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616449992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45d8f2da398f48c59cf5ca270aa447f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateType: 5
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &875743116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2255,6 +2277,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1007745936}
+  OnAnimationEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1095167837 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 38812984010555309, guid: 1de8ef87801824dd88fa537444a4ca15, type: 3}
@@ -2376,6 +2401,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1227321413}
+  OnAnimationEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1231937290
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,7 +2542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd5b2b11191f4185a4c84e4bef09474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroController: {fileID: 0}
+  _heroController: {fileID: 192654747}
+  _enemyController: {fileID: 1485721631}
 --- !u!4 &1410243782
 Transform:
   m_ObjectHideFlags: 0
@@ -2718,10 +2747,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa91ae7e5cf64ed09006bc36ad3ccc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationController: {fileID: 0}
+  animationController: {fileID: 1227321415}
   currentState: {fileID: 0}
   previousState: {fileID: 0}
-  healthPoint: 0
+  healthPoint: 100
+  attackPoint: 0
 --- !u!1 &1601840217
 GameObject:
   m_ObjectHideFlags: 0
@@ -3995,7 +4025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1518928172638882167, guid: 82a639aea2dc240b8b46918227ceec0c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 633.32996
       objectReference: {fileID: 0}
     - target: {fileID: 1609126740629198528, guid: 82a639aea2dc240b8b46918227ceec0c, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4123,7 +4153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4794394565210612478, guid: 82a639aea2dc240b8b46918227ceec0c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 969.32996
       objectReference: {fileID: 0}
     - target: {fileID: 5227499380545208447, guid: 82a639aea2dc240b8b46918227ceec0c, type: 3}
       propertyPath: m_ChildAlignment
@@ -4167,7 +4197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5897609112721934337, guid: 82a639aea2dc240b8b46918227ceec0c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 110.66998
       objectReference: {fileID: 0}
     - target: {fileID: 6289618750236921262, guid: 82a639aea2dc240b8b46918227ceec0c, type: 3}
       propertyPath: m_Name

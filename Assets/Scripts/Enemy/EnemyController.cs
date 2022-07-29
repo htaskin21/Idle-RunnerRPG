@@ -5,8 +5,6 @@ namespace Enemy
 {
     public class EnemyController : CharacterController
     {
-        public float healthPoint;
-
         private void Start()
         {
             HeroAttack.OnInflictDamage += TakeDamage;
@@ -14,6 +12,8 @@ namespace Enemy
 
         private void TakeDamage(float attackPoint)
         {
+            var hitState = _states.Find(x => x.stateType == StateType.Hit);
+            TransitionToState(hitState);
             healthPoint -= attackPoint;
 
             if (healthPoint <= 0)

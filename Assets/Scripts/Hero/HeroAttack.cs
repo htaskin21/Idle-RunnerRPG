@@ -25,7 +25,7 @@ namespace Hero
             }
         }
 
-        public void InflictDamage(float damage)
+        private void InflictDamage(float damage)
         {
             var idleState = _heroController._states.Find(x => x.stateType == StateType.Idle);
             _heroController.TransitionToState(idleState);
