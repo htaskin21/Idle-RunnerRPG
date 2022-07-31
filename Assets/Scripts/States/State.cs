@@ -48,6 +48,7 @@ namespace States
     public enum StateType
     {
         Idle,
+        WakeUp,
         Run,
         Attack,
         SpecialAttack,

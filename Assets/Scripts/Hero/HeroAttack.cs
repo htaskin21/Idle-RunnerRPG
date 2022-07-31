@@ -15,19 +15,22 @@ namespace Hero
             OnInflictDamage = delegate(float damage) { };
             OnInflictDamage += InflictDamage;
         }
-        
+
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.gameObject.CompareTag($"Enemy"))
             {
-                var attackState = _heroController._states.Find(x => x.stateType == StateType.Attack);
-                _heroController.TransitionToState(attackState);
+                if (GameManager.Instance.EnemyController.healthPoint > 0)
+                {
+                    var attackState = _heroController.GetState(StateType.Attack);
+                    _heroController.TransitionToState(attackState);
+                }
             }
         }
 
         private void InflictDamage(float damage)
         {
-            var idleState = _heroController._states.Find(x => x.stateType == StateType.Idle);
+            var idleState = _heroController.GetState(StateType.Idle);
             _heroController.TransitionToState(idleState);
         }
     }

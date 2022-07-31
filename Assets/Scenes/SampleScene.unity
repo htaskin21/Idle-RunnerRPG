@@ -1435,7 +1435,7 @@ GameObject:
   - component: {fileID: 192654750}
   m_Layer: 0
   m_Name: Hero
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1485,6 +1485,7 @@ MonoBehaviour:
   previousState: {fileID: 0}
   healthPoint: 0
   attackPoint: 20
+  _attackCooldown: 3000
 --- !u!61 &192654748
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1660,6 +1661,7 @@ GameObject:
   - component: {fileID: 522454657}
   - component: {fileID: 522454658}
   - component: {fileID: 522454659}
+  - component: {fileID: 522454660}
   m_Layer: 0
   m_Name: States
   m_TagString: Untagged
@@ -1693,14 +1695,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc315a4a47d443d0b3af09b58005502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateType: 1
+  stateType: 2
   OnEnter:
     m_PersistentCalls:
       m_Calls: []
   OnExit:
     m_PersistentCalls:
       m_Calls: []
-  attackState: {fileID: 522454658}
 --- !u!114 &522454658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,15 +1714,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb41126e692a4c7a91dabe93e99afa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateType: 2
+  stateType: 3
   OnEnter:
     m_PersistentCalls:
       m_Calls: []
   OnExit:
     m_PersistentCalls:
       m_Calls: []
-  runState: {fileID: 522454657}
-  idleState: {fileID: 522454659}
 --- !u!114 &522454659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1741,8 +1740,27 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
-  attackState: {fileID: 0}
-  hitState: {fileID: 0}
+  wakeUpState: {fileID: 522454660}
+--- !u!114 &522454660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522454655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24339067abd64761b64b5c0ae5a50a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateType: 1
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExit:
+    m_PersistentCalls:
+      m_Calls: []
+  attackState: {fileID: 522454658}
 --- !u!1 &616449992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,7 +1806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aae4f3629fa342538282c0184fb2c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateType: 4
+  stateType: 5
   OnEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -1816,8 +1834,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
-  attackState: {fileID: 0}
-  hitState: {fileID: 616449994}
+  wakeUpState: {fileID: 0}
 --- !u!114 &616449996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1830,7 +1847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45d8f2da398f48c59cf5ca270aa447f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateType: 5
+  stateType: 6
   OnEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -2750,8 +2767,9 @@ MonoBehaviour:
   animationController: {fileID: 1227321415}
   currentState: {fileID: 0}
   previousState: {fileID: 0}
-  healthPoint: 100
+  healthPoint: 40
   attackPoint: 0
+  _boxCollider2D: {fileID: 1485721630}
 --- !u!1 &1601840217
 GameObject:
   m_ObjectHideFlags: 0

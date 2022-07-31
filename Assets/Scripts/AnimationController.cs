@@ -15,6 +15,9 @@ public class AnimationController : MonoBehaviour
             case AnimationType.Idle:
                 Play("Idle");
                 break;
+            case AnimationType.WakeUp:
+                Play("WakeUp");
+                break;
             case AnimationType.Run:
                 Play("Run");
                 break;
@@ -53,6 +56,7 @@ public class AnimationController : MonoBehaviour
 public enum AnimationType
 {
     Idle,
+    WakeUp,
     Run,
     Hit,
     Attack,

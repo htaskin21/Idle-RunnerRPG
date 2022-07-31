@@ -1,10 +1,15 @@
 using Hero;
 using States;
+using UnityEngine;
 
 namespace Enemy
 {
     public class EnemyController : CharacterController
     {
+        [SerializeField] private BoxCollider2D _boxCollider2D;
+
+        public BoxCollider2D BoxCollider2D => _boxCollider2D;
+
         private void Start()
         {
             HeroAttack.OnInflictDamage += TakeDamage;
@@ -12,21 +17,9 @@ namespace Enemy
 
         private void TakeDamage(float attackPoint)
         {
-            var hitState = _states.Find(x => x.stateType == StateType.Hit);
-            TransitionToState(hitState);
             healthPoint -= attackPoint;
-
-            if (healthPoint <= 0)
-            {
-                var dieState = _states.Find(x => x.stateType == StateType.Die);
-                TransitionToState(dieState);
-                HeroMovement.OnHeroStartRunning?.Invoke();
-            }
-            else
-            {
-                var idleState = _states.Find(x => x.stateType == StateType.Idle);
-                TransitionToState(idleState);
-            }
+            var hitState = GetState(StateType.Hit);
+            TransitionToState(hitState);
         }
     }
 }

@@ -4,8 +4,8 @@ namespace States
 {
     public class AttackState : State
     {
-        public State runState;
-        public State idleState;
+        //public State runState;
+        //public State idleState;
 
         protected override void EnterState()
         {
@@ -19,7 +19,7 @@ namespace States
 
         protected override void ExitState()
         {
-            characterController.AnimationController.ResetAnimationEndEvent();
+            characterController.AnimationController.OnAnimationEnd.RemoveAllListeners();
             base.ExitState();
         }
     }

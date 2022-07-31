@@ -18,6 +18,8 @@ public class CameraFollower : MonoBehaviour
 
     private void StartCameraMove()
     {
+        Debug.Log(_heroMovement.transform.position.x);
+        
         cameraMoveTweener = mainCamera.transform.DOMoveX(-_heroMovement.transform.position.x - .3f, 1f)
             .SetLoops(-1, LoopType.Incremental)
             .SetEase(Ease.Linear);

@@ -5,7 +5,7 @@ namespace States
 {
     public class RunState : State
     {
-        public State attackState;
+        //public State attackState;
         private Tweener _runningTweener;
 
 

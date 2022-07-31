@@ -12,7 +12,7 @@ public class CharacterController : MonoBehaviour
     public State currentState = null;
     public State previousState = null;
 
-    internal List<State> _states;
+    private List<State> _states;
     
     public float healthPoint;
     public float attackPoint;
@@ -38,5 +38,10 @@ public class CharacterController : MonoBehaviour
         previousState = currentState;
         currentState = nextState;
         currentState.Enter();
+    }
+
+    internal State GetState(StateType stateType)
+    {
+        return _states.Find(x => x.stateType == stateType);
     }
 }
