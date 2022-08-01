@@ -20,6 +20,12 @@ namespace Enemy
             healthPoint -= attackPoint;
             var hitState = GetState(StateType.Hit);
             TransitionToState(hitState);
+
+            if (healthPoint <= 0)
+            {
+                var runState = GameManager.Instance.HeroController.GetState(StateType.Run);
+                GameManager.Instance.HeroController.TransitionToState(runState);
+            }
         }
     }
 }

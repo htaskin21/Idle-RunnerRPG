@@ -8,9 +8,6 @@ namespace States
 
             characterController.AnimationController.PlayAnimation(AnimationType.Die);
 
-            var runState = GameManager.Instance.HeroController.GetState(StateType.Run);
-            GameManager.Instance.HeroController.TransitionToState(runState);
-
             characterController.AnimationController.OnAnimationEnd.AddListener(() =>
                 this.transform.parent.gameObject.SetActive(false));
 
