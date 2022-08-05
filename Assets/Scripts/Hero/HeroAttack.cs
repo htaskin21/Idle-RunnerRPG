@@ -10,14 +10,22 @@ namespace Hero
 
         public static Action<float> OnInflictDamage;
 
+
+        [SerializeField] private float attackPoint;
+        public float AttackPoint => attackPoint;
+
+
+        [SerializeField] private int _attackCooldown;
+        public int AttackCooldown => _attackCooldown;
+
         private void Start()
         {
             OnInflictDamage = delegate(float damage) { };
-            //OnInflictDamage += InflictDamage;
         }
 
         private void OnTriggerEnter2D(Collider2D col)
         {
+            /*
             if (col.gameObject.CompareTag($"Enemy"))
             {
                 if (GameManager.Instance.EnemyController.healthPoint > 0)
@@ -25,15 +33,13 @@ namespace Hero
                     var attackState = _heroController.GetState(StateType.Attack);
                     _heroController.TransitionToState(attackState);
                 }
+            }*/
+
+            if (col.gameObject.CompareTag($"Enemy"))
+            {
+                var attackState = _heroController.GetState(StateType.Attack);
+                _heroController.TransitionToState(attackState);
             }
         }
-
-        /*
-        private void InflictDamage(float damage)
-        {
-            var idleState = _heroController.GetState(StateType.Idle);
-            _heroController.TransitionToState(idleState);
-        }
-        */
     }
 }

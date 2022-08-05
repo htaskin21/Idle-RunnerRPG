@@ -12,8 +12,8 @@ namespace States
             characterController.AnimationController.PlayAnimation(AnimationType.Attack);
 
             characterController.AnimationController.OnAnimationAction.AddListener(() =>
-                HeroAttack.OnInflictDamage?.Invoke(characterController.attackPoint));
-            
+                HeroAttack.OnInflictDamage?.Invoke(GameManager.Instance.HeroController.heroAttack.AttackPoint));
+
             characterController.AnimationController.OnAnimationEnd.AddListener(DecideNextState);
 
             base.EnterState();
@@ -23,13 +23,13 @@ namespace States
         {
             characterController.AnimationController.OnAnimationAction.RemoveAllListeners();
             characterController.AnimationController.OnAnimationEnd.RemoveAllListeners();
-           
+
             base.ExitState();
         }
 
         private void DecideNextState()
         {
-            if (GameManager.Instance.EnemyController.healthPoint <= 0)
+            if (GameManager.Instance.EnemyController.enemyHealth.Health <= 0)
             {
                 characterController.TransitionToState(runState);
             }

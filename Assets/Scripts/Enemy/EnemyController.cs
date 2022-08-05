@@ -6,8 +6,9 @@ namespace Enemy
 {
     public class EnemyController : CharacterController
     {
+        public EnemyHealth enemyHealth;
+        
         [SerializeField] private BoxCollider2D _boxCollider2D;
-
         public BoxCollider2D BoxCollider2D => _boxCollider2D;
 
         private void Start()
@@ -17,7 +18,8 @@ namespace Enemy
 
         private void TakeDamage(float attackPoint)
         {
-            healthPoint -= attackPoint;
+            enemyHealth.SetHealth(attackPoint);
+
             var hitState = GetState(StateType.Hit);
             TransitionToState(hitState);
         }

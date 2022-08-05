@@ -32,10 +32,9 @@ namespace States
 
         private async UniTask WaitForNextAttack()
         {
-            await UniTask.Delay(GameManager.Instance.HeroController.AttackCooldown,
+            await UniTask.Delay(GameManager.Instance.HeroController.heroAttack.AttackCooldown,
                 cancellationToken: _cancellationToken);
-
-            //var wakeUpState = characterController.GetState(StateType.WakeUp);
+            
             characterController.TransitionToState(wakeUpState);
         }
 

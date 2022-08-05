@@ -23,14 +23,12 @@ namespace States
 
         private void DecideNextState()
         {
-            if (characterController.healthPoint <= 0)
+            if (GameManager.Instance.EnemyController.enemyHealth.Health <= 0)
             {
-                //var dieState = characterController.GetState(StateType.Die);
                 characterController.TransitionToState(dieState);
             }
             else
             {
-                //var idleState = characterController.GetState(StateType.Idle);
                 characterController.TransitionToState(idleState);
             }
         }

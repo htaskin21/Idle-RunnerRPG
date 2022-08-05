@@ -1,4 +1,3 @@
-using System;
 using States;
 using UnityEngine;
 
@@ -6,9 +5,8 @@ namespace Hero
 {
     public class HeroController : CharacterController
     {
-        [SerializeField] private int _attackCooldown;
+        public HeroAttack heroAttack;
 
-        public int AttackCooldown => _attackCooldown;
 
         private void Update()
         {
