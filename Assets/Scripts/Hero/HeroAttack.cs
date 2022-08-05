@@ -13,7 +13,7 @@ namespace Hero
         private void Start()
         {
             OnInflictDamage = delegate(float damage) { };
-            OnInflictDamage += InflictDamage;
+            //OnInflictDamage += InflictDamage;
         }
 
         private void OnTriggerEnter2D(Collider2D col)
@@ -28,10 +28,12 @@ namespace Hero
             }
         }
 
+        /*
         private void InflictDamage(float damage)
         {
             var idleState = _heroController.GetState(StateType.Idle);
             _heroController.TransitionToState(idleState);
         }
+        */
     }
 }

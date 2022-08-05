@@ -6,6 +6,7 @@ public class AnimationController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
+    public UnityEvent OnAnimationAction;
     public UnityEvent OnAnimationEnd;
 
     public void PlayAnimation(AnimationType animationType)
@@ -50,6 +51,16 @@ public class AnimationController : MonoBehaviour
     public void ResetAnimationEndEvent()
     {
         OnAnimationEnd.RemoveAllListeners();
+    }
+    
+    public void InvokeAnimationAction()
+    {
+        OnAnimationAction?.Invoke();
+    }
+
+    public void ResetAnimationActionEvent()
+    {
+        OnAnimationAction.RemoveAllListeners();
     }
 }
 

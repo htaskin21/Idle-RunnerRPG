@@ -1721,6 +1721,8 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  runState: {fileID: 522454657}
+  idleState: {fileID: 522454659}
 --- !u!114 &522454659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2294,6 +2296,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1007745936}
+  OnAnimationAction:
+    m_PersistentCalls:
+      m_Calls: []
   OnAnimationEnd:
     m_PersistentCalls:
       m_Calls: []
@@ -2418,6 +2423,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1227321413}
+  OnAnimationAction:
+    m_PersistentCalls:
+      m_Calls: []
   OnAnimationEnd:
     m_PersistentCalls:
       m_Calls: []
