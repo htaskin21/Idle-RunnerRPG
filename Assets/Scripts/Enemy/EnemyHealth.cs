@@ -1,4 +1,3 @@
-using Hero;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +8,7 @@ namespace Enemy
         [SerializeField] private float maxHealth;
         public float MaxHealth => maxHealth;
 
-        [SerializeField] private float  health;
+        [SerializeField] private float health;
         public float Health => health;
 
         [SerializeField] private Slider healthBar;
@@ -27,7 +26,6 @@ namespace Enemy
         {
             health -= attackDamage;
             healthBar.value = health;
-            
         }
     }
 }
