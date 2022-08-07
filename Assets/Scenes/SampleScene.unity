@@ -1544,9 +1544,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroController: {fileID: 192654747}
-  attackPoint: 20
+  attackPoint: 15
   _attackCooldown: 3000
-  damageNumberPrefab: {fileID: 2151027515920951202, guid: ffec972368df24f7fb578bc0fcaac5f1, type: 3}
+  heroAttackPrefab: {fileID: 2151027515920951202, guid: ffec972368df24f7fb578bc0fcaac5f1, type: 3}
+  tapAttackPrefab: {fileID: 9082777676698030928, guid: 23e6c8b1be7aa42b7aac083d66d12ffc, type: 3}
 --- !u!4 &403121186 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1283768377614680013, guid: c38122f34ccb2494da047e308f0b1ef9, type: 3}
@@ -1564,6 +1565,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1650,6 +1652,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &522454655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1763,6 +1781,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  runState: {fileID: 522454657}
   attackState: {fileID: 522454658}
 --- !u!1 &616449992
 GameObject:
@@ -2824,6 +2843,7 @@ GameObject:
   - component: {fileID: 1485721630}
   - component: {fileID: 1485721631}
   - component: {fileID: 1485721632}
+  - component: {fileID: 1485721633}
   m_Layer: 0
   m_Name: EvilVine
   m_TagString: Enemy
@@ -2906,6 +2926,19 @@ MonoBehaviour:
   maxHealth: 40
   health: 0
   healthBar: {fileID: 2048726218}
+--- !u!114 &1485721633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485721628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469a8b7b9ba084e928eac497150596f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tapDamage: 1
 --- !u!1 &1601840217
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +26,7 @@ namespace Enemy
         public void SetHealth(float attackDamage)
         {
             health -= attackDamage;
-            healthBar.value = health;
+            healthBar.DOValue(health, 0.2f);
         }
     }
 }

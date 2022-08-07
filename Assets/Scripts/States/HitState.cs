@@ -25,6 +25,7 @@ namespace States
         {
             if (GameManager.Instance.EnemyController.enemyHealth.Health <= 0)
             {
+                GameManager.Instance.EnemyController.BoxCollider2D.enabled = false;
                 characterController.TransitionToState(dieState);
             }
             else

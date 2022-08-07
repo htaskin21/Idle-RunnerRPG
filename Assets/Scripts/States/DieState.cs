@@ -4,8 +4,6 @@ namespace States
     {
         protected override void EnterState()
         {
-            GameManager.Instance.EnemyController.BoxCollider2D.enabled = false;
-
             characterController.AnimationController.PlayAnimation(AnimationType.Die);
 
             characterController.AnimationController.OnAnimationEnd.AddListener(() =>

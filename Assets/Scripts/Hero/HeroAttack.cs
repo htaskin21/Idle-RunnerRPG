@@ -17,7 +17,11 @@ namespace Hero
         [SerializeField] private int _attackCooldown;
         public int AttackCooldown => _attackCooldown;
 
-        [SerializeField] public DamageNumber damageNumberPrefab;
+        [Space] [Header("Damage Pop-Ups")] 
+       
+        [SerializeField] private DamageNumber heroAttackPrefab;
+        [SerializeField] private DamageNumber tapAttackPrefab;
+
 
         private void Start()
         {
@@ -40,16 +44,24 @@ namespace Hero
 
             Vector3 correctedPosition = new Vector3(enemyPosition.x, enemyPosition.y + 1f, enemyPosition.z);
 
-            DamageNumber damageNumber =
-                damageNumberPrefab.Spawn(correctedPosition, damage);
+            if (damage < attackPoint)
+            {
+                DamageNumber damageNumber =
+                    heroAttackPrefab.Spawn(correctedPosition, damage);
+            }
+            else
+            {
+                DamageNumber damageNumber =
+                    tapAttackPrefab.Spawn(correctedPosition, damage);
+            }
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
-                DamageNumber damageNumber =
-                    damageNumberPrefab.Spawn(new Vector3(transform.position.x, 0, transform.position.z), attackPoint);
+                //DamageNumber damageNumber = 
+                // damageNumberPrefab.Spawn(new Vector3(transform.position.x, 0, transform.position.z), attackPoint);
             }
         }
     }
