@@ -23,7 +23,7 @@ namespace Hero
         [SerializeField] private DamageNumber tapAttackPrefab;
 
 
-        private void Start()
+        private void Awake()
         {
             OnInflictDamage = delegate(float damage) { };
             OnInflictDamage += SpawnDamagePopUp;
