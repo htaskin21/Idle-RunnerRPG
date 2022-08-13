@@ -29,7 +29,7 @@ namespace States
 
         private void DecideNextState()
         {
-            if (GameManager.Instance.EnemyController.enemyHealth.Health <= 0)
+            if (GameManager.Instance.HeroController.heroAttack.CurrentEnemy.enemyHealth.Health <= 0)
             {
                 characterController.TransitionToState(runState);
             }

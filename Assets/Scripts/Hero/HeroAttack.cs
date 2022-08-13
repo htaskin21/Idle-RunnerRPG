@@ -1,5 +1,6 @@
 using System;
 using DamageNumbersPro;
+using Enemy;
 using States;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ namespace Hero
     public class HeroAttack : MonoBehaviour
     {
         [SerializeField] private HeroController _heroController;
+
+        public EnemyController CurrentEnemy { get; private set; }
 
         public static Action<float> OnInflictDamage;
 
@@ -22,6 +25,11 @@ namespace Hero
         [SerializeField] private DamageNumber heroAttackPrefab;
         [SerializeField] private DamageNumber tapAttackPrefab;
 
+        public HeroAttack(EnemyController currentEnemy)
+        {
+            this.CurrentEnemy = currentEnemy;
+        }
+
 
         private void Awake()
         {
@@ -33,6 +41,8 @@ namespace Hero
         {
             if (col.gameObject.CompareTag($"Enemy"))
             {
+                CurrentEnemy = col.GetComponent<EnemyController>();
+               
                 var attackState = _heroController.GetState(StateType.Attack);
                 _heroController.TransitionToState(attackState);
             }
