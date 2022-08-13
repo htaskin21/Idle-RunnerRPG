@@ -7,7 +7,7 @@ namespace Enemy
     public class EnemyController : CharacterController
     {
         public EnemyHealth enemyHealth;
-        
+
         [SerializeField] private BoxCollider2D _boxCollider2D;
         public BoxCollider2D BoxCollider2D => _boxCollider2D;
 
@@ -22,6 +22,11 @@ namespace Enemy
 
             var hitState = GetState(StateType.Hit);
             TransitionToState(hitState);
+        }
+
+        private void OnDestroy()
+        {
+            HeroAttack.OnInflictDamage -= TakeDamage;
         }
     }
 }

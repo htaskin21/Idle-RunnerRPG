@@ -16,5 +16,11 @@ namespace Hero
                 TransitionToState(runState);
             }
         }
+
+        public void OnTempClickButton()
+        {
+            var runState = GetState(StateType.Run);
+            TransitionToState(runState);
+        }
     }
 }

@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6335787440788954558, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: EvilVine
       objectReference: {fileID: 0}
     - target: {fileID: 6806274545325703046, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_RootOrder
@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6806274545325703046, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.267
       objectReference: {fileID: 0}
     - target: {fileID: 6806274545325703046, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_LocalPosition.z

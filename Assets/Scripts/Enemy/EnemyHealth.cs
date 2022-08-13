@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,13 @@ namespace Enemy
         public float Health => health;
 
         [SerializeField] private Slider healthBar;
+
+        public Action OnEnemyDie;
+
+        private void Awake()
+        {
+            OnEnemyDie = delegate { };
+        }
 
         private void Start()
         {

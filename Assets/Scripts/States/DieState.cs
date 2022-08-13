@@ -6,16 +6,25 @@ namespace States
         {
             characterController.AnimationController.PlayAnimation(AnimationType.Die);
 
-            characterController.AnimationController.OnAnimationEnd.AddListener(() =>
-                this.transform.parent.gameObject.SetActive(false));
+            characterController.AnimationController.OnAnimationEnd.AddListener(OnDie);
 
             base.EnterState();
         }
 
         protected override void ExitState()
         {
-            characterController.AnimationController.OnAnimationEnd.RemoveAllListeners();
+            //GameManager.Instance.EnemyController.enemyHealth.OnEnemyDie?.Invoke();
+
+            //characterController.AnimationController.OnAnimationEnd.RemoveAllListeners();
+            // Destroy(this.gameObject);
             base.ExitState();
+        }
+
+        private void OnDie()
+        {
+            GameManager.Instance.EnemyController.enemyHealth.OnEnemyDie?.Invoke();
+
+            characterController.AnimationController.OnAnimationEnd.RemoveAllListeners();
         }
     }
 }
