@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc90d037dd5f647da88b2051d6da3760, type: 3}
+  m_Name: PlainLevelData
+  m_EditorClassIdentifier: 
+  groundObject: {fileID: 2138036762916664947, guid: 7b18c86e431b644928f8943102c1f0de, type: 3}
+  skyImage: {fileID: 4523625938790301830, guid: af2de0dadbd794f61bce42ebb8d2a3d4, type: 3}
+  regularEnemies:
+  - {fileID: 8454432104140434712, guid: cdb2b59426d2c440c9bc7d0fdd51eea5, type: 3}
+  - {fileID: 647848768215458366, guid: d20520f2ec6244df98bcf527d5ab030f, type: 3}
+  bossEnemy: {fileID: 8454432104140434712, guid: cdb2b59426d2c440c9bc7d0fdd51eea5, type: 3}
