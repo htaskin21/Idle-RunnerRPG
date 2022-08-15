@@ -34,6 +34,14 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private List<EnemyController> enemyList;
 
+    [Space] [Header("Controllers")] [SerializeField]
+    private BackgroundController _backgroundController;
+
+
+    public List<LevelDataSO> levelDatas;
+
+    private LevelDataSO _currentLevelData;
+
     private void Awake()
     {
         _instance = this;
@@ -41,6 +49,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        //Buraya save sistemi gelicek.
+
+        _currentLevelData = levelDatas[0];
+
+        _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject);
+
         CreateCharacters();
     }
 
