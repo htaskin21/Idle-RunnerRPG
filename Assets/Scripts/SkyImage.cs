@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class SkyImage : MonoBehaviour
 {
-    [SerializeField] private HeroMovement _heroMovement;
-    
+    [SerializeField]
+    private HeroMovement heroMovement;
+
     public SpriteRenderer firstLayer;
 
     public SpriteRenderer secondLayer;
 
     public SpriteRenderer thirdLayer;
 
-    private Tweener skyImageTweener;
+    private Tweener _skyImageTweener;
 
     private void Start()
     {
@@ -23,12 +24,12 @@ public class SkyImage : MonoBehaviour
     private void StartSkyImageMove()
     {
         var go = gameObject;
-        skyImageTweener = go.transform.DOMoveX(go.transform.position.x + 1, 1.05f).SetLoops(-1, LoopType.Incremental)
+        _skyImageTweener = go.transform.DOMoveX(go.transform.position.x + 1, 1.05f).SetLoops(-1, LoopType.Incremental)
             .SetEase(Ease.Linear);
     }
 
     private void StopSkyImageMove()
     {
-        skyImageTweener.Kill();
+        _skyImageTweener.Kill();
     }
 }

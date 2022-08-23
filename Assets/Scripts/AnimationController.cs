@@ -6,8 +6,8 @@ public class AnimationController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
-    public UnityEvent OnAnimationAction;
-    public UnityEvent OnAnimationEnd;
+    public UnityEvent onAnimationAction;
+    public UnityEvent onAnimationEnd;
 
     public void PlayAnimation(AnimationType animationType)
     {
@@ -45,22 +45,22 @@ public class AnimationController : MonoBehaviour
 
     public void InvokeAnimationEnd()
     {
-        OnAnimationEnd?.Invoke();
+        onAnimationEnd?.Invoke();
     }
 
     public void ResetAnimationEndEvent()
     {
-        OnAnimationEnd.RemoveAllListeners();
+        onAnimationEnd.RemoveAllListeners();
     }
     
     public void InvokeAnimationAction()
     {
-        OnAnimationAction?.Invoke();
+        onAnimationAction?.Invoke();
     }
 
     public void ResetAnimationActionEvent()
     {
-        OnAnimationAction.RemoveAllListeners();
+        onAnimationAction.RemoveAllListeners();
     }
 }
 

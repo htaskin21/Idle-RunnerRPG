@@ -4,14 +4,17 @@ namespace States
 {
     public class WakeUpState : State
     {
-        [SerializeField] private State runState;
-        [SerializeField] private State attackState;
+        [SerializeField]
+        private State runState;
+
+        [SerializeField]
+        private State attackState;
 
         protected override void EnterState()
         {
-            characterController.AnimationController.PlayAnimation(AnimationType.WakeUp);
-            
-            characterController.AnimationController.OnAnimationEnd.AddListener(
+            CharacterController.AnimationController.PlayAnimation(AnimationType.WakeUp);
+
+            CharacterController.AnimationController.onAnimationEnd.AddListener(
                 DecideNextState);
 
             base.EnterState();
@@ -19,7 +22,7 @@ namespace States
 
         protected override void ExitState()
         {
-            characterController.AnimationController.OnAnimationEnd.RemoveAllListeners();
+            CharacterController.AnimationController.onAnimationEnd.RemoveAllListeners();
             base.ExitState();
         }
 
@@ -27,11 +30,11 @@ namespace States
         {
             if (GameManager.Instance.EnemyController.enemyHealth.Health <= 0)
             {
-                characterController.TransitionToState(runState);
+                CharacterController.TransitionToState(runState);
             }
             else
             {
-                characterController.TransitionToState(attackState);
+                CharacterController.TransitionToState(attackState);
             }
         }
     }

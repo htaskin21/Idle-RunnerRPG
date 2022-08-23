@@ -10,7 +10,7 @@ namespace Hero
 
         public static Action OnHeroStopRunning;
 
-        private Tweener runningTweener = null;
+        private Tweener _runningTweener = null;
 
         private void Awake()
         {
@@ -25,13 +25,13 @@ namespace Hero
         private void StartRunning()
         {
             var go = gameObject;
-            runningTweener = go.transform.DOMoveX(go.transform.position.x + 1, 1).SetLoops(-1, LoopType.Incremental)
+            _runningTweener = go.transform.DOMoveX(go.transform.position.x + 1, 1).SetLoops(-1, LoopType.Incremental)
                 .SetEase(Ease.Linear);
         }
 
         private void StopRunning()
         {
-            runningTweener.Kill();
+            _runningTweener.Kill();
         }
     }
 }

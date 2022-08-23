@@ -7,18 +7,18 @@ namespace States
     {
         public StateType stateType;
 
-        protected CharacterController characterController;
+        protected CharacterController CharacterController;
 
-        public UnityEvent OnEnter, OnExit;
+        public UnityEvent onEnter, onExit;
 
         public void InitializeState(CharacterController _characterController)
         {
-            characterController = _characterController;
+            CharacterController = _characterController;
         }
 
         public void Enter()
         {
-            OnEnter?.Invoke();
+            onEnter?.Invoke();
             EnterState();
         }
 
@@ -36,7 +36,7 @@ namespace States
 
         public void Exit()
         {
-            OnExit?.Invoke();
+            onExit?.Invoke();
             ExitState();
         }
 

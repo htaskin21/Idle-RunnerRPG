@@ -5,14 +5,11 @@ namespace States
 {
     public class RunState : State
     {
-        //public State attackState;
         private Tweener _runningTweener;
-
-
+        
         protected override void EnterState()
         {
-            characterController.AnimationController.PlayAnimation(AnimationType.Run);
-            //characterController.GetComponent<HeroMovement>().OnHeroStartRunning?.Invoke();
+            CharacterController.AnimationController.PlayAnimation(AnimationType.Run);
             HeroMovement.OnHeroStartRunning?.Invoke();
 
             base.EnterState();
@@ -21,7 +18,6 @@ namespace States
         protected override void ExitState()
         {
             HeroMovement.OnHeroStopRunning?.Invoke();
-            //characterController.GetComponent<HeroMovement>().OnHeroStopRunning?.Invoke();
             base.ExitState();
         }
     }

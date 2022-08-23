@@ -7,13 +7,16 @@ namespace Enemy
 {
     public class EnemyHealth : MonoBehaviour
     {
-        [SerializeField] private float maxHealth;
+        [SerializeField]
+        private float maxHealth;
         public float MaxHealth => maxHealth;
 
-        [SerializeField] private float health;
+        [SerializeField]
+        private float health;
         public float Health => health;
 
-        [SerializeField] private Slider healthBar;
+        [SerializeField]
+        private Slider healthBar;
 
         public Action OnEnemyDie;
 

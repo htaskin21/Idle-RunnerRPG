@@ -3,16 +3,23 @@ using UnityEngine.Tilemaps;
 
 public class BackgroundController : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
+    [SerializeField]
+    private Camera _camera;
 
-    [Space] public Transform groundObjectParent;
+    [Space]
+    public Transform groundObjectParent;
+
     public Transform skyImageParent;
 
-    [Space] public TilemapRenderer firstGroundObject;
+    [Space]
+    public TilemapRenderer firstGroundObject;
+
     public TilemapRenderer secondGroundObject;
     public TilemapRenderer outOfCameraGround;
 
-    [Space] public SkyImage firstSkyImage;
+    [Space]
+    public SkyImage firstSkyImage;
+
     public SkyImage secondSkyImage;
     public SkyImage outOfCameraSkyImage;
 
@@ -25,11 +32,14 @@ public class BackgroundController : MonoBehaviour
 
     void SetSkyImages(SkyImage skyImage)
     {
-        firstSkyImage = skyImage;
-        secondSkyImage = skyImage;
+        if (firstSkyImage != null)
+        {
+            Destroy(firstSkyImage.gameObject);
+            Destroy(secondSkyImage.gameObject);
+        }
 
-        firstSkyImage.transform.parent = skyImageParent;
-        secondSkyImage.transform.parent = skyImageParent;
+        firstSkyImage = Instantiate(skyImage, skyImageParent, true);
+        secondSkyImage = Instantiate(skyImage, skyImageParent, true);
 
         secondSkyImage.transform.position =
             new Vector3(firstSkyImage.transform.position.x + firstSkyImage.firstLayer.bounds.size.x, 0, 0);
@@ -37,11 +47,14 @@ public class BackgroundController : MonoBehaviour
 
     void SetGroundObject(TilemapRenderer tilemapRenderer)
     {
-        firstGroundObject = tilemapRenderer;
-        secondGroundObject = tilemapRenderer;
+        if (firstGroundObject != null)
+        {
+            Destroy(firstGroundObject.gameObject);
+            Destroy(secondGroundObject.gameObject);
+        }
 
-        firstGroundObject.transform.parent = groundObjectParent;
-        secondGroundObject.transform.parent = groundObjectParent;
+        firstGroundObject = Instantiate(tilemapRenderer, groundObjectParent, true);
+        secondGroundObject = Instantiate(tilemapRenderer, groundObjectParent, true);
 
         secondGroundObject.transform.position =
             new Vector3((secondGroundObject.transform.position.x + firstGroundObject.bounds.size.x),

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc90d037dd5f647da88b2051d6da3760, type: 3}
   m_Name: MountainLevelData
   m_EditorClassIdentifier: 
-  groundObject: {fileID: 0}
-  skyImage: {fileID: 0}
-  regularEnemies: []
-  bossEnemy: {fileID: 0}
+  groundObject: {fileID: 3747121394217915886, guid: b3579a7f5a1b847e0b701f8a61dec619, type: 3}
+  skyImage: {fileID: 4068245934471779675, guid: be211d25b815c499a9d860a2ecbc7b4d, type: 3}
+  regularEnemies:
+  - {fileID: 647848768215458366, guid: d20520f2ec6244df98bcf527d5ab030f, type: 3}
+  - {fileID: 7560480583779283327, guid: b00450439ead94ecf89a01f8ff8b0ff0, type: 3}
+  bossEnemy: {fileID: 6621541382612957018, guid: 48ae21aa2895c42fa9d986387acd4a36, type: 3}

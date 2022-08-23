@@ -9,20 +9,20 @@ namespace States
 
         protected override void EnterState()
         {
-            characterController.AnimationController.PlayAnimation(AnimationType.Attack);
+            CharacterController.AnimationController.PlayAnimation(AnimationType.Attack);
 
-            characterController.AnimationController.OnAnimationAction.AddListener(() =>
+            CharacterController.AnimationController.onAnimationAction.AddListener(() =>
                 HeroAttack.OnInflictDamage?.Invoke(GameManager.Instance.HeroController.heroAttack.AttackPoint));
 
-            characterController.AnimationController.OnAnimationEnd.AddListener(DecideNextState);
+            CharacterController.AnimationController.onAnimationEnd.AddListener(DecideNextState);
 
             base.EnterState();
         }
 
         protected override void ExitState()
         {
-            characterController.AnimationController.OnAnimationAction.RemoveAllListeners();
-            characterController.AnimationController.OnAnimationEnd.RemoveAllListeners();
+            CharacterController.AnimationController.onAnimationAction.RemoveAllListeners();
+            CharacterController.AnimationController.onAnimationEnd.RemoveAllListeners();
 
             base.ExitState();
         }
@@ -31,11 +31,11 @@ namespace States
         {
             if (GameManager.Instance.HeroController.heroAttack.CurrentEnemy.enemyHealth.Health <= 0)
             {
-                characterController.TransitionToState(runState);
+                CharacterController.TransitionToState(runState);
             }
             else
             {
-                characterController.TransitionToState(idleState);
+                CharacterController.TransitionToState(idleState);
             }
         }
     }

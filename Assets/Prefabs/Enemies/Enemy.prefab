@@ -135,10 +135,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateType: 0
-  OnEnter:
+  onEnter:
     m_PersistentCalls:
       m_Calls: []
-  OnExit:
+  onExit:
     m_PersistentCalls:
       m_Calls: []
   wakeUpState: {fileID: 0}
@@ -155,10 +155,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateType: 5
-  OnEnter:
+  onEnter:
     m_PersistentCalls:
       m_Calls: []
-  OnExit:
+  onExit:
     m_PersistentCalls:
       m_Calls: []
   idleState: {fileID: 8347668416630278468}
@@ -176,10 +176,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateType: 6
-  OnEnter:
+  onEnter:
     m_PersistentCalls:
       m_Calls: []
-  OnExit:
+  onExit:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &2121867333083523192
@@ -398,10 +398,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6882271475068717389}
-  OnAnimationAction:
+  onAnimationAction:
     m_PersistentCalls:
       m_Calls: []
-  OnAnimationEnd:
+  onAnimationEnd:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &4245591916795535743
@@ -633,7 +633,7 @@ MonoBehaviour:
   currentState: {fileID: 0}
   previousState: {fileID: 0}
   enemyHealth: {fileID: 6880065268576177032}
-  _boxCollider2D: {fileID: 8885628202984723388}
+  boxCollider2D: {fileID: 8885628202984723388}
 --- !u!114 &6880065268576177032
 MonoBehaviour:
   m_ObjectHideFlags: 0

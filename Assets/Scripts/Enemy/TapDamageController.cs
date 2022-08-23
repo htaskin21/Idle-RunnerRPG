@@ -8,9 +8,10 @@ namespace Enemy
 {
     public class TapDamageController : MonoBehaviour, IPointerDownHandler
     {
-        private CancellationTokenSource cts;
+        private CancellationTokenSource _cts;
 
-        [SerializeField] private float tapDamage = 20;
+        [SerializeField]
+        private float tapDamage = 20;
 
         private bool _canAttack = true;
 
@@ -26,15 +27,14 @@ namespace Enemy
 
         private async UniTask TapToDamage()
         {
-            cts = new CancellationTokenSource();
+            _cts = new CancellationTokenSource();
 
             _canAttack = false;
             HeroAttack.OnInflictDamage?.Invoke(tapDamage);
             await UniTask.Delay(tapCoolDown);
             _canAttack = true;
 
-            cts.Cancel();
-            Debug.Log("hala calisiyor mu ?");
+            _cts.Cancel();
         }
     }
 }

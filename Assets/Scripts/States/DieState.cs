@@ -4,19 +4,15 @@ namespace States
     {
         protected override void EnterState()
         {
-            characterController.AnimationController.PlayAnimation(AnimationType.Die);
+            CharacterController.AnimationController.PlayAnimation(AnimationType.Die);
 
-            characterController.AnimationController.OnAnimationEnd.AddListener(OnDie);
+            CharacterController.AnimationController.onAnimationEnd.AddListener(OnDie);
 
             base.EnterState();
         }
 
         protected override void ExitState()
         {
-            //GameManager.Instance.EnemyController.enemyHealth.OnEnemyDie?.Invoke();
-
-            //characterController.AnimationController.OnAnimationEnd.RemoveAllListeners();
-            // Destroy(this.gameObject);
             base.ExitState();
         }
 
@@ -24,7 +20,7 @@ namespace States
         {
             GameManager.Instance.EnemyController.enemyHealth.OnEnemyDie?.Invoke();
 
-            characterController.AnimationController.OnAnimationEnd.RemoveAllListeners();
+            CharacterController.AnimationController.onAnimationEnd.RemoveAllListeners();
         }
     }
 }

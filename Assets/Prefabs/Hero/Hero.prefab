@@ -116,10 +116,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7561752538838659306}
-  OnAnimationAction:
+  onAnimationAction:
     m_PersistentCalls:
       m_Calls: []
-  OnAnimationEnd:
+  onAnimationEnd:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &7561752539425017093
@@ -169,10 +169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateType: 2
-  OnEnter:
+  onEnter:
     m_PersistentCalls:
       m_Calls: []
-  OnExit:
+  onExit:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &7561752539425017336
@@ -188,10 +188,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateType: 3
-  OnEnter:
+  onEnter:
     m_PersistentCalls:
       m_Calls: []
-  OnExit:
+  onExit:
     m_PersistentCalls:
       m_Calls: []
   runState: {fileID: 7561752539425017339}
@@ -209,10 +209,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateType: 0
-  OnEnter:
+  onEnter:
     m_PersistentCalls:
       m_Calls: []
-  OnExit:
+  onExit:
     m_PersistentCalls:
       m_Calls: []
   wakeUpState: {fileID: 7561752539425017342}
@@ -229,10 +229,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateType: 1
-  OnEnter:
+  onEnter:
     m_PersistentCalls:
       m_Calls: []
-  OnExit:
+  onExit:
     m_PersistentCalls:
       m_Calls: []
   runState: {fileID: 7561752539425017339}
@@ -361,8 +361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7c9bfe4e47f466097946af43539f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroController: {fileID: 7561752539621336801}
+  heroController: {fileID: 7561752539621336801}
   attackPoint: 15
-  _attackCooldown: 3000
+  attackCooldown: 0
   heroAttackPrefab: {fileID: 2151027515920951202, guid: ffec972368df24f7fb578bc0fcaac5f1, type: 3}
   tapAttackPrefab: {fileID: 9082777676698030928, guid: 23e6c8b1be7aa42b7aac083d66d12ffc, type: 3}

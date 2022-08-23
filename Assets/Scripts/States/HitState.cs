@@ -4,20 +4,23 @@ namespace States
 {
     public class HitState : State
     {
-        [SerializeField] private State idleState;
-        [SerializeField] private State dieState;
+        [SerializeField]
+        private State idleState;
+
+        [SerializeField]
+        private State dieState;
 
         protected override void EnterState()
         {
-            characterController.AnimationController.PlayAnimation(AnimationType.Hit);
-            characterController.AnimationController.OnAnimationEnd.AddListener(DecideNextState);
+            CharacterController.AnimationController.PlayAnimation(AnimationType.Hit);
+            CharacterController.AnimationController.onAnimationEnd.AddListener(DecideNextState);
 
             base.EnterState();
         }
 
         protected override void ExitState()
         {
-            characterController.AnimationController.OnAnimationEnd.RemoveAllListeners();
+            CharacterController.AnimationController.onAnimationEnd.RemoveAllListeners();
             base.ExitState();
         }
 
@@ -26,11 +29,11 @@ namespace States
             if (GameManager.Instance.EnemyController.enemyHealth.Health <= 0)
             {
                 GameManager.Instance.EnemyController.BoxCollider2D.enabled = false;
-                characterController.TransitionToState(dieState);
+                CharacterController.TransitionToState(dieState);
             }
             else
             {
-                characterController.TransitionToState(idleState);
+                CharacterController.TransitionToState(idleState);
             }
         }
     }

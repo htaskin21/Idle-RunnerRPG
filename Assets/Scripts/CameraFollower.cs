@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CameraFollower : MonoBehaviour
 {
-    [SerializeField] private Camera mainCamera;
+    [SerializeField]
+    private Camera mainCamera;
 
-    [SerializeField] private HeroMovement _heroMovement;
+    [SerializeField]
+    private HeroMovement heroMovement;
 
     private Tweener _cameraMoveTweener;
 

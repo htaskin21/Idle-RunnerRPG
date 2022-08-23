@@ -8,8 +8,9 @@ namespace Enemy
     {
         public EnemyHealth enemyHealth;
 
-        [SerializeField] private BoxCollider2D _boxCollider2D;
-        public BoxCollider2D BoxCollider2D => _boxCollider2D;
+        [SerializeField]
+        private BoxCollider2D boxCollider2D;
+        public BoxCollider2D BoxCollider2D => boxCollider2D;
 
         private void Start()
         {

@@ -26,21 +26,29 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    [SerializeField] private HeroController _heroController;
+    [SerializeField]
+    private HeroController _heroController;
+
     public HeroController HeroController => _heroController;
 
-    [SerializeField] private EnemyController _enemyController;
+    [SerializeField]
+    private EnemyController _enemyController;
+
     public EnemyController EnemyController => _enemyController;
 
-    [SerializeField] private List<EnemyController> enemyList;
-
-    [Space] [Header("Controllers")] [SerializeField]
+    [Space]
+    [Header("Controllers")]
+    [SerializeField]
     private BackgroundController _backgroundController;
-
 
     public List<LevelDataSO> levelDatas;
 
     private LevelDataSO _currentLevelData;
+
+    private int _enemyKillCount;
+
+    [SerializeField]
+    private int maxEnemyKillAmount;
 
     private void Awake()
     {
@@ -76,17 +84,48 @@ public class GameManager : MonoBehaviour
             Destroy(_enemyController.gameObject);
         }
 
-        var rnd = Random.Range(0, enemyList.Count);
+        if (_enemyKillCount == maxEnemyKillAmount)
+        {
+            _enemyController = Instantiate(_currentLevelData.bossEnemy,
+                new Vector3((_heroController.transform.position.x + 14f),
+                    _currentLevelData.bossEnemy.transform.position.y, 0),
+                quaternion.identity);
+        }
+        else
+        {
+            var rnd = Random.Range(0, _currentLevelData.regularEnemies.Count);
 
-        _enemyController = Instantiate(enemyList[rnd],
-            new Vector3((_heroController.transform.position.x + 14f), enemyList[rnd].transform.position.y, 0),
-            quaternion.identity);
+            _enemyController = Instantiate(_currentLevelData.regularEnemies[rnd],
+                new Vector3((_heroController.transform.position.x + 14f),
+                    _currentLevelData.regularEnemies[rnd].transform.position.y, 0),
+                quaternion.identity);
+        }
 
-        _enemyController.enemyHealth.OnEnemyDie += CreateEnemy;
+        _enemyController.enemyHealth.OnEnemyDie += CheckLevelStatusAfterEnemyDie;
     }
 
     private void CreateCharacters()
     {
         CreateEnemy();
+    }
+
+    private void CheckLevelStatusAfterEnemyDie()
+    {
+        _enemyKillCount++;
+
+        if (_enemyKillCount > maxEnemyKillAmount)
+        {
+            _enemyKillCount = 0;
+
+            _currentLevelData = levelDatas[Random.Range(0, levelDatas.Count)];
+
+            _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject);
+
+            CreateEnemy();
+        }
+        else
+        {
+            CreateEnemy();
+        }
     }
 }

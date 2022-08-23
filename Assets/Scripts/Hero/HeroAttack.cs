@@ -8,29 +8,34 @@ namespace Hero
 {
     public class HeroAttack : MonoBehaviour
     {
-        [SerializeField] private HeroController _heroController;
+        [SerializeField]
+        private HeroController heroController;
 
         public EnemyController CurrentEnemy { get; private set; }
 
         public static Action<float> OnInflictDamage;
 
-        [SerializeField] private float attackPoint;
+        [SerializeField]
+        private float attackPoint;
         public float AttackPoint => attackPoint;
 
-        [SerializeField] private int _attackCooldown;
-        public int AttackCooldown => _attackCooldown;
+        [SerializeField]
+        private int attackCooldown;
+        public int AttackCooldown => attackCooldown;
 
-        [Space] [Header("Damage Pop-Ups")] 
-       
-        [SerializeField] private DamageNumber heroAttackPrefab;
-        [SerializeField] private DamageNumber tapAttackPrefab;
+        [Space]
+        [Header("Damage Pop-Ups")]
+        [SerializeField]
+        private DamageNumber heroAttackPrefab;
+
+        [SerializeField]
+        private DamageNumber tapAttackPrefab;
 
         public HeroAttack(EnemyController currentEnemy)
         {
             this.CurrentEnemy = currentEnemy;
         }
-
-
+        
         private void Awake()
         {
             OnInflictDamage = delegate(float damage) { };
@@ -42,9 +47,9 @@ namespace Hero
             if (col.gameObject.CompareTag($"Enemy"))
             {
                 CurrentEnemy = col.GetComponent<EnemyController>();
-               
-                var attackState = _heroController.GetState(StateType.Attack);
-                _heroController.TransitionToState(attackState);
+
+                var attackState = heroController.GetState(StateType.Attack);
+                heroController.TransitionToState(attackState);
             }
         }
 
