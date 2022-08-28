@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 
         _currentLevelData = levelDatas[0];
 
-        _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject);
+        _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
 
         CreateCharacters();
     }

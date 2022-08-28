@@ -1,10 +1,16 @@
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class BackgroundController : MonoBehaviour
 {
     [SerializeField]
     private Camera _camera;
+
+    [SerializeField]
+    private Image fadeImage;
 
     [Space]
     public Transform groundObjectParent;
@@ -24,13 +30,19 @@ public class BackgroundController : MonoBehaviour
     public SkyImage outOfCameraSkyImage;
 
 
-    public void SetBackgrounds(SkyImage skyImage, TilemapRenderer tilemapRenderer)
+    public async UniTask SetBackgrounds(SkyImage skyImage, TilemapRenderer tilemapRenderer)
     {
-        SetSkyImages(skyImage);
-        SetGroundObject(tilemapRenderer);
+        fadeImage.gameObject.SetActive(true);
+        await fadeImage.DOColor(new Color(0, 0, 0, 1), .65f).SetEase(Ease.OutQuad).AsyncWaitForCompletion();
+
+        await SetSkyImages(skyImage);
+        await SetGroundObject(tilemapRenderer);
+
+        await fadeImage.DOColor(new Color(0, 0, 0, 0), .65f).SetEase(Ease.OutQuad)
+            .OnComplete(() => fadeImage.gameObject.SetActive(false)).AsyncWaitForCompletion();
     }
 
-    void SetSkyImages(SkyImage skyImage)
+    async UniTask SetSkyImages(SkyImage skyImage)
     {
         if (firstSkyImage != null)
         {
@@ -45,7 +57,7 @@ public class BackgroundController : MonoBehaviour
             new Vector3(firstSkyImage.transform.position.x + firstSkyImage.firstLayer.bounds.size.x, 0, 0);
     }
 
-    void SetGroundObject(TilemapRenderer tilemapRenderer)
+    async UniTask SetGroundObject(TilemapRenderer tilemapRenderer)
     {
         if (firstGroundObject != null)
         {
