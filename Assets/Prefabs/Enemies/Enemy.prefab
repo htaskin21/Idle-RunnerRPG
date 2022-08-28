@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3619866337583125161}
   - component: {fileID: 976104279049015210}
+  - component: {fileID: 1991840936325142127}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -89,6 +90,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &1991840936325142127
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457315351565583645}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1605338277574762764
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +662,7 @@ MonoBehaviour:
   maxHealth: 40
   health: 0
   healthBar: {fileID: 976104279049015210}
+  healthBarCanvasGroup: {fileID: 1991840936325142127}
 --- !u!114 &8491517519486077023
 MonoBehaviour:
   m_ObjectHideFlags: 0
