@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Hero;
 using UnityEngine;
@@ -31,5 +32,11 @@ public class SkyImage : MonoBehaviour
     private void StopSkyImageMove()
     {
         _skyImageTweener.Kill();
+    }
+
+    private void OnDestroy()
+    {
+        HeroMovement.OnHeroStartRunning -= StartSkyImageMove;
+        HeroMovement.OnHeroStopRunning -= StopSkyImageMove;
     }
 }
