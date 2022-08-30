@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 7561752539425017336}
   - component: {fileID: 7561752539425017337}
   - component: {fileID: 7561752539425017342}
+  - component: {fileID: 7027586162893178865}
   m_Layer: 0
   m_Name: States
   m_TagString: Untagged
@@ -237,6 +238,27 @@ MonoBehaviour:
       m_Calls: []
   runState: {fileID: 7561752539425017339}
   attackState: {fileID: 7561752539425017336}
+--- !u!114 &7027586162893178865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7561752539425017093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d43d2d2e2e44f26adc8908ff8bbdef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateType: 4
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+  runState: {fileID: 7561752539425017339}
+  idleState: {fileID: 7561752539425017337}
 --- !u!1 &7561752539621336802
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroController: {fileID: 7561752539621336801}
   attackPoint: 15
+  specialAttackPoint: 0
   attackCooldown: 0
   heroAttackPrefab: {fileID: 2151027515920951202, guid: ffec972368df24f7fb578bc0fcaac5f1, type: 3}
   tapAttackPrefab: {fileID: 9082777676698030928, guid: 23e6c8b1be7aa42b7aac083d66d12ffc, type: 3}

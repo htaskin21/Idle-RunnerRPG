@@ -3,21 +3,19 @@ using UI;
 
 namespace States
 {
-    public class AttackState : State
+    public class SpecialAttackState : State
     {
         public State runState;
         public State idleState;
 
         protected override void EnterState()
         {
-            CharacterController.AnimationController.PlayAnimation(AnimationType.Attack);
+            CharacterController.AnimationController.PlayAnimation(AnimationType.SpecialAttack);
 
             CharacterController.AnimationController.onAnimationAction.AddListener(() =>
-                HeroAttack.OnInflictDamage?.Invoke(GameManager.Instance.HeroController.heroAttack.AttackPoint));
+                HeroAttack.OnInflictDamage?.Invoke(GameManager.Instance.HeroController.heroAttack.SpecialAttackPoint));
 
             CharacterController.AnimationController.onAnimationEnd.AddListener(DecideNextState);
-            
-            ButtonController.OnActiveAttackButtons?.Invoke(true);
 
             base.EnterState();
         }

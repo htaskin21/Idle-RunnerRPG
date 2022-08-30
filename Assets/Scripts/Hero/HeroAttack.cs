@@ -18,6 +18,10 @@ namespace Hero
         [SerializeField]
         private float attackPoint;
         public float AttackPoint => attackPoint;
+        
+        [SerializeField]
+        private float specialAttackPoint;
+        public float SpecialAttackPoint => specialAttackPoint;
 
         [SerializeField]
         private int attackCooldown;

@@ -28,7 +28,8 @@ public class AnimationController : MonoBehaviour
             case AnimationType.Attack:
                 Play("Attack");
                 break;
-            case AnimationType.SuperAttack:
+            case AnimationType.SpecialAttack:
+                Play("SpecialAttack");
                 break;
             case AnimationType.Die:
                 Play("Die");
@@ -71,6 +72,6 @@ public enum AnimationType
     Run,
     Hit,
     Attack,
-    SuperAttack,
+    SpecialAttack,
     Die
 }

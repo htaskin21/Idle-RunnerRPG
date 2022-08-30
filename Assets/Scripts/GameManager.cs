@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
 
             _currentLevelData = levelDatas[Random.Range(0, levelDatas.Count)];
 
-            _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject);
+            _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
 
             CreateEnemy();
         }

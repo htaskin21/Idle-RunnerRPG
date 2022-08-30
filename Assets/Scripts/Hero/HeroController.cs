@@ -7,7 +7,13 @@ namespace Hero
     {
         public HeroAttack heroAttack;
 
-
+        public void StartExplodeAttack()
+        {
+            var specialAttackState = GetState(StateType.SpecialAttack);
+            TransitionToState(specialAttackState);
+        }
+        
+        
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.A))
