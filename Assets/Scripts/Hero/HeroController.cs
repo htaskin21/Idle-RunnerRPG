@@ -6,13 +6,6 @@ namespace Hero
     public class HeroController : CharacterController
     {
         public HeroAttack heroAttack;
-
-        public void StartExplodeAttack()
-        {
-            var specialAttackState = GetState(StateType.SpecialAttack);
-            TransitionToState(specialAttackState);
-        }
-        
         
         private void Update()
         {

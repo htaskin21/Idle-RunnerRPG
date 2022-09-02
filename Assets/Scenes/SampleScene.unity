@@ -325,13 +325,14 @@ GameObject:
   - component: {fileID: 290020449}
   - component: {fileID: 290020448}
   - component: {fileID: 290020447}
+  - component: {fileID: 290020450}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &290020447
 Animator:
   serializedVersion: 3
@@ -416,6 +417,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &290020450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290020446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41239dd6b5b41258663cddf875d7e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,6 +1858,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7027586162893178865, guid: f2ecbf8f01d8e4d6d9e6e7a66cc431f5, type: 3}
+      propertyPath: explosionAttackPrefab
+      value: 
+      objectReference: {fileID: 290020446}
     - target: {fileID: 7561752539621336802, guid: f2ecbf8f01d8e4d6d9e6e7a66cc431f5, type: 3}
       propertyPath: m_Name
       value: Hero
@@ -2023,6 +2040,7 @@ GameObject:
   - component: {fileID: 4475379664520321542}
   - component: {fileID: 4657971638217263506}
   - component: {fileID: 501013917645288710}
+  - component: {fileID: 423060589257866443}
   m_Layer: 5
   m_Name: Button_Play2
   m_TagString: Untagged
@@ -2030,6 +2048,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &423060589257866443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423060589257866442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d424f192d34ae59d9ad364c022b648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialAttackType: 1
 --- !u!224 &423372927999718285
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2117,9 +2148,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2020034535}
-        m_TargetAssemblyTypeName: Hero.HeroController, Assembly-CSharp
-        m_MethodName: StartExplodeAttack
+      - m_Target: {fileID: 423060589257866443}
+        m_TargetAssemblyTypeName: UI.SpecialAttackButton, Assembly-CSharp
+        m_MethodName: StartSpecialAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

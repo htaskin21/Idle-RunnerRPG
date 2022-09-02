@@ -27,6 +27,8 @@ namespace Hero
         private int attackCooldown;
         public int AttackCooldown => attackCooldown;
 
+        public SpecialAttackType specialAttackType;
+        
         [Space]
         [Header("Damage Pop-Ups")]
         [SerializeField]
@@ -74,14 +76,11 @@ namespace Hero
                     tapAttackPrefab.Spawn(correctedPosition, damage);
             }
         }
+    }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                //DamageNumber damageNumber = 
-                // damageNumberPrefab.Spawn(new Vector3(transform.position.x, 0, transform.position.z), attackPoint);
-            }
-        }
+    public enum SpecialAttackType
+    {
+        Lightning,
+        Explosion
     }
 }
