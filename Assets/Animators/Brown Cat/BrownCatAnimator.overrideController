@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BrownCatAnimator
+  m_Controller: {fileID: 9100000, guid: 0eadee6a288ec429599a0a36a31055d2, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 41e1b1fd875a749ab9ddb1fe76863934, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 45afd0bee006d4a6f8c35dbd7b1ec339, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d7f6c4ecf36e549f9953e58b45052230, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a17c4c478dd7945498920fdd7c4b8087, type: 2}

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using States;
 using UnityEngine;
 
@@ -6,7 +7,15 @@ namespace Hero
     public class HeroController : CharacterController
     {
         public HeroAttack heroAttack;
-        
+
+        [SerializeField]
+        private List<PetController> pets;
+
+        private void Start()
+        {
+            pets[0].gameObject.SetActive(true);
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.A))
