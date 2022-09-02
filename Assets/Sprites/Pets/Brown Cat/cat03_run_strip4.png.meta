@@ -1,31 +1,19 @@
 fileFormatVersion: 2
-guid: 0ff90b68d1b7f43a6a553ceec138be6a
+guid: a89ba5dece2294f298e3630ee295d846
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5972816196912197519
-    second: cat03_walk_strip8_0
+      213: -6282738731863312596
+    second: cat03_run_strip4_0
   - first:
-      213: -7010463669612532229
-    second: cat03_walk_strip8_1
+      213: -8690705552955193212
+    second: cat03_run_strip4_1
   - first:
-      213: 8227274906238236015
-    second: cat03_walk_strip8_2
+      213: 8130190541434411933
+    second: cat03_run_strip4_2
   - first:
-      213: -6234557016955361293
-    second: cat03_walk_strip8_3
-  - first:
-      213: 367340573150495379
-    second: cat03_walk_strip8_4
-  - first:
-      213: -9097214518649090230
-    second: cat03_walk_strip8_5
-  - first:
-      213: 4989113644533648051
-    second: cat03_walk_strip8_6
-  - first:
-      213: -1999829933924387232
-    second: cat03_walk_strip8_7
+      213: 5809636547267292608
+    second: cat03_run_strip4_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cat03_walk_strip8_0
+      name: cat03_run_strip4_0
       rect:
         serializedVersion: 2
         x: 0
@@ -153,14 +141,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1705952705b4c1da0800000000000000
-      internalID: -5972816196912197519
+      spriteID: c27f2b6296a3fc8a0800000000000000
+      internalID: -6282738731863312596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_walk_strip8_1
+      name: cat03_run_strip4_1
       rect:
         serializedVersion: 2
         x: 40
@@ -174,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfda6fd7f64d5be90800000000000000
-      internalID: -7010463669612532229
+      spriteID: 488479c4859646780800000000000000
+      internalID: -8690705552955193212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_walk_strip8_2
+      name: cat03_run_strip4_2
       rect:
         serializedVersion: 2
         x: 80
@@ -195,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f65b0dfefe62d2270800000000000000
-      internalID: 8227274906238236015
+      spriteID: d9b507ac83d34d070800000000000000
+      internalID: 8130190541434411933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_walk_strip8_3
+      name: cat03_run_strip4_3
       rect:
         serializedVersion: 2
         x: 120
@@ -216,92 +204,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f7e478dc676a79a0800000000000000
-      internalID: -6234557016955361293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cat03_walk_strip8_4
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 39249361e4e091500800000000000000
-      internalID: 367340573150495379
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cat03_walk_strip8_5
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a4f056a289330c180800000000000000
-      internalID: -9097214518649090230
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cat03_walk_strip8_6
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 0
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ba8b7e1d64ec3540800000000000000
-      internalID: 4989113644533648051
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cat03_walk_strip8_7
-      rect:
-        serializedVersion: 2
-        x: 280
-        y: 0
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0667e39454d2f34e0800000000000000
-      internalID: -1999829933924387232
+      spriteID: 0cd6ef1b8a9ff9050800000000000000
+      internalID: 5809636547267292608
       vertices: []
       indices: 
       edges: []
