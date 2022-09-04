@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 0103e7c7188384729af9726e9d99e044
+guid: 68c06d532de6e4d53a958bab99ce0d84
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 941562337985944121
-    second: cat03_idle_strip8_0
+      213: -6251691954389866334
+    second: cat03_idle_blink_strip8_0
   - first:
-      213: -6563460299907882121
-    second: cat03_idle_strip8_1
+      213: -1711622682620758167
+    second: cat03_idle_blink_strip8_1
   - first:
-      213: 4688787833716037838
-    second: cat03_idle_strip8_2
+      213: -3337574828359729996
+    second: cat03_idle_blink_strip8_2
   - first:
-      213: 5344739817167321744
-    second: cat03_idle_strip8_3
+      213: -9098578934313185896
+    second: cat03_idle_blink_strip8_3
   - first:
-      213: 1841049512162651073
-    second: cat03_idle_strip8_4
+      213: -3016160311929075210
+    second: cat03_idle_blink_strip8_4
   - first:
-      213: -6178699333244842975
-    second: cat03_idle_strip8_5
+      213: -6797454541264221147
+    second: cat03_idle_blink_strip8_5
   - first:
-      213: -5452527810241730998
-    second: cat03_idle_strip8_6
+      213: 7017485516744814835
+    second: cat03_idle_blink_strip8_6
   - first:
-      213: -4146876548183105818
-    second: cat03_idle_strip8_7
+      213: -5360536058693688680
+    second: cat03_idle_blink_strip8_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -70,7 +70,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -139,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cat03_idle_strip8_0
+      name: cat03_idle_blink_strip8_0
       rect:
         serializedVersion: 2
         x: 0
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93ad98135f9111d00800000000000000
-      internalID: 941562337985944121
+      spriteID: 2a8ac655a478d39a0800000000000000
+      internalID: -6251691954389866334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_idle_strip8_1
+      name: cat03_idle_blink_strip8_1
       rect:
         serializedVersion: 2
         x: 40
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 773ac96c1a7e9e4a0800000000000000
-      internalID: -6563460299907882121
+      spriteID: 96773ec1d381f38e0800000000000000
+      internalID: -1711622682620758167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_idle_strip8_2
+      name: cat03_idle_blink_strip8_2
       rect:
         serializedVersion: 2
         x: 80
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec851d741bbe11140800000000000000
-      internalID: 4688787833716037838
+      spriteID: 4bc3558706d8ea1d0800000000000000
+      internalID: -3337574828359729996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_idle_strip8_3
+      name: cat03_idle_blink_strip8_3
       rect:
         serializedVersion: 2
         x: 120
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09af42bcb845c2a40800000000000000
-      internalID: 5344739817167321744
+      spriteID: 89d09636aaa5bb180800000000000000
+      internalID: -9098578934313185896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_idle_strip8_4
+      name: cat03_idle_blink_strip8_4
       rect:
         serializedVersion: 2
         x: 160
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cb6c5ae6c8bc8910800000000000000
-      internalID: 1841049512162651073
+      spriteID: 6f906d53d227426d0800000000000000
+      internalID: -3016160311929075210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_idle_strip8_5
+      name: cat03_idle_blink_strip8_5
       rect:
         serializedVersion: 2
         x: 200
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12c8ffb41b9d04aa0800000000000000
-      internalID: -6178699333244842975
+      spriteID: 52c8413fb179aa1a0800000000000000
+      internalID: -6797454541264221147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_idle_strip8_6
+      name: cat03_idle_blink_strip8_6
       rect:
         serializedVersion: 2
         x: 240
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a466a9668dab454b0800000000000000
-      internalID: -5452527810241730998
+      spriteID: 3f0f502b5ed136160800000000000000
+      internalID: 7017485516744814835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_idle_strip8_7
+      name: cat03_idle_blink_strip8_7
       rect:
         serializedVersion: 2
         x: 280
@@ -300,8 +300,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6eed52220c55376c0800000000000000
-      internalID: -4146876548183105818
+      spriteID: 892e3ef1bdc8b95b0800000000000000
+      internalID: -5360536058693688680
       vertices: []
       indices: 
       edges: []
