@@ -11,7 +11,7 @@ namespace States
 
         private CancellationTokenSource _cancellationTokenSource;
         private CancellationToken _cancellationToken;
-        
+
         protected override void EnterState()
         {
             CharacterController.AnimationController.PlayAnimation(AnimationType.Idle);
@@ -29,7 +29,11 @@ namespace States
 
         private async UniTask WaitForNextAttack()
         {
-            await UniTask.Delay(GameManager.Instance.HeroController.heroAttack.AttackCooldown,
+            var heroController = GameManager.Instance.HeroController;
+
+            heroController.heroUI.SetCoolDownSlider(heroController.heroAttack.AttackCooldown);
+
+            await UniTask.Delay(heroController.heroAttack.AttackCooldown,
                 cancellationToken: _cancellationToken);
 
             CharacterController.TransitionToState(wakeUpState);
@@ -42,6 +46,7 @@ namespace States
                 _cancellationTokenSource.Cancel();
             }
 
+            GameManager.Instance.HeroController.heroUI.FadeOutSlider();
             base.ExitState();
         }
     }

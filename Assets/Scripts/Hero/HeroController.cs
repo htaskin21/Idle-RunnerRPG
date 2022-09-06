@@ -8,6 +8,8 @@ namespace Hero
     {
         public HeroAttack heroAttack;
 
+        public HeroUI heroUI;
+
         [SerializeField]
         private List<PetController> pets;
 
