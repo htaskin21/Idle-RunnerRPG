@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DamageTypeIcons
   m_EditorClassIdentifier: 
   earthIcon: {fileID: -3266199367716308895, guid: ce300894134eb4557a8e8042f7e689dd, type: 3}
-  plantIcon: {fileID: 3199060926501643115, guid: e11d885b6583e4820a33942f814f386b, type: 3}
+  plantIcon: {fileID: -207889343413130635, guid: 1148c467ae6204d88a63590dcd3c0335, type: 3}
   waterIcon: {fileID: 322605931604558504, guid: ce300894134eb4557a8e8042f7e689dd, type: 3}
   normalIcon: {fileID: -7447163000251930437, guid: 1148c467ae6204d88a63590dcd3c0335, type: 3}

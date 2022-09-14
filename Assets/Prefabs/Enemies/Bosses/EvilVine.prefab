@@ -55,5 +55,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: EvilVine
       objectReference: {fileID: 0}
+    - target: {fileID: 4765800200027651077, guid: b49cc640a4177431bb3ec43b5664c3cd, type: 3}
+      propertyPath: enemyDamageType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b49cc640a4177431bb3ec43b5664c3cd, type: 3}
