@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4531443774268580751, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: enemyDamageType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6335787440788954558, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_Name
       value: EvilVine
@@ -53,6 +57,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6806274545325703046, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771561038845922234, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771561038845922234, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

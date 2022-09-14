@@ -1,6 +1,7 @@
 using Hero;
 using States;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Enemy
 {
@@ -10,7 +11,12 @@ namespace Enemy
 
         [SerializeField]
         private BoxCollider2D boxCollider2D;
+
         public BoxCollider2D BoxCollider2D => boxCollider2D;
+
+        public DamageType enemyDamageType;
+
+        public Image enemyDamageTypeIcon;
 
         private void Start()
         {

@@ -31,9 +31,7 @@ public class GameManager : MonoBehaviour
 
     public HeroController HeroController => _heroController;
 
-    [SerializeField]
     private EnemyController _enemyController;
-
     public EnemyController EnemyController => _enemyController;
 
     [Space]
@@ -47,8 +45,13 @@ public class GameManager : MonoBehaviour
 
     private int _enemyKillCount;
 
+    private int _levelCount;
+
     [SerializeField]
     private int maxEnemyKillAmount;
+
+    [SerializeField]
+    private EnemyCreator enemyCreator;
 
     private void Awake()
     {
@@ -101,6 +104,7 @@ public class GameManager : MonoBehaviour
                 quaternion.identity);
         }
 
+        enemyCreator.SetEnemyData(_enemyController);
         _enemyController.enemyHealth.OnEnemyDie += CheckLevelStatusAfterEnemyDie;
     }
 
@@ -115,6 +119,8 @@ public class GameManager : MonoBehaviour
 
         if (_enemyKillCount > maxEnemyKillAmount)
         {
+            _levelCount++;
+
             _enemyKillCount = 0;
 
             _currentLevelData = levelDatas[Random.Range(0, levelDatas.Count)];
@@ -127,5 +133,14 @@ public class GameManager : MonoBehaviour
         {
             CreateEnemy();
         }
+    }
+
+    public void LoadSameLevel()
+    {
+        _enemyKillCount = 0;
+
+        _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
+
+        CreateEnemy();
     }
 }
