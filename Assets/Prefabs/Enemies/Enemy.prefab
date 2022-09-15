@@ -266,7 +266,19 @@ MonoBehaviour:
   stateType: 6
   onEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -1278369992585130925}
+        m_TargetAssemblyTypeName: Enemy.EnemyLoot, Assembly-CSharp
+        m_MethodName: InitiateLootItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onExit:
     m_PersistentCalls:
       m_Calls: []
@@ -656,6 +668,7 @@ GameObject:
   - component: {fileID: 4531443774268580751}
   - component: {fileID: 6880065268576177032}
   - component: {fileID: 8491517519486077023}
+  - component: {fileID: -1278369992585130925}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -725,6 +738,7 @@ MonoBehaviour:
   boxCollider2D: {fileID: 8885628202984723388}
   enemyDamageType: 0
   enemyDamageTypeIcon: {fileID: 6057918724211574257}
+  enemyLevel: 0
 --- !u!114 &6880065268576177032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -737,7 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3699a133ed8a84b75be855a42c8fde9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 40
+  maxHealth: 5
   health: 0
   healthBar: {fileID: 976104279049015210}
   healthBarCanvasGroup: {fileID: 1991840936325142127}
@@ -754,6 +768,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tapDamage: 1
+--- !u!114 &-1278369992585130925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6335787440788954558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e130491125645c1a1742ccb85e445c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyController: {fileID: 4531443774268580751}
+  lootType: 0
+  lootAmount: 10
 --- !u!1 &8107072740902552483
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,6 +39,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private BackgroundController _backgroundController;
 
+    [SerializeField]
+    private ObjectPool _objectPooler;
+
+    public ObjectPool ObjectPooler => _objectPooler;
+
     public List<LevelDataSO> levelDatas;
 
     private LevelDataSO _currentLevelData;
@@ -104,7 +109,7 @@ public class GameManager : MonoBehaviour
                 quaternion.identity);
         }
 
-        enemyCreator.SetEnemyData(_enemyController);
+        enemyCreator.SetEnemyData(_enemyController, _levelCount);
         _enemyController.enemyHealth.OnEnemyDie += CheckLevelStatusAfterEnemyDie;
     }
 
