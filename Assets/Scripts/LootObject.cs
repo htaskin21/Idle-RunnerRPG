@@ -26,7 +26,8 @@ public class LootObject : MonoBehaviour
         _lootAmount = amount;
 
         var o = gameObject;
-        o.transform.position = enemyPosition.transform.position;
+        var position = enemyPosition.transform.position;
+        o.transform.position = new Vector3(position.x, 0, position.z);
 
         for (int i = 0; i < _defaultPositions.Count - 1; i++)
         {
@@ -37,7 +38,7 @@ public class LootObject : MonoBehaviour
         o.SetActive(true);
     }
 
-    public async UniTask MoveLoot(CancellationTokenSource cts)
+    private async UniTask MoveLoot(CancellationTokenSource cts)
     {
         var targetPosition = Camera.main.ScreenToWorldPoint(UIManager.Instance.CoinHud.transform.position);
         Sequence mySequence = null;
@@ -49,7 +50,7 @@ public class LootObject : MonoBehaviour
             mySequence.Append(coinSprite.transform.DOMove(targetPosition, movementDuration).SetEase(Ease.Linear))
                 .Append(coinSprite.transform.DOScale(new Vector3(0, 0, 0), movementDuration).SetEase(Ease.InCirc));
 
-            await UniTask.Delay(100);
+            await UniTask.Delay(200);
         }
 
         await mySequence.AsyncWaitForCompletion();
@@ -57,6 +58,15 @@ public class LootObject : MonoBehaviour
         this.gameObject.SetActive(false);
 
         cts.Cancel();
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Player"))
+        {
+            var cts = new CancellationTokenSource();
+            MoveLoot(cts).Forget();
+        }
     }
 }
 

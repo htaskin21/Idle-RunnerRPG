@@ -1,5 +1,4 @@
-using System.Threading;
-using Cysharp.Threading.Tasks;
+using System;
 using UnityEngine;
 
 namespace Enemy
@@ -15,10 +14,13 @@ namespace Enemy
         [SerializeField]
         private double lootAmount;
 
+        private void Start()
+        {
+            enemyController.enemyHealth.OnEnemyDie += InitiateLootItem;
+        }
+
         public void InitiateLootItem()
         {
-            var cts = new CancellationTokenSource();
-
             lootAmount *= enemyController.enemyLevel;
 
             var go = GameManager.Instance.ObjectPooler.GetGameObject(lootType.ToString());
@@ -27,8 +29,11 @@ namespace Enemy
             var a = enemyController.AnimationController.transform.localPosition;
 
             lootObject.SetInitialPosition(enemyController.transform, lootAmount);
+        }
 
-            lootObject.MoveLoot(cts).Forget();
+        private void OnDestroy()
+        {
+            enemyController.enemyHealth.OnEnemyDie -= InitiateLootItem;
         }
     }
 }
