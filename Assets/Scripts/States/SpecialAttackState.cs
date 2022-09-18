@@ -1,4 +1,6 @@
 using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Hero;
 using UI;
 using UnityEngine;
@@ -41,7 +43,7 @@ namespace States
         {
             if (GameManager.Instance.HeroController.heroAttack.CurrentEnemy.enemyHealth.Health <= 0)
             {
-                CharacterController.TransitionToState(runState);
+                TransitionToRunState().Forget();
             }
             else
             {
@@ -49,6 +51,16 @@ namespace States
             }
         }
 
+        private async UniTask TransitionToRunState()
+        {
+            CancellationTokenSource cts = new CancellationTokenSource();
+
+            await UniTask.Delay(500, cancellationToken: cts.Token);
+            CharacterController.TransitionToState(runState);
+
+            cts.Cancel();
+        }
+        
         private GameObject SetSpecialAttackPrefab()
         {
             GameObject specialAttack = null;            

@@ -1,3 +1,5 @@
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Hero;
 using UI;
 
@@ -16,7 +18,7 @@ namespace States
                 HeroAttack.OnInflictDamage?.Invoke(GameManager.Instance.HeroController.heroAttack.AttackPoint));
 
             CharacterController.AnimationController.onAnimationEnd.AddListener(DecideNextState);
-            
+
             ButtonController.OnActiveAttackButtons?.Invoke(true);
 
             base.EnterState();
@@ -34,12 +36,22 @@ namespace States
         {
             if (GameManager.Instance.HeroController.heroAttack.CurrentEnemy.enemyHealth.Health <= 0)
             {
-                CharacterController.TransitionToState(runState);
+                TransitionToRunState().Forget();
             }
             else
             {
                 CharacterController.TransitionToState(idleState);
             }
+        }
+
+        private async UniTask TransitionToRunState()
+        {
+            CancellationTokenSource cts = new CancellationTokenSource();
+
+            await UniTask.Delay(500, cancellationToken: cts.Token);
+            CharacterController.TransitionToState(runState);
+
+            cts.Cancel();
         }
     }
 }
