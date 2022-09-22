@@ -85,7 +85,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3619866337583125161}
   - component: {fileID: 976104279049015210}
-  - component: {fileID: 1991840936325142127}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -165,18 +164,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!225 &1991840936325142127
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457315351565583645}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &1605338277574762764
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +253,19 @@ MonoBehaviour:
   stateType: 6
   onEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -1278369992585130925}
+        m_TargetAssemblyTypeName: Enemy.EnemyLoot, Assembly-CSharp
+        m_MethodName: InitiateLootItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onExit:
     m_PersistentCalls:
       m_Calls: []
@@ -282,6 +281,7 @@ GameObject:
   - component: {fileID: 7595135246533247800}
   - component: {fileID: 530468803620172686}
   - component: {fileID: 3439138488817213687}
+  - component: {fileID: 6907578407276662875}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -371,6 +371,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &6907578407276662875
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121867333083523192}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2358960478734125466
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,9 +453,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1127716157
+  m_SortingLayerID: -2133212171
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -4529109802334449788, guid: f8ff0fb7a80df42d49f6bbeeb8f7777e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -742,7 +754,7 @@ MonoBehaviour:
   maxHealth: 5
   health: 0
   healthBar: {fileID: 976104279049015210}
-  healthBarCanvasGroup: {fileID: 1991840936325142127}
+  healthBarCanvasGroup: {fileID: 6907578407276662875}
 --- !u!114 &8491517519486077023
 MonoBehaviour:
   m_ObjectHideFlags: 0

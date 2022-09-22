@@ -16,7 +16,7 @@ namespace Enemy
 
         private void Start()
         {
-            enemyController.enemyHealth.OnEnemyDie += InitiateLootItem;
+           // enemyController.enemyHealth.OnEnemyDie += InitiateLootItem;
         }
 
         public void InitiateLootItem()
@@ -33,7 +33,7 @@ namespace Enemy
 
         private void OnDestroy()
         {
-            enemyController.enemyHealth.OnEnemyDie -= InitiateLootItem;
+           // enemyController.enemyHealth.OnEnemyDie -= InitiateLootItem;
         }
     }
 }

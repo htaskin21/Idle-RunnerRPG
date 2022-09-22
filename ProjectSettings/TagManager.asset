@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,12 @@ TagManager:
     locked: 0
   - name: Platform
     uniqueID: 1654131031
+    locked: 0
+  - name: Enemy
+    uniqueID: 2161755125
+    locked: 0
+  - name: Effects
+    uniqueID: 1819824225
     locked: 0
   - name: Character
     uniqueID: 3167251139
