@@ -1,0 +1,6 @@
+ID,Skill Type,IncrementAmount,Cost
+1,BaseAttackBoost,10,10
+2,BaseAttackPercentageIncrease,2,10
+3,BaseAttackBoost,20,30
+4,BaseAttackPercentageIncrease,4,30
+5,BaseAttackBoost,30,90

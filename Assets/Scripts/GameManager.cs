@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using Enemy;
 using Hero;
+using UI;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -29,22 +31,30 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private HeroController _heroController;
 
-    public HeroController HeroController => _heroController;
-
     private EnemyController _enemyController;
-    public EnemyController EnemyController => _enemyController;
 
-    [Space]
     [Header("Controllers")]
+    [SerializeField]
+    private UIManager _uiManager;
+    
     [SerializeField]
     private BackgroundController _backgroundController;
 
     [SerializeField]
-    private ObjectPool _objectPooler;
+    private ObjectPool _objectPool;
 
-    public ObjectPool ObjectPooler => _objectPooler;
+    [SerializeField]
+    private DataReader _dataReader;
 
-    public List<LevelDataSO> levelDatas;
+    [Header("Level Details")]
+    [SerializeField]
+    private List<LevelDataSO> levelData;
+
+    [SerializeField]
+    private int maxEnemyKillAmount;
+
+    [SerializeField]
+    private EnemyCreator enemyCreator;
 
     private LevelDataSO _currentLevelData;
 
@@ -52,11 +62,13 @@ public class GameManager : MonoBehaviour
 
     private int _levelCount;
 
-    [SerializeField]
-    private int maxEnemyKillAmount;
+    #region Public Variables
 
-    [SerializeField]
-    private EnemyCreator enemyCreator;
+    public HeroController HeroController => _heroController;
+    public EnemyController EnemyController => _enemyController;
+    public ObjectPool ObjectPool => _objectPool;
+
+    #endregion
 
     private void Awake()
     {
@@ -67,11 +79,22 @@ public class GameManager : MonoBehaviour
     {
         //Buraya save sistemi gelicek.
 
-        _currentLevelData = levelDatas[0];
+        SetScene().Forget();
+    }
+
+    private async UniTask SetScene()
+    {
+//        CancellationTokenSource cts = new CancellationTokenSource();
+
+//        await _dataReader.ReadAllData();
+
+        _currentLevelData = levelData[0];
 
         _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
 
         CreateCharacters();
+
+//        cts.Cancel();
     }
 
     private async UniTask CreateHero()
@@ -128,7 +151,7 @@ public class GameManager : MonoBehaviour
 
             _enemyKillCount = 0;
 
-            _currentLevelData = levelDatas[Random.Range(0, levelDatas.Count)];
+            _currentLevelData = levelData[Random.Range(0, levelData.Count)];
 
             _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
 
