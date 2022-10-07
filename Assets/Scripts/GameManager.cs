@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using Cysharp.Threading.Tasks;
 using Enemy;
 using Hero;
@@ -36,7 +35,7 @@ public class GameManager : MonoBehaviour
     [Header("Controllers")]
     [SerializeField]
     private UIManager _uiManager;
-    
+
     [SerializeField]
     private BackgroundController _backgroundController;
 
@@ -86,7 +85,9 @@ public class GameManager : MonoBehaviour
     {
 //        CancellationTokenSource cts = new CancellationTokenSource();
 
-//        await _dataReader.ReadAllData();
+        await _dataReader.ReadAllData();
+
+        _uiManager.LoadScrollers();
 
         _currentLevelData = levelData[0];
 

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using UI;
@@ -5,9 +6,31 @@ using UnityEngine;
 
 public class DataReader : MonoBehaviour
 {
-    private SkillUI[] _skillData;
+    #region Singleton
 
-    public SkillUI[] SkillData => _skillData;
+    private static DataReader _instance;
+
+    public static DataReader Instance
+    {
+        get
+        {
+            if (_instance == null)
+                Debug.LogError("Missing GameManager");
+
+            return _instance;
+        }
+    }
+
+    #endregion
+
+    private List<SkillUI> _skillData;
+
+    public List<SkillUI> SkillData => _skillData;
+
+    private void Awake()
+    {
+        _instance = this;
+    }
 
     public async UniTask ReadAllData()
     {
@@ -18,7 +41,6 @@ public class DataReader : MonoBehaviour
         cts.Cancel();
     }
 
-
     private void ReadSkillData()
     {
         var path = $"Data/SkillData";
@@ -27,7 +49,7 @@ public class DataReader : MonoBehaviour
 
         var i = 0;
 
-        _skillData = new SkillUI[textAsset.text.Split('\n').Length];
+        _skillData = new List<SkillUI>();
 
         foreach (var line in textAsset.text.Split('\n'))
         {
@@ -45,7 +67,7 @@ public class DataReader : MonoBehaviour
 
             var values = line.Replace("\r", string.Empty).Split(',');
 
-            _skillData[i] = new SkillUI(values[0], values[1], values[2], values[3]);
+            _skillData.Add(new SkillUI(values[0], values[1], values[2], values[3]));
             i++;
         }
     }

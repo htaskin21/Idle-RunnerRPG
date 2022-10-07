@@ -7,9 +7,6 @@ public class CameraFollower : MonoBehaviour
     [SerializeField]
     private Camera mainCamera;
 
-    [SerializeField]
-    private HeroMovement heroMovement;
-
     private Tweener _cameraMoveTweener;
 
     private void Start()

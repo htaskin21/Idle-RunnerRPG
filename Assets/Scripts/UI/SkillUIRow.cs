@@ -1,10 +1,11 @@
+using EnhancedUI.EnhancedScroller;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public class SkillUIRow : MonoBehaviour
+    public class SkillUIRow : EnhancedScrollerCellView
     {
         [SerializeField]
         private GameObject parentObject;
@@ -23,8 +24,8 @@ namespace UI
 
         public void SetSkillUIRow(SkillUI skillUI)
         {
+            cellIdentifier = skillUI.ID.ToString();
             descriptionText.text = skillUI.SkillTypes.ToString();
-      
         }
     }
 }

@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace UI
@@ -20,15 +21,28 @@ namespace UI
         }
 
         #endregion
+
+        [SerializeField]
+        private GameObject coinHud;
+
+        public GameObject CoinHud => coinHud;
+
+        [SerializeField]
+        private SkillUIPanel skillUIPanel;
         
         private void Awake()
         {
             _instance = this;
         }
 
-        [SerializeField]
-        private GameObject coinHud;
+        public void OpenSkillPanel()
+        {
+            skillUIPanel.panelObject.gameObject.SetActive(true);
+        }
 
-        public GameObject CoinHud => coinHud;
+        public void LoadScrollers()
+        {
+            skillUIPanel.LoadData();
+        }
     }
 }
