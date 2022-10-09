@@ -1,5 +1,7 @@
-using Cysharp.Threading.Tasks;
+using System;
+using TMPro;
 using UnityEngine;
+using Utils;
 
 namespace UI
 {
@@ -28,11 +30,19 @@ namespace UI
         public GameObject CoinHud => coinHud;
 
         [SerializeField]
+        private TextMeshProUGUI coinText;
+
+        [SerializeField]
         private SkillUIPanel skillUIPanel;
-        
+
+        public static Action<double> OnUpdateCoinHud;
+
         private void Awake()
         {
             _instance = this;
+            
+            OnUpdateCoinHud = delegate(double d) { };
+            OnUpdateCoinHud += UpdateCoinHud;
         }
 
         public void OpenSkillPanel()
@@ -43,6 +53,11 @@ namespace UI
         public void LoadScrollers()
         {
             skillUIPanel.LoadData();
+        }
+
+        private void UpdateCoinHud(double coin)
+        {
+            coinText.text = CalcUtils.FormatNumber(coin);
         }
     }
 }

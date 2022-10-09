@@ -53,6 +53,8 @@ public class LootObject : MonoBehaviour
             await UniTask.Delay(200);
         }
 
+        EconomyManager.OnCollectCoin.Invoke(_lootAmount);
+        
         await mySequence.AsyncWaitForCompletion();
 
         this.gameObject.SetActive(false);

@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     private int _enemyKillCount;
 
-    private int _levelCount;
+    private int _levelCount = 1;
 
     #region Public Variables
 
@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 60;
         //Buraya save sistemi gelicek.
 
         SetScene().Forget();
