@@ -15,7 +15,7 @@ namespace States
             CharacterController.AnimationController.PlayAnimation(AnimationType.Attack);
 
             CharacterController.AnimationController.onAnimationAction.AddListener(() =>
-                HeroAttack.OnInflictDamage?.Invoke(GameManager.Instance.HeroController.heroAttack.AttackPoint));
+                HeroAttack.OnInflictDamage?.Invoke(GameManager.Instance.HeroController.heroAttack.CalculateDamage()));
 
             CharacterController.AnimationController.onAnimationEnd.AddListener(DecideNextState);
 

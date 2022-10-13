@@ -1,9 +1,9 @@
 using System;
-using System.Collections.Generic;
 using DamageNumbersPro;
 using Enemy;
 using States;
 using UnityEngine;
+using Utils;
 
 namespace Hero
 {
@@ -21,14 +21,23 @@ namespace Hero
 
         [Header("Data")]
         [SerializeField]
-        private float attackPoint;
+        private float baseAttackPoint;
 
-        public float AttackPoint => attackPoint;
+        public float BaseAttackPoint => baseAttackPoint;
 
         [SerializeField]
         private float specialAttackPoint;
 
         public float SpecialAttackPoint => specialAttackPoint;
+
+        [SerializeField]
+        private float earthDamageMultiplier = 1;
+
+        [SerializeField]
+        private float plantDamageMultiplier = 1;
+
+        [SerializeField]
+        private float waterDamageMultiplier = 1;
 
         [SerializeField]
         private int attackCooldown;
@@ -40,20 +49,11 @@ namespace Hero
 
         public EnemyController CurrentEnemy { get; private set; }
 
-        public static Action<float> OnInflictDamage;
-
-        private Dictionary<DamageType, float> _damageTypeMultipliers;
-
-        public HeroAttack(EnemyController currentEnemy)
-        {
-            this.CurrentEnemy = currentEnemy;
-        }
+        public static Action<double> OnInflictDamage;
 
         private void Awake()
         {
-            InitializeDamageTypeMultipliers();
-            
-            OnInflictDamage = delegate(float damage) { };
+            OnInflictDamage = delegate(double damage) { };
             OnInflictDamage += SpawnDamagePopUp;
         }
 
@@ -68,32 +68,42 @@ namespace Hero
             }
         }
 
-        private void SpawnDamagePopUp(float damage)
+        private void SpawnDamagePopUp(double damage)
         {
             Vector3 enemyPosition = GameManager.Instance.EnemyController.transform.position;
 
             Vector3 correctedPosition = new Vector3(enemyPosition.x, enemyPosition.y + 1f, enemyPosition.z);
 
-            if (damage < attackPoint)
+            if (damage < baseAttackPoint)
             {
                 DamageNumber damageNumber =
-                    heroAttackPrefab.Spawn(correctedPosition, damage);
+                    heroAttackPrefab.Spawn(correctedPosition, CalcUtils.FormatNumber(damage));
             }
             else
             {
                 DamageNumber damageNumber =
-                    tapAttackPrefab.Spawn(correctedPosition, damage);
+                    tapAttackPrefab.Spawn(correctedPosition, CalcUtils.FormatNumber(damage));
             }
         }
 
-        private void InitializeDamageTypeMultipliers()
+        public double CalculateDamage()
         {
-            _damageTypeMultipliers = new Dictionary<DamageType, float>();
+            return baseAttackPoint * GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
+        }
 
-            foreach (int type in Enum.GetValues(typeof(DamageType)))
+        private float GetDamageMultiplierByDamageType(DamageType damageType)
+        {
+            switch (damageType)
             {
-                var damageType = (DamageType) type;
-                _damageTypeMultipliers[damageType] = 1;
+                case DamageType.Earth:
+                    return earthDamageMultiplier;
+                case DamageType.Plant:
+                    return plantDamageMultiplier;
+                case DamageType.Water:
+                    return waterDamageMultiplier;
+                case DamageType.Normal:
+                default:
+                    return 1f;
             }
         }
     }

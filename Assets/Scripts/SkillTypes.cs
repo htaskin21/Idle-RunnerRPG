@@ -1,5 +1,7 @@
 public enum SkillTypes
 {
     BaseAttackBoost,
-    BaseAttackPercentageIncrease
+    TapDamageBoost,
+    CriticalAttackBoost,
+    CriticalAttackChance
 }

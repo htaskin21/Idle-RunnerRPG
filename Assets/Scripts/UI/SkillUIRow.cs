@@ -2,6 +2,7 @@ using EnhancedUI.EnhancedScroller;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
 namespace UI
 {
@@ -25,7 +26,12 @@ namespace UI
         public void SetSkillUIRow(SkillUI skillUI)
         {
             cellIdentifier = skillUI.ID.ToString();
-            descriptionText.text = skillUI.SkillTypes.ToString();
+
+            var damage = CalcUtils.FormatNumber(skillUI.BaseIncrementAmount);
+            var stringBuilder = DescriptionUtils.GetDescription(skillUI.SkillTypes);
+            stringBuilder.Replace("x", damage);
+
+            descriptionText.text = stringBuilder.ToString();
         }
     }
 }

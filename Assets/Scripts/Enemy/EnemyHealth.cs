@@ -9,13 +9,11 @@ namespace Enemy
     {
         [SerializeField]
         private float maxHealth;
-
         public float MaxHealth => maxHealth;
 
         [SerializeField]
-        private float health;
-
-        public float Health => health;
+        private double health;
+        public double Health => health;
 
         [SerializeField]
         private Slider healthBar;
@@ -23,6 +21,8 @@ namespace Enemy
         [SerializeField]
         private CanvasGroup healthBarCanvasGroup;
 
+        private double floatMultiplier = 1;
+        
         public Action OnEnemyDie;
 
         private void Awake()
@@ -34,17 +34,19 @@ namespace Enemy
         {
             health = maxHealth;
 
+            floatMultiplier = 100 / maxHealth;
+            
             healthBar.minValue = 0;
-            healthBar.maxValue = maxHealth;
-            healthBar.value = health;
+            healthBar.maxValue = (float) (maxHealth * floatMultiplier);
+            healthBar.value = (float) (health * floatMultiplier);
 
             healthBarCanvasGroup.alpha = 1;
         }
 
-        public void SetHealth(float attackDamage)
+        public void SetHealth(double attackDamage)
         {
             health -= attackDamage;
-            healthBar.DOValue(health, 0.2f);
+            healthBar.DOValue((float) (health * floatMultiplier), 0.2f);
 
             if (health <= 0)
             {

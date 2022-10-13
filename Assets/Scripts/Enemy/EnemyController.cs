@@ -24,7 +24,7 @@ namespace Enemy
             HeroAttack.OnInflictDamage += TakeDamage;
         }
 
-        private void TakeDamage(float attackPoint)
+        private void TakeDamage(double attackPoint)
         {
             enemyHealth.SetHealth(attackPoint);
 
