@@ -15,8 +15,7 @@ namespace UI
 
         public GameObject panelObject;
 
-        private List<SkillUI> _skillUis;
-
+        private List<SkillUpgrade> _skillUis;
 
         private void Start()
         {

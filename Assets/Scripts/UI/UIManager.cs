@@ -45,6 +45,12 @@ namespace UI
             OnUpdateCoinHud += UpdateCoinHud;
         }
 
+        private void Start()
+        {
+            var coin = SaveLoadManager.Instance.LoadCoin();
+            OnUpdateCoinHud.Invoke(coin);
+        }
+
         public void OpenSkillPanel()
         {
             skillUIPanel.panelObject.gameObject.SetActive(true);

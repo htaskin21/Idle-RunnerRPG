@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace UI
 {
-    public class SkillUI
+    public class SkillUpgrade
     {
         public int ID { get; }
 
@@ -13,7 +13,7 @@ namespace UI
 
         public double BaseIncrementCost { get; }
 
-        public SkillUI(string id, string skillType, string baseIncrementAmount, string baseIncrementCost)
+        public SkillUpgrade(string id, string skillType, string baseIncrementAmount, string baseIncrementCost)
         {
             ID = int.Parse(id);
             SkillTypes = (SkillTypes) Enum.Parse(typeof(SkillTypes), skillType, true);

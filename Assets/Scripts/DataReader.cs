@@ -23,9 +23,9 @@ public class DataReader : MonoBehaviour
 
     #endregion
 
-    private List<SkillUI> _skillData;
+    private List<SkillUpgrade> _skillData;
 
-    public List<SkillUI> SkillData => _skillData;
+    public List<SkillUpgrade> SkillData => _skillData;
 
     private void Awake()
     {
@@ -49,7 +49,7 @@ public class DataReader : MonoBehaviour
 
         var i = 0;
 
-        _skillData = new List<SkillUI>();
+        _skillData = new List<SkillUpgrade>();
 
         foreach (var line in textAsset.text.Split('\n'))
         {
@@ -67,7 +67,7 @@ public class DataReader : MonoBehaviour
 
             var values = line.Replace("\r", string.Empty).Split(',');
 
-            _skillData.Add(new SkillUI(values[0], values[1], values[2], values[3]));
+            _skillData.Add(new SkillUpgrade(values[0], values[1], values[2], values[3]));
             i++;
         }
     }

@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
 
         CreateCharacters();
 
-        UIManager.OnUpdateCoinHud(0);
+        //UIManager.OnUpdateCoinHud(0);
 
 //        cts.Cancel();
     }

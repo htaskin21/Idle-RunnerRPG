@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using EnhancedUI.EnhancedScroller;
 using TMPro;
 using UnityEngine;
@@ -29,27 +30,41 @@ namespace UI
         [SerializeField]
         private TextMeshProUGUI buttonDescriptionText;
 
-        private SkillUI _skillUI;
+        private SkillUpgrade _skillUpgrade;
         private int _level = 1;
-        
-        private void Start()
+
+        private Dictionary<int, int> _skillUpgradeDictionary;
+
+        private void OnEnable()
         {
             UIManager.OnUpdateCoinHud += UpdateRow;
         }
-        
-        public void SetSkillUIRow(SkillUI skillUI)
+
+        private void OnDisable()
         {
-            _skillUI = skillUI;
+            UIManager.OnUpdateCoinHud -= UpdateRow;
+        }
 
-            cellIdentifier = skillUI.ID.ToString();
+        public void SetSkillUIRow(SkillUpgrade skillUpgrade)
+        {
+            _skillUpgrade = skillUpgrade;
 
-            FillSkillUIRow();
+            cellIdentifier = skillUpgrade.ID.ToString();
+
+            var coin = SaveLoadManager.Instance.LoadCoin();
+            UpdateRow(coin);
         }
 
         private void FillSkillUIRow()
         {
-            var damage = CalcUtils.FormatNumber(_skillUI.BaseIncrementAmount * _level);
-            var stringBuilder = DescriptionUtils.GetDescription(_skillUI.SkillTypes);
+            _skillUpgradeDictionary = SaveLoadManager.Instance.LoadWeaponUpgrade();
+
+            _level = _skillUpgradeDictionary.ContainsKey(_skillUpgrade.ID)
+                ? _skillUpgradeDictionary[_skillUpgrade.ID]
+                : 1;
+
+            var damage = CalcUtils.FormatNumber(_skillUpgrade.BaseIncrementAmount * _level);
+            var stringBuilder = DescriptionUtils.GetDescription(_skillUpgrade.SkillTypes);
             stringBuilder.Replace("x", damage);
 
             descriptionText.text = stringBuilder.ToString();
@@ -58,8 +73,8 @@ namespace UI
 
         private void SetButtonState(double totalCoin)
         {
-            var cost = _skillUI.BaseIncrementCost * _level;
-            buttonCostText.text = $"{CalcUtils.FormatNumber(cost)}<sprite index= 11> " ;
+            var cost = _skillUpgrade.BaseIncrementCost * _level;
+            buttonCostText.text = $"{CalcUtils.FormatNumber(cost)}<sprite index= 11> ";
 
             buttonDescriptionText.text = _level > 1 ? "LEVEL UP" : "BUY";
 
@@ -68,9 +83,13 @@ namespace UI
 
         public void OnBuy()
         {
-            var cost = _skillUI.BaseIncrementCost * _level;
+            var cost = _skillUpgrade.BaseIncrementCost * _level;
             _level++;
+            SaveLoadManager.Instance.SaveWeaponUpgrade(_skillUpgrade.ID, _level);
             EconomyManager.OnSpendCoin.Invoke(cost);
+
+            var coin = SaveLoadManager.Instance.LoadCoin();
+            UpdateRow(coin);
         }
 
         private void UpdateRow(double totalCoin)

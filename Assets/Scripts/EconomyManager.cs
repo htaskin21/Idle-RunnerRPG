@@ -18,6 +18,11 @@ public class EconomyManager : MonoBehaviour
         OnSpendCoin += SpendCoin;
     }
 
+    private void Start()
+    {
+        _totalCoin = SaveLoadManager.Instance.LoadCoin();
+    }
+
     private void AddCoin(double collectedCoin)
     {
         _totalCoin += collectedCoin;
@@ -28,5 +33,13 @@ public class EconomyManager : MonoBehaviour
     {
         _totalCoin -= collectedCoin;
         UIManager.OnUpdateCoinHud.Invoke(_totalCoin);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            AddCoin(100);
+        }
     }
 }
