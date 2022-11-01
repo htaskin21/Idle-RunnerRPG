@@ -530,7 +530,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1127716157
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -6866942782406579094, guid: 39eb1d2653eb54343907d5c413b86ff7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -851,12 +851,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroController: {fileID: 7561752539621336801}
-  attackPoint: 15
-  specialAttackPoint: 0
-  attackCooldown: 0
-  specialAttackType: 0
   heroAttackPrefab: {fileID: 2151027515920951202, guid: ffec972368df24f7fb578bc0fcaac5f1, type: 3}
   tapAttackPrefab: {fileID: 9082777676698030928, guid: 23e6c8b1be7aa42b7aac083d66d12ffc, type: 3}
+  heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
+  specialAttackType: 0
 --- !u!114 &8475445711694932452
 MonoBehaviour:
   m_ObjectHideFlags: 0

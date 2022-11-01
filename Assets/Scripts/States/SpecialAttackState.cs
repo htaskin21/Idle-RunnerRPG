@@ -1,8 +1,6 @@
-using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Hero;
-using UI;
 using UnityEngine;
 
 namespace States
@@ -14,17 +12,19 @@ namespace States
 
         [Header("Special Attack Prefabs")]
         public GameObject explosionAttackPrefab;
+
         public GameObject lightningAttackPrefab;
-        
+
         protected override void EnterState()
         {
             CharacterController.AnimationController.PlayAnimation(AnimationType.SpecialAttack);
 
             CharacterController.AnimationController.onAnimationAction.AddListener(() =>
                 SetSpecialAttackPrefab().SetActive(true));
-            
+
             CharacterController.AnimationController.onAnimationAction.AddListener(() =>
-                HeroAttack.OnInflictDamage?.Invoke(GameManager.Instance.HeroController.heroAttack.SpecialAttackPoint));
+                HeroAttack.OnInflictDamage?.Invoke(
+                    GameManager.Instance.HeroController.heroAttack.GetSpecialAttackDamage()));
 
             CharacterController.AnimationController.onAnimationEnd.AddListener(DecideNextState);
 
@@ -60,11 +60,11 @@ namespace States
 
             cts.Cancel();
         }
-        
+
         private GameObject SetSpecialAttackPrefab()
         {
-            GameObject specialAttack = null;            
-            
+            GameObject specialAttack = null;
+
             switch (GameManager.Instance.HeroController.heroAttack.specialAttackType)
             {
                 case SpecialAttackType.Explosion:

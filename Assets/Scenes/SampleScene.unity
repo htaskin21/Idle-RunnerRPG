@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 151894263}
   - component: {fileID: 151894262}
   m_Layer: 5
-  m_Name: DPSHUD
+  m_Name: HeroDamageHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1970,6 +1970,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704171871}
   m_CullTransparentMesh: 1
+--- !u!1 &733598006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 733598007}
+  - component: {fileID: 733598008}
+  m_Layer: 0
+  m_Name: Calculator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &733598007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733598006}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &733598008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733598006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d092de7b253b4883a02a43fc20216820, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataReader: {fileID: 311789297}
+  _heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
 --- !u!1 &875743116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,6 +2405,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinHud: {fileID: 307131829}
   coinText: {fileID: 307131831}
+  heroDamageText: {fileID: 36664494}
+  tapDamageText: {fileID: 1721389074}
   skillUIPanel: {fileID: 401647301}
 --- !u!4 &1018802025
 Transform:
@@ -3319,10 +3366,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1033320912}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1018802024}
+        m_TargetAssemblyTypeName: UI.UIManager, Assembly-CSharp
+        m_MethodName: CloseSkillPanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3624,6 +3671,7 @@ MonoBehaviour:
   _backgroundController: {fileID: 157393238}
   _objectPool: {fileID: 514332008}
   _dataReader: {fileID: 311789297}
+  _calculator: {fileID: 733598008}
   levelData:
   - {fileID: 11400000, guid: c5953e2cde76c446197a98121874c73b, type: 2}
   - {fileID: 11400000, guid: 588565df8eb32490c81959c182eb714c, type: 2}

@@ -30,6 +30,15 @@ namespace UI
         [SerializeField]
         private TextMeshProUGUI buttonDescriptionText;
 
+        [SerializeField]
+        private Image buyButtonImage;
+
+        [SerializeField]
+        private Sprite activeButtonSprite;
+
+        [SerializeField]
+        private Sprite deActiveButtonSprite;
+
         private SkillUpgrade _skillUpgrade;
         private int _level = 1;
 
@@ -68,28 +77,34 @@ namespace UI
             stringBuilder.Replace("x", damage);
 
             descriptionText.text = stringBuilder.ToString();
-            levelText.text = _level.ToString();
+            levelText.text = $"Level {_level}";
         }
 
         private void SetButtonState(double totalCoin)
         {
             var cost = _skillUpgrade.BaseIncrementCost * _level;
-            buttonCostText.text = $"{CalcUtils.FormatNumber(cost)}<sprite index= 11> ";
+            buttonCostText.text = $"{CalcUtils.FormatNumber(cost)} <sprite index= 11>";
 
             buttonDescriptionText.text = _level > 1 ? "LEVEL UP" : "BUY";
 
             buyButton.enabled = cost < totalCoin;
+            buyButtonImage.sprite = buyButton.enabled ? activeButtonSprite : deActiveButtonSprite;
         }
 
         public void OnBuy()
         {
-            var cost = _skillUpgrade.BaseIncrementCost * _level;
-            _level++;
-            SaveLoadManager.Instance.SaveWeaponUpgrade(_skillUpgrade.ID, _level);
-            EconomyManager.OnSpendCoin.Invoke(cost);
-
             var coin = SaveLoadManager.Instance.LoadCoin();
-            UpdateRow(coin);
+            var cost = _skillUpgrade.BaseIncrementCost * _level;
+            if (coin >= cost)
+            {
+                _level++;
+                SaveLoadManager.Instance.SaveWeaponUpgrade(_skillUpgrade.ID, _level);
+                Calculator.OnUpdateDamageCalculation.Invoke(_skillUpgrade.ID, _level);
+                EconomyManager.OnSpendCoin.Invoke(-cost);
+                coin -= cost;
+
+                UpdateRow(coin);
+            }
         }
 
         private void UpdateRow(double totalCoin)

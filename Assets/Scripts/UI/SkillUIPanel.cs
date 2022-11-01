@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class SkillUIPanel : MonoBehaviour, IEnhancedScrollerDelegate
+    public class SkillUIPanel : UIPanel, IEnhancedScrollerDelegate
     {
         [SerializeField]
         private EnhancedScroller enhancedScroller;

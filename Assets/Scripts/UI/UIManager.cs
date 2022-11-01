@@ -33,16 +33,27 @@ namespace UI
         private TextMeshProUGUI coinText;
 
         [SerializeField]
+        private TextMeshProUGUI heroDamageText;
+
+        [SerializeField]
+        private TextMeshProUGUI tapDamageText;
+
+        [SerializeField]
         private SkillUIPanel skillUIPanel;
 
         public static Action<double> OnUpdateCoinHud;
 
+        public static Action<double, double> OnUpdateDamageHud;
+
         private void Awake()
         {
             _instance = this;
-            
+
             OnUpdateCoinHud = delegate(double d) { };
             OnUpdateCoinHud += UpdateCoinHud;
+
+            OnUpdateDamageHud = delegate(double d, double d1) { };
+            OnUpdateDamageHud += UpdateDamageHud;
         }
 
         private void Start()
@@ -53,7 +64,12 @@ namespace UI
 
         public void OpenSkillPanel()
         {
-            skillUIPanel.panelObject.gameObject.SetActive(true);
+            skillUIPanel.OpenPanel();
+        }
+        
+        public void CloseSkillPanel()
+        {
+            skillUIPanel.ClosePanel();
         }
 
         public void LoadScrollers()
@@ -64,6 +80,12 @@ namespace UI
         private void UpdateCoinHud(double coin)
         {
             coinText.text = CalcUtils.FormatNumber(coin);
+        }
+
+        private void UpdateDamageHud(double heroDamage, double tapAttack)
+        {
+            heroDamageText.text = CalcUtils.FormatNumber(heroDamage);
+            tapDamageText.text = CalcUtils.FormatNumber(tapAttack);
         }
     }
 }

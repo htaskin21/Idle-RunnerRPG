@@ -31,7 +31,7 @@ public class EconomyManager : MonoBehaviour
 
     private void SpendCoin(double collectedCoin)
     {
-        _totalCoin -= collectedCoin;
+        _totalCoin += collectedCoin;
         UIManager.OnUpdateCoinHud.Invoke(_totalCoin);
     }
 

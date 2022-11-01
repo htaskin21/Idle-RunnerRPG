@@ -31,9 +31,9 @@ namespace States
         {
             var heroController = GameManager.Instance.HeroController;
 
-            heroController.heroUI.SetCoolDownSlider(heroController.heroAttack.AttackCooldown);
+            heroController.heroUI.SetCoolDownSlider(heroController.heroAttack.HeroDamageDataSo.attackCooldown);
 
-            await UniTask.Delay(heroController.heroAttack.AttackCooldown,
+            await UniTask.Delay(heroController.heroAttack.HeroDamageDataSo.attackCooldown,
                 cancellationToken: _cancellationToken);
 
             CharacterController.TransitionToState(wakeUpState);

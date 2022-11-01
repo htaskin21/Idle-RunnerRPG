@@ -21,28 +21,9 @@ namespace Hero
 
         [Header("Data")]
         [SerializeField]
-        private float baseAttackPoint;
+        private HeroDamageDataSO heroDamageDataSo;
 
-        public float BaseAttackPoint => baseAttackPoint;
-
-        [SerializeField]
-        private float specialAttackPoint;
-
-        public float SpecialAttackPoint => specialAttackPoint;
-
-        [SerializeField]
-        private float earthDamageMultiplier = 1;
-
-        [SerializeField]
-        private float plantDamageMultiplier = 1;
-
-        [SerializeField]
-        private float waterDamageMultiplier = 1;
-
-        [SerializeField]
-        private int attackCooldown;
-
-        public int AttackCooldown => attackCooldown;
+        public HeroDamageDataSO HeroDamageDataSo => heroDamageDataSo;
 
         [Header("Variables")]
         public SpecialAttackType specialAttackType;
@@ -74,7 +55,7 @@ namespace Hero
 
             Vector3 correctedPosition = new Vector3(enemyPosition.x, enemyPosition.y + 1f, enemyPosition.z);
 
-            if (damage < baseAttackPoint)
+            if (damage < heroDamageDataSo.heroAttack)
             {
                 DamageNumber damageNumber =
                     heroAttackPrefab.Spawn(correctedPosition, CalcUtils.FormatNumber(damage));
@@ -88,22 +69,37 @@ namespace Hero
 
         public double CalculateDamage()
         {
-            return baseAttackPoint * GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
+            return heroDamageDataSo.heroAttack * GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
         }
 
-        private float GetDamageMultiplierByDamageType(DamageType damageType)
+        private double GetDamageMultiplierByDamageType(DamageType damageType)
         {
             switch (damageType)
             {
                 case DamageType.Earth:
-                    return earthDamageMultiplier;
+                    return heroDamageDataSo.earthDamageMultiplier;
                 case DamageType.Plant:
-                    return plantDamageMultiplier;
+                    return heroDamageDataSo.plantDamageMultiplier;
                 case DamageType.Water:
-                    return waterDamageMultiplier;
+                    return heroDamageDataSo.waterDamageMultiplier;
                 case DamageType.Normal:
                 default:
                     return 1f;
+            }
+        }
+
+        public double GetSpecialAttackDamage()
+        {
+            switch (specialAttackType)
+            {
+                case SpecialAttackType.Lightning:
+                    return heroDamageDataSo.lightningAttackPoint;
+
+                case SpecialAttackType.Explosion:
+                    return 1;
+
+                default:
+                    return 1;
             }
         }
     }

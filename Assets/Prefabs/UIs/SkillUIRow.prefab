@@ -237,7 +237,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_wordSpacing: -30
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -577,6 +577,9 @@ MonoBehaviour:
   buyButton: {fileID: 2592043425798272008}
   buttonCostText: {fileID: 8252944561609058343}
   buttonDescriptionText: {fileID: 2592043425373976696}
+  buyButtonImage: {fileID: 2592043425798272009}
+  activeButtonSprite: {fileID: 21300000, guid: 2b9ef8fd07ea648188df59d7013692e4, type: 3}
+  deActiveButtonSprite: {fileID: 21300000, guid: 51fb4eb3009c441418d8001b35bfc35b, type: 3}
 --- !u!1 &2592043426737152022
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +683,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_wordSpacing: -30
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -776,7 +779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1000<sprite index= 11> '
+  m_text: '1000 <sprite index= 11> '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7fca031f9a948f443a7332780919a784, type: 2}
   m_sharedMaterial: {fileID: 2625009218440367740, guid: 7fca031f9a948f443a7332780919a784, type: 2}
@@ -814,7 +817,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_wordSpacing: -55
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0

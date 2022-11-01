@@ -45,6 +45,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private DataReader _dataReader;
 
+    [SerializeField]
+    private Calculator _calculator;
+
     [Header("Level Details")]
     [SerializeField]
     private List<LevelDataSO> levelData;
@@ -93,6 +96,8 @@ public class GameManager : MonoBehaviour
         _currentLevelData = levelData[0];
 
         _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
+
+        _calculator.CalculateDamages();
 
         CreateCharacters();
 
