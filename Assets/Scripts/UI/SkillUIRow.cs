@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using EnhancedUI.EnhancedScroller;
 using TMPro;
@@ -44,6 +45,12 @@ namespace UI
 
         private Dictionary<int, int> _skillUpgradeDictionary;
 
+        private void Start()
+        {
+            UIManager.OnUpdateCoinHud += UpdateRow;
+        }
+
+        /*
         private void OnEnable()
         {
             UIManager.OnUpdateCoinHud += UpdateRow;
@@ -53,6 +60,7 @@ namespace UI
         {
             UIManager.OnUpdateCoinHud -= UpdateRow;
         }
+        */
 
         public void SetSkillUIRow(SkillUpgrade skillUpgrade)
         {
