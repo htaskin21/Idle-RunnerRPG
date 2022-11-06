@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using EnhancedUI.EnhancedScroller;
 using TMPro;
@@ -50,18 +49,6 @@ namespace UI
             UIManager.OnUpdateCoinHud += UpdateRow;
         }
 
-        /*
-        private void OnEnable()
-        {
-            UIManager.OnUpdateCoinHud += UpdateRow;
-        }
-
-        private void OnDisable()
-        {
-            UIManager.OnUpdateCoinHud -= UpdateRow;
-        }
-        */
-
         public void SetSkillUIRow(SkillUpgrade skillUpgrade)
         {
             _skillUpgrade = skillUpgrade;
@@ -95,7 +82,7 @@ namespace UI
 
             buttonDescriptionText.text = _level > 1 ? "LEVEL UP" : "BUY";
 
-            buyButton.enabled = cost < totalCoin;
+            buyButton.enabled = cost <= totalCoin;
             buyButtonImage.sprite = buyButton.enabled ? activeButtonSprite : deActiveButtonSprite;
         }
 
