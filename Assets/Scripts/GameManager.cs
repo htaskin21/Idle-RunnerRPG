@@ -58,6 +58,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private EnemyCreator enemyCreator;
 
+    [SerializeField]
+    private float enemySpawnDistance;
+
     private LevelDataSO _currentLevelData;
 
     private int _enemyKillCount;
@@ -100,6 +103,8 @@ public class GameManager : MonoBehaviour
         _calculator.CalculateDamages();
 
         CreateCharacters();
+        
+        _heroController.StartRunning();
 
         //UIManager.OnUpdateCoinHud(0);
 
@@ -127,7 +132,7 @@ public class GameManager : MonoBehaviour
         if (_enemyKillCount == maxEnemyKillAmount)
         {
             _enemyController = Instantiate(_currentLevelData.bossEnemy,
-                new Vector3((_heroController.transform.position.x + 14f),
+                new Vector3((_heroController.transform.position.x + enemySpawnDistance),
                     _currentLevelData.bossEnemy.transform.position.y, 0),
                 quaternion.identity);
         }
@@ -136,7 +141,7 @@ public class GameManager : MonoBehaviour
             var rnd = Random.Range(0, _currentLevelData.regularEnemies.Count);
 
             _enemyController = Instantiate(_currentLevelData.regularEnemies[rnd],
-                new Vector3((_heroController.transform.position.x + 14f),
+                new Vector3((_heroController.transform.position.x + enemySpawnDistance),
                     _currentLevelData.regularEnemies[rnd].transform.position.y, 0),
                 quaternion.identity);
         }

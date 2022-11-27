@@ -27,7 +27,7 @@ namespace Hero
             }
         }
 
-        public void OnTempClickButton()
+        public void StartRunning()
         {
             var runState = GetState(StateType.Run);
             TransitionToState(runState);

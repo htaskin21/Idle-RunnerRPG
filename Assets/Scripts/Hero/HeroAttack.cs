@@ -96,7 +96,10 @@ namespace Hero
                     return heroDamageDataSo.lightningAttackPoint;
 
                 case SpecialAttackType.Explosion:
-                    return 1;
+                    return heroDamageDataSo.explosionAttackPoint;
+                
+                case SpecialAttackType.IceAttack:
+                    return heroDamageDataSo.iceAttackAttackPoint;
 
                 default:
                     return 1;
@@ -107,6 +110,7 @@ namespace Hero
     public enum SpecialAttackType
     {
         Lightning,
-        Explosion
+        Explosion,
+        IceAttack
     }
 }

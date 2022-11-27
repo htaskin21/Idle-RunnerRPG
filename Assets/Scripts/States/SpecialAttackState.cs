@@ -1,6 +1,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Hero;
+using UI;
 using UnityEngine;
 
 namespace States
@@ -15,8 +16,12 @@ namespace States
 
         public GameObject lightningAttackPrefab;
 
+        public GameObject iceAttackPrefab;
+
         protected override void EnterState()
         {
+            ButtonController.OnActiveAttackButtons?.Invoke(false);
+            
             CharacterController.AnimationController.PlayAnimation(AnimationType.SpecialAttack);
 
             CharacterController.AnimationController.onAnimationAction.AddListener(() =>
@@ -72,6 +77,9 @@ namespace States
                     break;
                 case SpecialAttackType.Lightning:
                     specialAttack = lightningAttackPrefab;
+                    break;
+                case SpecialAttackType.IceAttack:
+                    specialAttack = iceAttackPrefab;
                     break;
             }
 

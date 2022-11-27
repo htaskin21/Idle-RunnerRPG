@@ -1,6 +1,7 @@
 using Hero;
 using States;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -8,7 +9,11 @@ namespace UI
     {
         [SerializeField]
         private SpecialAttackType specialAttackType;
+
+        public Button buttonComponent;
         
+        public Image buttonBackground;
+
         public void StartSpecialAttack()
         {
             GameManager.Instance.HeroController.heroAttack.specialAttackType = specialAttackType;
