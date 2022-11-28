@@ -158,6 +158,11 @@ namespace DamageNumbersPro.Demo
 
         public DNP_PrefabSettings GetSettings()
         {
+            if(currentSettings == null)
+            {
+                currentSettings = prefabs[currentIndex].gameObject.AddComponent<DNP_PrefabSettings>();
+            }
+
             return currentSettings;
         }
     }

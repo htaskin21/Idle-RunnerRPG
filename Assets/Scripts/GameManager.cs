@@ -184,5 +184,7 @@ public class GameManager : MonoBehaviour
         _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
 
         CreateEnemy();
+        
+        _heroController.StartRunning();
     }
 }

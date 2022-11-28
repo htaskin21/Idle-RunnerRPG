@@ -46,15 +46,14 @@ public class LootObject : MonoBehaviour
         foreach (var coinSprite in sprites)
         {
             mySequence = DOTween.Sequence();
-
             mySequence.Append(coinSprite.transform.DOMove(targetPosition, movementDuration).SetEase(Ease.Linear))
-                .Append(coinSprite.transform.DOScale(new Vector3(0, 0, 0), movementDuration).SetEase(Ease.InCirc));
-
+                .OnPlay(()=>coinSprite.transform.DOScale(new Vector3(0, 0, 0), movementDuration).SetEase(Ease.InCirc));
+            
             await UniTask.Delay(200);
         }
 
         EconomyManager.OnCollectCoin.Invoke(_lootAmount);
-        
+
         await mySequence.AsyncWaitForCompletion();
 
         this.gameObject.SetActive(false);

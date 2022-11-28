@@ -73,6 +73,10 @@ namespace DamageNumbersPro
         [Tooltip("Text displayed below the number.")]
         public string bottomText = "";
         public TextSettings bottomTextSettings = new TextSettings(0f);
+
+        //Color by Number:
+        public bool enableColorByNumber = false;
+        public ColorByNumberSettings colorByNumberSettings = new ColorByNumberSettings(0f);
         #endregion
 
         #region Fade Settings
@@ -229,6 +233,8 @@ namespace DamageNumbersPro
         float numberScale;
         float combinationScale;
         float destructionScale;
+        float renderThroughWallsScale = 0.1f;
+        float lastScaleFactor = 1f;
         bool firstFrameScale;
 
         //Rotation:
@@ -249,7 +255,6 @@ namespace DamageNumbersPro
         bool givenNumber;
         float absorbStartTime;
         Vector3 absorbStartPosition;
-        int absorbingCount;
 
         //3D:
         Transform targetCamera;
@@ -402,6 +407,7 @@ namespace DamageNumbersPro
             }
 
             newDN.gameObject.SetActive(true); //Active Gameobject
+            newDN.OnPreSpawn();
 
             if (enablePooling)
             {
@@ -832,12 +838,6 @@ namespace DamageNumbersPro
             {
                 Destroy(gameObject);
             }
-
-            //Combination:
-            if (myAbsorber != null)
-            {
-                myAbsorber.absorbingCount--;
-            }
         }
         public virtual void CheckAndEnable3D()
         {
@@ -1172,6 +1172,20 @@ namespace DamageNumbersPro
                         integers = "0";
                     }
 
+                    int digitLength = allDigits.Length;
+                    while (digitLength < usedDecimals)
+                    {
+                        if(digitSettings.hideZeros)
+                        {
+                            usedDecimals--;
+                        }
+                        else
+                        {
+                            allDigits += "0";
+                            digitLength = allDigits.Length;
+                        }
+                    }
+
                     string decimals = allDigits.Substring(allDigits.Length - usedDecimals);
 
                     if (usedDecimals > 0 && !shortened)
@@ -1189,6 +1203,11 @@ namespace DamageNumbersPro
                 if (enableScaleByNumber)
                 {
                     numberScale = scaleByNumberSettings.fromScale + (scaleByNumberSettings.toScale - scaleByNumberSettings.fromScale) * Mathf.Clamp01((number - scaleByNumberSettings.fromNumber) / (scaleByNumberSettings.toNumber - scaleByNumberSettings.fromNumber));
+                }
+
+                if(enableColorByNumber)
+                {
+                    SetColor(colorByNumberSettings.colorGradient.Evaluate(Mathf.Clamp01((number - colorByNumberSettings.fromNumber) / (colorByNumberSettings.toNumber - colorByNumberSettings.fromNumber))));
                 }
             }
 
@@ -1214,9 +1233,27 @@ namespace DamageNumbersPro
                 suffixText += System.Environment.NewLine + ApplyTextSettings(bottomText, bottomTextSettings);
             }
 
-            //Update Text:
             GetReferencesIfNecessary();
+
+            //Scale Fix:
+            Vector3 currentLocalScale = transform.localScale;
+            if(!enable3DGame || !renderThroughWalls)
+            {
+                renderThroughWallsScale = 1f;
+            }
+            if (lastScaleFactor < 1)
+            {
+                lastScaleFactor = 1f;
+            }
+            float minScale = renderThroughWallsScale * lastScaleFactor;
+            if (currentLocalScale.x < minScale)
+            {
+                transform.localScale = new Vector3(minScale, minScale, minScale);
+            }
+
+            //Update Text:
             SetTextString(prefixText + numberText + suffixText);
+            transform.localScale = currentLocalScale;
 
             //Get Colors:
             colors = new List<Color[]>();
@@ -1530,19 +1567,22 @@ namespace DamageNumbersPro
         {
             float alphaFactor = progress * progress * baseAlpha * baseAlpha;
 
-            for (int n = 0; n < meshs.Count; n++)
+            if(meshs != null)
             {
-                if (colors[n] != null && meshs[n] != null)
+                for (int n = 0; n < meshs.Count; n++)
                 {
-                    Color[] color = colors[n];
-                    float[] alpha = alphas[n];
-
-                    for (int c = 0; c < color.Length; c++)
+                    if (colors[n] != null && meshs[n] != null)
                     {
-                        color[c].a = alphaFactor * alpha[c];
-                    }
+                        Color[] color = colors[n];
+                        float[] alpha = alphas[n];
 
-                    meshs[n].colors = color;
+                        for (int c = 0; c < color.Length; c++)
+                        {
+                            color[c].a = alphaFactor * alpha[c];
+                        }
+
+                        meshs[n].colors = color;
+                    }
                 }
             }
 
@@ -1764,6 +1804,11 @@ namespace DamageNumbersPro
         {
             if (myAbsorber != null)
             {
+                if(myAbsorber.myAbsorber != null)
+                {
+                    myAbsorber = myAbsorber.myAbsorber;
+                }
+
                 if (time - startTime < combinationSettings.spawnDelay)
                 {
                     absorbStartPosition = position;
@@ -1790,7 +1835,12 @@ namespace DamageNumbersPro
                 baseAlpha = 0.9f * combinationSettings.alphaCurve.Evaluate(combinationProgress);
                 UpdateAlpha(currentFade);
 
-                if (combinationProgress >= 1 && absorbingCount < 1)
+                if(combinationSettings.instantGain && combinationProgress > 0)
+                {
+                    GiveNumber(time);
+                }
+
+                if (combinationProgress >= 1)
                 {
                     GiveNumber(time);
                     DestroyDNP();
@@ -1803,7 +1853,6 @@ namespace DamageNumbersPro
             if (enableCombination == false) return; //No Combination
 
             myAbsorber = null;
-            absorbingCount = 0;
 
             //Combination Methods:
             switch (combinationSettings.method)
@@ -1814,7 +1863,7 @@ namespace DamageNumbersPro
 
                     foreach (DamageNumber otherNumber in spamGroupDictionary[spamGroup])
                     {
-                        if (otherNumber != this && otherNumber.enableCombination && otherNumber.myAbsorber == null && otherNumber.startTime < oldestStartTime)
+                        if (otherNumber != this && otherNumber.enableCombination && otherNumber.myAbsorber == null && otherNumber.startTime <= oldestStartTime)
                         {
                             if (Vector3.Distance(otherNumber.GetTargetPosition(), GetTargetPosition()) < combinationSettings.maxDistance * GetPositionFactor())
                             {
@@ -1892,7 +1941,6 @@ namespace DamageNumbersPro
 
             //Set Absorber:
             myAbsorber = otherNumber;
-            myAbsorber.absorbingCount++;
 
             //Initialize Variables:
             absorbStartPosition = position;
@@ -1901,12 +1949,6 @@ namespace DamageNumbersPro
 
             //Reset Lifetime:
             myAbsorber.startLifeTime = time;
-
-            //Instant Gain:
-            if (combinationSettings.instantGain)
-            {
-                GiveNumber(time);
-            }
 
             //Spawn in Absorber:
             if (combinationSettings.teleportToAbsorber)
@@ -1923,7 +1965,7 @@ namespace DamageNumbersPro
 
                 myAbsorber.number += number;
 
-                if (!combinationSettings.instantGain && myAbsorber.myAbsorber == null)
+                if (myAbsorber.myAbsorber == null)
                 {
                     myAbsorber.combinationScale = combinationSettings.absorberScaleFactor;
                     myAbsorber.startTime = time;
@@ -2111,18 +2153,19 @@ namespace DamageNumbersPro
         void UpdateScaleAnd3D()
         {
             Vector3 appliedScale = originalScale;
+            lastScaleFactor = 1f;
 
             //Scale Down from Combination:
             if (enableCombination)
             {
                 combinationScale = Mathf.Lerp(combinationScale, 1f, Time.deltaTime * combinationSettings.absorberScaleFade);
-                appliedScale *= combinationScale;
+                lastScaleFactor *= combinationScale;
             }
 
             //Scale by Number Size:
             if (enableScaleByNumber)
             {
-                appliedScale *= numberScale;
+                lastScaleFactor *= numberScale;
             }
 
             //Scale over Lifetime:
@@ -2165,21 +2208,23 @@ namespace DamageNumbersPro
                     distance = Mathf.Max(0.004f, offset.magnitude);
 
                     //Calculate Scale:
-                    appliedScale *= distance / distanceScalingSettings.baseDistance;
+                    lastScaleFactor *= distance / distanceScalingSettings.baseDistance;
 
                     if (distance < distanceScalingSettings.closeDistance)
                     {
-                        appliedScale *= distanceScalingSettings.closeScale;
+                        lastScaleFactor *= distanceScalingSettings.closeScale;
                     }
                     else if (distance > distanceScalingSettings.farDistance)
                     {
-                        appliedScale *= distanceScalingSettings.farScale;
+                        lastScaleFactor *= distanceScalingSettings.farScale;
                     }
                     else
                     {
-                        appliedScale *= distanceScalingSettings.farScale + (distanceScalingSettings.closeScale - distanceScalingSettings.farScale) * Mathf.Clamp01(1 - (distance - distanceScalingSettings.closeScale) / Mathf.Max(0.01f, distanceScalingSettings.farDistance - distanceScalingSettings.closeScale));
+                        lastScaleFactor *= distanceScalingSettings.farScale + (distanceScalingSettings.closeScale - distanceScalingSettings.farScale) * Mathf.Clamp01(1 - (distance - distanceScalingSettings.closeScale) / Mathf.Max(0.01f, distanceScalingSettings.farDistance - distanceScalingSettings.closeScale));
                     }
                 }
+
+                appliedScale *= lastScaleFactor;
                 simulatedScale = appliedScale.x;
 
                 //Render Through Walls:
@@ -2202,11 +2247,13 @@ namespace DamageNumbersPro
                     transform.position = offset.normalized * near + targetCamera.position;
 
                     //Adjust Scale:
-                    appliedScale *= near / distance;
+                    renderThroughWallsScale = near / distance;
+                    appliedScale *= renderThroughWallsScale;
                 }
             }
             else
             {
+                appliedScale *= lastScaleFactor;
                 simulatedScale = appliedScale.x;
             }
             #endregion
@@ -2272,6 +2319,16 @@ namespace DamageNumbersPro
         protected virtual void OnLateUpdate()
         {
 
+        }
+
+
+        /// <summary>
+        /// This event was created to fix a GUI specific issue.
+        /// I recommend using the OnStart() method for custom code.
+        /// </summary>
+        protected virtual void OnPreSpawn()
+        {
+            
         }
 
         #endregion

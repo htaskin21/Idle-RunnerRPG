@@ -13,7 +13,7 @@ namespace DamageNumbersPro
     [CustomEditor(typeof(DamageNumber), true), CanEditMultipleObjects]
     public class DamageNumberEditor : Editor
     {
-        public static string version = "4.11";
+        public static string version = "4.20";
 
         void OnEnable()
         {
@@ -56,6 +56,7 @@ namespace DamageNumbersPro
                     DisplayFeature("enableRightText", "Right Text");
                     DisplayFeature("enableTopText", "Top Text");
                     DisplayFeature("enableBottomText", "Bottom Text");
+                    DisplayFeature("enableColorByNumber", "Color By Number");
                     break;
                 case (2): //Fade In
                     DisplayFadeMain("In");
@@ -444,6 +445,25 @@ namespace DamageNumbersPro
                 DNPEditorInternal.CloseBox(new Color(1, 1f, 0.7f));
             }
 
+            //Color By Number but no Numbers:
+            bool colorByNumbersWarning = false;
+            foreach (DamageNumber dn in DNPEditorInternal.damageNumbers)
+            {
+                if (dn.enableColorByNumber && !dn.enableNumber)
+                {
+                    colorByNumbersWarning = true;
+                    break;
+                }
+            }
+            if (colorByNumbersWarning)
+            {
+                EditorGUILayout.Space(2);
+                DNPEditorInternal.StartBox(new Color(1, 1f, 0.8f));
+                GUI.color = new Color(1, 1, 0.8f, 0.7f);
+                DNPEditorInternal.ScalingLabel("<b>Color By Number</b> will not work if <b>Number</b> is disabled.", 327);
+                DNPEditorInternal.CloseBox(new Color(1, 1f, 0.7f));
+            }
+
             //Collision but no Lerp:
             bool collisionWarning = false;
             foreach (DamageNumber dn in DNPEditorInternal.damageNumbers)
@@ -774,6 +794,11 @@ namespace DamageNumbersPro
                         DNPEditorInternal.Label("");
                         DNPEditorInternal.Label("<b>Information:</b>");
                         DNPEditorInternal.Label("- You can use the <b>arrow</b> buttons to swap the position.");
+                        break;
+                    case ("Color By Number"):
+                        DNPEditorInternal.Label("<b>Function:</b>");
+                        DNPEditorInternal.Label("- Changes the <b>color</b> based on the <b>number</b>.");
+                        DNPEditorInternal.Label("- <b>Larger</b> and <b>smaller</b> numbers can have different <b>tints</b>.");
                         break;
 
                     //Movement:
@@ -1162,6 +1187,12 @@ namespace DamageNumbersPro
                         EditorGUILayout.BeginHorizontal();
                         EditorGUILayout.LabelField("", GUILayout.Width(9));
                         EditorGUILayout.PropertyField(serializedObject.FindProperty("bottomTextSettings"));
+                        EditorGUILayout.EndHorizontal();
+                        break;
+                    case ("Color By Number"):
+                        EditorGUILayout.BeginHorizontal();
+                        EditorGUILayout.LabelField("", GUILayout.Width(9));
+                        EditorGUILayout.PropertyField(serializedObject.FindProperty("colorByNumberSettings"));
                         EditorGUILayout.EndHorizontal();
                         break;
 
@@ -1844,6 +1875,9 @@ namespace DamageNumbersPro
                     case ("Bottom Text"):
                         dn.bottomText = "";
                         dn.bottomTextSettings = new TextSettings(0f);
+                        break;
+                    case ("Color By Number"):
+                        dn.colorByNumberSettings = new ColorByNumberSettings(0f);
                         break;
 
                     //Movement:

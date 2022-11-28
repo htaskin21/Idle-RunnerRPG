@@ -55,6 +55,8 @@ namespace Hero
 
             Vector3 correctedPosition = new Vector3(enemyPosition.x, enemyPosition.y + 1f, enemyPosition.z);
 
+            var a = CalcUtils.FormatNumber(damage);
+            
             if (damage < heroDamageDataSo.heroAttack)
             {
                 DamageNumber damageNumber =

@@ -15,12 +15,12 @@ namespace DamageNumbersPro.Demo
 
         public void Apply(DamageNumber target)
         {
-            if (texts.Count > 0)
+            if (texts != null && texts.Count > 0)
             {
                 int randomIndex = Random.Range(0, texts.Count);
                 target.leftText = texts[randomIndex];
 
-                if(randomIndex < fonts.Count)
+                if(fonts != null && randomIndex < fonts.Count)
                 {
                     target.SetFontMaterial(fonts[randomIndex]);
                 }

@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0975da6c06e94d2ea8a0d9a136013116, type: 3}
   m_Name: HeroDamageDataSO
   m_EditorClassIdentifier: 
-  heroAttack: 10
-  attackCooldown: 0
-  tapAttack: 1
-  criticalAttack: 5
-  criticalAttackChance: 0
-  lightningAttackPoint: 0
+  heroAttack: 1140
+  attackCooldown: 10000
+  tapAttack: 19
+  criticalAttack: 0.642
+  criticalAttackChance: 93.599976
+  lightningAttackPoint: 1
+  explosionAttackPoint: 1
+  iceAttackAttackPoint: 1
   earthDamageMultiplier: 1
   plantDamageMultiplier: 1
   waterDamageMultiplier: 1

@@ -99,12 +99,18 @@ namespace DamageNumbersPro.Internal
                 updaters = new Dictionary<float, DNPUpdater>();
             }
 
-            if (updaters.ContainsKey(updateDelay))
+            bool containsKey = updaters.ContainsKey(updateDelay);
+            if (containsKey && updaters[updateDelay] != null)
             {
                 updaters[updateDelay].activePopups.Add(popup);
             }
             else
             {
+                if(containsKey)
+                {
+                    updaters.Remove(updateDelay);
+                }
+
                 GameObject newUpdater = new GameObject("");
                 newUpdater.hideFlags = HideFlags.HideInHierarchy;
 

@@ -767,7 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469a8b7b9ba084e928eac497150596f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tapDamage: 1
+  heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
 --- !u!114 &-1278369992585130925
 MonoBehaviour:
   m_ObjectHideFlags: 0

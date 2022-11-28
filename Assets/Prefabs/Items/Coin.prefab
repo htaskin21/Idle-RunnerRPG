@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootType: 0
-  movementDuration: 0.75
+  movementDuration: 0.6
   sprites:
   - {fileID: 9023175697030226140}
   - {fileID: 8998419214726377224}

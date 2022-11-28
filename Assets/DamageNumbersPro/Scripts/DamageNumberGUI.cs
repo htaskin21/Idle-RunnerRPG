@@ -27,6 +27,14 @@ namespace DamageNumbersPro
          */
 
         //Custom Events:
+        protected override void OnPreSpawn()
+        {
+            //Fixes an issue where the previous mesh was visible for 1 frame.
+            if (textMeshProA != null)
+            {
+                textMeshProA.enabled = textMeshProB.enabled = false;
+            }
+        }
         protected override void OnStart()
         {
             //Only damage numbers of the same parent can interact with each other.
@@ -144,6 +152,11 @@ namespace DamageNumbersPro
         protected override void SetTextString(string fullString)
         {
             textMeshProA.text = textMeshProB.text = fullString;
+
+            if(!textMeshProA.enabled)
+            {
+                textMeshProA.enabled = textMeshProB.enabled = true;
+            }
 
             textMeshProA.ForceMeshUpdate();
             textMeshProB.ForceMeshUpdate();

@@ -24,6 +24,8 @@ public class Calculator : MonoBehaviour
 
     public void CalculateDamages()
     {
+        ResetHeroDamageData();
+        
         _skillUpgrades = _dataReader.SkillData;
         var saveData = SaveLoadManager.Instance.LoadWeaponUpgrade();
         List<SkillUpgrade> availableSkillUpgrades = new List<SkillUpgrade>();
@@ -66,7 +68,7 @@ public class Calculator : MonoBehaviour
         UIManager.OnUpdateDamageHud.Invoke(_heroDamageDataSo.heroAttack, _heroDamageDataSo.tapAttack);
     }
 
-    public void UpdateDamage(int skillID, int skillLevel)
+    private void UpdateDamage(int skillID, int skillLevel)
     {
         var skillUpgrade = _skillUpgrades.FirstOrDefault(x => x.ID == skillID);
 
@@ -93,5 +95,19 @@ public class Calculator : MonoBehaviour
         }
 
         UIManager.OnUpdateDamageHud.Invoke(_heroDamageDataSo.heroAttack, _heroDamageDataSo.tapAttack);
+    }
+
+    private void ResetHeroDamageData()
+    {
+        _heroDamageDataSo.criticalAttack = 0;
+        _heroDamageDataSo.heroAttack = 10;
+        _heroDamageDataSo.tapAttack = 1;
+        _heroDamageDataSo.earthDamageMultiplier = 1;
+        _heroDamageDataSo.explosionAttackPoint = 1;
+        _heroDamageDataSo.lightningAttackPoint = 1;
+        _heroDamageDataSo.plantDamageMultiplier = 1;
+        _heroDamageDataSo.waterDamageMultiplier = 1;
+        _heroDamageDataSo.iceAttackAttackPoint = 1;
+
     }
 }
