@@ -6284,7 +6284,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 588565df8eb32490c81959c182eb714c, type: 2}
   maxEnemyKillAmount: 1
   enemyCreator: {fileID: 1340543638}
-  enemySpawnDistance: 5.5
+  enemySpawnDistance: 5.7
 --- !u!4 &1410243782
 Transform:
   m_ObjectHideFlags: 0
@@ -6596,7 +6596,7 @@ SpriteRenderer:
   m_SortingLayerID: 1819824225
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 575514706977567763, guid: 271bfab496fd448fdad62d55af614037, type: 3}
+  m_Sprite: {fileID: -225448021291222694, guid: 96b74078685ae4331926de3c331af46d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6615,8 +6615,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439747787}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.32, y: 0.42, z: 0}
-  m_LocalScale: {x: 1, y: 1.3218, z: 1}
+  m_LocalPosition: {x: 1.32, y: -0.915, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
