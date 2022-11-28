@@ -11,7 +11,7 @@ namespace Enemy
         private CancellationTokenSource _cts;
 
         [SerializeField]
-        private float tapDamage = 20;
+        private HeroDamageDataSO heroDamageDataSo;
 
         private bool _canAttack = true;
 
@@ -30,7 +30,7 @@ namespace Enemy
             _cts = new CancellationTokenSource();
 
             _canAttack = false;
-            HeroAttack.OnInflictDamage?.Invoke(tapDamage);
+            HeroAttack.OnInflictDamage?.Invoke(heroDamageDataSo.tapAttack);
             await UniTask.Delay(tapCoolDown);
             _canAttack = true;
 

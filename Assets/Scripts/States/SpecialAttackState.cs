@@ -1,5 +1,3 @@
-using System.Threading;
-using Cysharp.Threading.Tasks;
 using Hero;
 using UI;
 using UnityEngine;
@@ -21,7 +19,7 @@ namespace States
         protected override void EnterState()
         {
             ButtonController.OnActiveAttackButtons?.Invoke(false);
-            
+
             CharacterController.AnimationController.PlayAnimation(AnimationType.SpecialAttack);
 
             CharacterController.AnimationController.onAnimationAction.AddListener(() =>
@@ -31,7 +29,8 @@ namespace States
                 HeroAttack.OnInflictDamage?.Invoke(
                     GameManager.Instance.HeroController.heroAttack.GetSpecialAttackDamage()));
 
-            CharacterController.AnimationController.onAnimationEnd.AddListener(DecideNextState);
+            HeroController heroController = (HeroController) CharacterController;
+            CharacterController.AnimationController.onAnimationEnd.AddListener(heroController.DecideNextState);
 
             base.EnterState();
         }
@@ -42,28 +41,6 @@ namespace States
             CharacterController.AnimationController.onAnimationEnd.RemoveAllListeners();
 
             base.ExitState();
-        }
-
-        private void DecideNextState()
-        {
-            if (GameManager.Instance.HeroController.heroAttack.CurrentEnemy.enemyHealth.Health <= 0)
-            {
-                TransitionToRunState().Forget();
-            }
-            else
-            {
-                CharacterController.TransitionToState(idleState);
-            }
-        }
-
-        private async UniTask TransitionToRunState()
-        {
-            CancellationTokenSource cts = new CancellationTokenSource();
-
-            await UniTask.Delay(500, cancellationToken: cts.Token);
-            CharacterController.TransitionToState(runState);
-
-            cts.Cancel();
         }
 
         private GameObject SetSpecialAttackPrefab()

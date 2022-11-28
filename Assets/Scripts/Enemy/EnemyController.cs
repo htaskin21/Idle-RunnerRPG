@@ -11,6 +11,7 @@ namespace Enemy
 
         [SerializeField]
         private BoxCollider2D boxCollider2D;
+
         public BoxCollider2D BoxCollider2D => boxCollider2D;
 
         public DamageType enemyDamageType;

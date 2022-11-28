@@ -44,9 +44,9 @@ namespace States
             if (CharacterController.gameObject.CompareTag("Player"))
             {
                 _cancellationTokenSource.Cancel();
+                GameManager.Instance.HeroController.heroUI.FadeOutSlider();
             }
 
-            GameManager.Instance.HeroController.heroUI.FadeOutSlider();
             base.ExitState();
         }
     }
