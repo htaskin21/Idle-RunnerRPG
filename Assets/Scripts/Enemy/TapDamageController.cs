@@ -15,8 +15,6 @@ namespace Enemy
 
         private bool _canAttack = true;
 
-        private int tapCoolDown = 500;
-
         public void OnPointerDown(PointerEventData eventData)
         {
             if (_canAttack)
@@ -25,16 +23,28 @@ namespace Enemy
             }
         }
 
-        private async UniTask TapToDamage()
+        public async UniTask TapToDamage()
         {
             _cts = new CancellationTokenSource();
 
             _canAttack = false;
             HeroAttack.OnInflictDamage?.Invoke(heroDamageDataSo.tapAttack);
-            await UniTask.Delay(tapCoolDown);
+            await UniTask.Delay(heroDamageDataSo.tapAttackCoolDown);
             _canAttack = true;
 
             _cts.Cancel();
         }
+
+        public double GetAutoTapAttackDuration()
+        {
+            return heroDamageDataSo.autoTapAttackDuration;
+        }
+        
+        public int GetAutoTapAttackCoolDown()
+        {
+            return heroDamageDataSo.tapAttackCoolDown;
+        }
+        
+        
     }
 }

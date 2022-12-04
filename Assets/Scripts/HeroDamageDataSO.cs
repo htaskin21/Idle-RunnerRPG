@@ -7,7 +7,9 @@ public class HeroDamageDataSO :ScriptableObject
     public int attackCooldown;
     
     public double tapAttack = 1;
-   
+    public double autoTapAttackDuration;
+    public int tapAttackCoolDown;
+    
     public float criticalAttack = 5;
     public float criticalAttackChance = 0;
 

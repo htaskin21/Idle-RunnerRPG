@@ -15,8 +15,10 @@ MonoBehaviour:
   heroAttack: 1140
   attackCooldown: 10000
   tapAttack: 19
+  autoTapAttackDuration: 10000
+  tapAttackCoolDown: 500
   criticalAttack: 0.642
-  criticalAttackChance: 93.599976
+  criticalAttackChance: 115.19997
   lightningAttackPoint: 1
   explosionAttackPoint: 1
   iceAttackAttackPoint: 1

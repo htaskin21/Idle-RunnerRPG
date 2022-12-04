@@ -113,6 +113,7 @@ namespace Hero
     {
         Lightning,
         Explosion,
-        IceAttack
+        IceAttack,
+        AutoTap
     }
 }

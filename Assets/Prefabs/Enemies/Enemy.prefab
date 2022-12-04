@@ -736,6 +736,7 @@ MonoBehaviour:
   previousState: {fileID: 0}
   enemyHealth: {fileID: 6880065268576177032}
   boxCollider2D: {fileID: 8885628202984723388}
+  tapDamageController: {fileID: 8491517519486077023}
   enemyDamageType: 0
   enemyDamageTypeIcon: {fileID: 6057918724211574257}
   enemyLevel: 0

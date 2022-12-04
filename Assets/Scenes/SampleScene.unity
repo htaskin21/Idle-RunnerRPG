@@ -8339,6 +8339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   specialAttackType: 1
+  heroDamageDataSo: {fileID: 0}
   buttonComponent: {fileID: 0}
   buttonBackground: {fileID: 0}
 --- !u!224 &423372927999718285
@@ -11023,6 +11024,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1616116786}
     m_Modifications:
+    - target: {fileID: 2659541618948628148, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
+      propertyPath: heroDamageDataSo
+      value: 
+      objectReference: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -11126,6 +11131,10 @@ PrefabInstance:
     - target: {fileID: 5904951516062476238, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Name
       value: SpecialAttackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartAutoTap
       objectReference: {fileID: 0}
     - target: {fileID: 6553750857544011452, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_IsActive
