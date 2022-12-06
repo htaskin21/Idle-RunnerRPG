@@ -31,11 +31,15 @@ namespace Hero
         public EnemyController CurrentEnemy { get; private set; }
 
         public static Action<double> OnInflictDamage;
+        public static Action<double> OnTapDamage;
 
         private void Awake()
         {
             OnInflictDamage = delegate(double damage) { };
             OnInflictDamage += SpawnDamagePopUp;
+            
+            OnTapDamage = delegate(double damage) {  };
+            OnTapDamage += SpawnDamagePopUp;
         }
 
         private void OnTriggerEnter2D(Collider2D col)

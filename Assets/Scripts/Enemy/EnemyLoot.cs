@@ -23,6 +23,8 @@ namespace Enemy
 
             var a = enemyController.AnimationController.transform.localPosition;
 
+            
+            
             lootObject.SetInitialPosition(enemyController.transform, lootAmount);
         }
     }

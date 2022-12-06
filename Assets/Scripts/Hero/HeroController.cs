@@ -17,6 +17,7 @@ namespace Hero
 
         private void Start()
         {
+            HeroAttack.OnTapDamage += DecideNextStateAfterTapDamage;
             pets[0].gameObject.SetActive(true);
         }
 
@@ -33,10 +34,25 @@ namespace Hero
             }
         }
 
+        private void DecideNextStateAfterTapDamage(double damage)
+        {
+            var enemyHealth = heroAttack.CurrentEnemy.enemyHealth.Health - damage;
+
+            if (enemyHealth <= 0)
+            {
+                TransitionToRunState().Forget();
+            }
+            else
+            {
+                var idleState = GetState(StateType.Idle);
+                TransitionToState(idleState);
+            }
+        }
+
         private async UniTask TransitionToRunState()
         {
             CancellationTokenSource cts = new CancellationTokenSource();
-            
+
             var runState = GetState(StateType.Run);
             await UniTask.Delay(500, cancellationToken: cts.Token);
             TransitionToState(runState);

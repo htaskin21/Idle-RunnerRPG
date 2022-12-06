@@ -28,6 +28,7 @@ namespace Enemy
         private void Start()
         {
             HeroAttack.OnInflictDamage += TakeDamage;
+            HeroAttack.OnTapDamage += TakeDamage;
         }
 
         private void TakeDamage(double attackPoint)
@@ -41,6 +42,7 @@ namespace Enemy
         private void OnDestroy()
         {
             HeroAttack.OnInflictDamage -= TakeDamage;
+            HeroAttack.OnTapDamage -= TakeDamage;
         }
     }
 }

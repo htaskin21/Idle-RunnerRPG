@@ -23,28 +23,17 @@ namespace Enemy
             }
         }
 
-        public async UniTask TapToDamage()
+        private async UniTask TapToDamage()
         {
             _cts = new CancellationTokenSource();
 
             _canAttack = false;
-            HeroAttack.OnInflictDamage?.Invoke(heroDamageDataSo.tapAttack);
+            HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack);
+
             await UniTask.Delay(heroDamageDataSo.tapAttackCoolDown);
             _canAttack = true;
 
             _cts.Cancel();
         }
-
-        public double GetAutoTapAttackDuration()
-        {
-            return heroDamageDataSo.autoTapAttackDuration;
-        }
-        
-        public int GetAutoTapAttackCoolDown()
-        {
-            return heroDamageDataSo.tapAttackCoolDown;
-        }
-        
-        
     }
 }
