@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: HeroDamageDataSO
   m_EditorClassIdentifier: 
   heroAttack: 1140
-  attackCooldown: 10000
-  tapAttack: 19
-  autoTapAttackDuration: 10000
+  attackCooldown: 3000
+  tapAttack: 33
   tapAttackCoolDown: 500
+  autoTapAttackDuration: 10000
+  autoTapAttackCooldown: 180000
   criticalAttack: 0.642
-  criticalAttackChance: 115.19997
+  criticalAttackChance: 151.2
   lightningAttackPoint: 1
   explosionAttackPoint: 1
   iceAttackAttackPoint: 1

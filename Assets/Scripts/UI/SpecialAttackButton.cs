@@ -3,6 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Hero;
 using States;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,13 +14,17 @@ namespace UI
         [SerializeField]
         private SpecialAttackType specialAttackType;
 
-        [SerializeField]
-        private HeroDamageDataSO heroDamageDataSo;
-
+        public GameObject lockBackground;
+        public Color baseBorderColor;
         public Button buttonComponent;
         public Image buttonBackground;
+        public Image sliderImage;
+        public TextMeshProUGUI timeText;
 
-        private CancellationTokenSource _cts;
+        private void Start()
+        {
+            baseBorderColor = buttonBackground.color;
+        }
 
         public void StartSpecialAttack()
         {
@@ -29,32 +34,73 @@ namespace UI
             GameManager.Instance.HeroController.TransitionToState(specialAttackState);
         }
 
-        private async UniTask AutoTapRoutine()
+        public async UniTask StartDurationState(int maximumTime, CancellationTokenSource cancellationTokenSource)
         {
-            _cts = new CancellationTokenSource();
+            sliderImage.fillAmount = 0;
+            sliderImage.fillClockwise = true;
+            sliderImage.gameObject.SetActive(true);
+            timeText.gameObject.SetActive(true);
 
-            var autoTapAttackDuration =
-                heroDamageDataSo.autoTapAttackDuration;
-            var finishTime = DateTime.UtcNow.AddMilliseconds(autoTapAttackDuration);
+            var baseTime = maximumTime;
+            var passingTime = 100;
+            var currentTime = 0;
 
-            while (finishTime >= DateTime.UtcNow)
+            while (maximumTime > 0)
             {
-                HeroAttack.OnInflictDamage?.Invoke(heroDamageDataSo.tapAttack);
-
-                GameManager.Instance.HeroController.DecideNextState();
-
-                await UniTask.Delay(heroDamageDataSo.tapAttackCoolDown);
-                await UniTask.WaitUntil(() =>
-                    GameManager.Instance.EnemyController.enemyHealth.Health > 0 &&
-                    GameManager.Instance.HeroController.currentState.stateType != StateType.Run);
+                maximumTime -= passingTime;
+                SetDurationState(currentTime, baseTime);
+                await UniTask.Delay(passingTime);
+                currentTime += passingTime;
             }
 
-            _cts.Cancel();
+            cancellationTokenSource.Cancel();
         }
 
-        public void StartAutoTap()
+        private void SetDurationState(int currentTime, int maximumTime)
         {
-            AutoTapRoutine().Forget();
+            sliderImage.fillAmount = (float) currentTime / maximumTime;
+            maximumTime -= currentTime;
+            maximumTime /= 1000;
+
+            TimeSpan timeSpan = TimeSpan.FromMilliseconds(maximumTime);
+            timeText.text = $"{timeSpan.Milliseconds}";
+        }
+
+        public async UniTask StartCoolDownState(int maximumTime, CancellationTokenSource cancellationTokenSource)
+        {
+            sliderImage.fillAmount = 1;
+            sliderImage.fillClockwise = false;
+            sliderImage.gameObject.SetActive(true);
+
+            var baseTime = maximumTime;
+            var passingTime = 100;
+            var currentTime = 0;
+
+            while (maximumTime > 0)
+            {
+                maximumTime -= passingTime;
+                SetCoolDownState(currentTime, baseTime);
+                await UniTask.Delay(passingTime);
+                currentTime += passingTime;
+            }
+
+            DisableSliderImage();
+            cancellationTokenSource.Cancel();
+        }
+
+        private void SetCoolDownState(int currentTime, int maximumTime)
+        {
+            var difference = (float) currentTime / maximumTime;
+            difference = 1 - difference;
+            sliderImage.fillAmount = difference;
+
+            TimeSpan timeSpan = TimeSpan.FromMilliseconds(maximumTime - currentTime);
+            timeText.text = $"{timeSpan.Minutes}.{timeSpan.Seconds}";
+        }
+
+        private void DisableSliderImage()
+        {
+            sliderImage.gameObject.SetActive(false);
         }
     }
 }

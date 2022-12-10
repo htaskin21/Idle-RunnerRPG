@@ -1,5 +1,6 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using UI;
 using UnityEngine;
 
 namespace States
@@ -23,6 +24,8 @@ namespace States
                 _cancellationTokenSource = new CancellationTokenSource();
                 _cancellationToken = _cancellationTokenSource.Token;
 
+                ButtonController.OnActiveAttackButtons?.Invoke(true);
+                
                 WaitForNextAttack().Forget();
             }
         }

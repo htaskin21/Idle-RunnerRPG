@@ -15,7 +15,7 @@ namespace UI
         private Color _greenColor = new Color(0.2156863f, 0.5803922f, 0.4313726f, 1);
         private Color _greyColor = new Color(0.5754717f, .5754717f, .5754717f, 1);
 
-        private void Start()
+        private void Awake()
         {
             OnActiveAttackButtons = delegate(bool state) { };
             OnActiveAttackButtons += ActivateAttackButtons;
@@ -26,7 +26,7 @@ namespace UI
             foreach (var attackButton in attackButtons)
             {
                 attackButton.buttonComponent.interactable = state;
-                attackButton.buttonBackground.DOColor(state ? _greenColor : _greyColor, 0.5f);
+                attackButton.buttonBackground.DOColor(state ? attackButton.baseBorderColor : _greyColor, 0.5f);
             }
         }
     }
