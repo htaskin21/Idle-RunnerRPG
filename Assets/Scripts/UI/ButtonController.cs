@@ -26,7 +26,7 @@ namespace UI
             foreach (var attackButton in attackButtons)
             {
                 attackButton.buttonComponent.interactable = state;
-                attackButton.buttonBackground.DOColor(state ? attackButton.baseBorderColor : _greyColor, 0.5f);
+                //attackButton.buttonBackground.DOColor(state ? attackButton.baseBorderColor : _greyColor, 0.5f);
             }
         }
     }

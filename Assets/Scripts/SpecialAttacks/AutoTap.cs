@@ -11,6 +11,9 @@ namespace SpecialAttacks
     public class AutoTap : MonoBehaviour
     {
         [SerializeField]
+        private string identifier;
+
+        [SerializeField]
         private HeroDamageDataSO heroDamageDataSo;
 
         [SerializeField]
@@ -18,6 +21,11 @@ namespace SpecialAttacks
 
         private CancellationTokenSource _cts;
         private CancellationTokenSource _buttonCts;
+
+        private void Start()
+        {
+         
+        }
 
         private async UniTask AutoTapRoutine()
         {
@@ -27,7 +35,7 @@ namespace SpecialAttacks
             var autoTapAttackDuration =
                 heroDamageDataSo.autoTapAttackDuration;
             var finishTime = DateTime.UtcNow.AddMilliseconds(autoTapAttackDuration);
-            
+
             specialAttackButton.StartDurationState((int) autoTapAttackDuration, _buttonCts).Forget();
 
             while (finishTime >= DateTime.UtcNow)

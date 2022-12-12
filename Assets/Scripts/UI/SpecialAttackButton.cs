@@ -36,6 +36,8 @@ namespace UI
 
         public async UniTask StartDurationState(int maximumTime, CancellationTokenSource cancellationTokenSource)
         {
+            buttonComponent.enabled = true;
+
             sliderImage.fillAmount = 0;
             sliderImage.fillClockwise = true;
             sliderImage.gameObject.SetActive(true);
@@ -68,6 +70,8 @@ namespace UI
 
         public async UniTask StartCoolDownState(int maximumTime, CancellationTokenSource cancellationTokenSource)
         {
+            buttonComponent.enabled = false;
+
             sliderImage.fillAmount = 1;
             sliderImage.fillClockwise = false;
             sliderImage.gameObject.SetActive(true);
@@ -85,6 +89,7 @@ namespace UI
             }
 
             DisableSliderImage();
+            buttonComponent.enabled = true;
             cancellationTokenSource.Cancel();
         }
 
