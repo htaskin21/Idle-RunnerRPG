@@ -3,5 +3,11 @@ public enum SkillTypes
     BaseAttackBoost,
     TapDamageBoost,
     CriticalAttackBoost,
-    CriticalAttackChance
+    CriticalAttackChance,
+    AutoTapSpecial,
+    FireDmgSpecial,
+    WaterDmgSpecial,
+    LightningDmgSpecial,
+    CoinSpecial
+    
 }

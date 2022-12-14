@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 
@@ -22,9 +21,10 @@ namespace UI
             enhancedScroller.Delegate = this;
         }
 
-        public void LoadData()
+        public void LoadData(List<SkillUpgrade> skillUpgrades)
         {
-            _skillUis = DataReader.Instance.SkillData.ToList();
+            _skillUis = new List<SkillUpgrade>();
+            _skillUis = skillUpgrades;
 
             enhancedScroller.ReloadData();
         }

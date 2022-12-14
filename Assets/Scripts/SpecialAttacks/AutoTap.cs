@@ -11,7 +11,7 @@ namespace SpecialAttacks
     public class AutoTap : MonoBehaviour
     {
         [SerializeField]
-        private string identifier;
+        private int identifier;
 
         [SerializeField]
         private HeroDamageDataSO heroDamageDataSo;
@@ -24,7 +24,11 @@ namespace SpecialAttacks
 
         private void Start()
         {
-         
+            var dictionary = SaveLoadManager.Instance.LoadWeaponUpgrade();
+            if (dictionary.ContainsKey(identifier) && dictionary[identifier] > 0)
+            {
+                specialAttackButton.StartLockState();
+            }
         }
 
         private async UniTask AutoTapRoutine()

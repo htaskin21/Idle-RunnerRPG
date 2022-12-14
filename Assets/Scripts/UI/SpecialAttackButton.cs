@@ -107,5 +107,11 @@ namespace UI
         {
             sliderImage.gameObject.SetActive(false);
         }
+
+        public void StartLockState()
+        {
+            lockBackground.SetActive(true);
+            buttonComponent.enabled = false;
+        }
     }
 }

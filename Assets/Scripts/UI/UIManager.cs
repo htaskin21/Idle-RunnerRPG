@@ -41,6 +41,9 @@ namespace UI
         [SerializeField]
         private SkillUIPanel skillUIPanel;
 
+        [SerializeField]
+        private SkillUIPanel heroUIPanel;
+
         public static Action<double> OnUpdateCoinHud;
 
         public static Action<double, double> OnUpdateDamageHud;
@@ -66,7 +69,7 @@ namespace UI
         {
             skillUIPanel.OpenPanel();
         }
-        
+
         public void CloseSkillPanel()
         {
             skillUIPanel.ClosePanel();
@@ -74,7 +77,8 @@ namespace UI
 
         public void LoadScrollers()
         {
-            skillUIPanel.LoadData();
+            skillUIPanel.LoadData(DataReader.Instance.SkillData);
+            heroUIPanel.LoadData(DataReader.Instance.SpecialAttackData);
         }
 
         private void UpdateCoinHud(double coin)

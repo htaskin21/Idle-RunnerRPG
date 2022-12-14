@@ -26,6 +26,10 @@ public class DataReader : MonoBehaviour
     private List<SkillUpgrade> _skillData;
 
     public List<SkillUpgrade> SkillData => _skillData;
+    
+    private List<SkillUpgrade> _specialAttackData;
+
+    public List<SkillUpgrade> SpecialAttackData => _specialAttackData;
 
     private void Awake()
     {
@@ -37,6 +41,7 @@ public class DataReader : MonoBehaviour
         CancellationTokenSource cts = new CancellationTokenSource();
 
         ReadSkillData();
+        ReadSpecialAttackData();
 
         cts.Cancel();
     }
@@ -68,6 +73,37 @@ public class DataReader : MonoBehaviour
             var values = line.Replace("\r", string.Empty).Split(',');
 
             _skillData.Add(new SkillUpgrade(values[0], values[1], values[2], values[3]));
+            i++;
+        }
+    }
+    
+    private void ReadSpecialAttackData()
+    {
+        var path = $"Data/SpecialAttackData";
+
+        var textAsset = Resources.Load<TextAsset>(path);
+
+        var i = 0;
+
+        _specialAttackData = new List<SkillUpgrade>();
+
+        foreach (var line in textAsset.text.Split('\n'))
+        {
+            if (i == 0)
+            {
+                i++;
+
+                continue;
+            }
+
+            if (string.IsNullOrEmpty(line))
+            {
+                continue;
+            }
+
+            var values = line.Replace("\r", string.Empty).Split(',');
+
+            _specialAttackData.Add(new SkillUpgrade(values[0], values[1], values[2], values[3]));
             i++;
         }
     }

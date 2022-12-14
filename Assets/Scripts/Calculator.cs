@@ -62,6 +62,11 @@ public class Calculator : MonoBehaviour
                     _heroDamageDataSo.criticalAttackChance += (float) availableSkillUpgrade.BaseIncrementAmount *
                                                               saveData[availableSkillUpgrade.ID];
                     break;
+                default:
+                    Debug.LogWarning("Calculate Damage Default geldi");
+                    _heroDamageDataSo.heroAttack +=
+                        0;
+                    break;
             }
         }
 
@@ -91,6 +96,11 @@ public class Calculator : MonoBehaviour
                 break;
             case SkillTypes.CriticalAttackChance:
                 _heroDamageDataSo.criticalAttackChance += (float) difference;
+                break;
+            default:
+                Debug.LogWarning("Update Damage Default geldi");
+                _heroDamageDataSo.heroAttack +=
+                    0;
                 break;
         }
 

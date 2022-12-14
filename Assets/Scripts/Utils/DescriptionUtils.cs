@@ -1,4 +1,5 @@
 using System.Text;
+using UnityEngine;
 
 namespace Utils
 {
@@ -18,7 +19,8 @@ namespace Utils
                 case SkillTypes.CriticalAttackChance:
                     return stringBuilder.Append("+x % Critical Attack Chance");
                 default:
-                    return stringBuilder;
+                    Debug.LogWarning("GetDescription Default geldi");
+                    return stringBuilder.Append("empty");
             }
         }
     }
