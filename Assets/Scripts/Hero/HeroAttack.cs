@@ -37,8 +37,8 @@ namespace Hero
         {
             OnInflictDamage = delegate(double damage) { };
             OnInflictDamage += SpawnDamagePopUp;
-            
-            OnTapDamage = delegate(double damage) {  };
+
+            OnTapDamage = delegate(double damage) { };
             OnTapDamage += SpawnDamagePopUp;
         }
 
@@ -60,7 +60,7 @@ namespace Hero
             Vector3 correctedPosition = new Vector3(enemyPosition.x, enemyPosition.y + 1f, enemyPosition.z);
 
             var a = CalcUtils.FormatNumber(damage);
-            
+
             if (damage < heroDamageDataSo.heroAttack)
             {
                 DamageNumber damageNumber =
@@ -96,20 +96,46 @@ namespace Hero
 
         public double GetSpecialAttackDamage()
         {
+            double specialAttackMultiplier = 0;
+            double damageMultiplierByDamageType = 0;
+
+
             switch (specialAttackType)
             {
                 case SpecialAttackType.Lightning:
-                    return heroDamageDataSo.lightningAttackPoint;
+                    specialAttackMultiplier = heroDamageDataSo.lightningSpecialAttackMultiplier;
+                    break;
 
                 case SpecialAttackType.Explosion:
-                    return heroDamageDataSo.explosionAttackPoint;
-                
+                    specialAttackMultiplier = heroDamageDataSo.FireSpecialAttackMultiplier;
+                    break;
+
                 case SpecialAttackType.IceAttack:
-                    return heroDamageDataSo.iceAttackAttackPoint;
+                    specialAttackMultiplier = heroDamageDataSo.WaterSpecialAttackMultiplier;
+                    break;
 
                 default:
-                    return 1;
+                    specialAttackMultiplier = 1;
+                    break;
             }
+
+            if (specialAttackType == SpecialAttackType.Lightning && CurrentEnemy.enemyDamageType == DamageType.Water)
+            {
+                damageMultiplierByDamageType = GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
+            }
+
+            if (specialAttackType == SpecialAttackType.IceAttack && CurrentEnemy.enemyDamageType == DamageType.Fire)
+            {
+                damageMultiplierByDamageType = GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
+            }
+
+            if (specialAttackType == SpecialAttackType.Explosion && CurrentEnemy.enemyDamageType == DamageType.Plant)
+            {
+                damageMultiplierByDamageType = GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
+            }
+
+            var totalDamage = heroDamageDataSo.heroAttack * specialAttackMultiplier * damageMultiplierByDamageType;
+            return totalDamage;
         }
     }
 

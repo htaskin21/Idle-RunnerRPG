@@ -3,5 +3,6 @@ public enum DamageType
       Earth,
       Plant,
       Water,
-      Normal
+      Normal,
+      Fire
 }

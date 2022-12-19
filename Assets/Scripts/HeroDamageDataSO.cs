@@ -14,9 +14,9 @@ public class HeroDamageDataSO :ScriptableObject
     public float criticalAttack = 5;
     public float criticalAttackChance = 0;
 
-    public double lightningAttackPoint;
-    public double explosionAttackPoint;
-    public double iceAttackAttackPoint;
+    public double lightningSpecialAttackMultiplier;
+    public double FireSpecialAttackMultiplier;
+    public double WaterSpecialAttackMultiplier;
 
 
     public double earthDamageMultiplier = 1;

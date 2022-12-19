@@ -26,7 +26,7 @@ public class DataReader : MonoBehaviour
     private List<SkillUpgrade> _skillData;
 
     public List<SkillUpgrade> SkillData => _skillData;
-    
+
     private List<SkillUpgrade> _specialAttackData;
 
     public List<SkillUpgrade> SpecialAttackData => _specialAttackData;
@@ -72,11 +72,11 @@ public class DataReader : MonoBehaviour
 
             var values = line.Replace("\r", string.Empty).Split(',');
 
-            _skillData.Add(new SkillUpgrade(values[0], values[1], values[2], values[3]));
+            _skillData.Add(new SkillUpgrade(values[0], values[1], values[2], values[3], values[4]));
             i++;
         }
     }
-    
+
     private void ReadSpecialAttackData()
     {
         var path = $"Data/SpecialAttackData";
@@ -103,7 +103,7 @@ public class DataReader : MonoBehaviour
 
             var values = line.Replace("\r", string.Empty).Split(',');
 
-            _specialAttackData.Add(new SkillUpgrade(values[0], values[1], values[2], values[3]));
+            _specialAttackData.Add(new SkillUpgrade(values[0], values[1], values[2], values[3], values[4]));
             i++;
         }
     }

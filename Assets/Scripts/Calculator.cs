@@ -25,7 +25,7 @@ public class Calculator : MonoBehaviour
     public void CalculateDamages()
     {
         ResetHeroDamageData();
-        
+
         _skillUpgrades = _dataReader.SkillData;
         var saveData = SaveLoadManager.Instance.LoadWeaponUpgrade();
         List<SkillUpgrade> availableSkillUpgrades = new List<SkillUpgrade>();
@@ -47,19 +47,23 @@ public class Calculator : MonoBehaviour
             switch (availableSkillUpgrade.SkillTypes)
             {
                 case SkillTypes.BaseAttackBoost:
-                    _heroDamageDataSo.heroAttack +=
-                        availableSkillUpgrade.BaseIncrementAmount * saveData[availableSkillUpgrade.ID];
+                    _heroDamageDataSo.heroAttack += availableSkillUpgrade.StartAmount +
+                                                    availableSkillUpgrade.BaseIncrementAmount *
+                                                    saveData[availableSkillUpgrade.ID];
                     break;
                 case SkillTypes.TapDamageBoost:
-                    _heroDamageDataSo.tapAttack +=
-                        availableSkillUpgrade.BaseIncrementAmount * saveData[availableSkillUpgrade.ID];
+                    _heroDamageDataSo.tapAttack += availableSkillUpgrade.StartAmount +
+                                                   availableSkillUpgrade.BaseIncrementAmount *
+                                                   saveData[availableSkillUpgrade.ID];
                     break;
                 case SkillTypes.CriticalAttackBoost:
-                    _heroDamageDataSo.criticalAttack += (float) availableSkillUpgrade.BaseIncrementAmount *
+                    _heroDamageDataSo.criticalAttack += (float) availableSkillUpgrade.StartAmount +
+                                                        (float) availableSkillUpgrade.BaseIncrementAmount *
                                                         saveData[availableSkillUpgrade.ID];
                     break;
                 case SkillTypes.CriticalAttackChance:
-                    _heroDamageDataSo.criticalAttackChance += (float) availableSkillUpgrade.BaseIncrementAmount *
+                    _heroDamageDataSo.criticalAttackChance += (float) availableSkillUpgrade.StartAmount +
+                                                              (float) availableSkillUpgrade.BaseIncrementAmount *
                                                               saveData[availableSkillUpgrade.ID];
                     break;
                 default:
@@ -113,11 +117,12 @@ public class Calculator : MonoBehaviour
         _heroDamageDataSo.heroAttack = 10;
         _heroDamageDataSo.tapAttack = 1;
         _heroDamageDataSo.earthDamageMultiplier = 1;
-        _heroDamageDataSo.explosionAttackPoint = 1;
-        _heroDamageDataSo.lightningAttackPoint = 1;
+        _heroDamageDataSo.FireSpecialAttackMultiplier = 1;
+        _heroDamageDataSo.lightningSpecialAttackMultiplier = 1;
         _heroDamageDataSo.plantDamageMultiplier = 1;
         _heroDamageDataSo.waterDamageMultiplier = 1;
-        _heroDamageDataSo.iceAttackAttackPoint = 1;
-
+        _heroDamageDataSo.WaterSpecialAttackMultiplier = 1;
+        _heroDamageDataSo.criticalAttack = 1;
+        _heroDamageDataSo.criticalAttack = 0;
     }
 }
