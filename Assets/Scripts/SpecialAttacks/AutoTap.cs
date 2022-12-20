@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Hero;
+using ScriptableObjects;
 using States;
 using UI;
 using UnityEngine;

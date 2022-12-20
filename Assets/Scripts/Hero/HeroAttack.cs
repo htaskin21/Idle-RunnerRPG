@@ -1,6 +1,7 @@
 using System;
 using DamageNumbersPro;
 using Enemy;
+using ScriptableObjects;
 using States;
 using UnityEngine;
 using Utils;

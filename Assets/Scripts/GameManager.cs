@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Enemy;
 using Hero;
+using ScriptableObjects;
 using UI;
 using Unity.Mathematics;
 using UnityEngine;

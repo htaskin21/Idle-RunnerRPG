@@ -3049,7 +3049,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
 --- !u!114 &875743118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5438,7 +5438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb249b41739e4a0c9ba73a0928fca7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconData: {fileID: 11400000, guid: bbb0692481eee40b9b1c59fbccc1e882, type: 2}
+  iconDataSo: {fileID: 11400000, guid: bbb0692481eee40b9b1c59fbccc1e882, type: 2}
 --- !u!4 &1340543639
 Transform:
   m_ObjectHideFlags: 0
@@ -5570,10 +5570,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1616116786}
     m_Modifications:
+    - target: {fileID: 1309355422701722490, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309355422701722490, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 1578890527179965597, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3386194589405974544, guid: ce300894134eb4557a8e8042f7e689dd, type: 3}
+      objectReference: {fileID: 3968307326363886165, guid: ce300894134eb4557a8e8042f7e689dd, type: 3}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6255,7 +6263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1518390998
 RectTransform:
   m_ObjectHideFlags: 0
