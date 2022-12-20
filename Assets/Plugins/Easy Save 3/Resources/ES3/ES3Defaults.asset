@@ -39,6 +39,7 @@ MonoBehaviour:
     - UniTask.Addressables
     - PsdPlugin
     - UniTask.Editor
+    - Sirenix.OdinInspector.Modules.UnityMathematics
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
