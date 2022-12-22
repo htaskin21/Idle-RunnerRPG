@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using EnhancedUI.EnhancedScroller;
+using UI;
 using UnityEngine;
 
-namespace UI
+namespace SpecialAttacks
 {
-    public class SkillUIPanel : UIPanel, IEnhancedScrollerDelegate
+    public class SpecialAttackUIPanel : UIPanel, IEnhancedScrollerDelegate
     {
         [SerializeField]
         private EnhancedScroller enhancedScroller;
@@ -14,24 +15,24 @@ namespace UI
 
         public GameObject panelObject;
 
-        private List<SkillUpgrade> _skillUis;
+        private List<SpecialAttackUpgrade> _specialAttackUpgrades;
 
         private void Start()
         {
             enhancedScroller.Delegate = this;
         }
 
-        public void LoadData(List<SkillUpgrade> skillUpgrades)
+        public void LoadData(List<SpecialAttackUpgrade> specialAttackUpgrades)
         {
-            _skillUis = new List<SkillUpgrade>();
-            _skillUis = skillUpgrades;
+            _specialAttackUpgrades = new List<SpecialAttackUpgrade>();
+            _specialAttackUpgrades = specialAttackUpgrades;
 
             enhancedScroller.ReloadData();
         }
 
         public int GetNumberOfCells(EnhancedScroller scroller)
         {
-            return _skillUis.Count;
+            return _specialAttackUpgrades.Count;
         }
 
         public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
@@ -41,11 +42,12 @@ namespace UI
 
         public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
         {
-            SkillUIRow skillUIRow = enhancedScroller.GetCellView(enhancedScrollerCellView) as SkillUIRow;
+            SpecialAttackUIRow specialAttackUIRow =
+                enhancedScroller.GetCellView(enhancedScrollerCellView) as SpecialAttackUIRow;
 
-            skillUIRow.SetSkillUIRow(_skillUis[dataIndex]);
+            specialAttackUIRow.SetUIRow(_specialAttackUpgrades[dataIndex]);
 
-            return skillUIRow;
+            return specialAttackUIRow;
         }
     }
 }

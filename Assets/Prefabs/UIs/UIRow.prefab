@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 2592043426292044269}
   - component: {fileID: 2592043426292044267}
   m_Layer: 5
-  m_Name: SkillUIRow
+  m_Name: UIRow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

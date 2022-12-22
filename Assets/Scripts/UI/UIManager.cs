@@ -1,4 +1,6 @@
 using System;
+using Skill;
+using SpecialAttacks;
 using TMPro;
 using UnityEngine;
 using Utils;
@@ -42,7 +44,7 @@ namespace UI
         private SkillUIPanel skillUIPanel;
 
         [SerializeField]
-        private SkillUIPanel heroUIPanel;
+        private SpecialAttackUIPanel heroUIPanel;
 
         public static Action<double> OnUpdateCoinHud;
 

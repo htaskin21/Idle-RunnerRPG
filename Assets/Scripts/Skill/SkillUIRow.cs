@@ -1,45 +1,13 @@
 using System.Collections.Generic;
-using EnhancedUI.EnhancedScroller;
 using ScriptableObjects;
-using TMPro;
+using UI;
 using UnityEngine;
-using UnityEngine.UI;
 using Utils;
 
-namespace UI
+namespace Skill
 {
-    public class SkillUIRow : EnhancedScrollerCellView
+    public class SkillUIRow : UIRow
     {
-        [SerializeField]
-        private GameObject parentObject;
-
-        [SerializeField]
-        private Image icon;
-
-        [SerializeField]
-        private TextMeshProUGUI levelText;
-
-        [SerializeField]
-        private TextMeshProUGUI descriptionText;
-
-        [SerializeField]
-        private Button buyButton;
-
-        [SerializeField]
-        private TextMeshProUGUI buttonCostText;
-
-        [SerializeField]
-        private TextMeshProUGUI buttonDescriptionText;
-
-        [SerializeField]
-        private Image buyButtonImage;
-
-        [SerializeField]
-        private Sprite activeButtonSprite;
-
-        [SerializeField]
-        private Sprite deActiveButtonSprite;
-
         [SerializeField]
         private SkillIconDataSO skillIconDataSo;
 
@@ -55,9 +23,9 @@ namespace UI
             UIManager.OnUpdateCoinHud += UpdateRow;
         }
 
-        public void SetSkillUIRow(SkillUpgrade skillUpgrade)
+        public override void SetUIRow(UpgradableStat skillUpgrade)
         {
-            _skillUpgrade = skillUpgrade;
+            _skillUpgrade = (SkillUpgrade) skillUpgrade;
             cellIdentifier = skillUpgrade.ID.ToString();
 
             var coin = SaveLoadManager.Instance.LoadCoin();
@@ -65,7 +33,7 @@ namespace UI
             UpdateRow(coin);
         }
 
-        private void FillSkillUIRow()
+        public override void FillUIRow()
         {
             _skillUpgradeDictionary = SaveLoadManager.Instance.LoadSkillUpgrade();
 
@@ -94,7 +62,7 @@ namespace UI
             icon.sprite = skillIconDataSo.GetIcon(_skillUpgrade.ID);
         }
 
-        private void SetButtonState(double totalCoin)
+        public override void SetButtonState(double totalCoin)
         {
             var cost = _skillUpgrade.BaseIncrementCost * _level;
             buttonCostText.text = $"{CalcUtils.FormatNumber(cost)} <sprite index= 11>";
@@ -105,7 +73,7 @@ namespace UI
             buyButtonImage.sprite = buyButton.enabled ? activeButtonSprite : deActiveButtonSprite;
         }
 
-        public void OnBuy()
+        public override void OnBuy()
         {
             var coin = SaveLoadManager.Instance.LoadCoin();
             var cost = _skillUpgrade.BaseIncrementCost * _level;
@@ -121,15 +89,10 @@ namespace UI
             }
         }
 
-        private void UpdateRow(double totalCoin)
+        public override void UpdateRow(double totalCoin)
         {
-            FillSkillUIRow();
+            FillUIRow();
             SetButtonState(totalCoin);
-        }
-
-        public override void RefreshCellView()
-        {
-            base.RefreshCellView();
         }
     }
 }

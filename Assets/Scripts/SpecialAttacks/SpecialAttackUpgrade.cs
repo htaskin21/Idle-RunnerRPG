@@ -1,12 +1,10 @@
 using System;
 using System.Globalization;
 
-namespace UI
+namespace SpecialAttacks
 {
-    public class SkillUpgrade
+    public class SpecialAttackUpgrade : UpgradableStat
     {
-        public int ID { get; }
-
         public SkillTypes SkillTypes { get; }
 
         public double StartAmount { get; }
@@ -15,7 +13,7 @@ namespace UI
 
         public double BaseIncrementCost { get; }
 
-        public SkillUpgrade(string id, string skillType, string startAmount, string baseIncrementAmount,
+        public SpecialAttackUpgrade(string id, string skillType, string startAmount, string baseIncrementAmount,
             string baseIncrementCost)
         {
             ID = int.Parse(id);

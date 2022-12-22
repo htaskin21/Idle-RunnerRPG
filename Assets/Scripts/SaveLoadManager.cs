@@ -54,28 +54,28 @@ public class SaveLoadManager : MonoBehaviour
         return skillUpgradeDictionary;
     }
     
-    public void SaveSpecialAttackUpgrade(string specialAttackID, int skillLevel)
+    public void SaveSpecialAttackUpgrade(int specialAttackID, int skillLevel)
     {
-        Dictionary<string, int> heroSectionDictionary = new Dictionary<string, int>();
+        Dictionary<int, int> heroSectionDictionary = new Dictionary<int, int>();
 
         var saveFile = new ES3File("heroSectionSaveFile.es3");
 
-        heroSectionDictionary = saveFile.Load<Dictionary<string, int>>("specialAttacks", heroSectionDictionary);
+        heroSectionDictionary = saveFile.Load<Dictionary<int, int>>("specialAttacks", heroSectionDictionary);
 
         heroSectionDictionary[specialAttackID] = skillLevel;
 
-        saveFile.Save<Dictionary<string, int>>("specialAttacks", heroSectionDictionary);
+        saveFile.Save<Dictionary<int, int>>("specialAttacks", heroSectionDictionary);
 
         saveFile.Sync();
     }
 
-    public Dictionary<string, int> LoadSpecialAttackUpgrade()
+    public Dictionary<int, int> LoadSpecialAttackUpgrade()
     {
-        Dictionary<string, int> heroSectionDictionary = new Dictionary<string, int>();
+        Dictionary<int, int> heroSectionDictionary = new Dictionary<int, int>();
 
         var saveFile = new ES3File("heroSectionSaveFile.es3");
 
-        heroSectionDictionary = saveFile.Load<Dictionary<string, int>>("specialAttacks", heroSectionDictionary);
+        heroSectionDictionary = saveFile.Load<Dictionary<int, int>>("specialAttacks", heroSectionDictionary);
 
         return heroSectionDictionary;
     }

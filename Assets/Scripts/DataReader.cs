@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using UI;
+using Skill;
+using SpecialAttacks;
 using UnityEngine;
 
 public class DataReader : MonoBehaviour
@@ -27,9 +28,9 @@ public class DataReader : MonoBehaviour
 
     public List<SkillUpgrade> SkillData => _skillData;
 
-    private List<SkillUpgrade> _specialAttackData;
+    private List<SpecialAttackUpgrade> _specialAttackData;
 
-    public List<SkillUpgrade> SpecialAttackData => _specialAttackData;
+    public List<SpecialAttackUpgrade> SpecialAttackData => _specialAttackData;
 
     private void Awake()
     {
@@ -85,7 +86,7 @@ public class DataReader : MonoBehaviour
 
         var i = 0;
 
-        _specialAttackData = new List<SkillUpgrade>();
+        _specialAttackData = new List<SpecialAttackUpgrade>();
 
         foreach (var line in textAsset.text.Split('\n'))
         {
@@ -103,7 +104,7 @@ public class DataReader : MonoBehaviour
 
             var values = line.Replace("\r", string.Empty).Split(',');
 
-            _specialAttackData.Add(new SkillUpgrade(values[0], values[1], values[2], values[3], values[4]));
+            _specialAttackData.Add(new SpecialAttackUpgrade(values[0], values[1], values[2], values[3], values[4]));
             i++;
         }
     }
