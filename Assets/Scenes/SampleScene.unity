@@ -352,6 +352,7 @@ MonoBehaviour:
   buyButtonImage: {fileID: 513107813}
   activeButtonSprite: {fileID: 21300000, guid: 2b9ef8fd07ea648188df59d7013692e4, type: 3}
   deActiveButtonSprite: {fileID: 21300000, guid: 51fb4eb3009c441418d8001b35bfc35b, type: 3}
+  skillIconDataSo: {fileID: 11400000, guid: 3be454a94ca2940b8b946409354c9cf5, type: 2}
 --- !u!114 &61682305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4541,7 +4542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: WEAPONS
+  m_text: SKILLS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ec9b7032f84447969c27cc57e12b50d, type: 2}
   m_sharedMaterial: {fileID: 3316222977413834391, guid: 9ec9b7032f84447969c27cc57e12b50d, type: 2}
@@ -5438,7 +5439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb249b41739e4a0c9ba73a0928fca7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconDataSo: {fileID: 11400000, guid: bbb0692481eee40b9b1c59fbccc1e882, type: 2}
+  damageIconDataSo: {fileID: 11400000, guid: bbb0692481eee40b9b1c59fbccc1e882, type: 2}
 --- !u!4 &1340543639
 Transform:
   m_ObjectHideFlags: 0
@@ -6263,7 +6264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1518390998
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6297,7 +6298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enhancedScroller: {fileID: 1319424032}
-  enhancedScrollerCellView: {fileID: 2592043426292044267, guid: 1320f28339640429a8fd003f383a0410, type: 3}
+  enhancedScrollerCellView: {fileID: 2097205491381086749, guid: 6f25d17251874431d990336bf0c42fec, type: 3}
   panelObject: {fileID: 93915911}
 --- !u!1 &1588566345
 GameObject:
@@ -8801,6 +8802,7 @@ MonoBehaviour:
   buyButtonImage: {fileID: 3323114938523761802}
   activeButtonSprite: {fileID: 21300000, guid: 2b9ef8fd07ea648188df59d7013692e4, type: 3}
   deActiveButtonSprite: {fileID: 21300000, guid: 51fb4eb3009c441418d8001b35bfc35b, type: 3}
+  skillIconDataSo: {fileID: 11400000, guid: 3be454a94ca2940b8b946409354c9cf5, type: 2}
 --- !u!222 &3323114940177389929
 CanvasRenderer:
   m_ObjectHideFlags: 0

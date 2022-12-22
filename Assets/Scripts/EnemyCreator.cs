@@ -1,17 +1,18 @@
 using Enemy;
+using ScriptableObjects;
 using UI;
 using UnityEngine;
 
 public class EnemyCreator : MonoBehaviour
 {
     [SerializeField]
-    private IconDataSO iconDataSo;
+    private DamageIconDataSO damageIconDataSo;
 
     public void SetEnemyData(EnemyController enemyController, int level)
     {
         enemyController.enemyLevel = level;
 
-        var icon = iconDataSo.GetIcon(enemyController.enemyDamageType);
+        var icon = damageIconDataSo.GetIcon(enemyController.enemyDamageType);
         enemyController.enemyDamageTypeIcon.sprite = icon;
     }
 }

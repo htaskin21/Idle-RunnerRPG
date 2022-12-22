@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using EnhancedUI.EnhancedScroller;
+using ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,6 +40,9 @@ namespace UI
         [SerializeField]
         private Sprite deActiveButtonSprite;
 
+        [SerializeField]
+        private SkillIconDataSO skillIconDataSo;
+
         private SkillUpgrade _skillUpgrade;
         private int _level = 1;
 
@@ -57,7 +61,7 @@ namespace UI
             cellIdentifier = skillUpgrade.ID.ToString();
 
             var coin = SaveLoadManager.Instance.LoadCoin();
-            
+
             UpdateRow(coin);
         }
 
@@ -66,7 +70,7 @@ namespace UI
             _skillUpgradeDictionary = SaveLoadManager.Instance.LoadWeaponUpgrade();
 
             var a = _skillUpgradeDictionary.ContainsKey(_skillUpgrade.ID);
-            
+
             if (_skillUpgradeDictionary.ContainsKey(_skillUpgrade.ID))
             {
                 _level = _skillUpgradeDictionary[_skillUpgrade.ID];
@@ -75,12 +79,9 @@ namespace UI
             {
                 _level = 1;
             }
-           
-            //_level = _skillUpgradeDictionary.ContainsKey(_skillUpgrade.ID)
-            //    ? _skillUpgradeDictionary[_skillUpgrade.ID]
-            //    : 1;
+
             var damage = CalcUtils.FormatNumber(_skillUpgrade.BaseIncrementAmount * _level);
-            
+
             var stringBuilder = DescriptionUtils.GetDescription(_skillUpgrade.SkillTypes);
             if (stringBuilder.ToString().Contains("x"))
             {
@@ -89,6 +90,8 @@ namespace UI
 
             descriptionText.text = stringBuilder.ToString();
             levelText.text = $"Level {_level}";
+
+            icon.sprite = skillIconDataSo.GetIcon(_skillUpgrade.ID);
         }
 
         private void SetButtonState(double totalCoin)

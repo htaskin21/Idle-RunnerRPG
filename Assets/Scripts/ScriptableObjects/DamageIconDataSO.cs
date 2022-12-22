@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace UI
+namespace ScriptableObjects
 {
-    [CreateAssetMenu(menuName = "Create IconDataSO", fileName = "IconDataSO", order = 1)]
-    public class IconDataSO : SerializedScriptableObject
+    [CreateAssetMenu(menuName = "Create DamageIconDataSO", fileName = "DamageIconDataSO", order = 1)]
+    public class DamageIconDataSO : SerializedScriptableObject
     {
         public Dictionary<DamageType, Sprite> Icons = new Dictionary<DamageType, Sprite>();
 
