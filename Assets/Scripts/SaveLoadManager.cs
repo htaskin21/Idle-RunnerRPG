@@ -28,7 +28,7 @@ public class SaveLoadManager : MonoBehaviour
         EconomyManager.OnSpendCoin += SaveCoin;
     }
 
-    public void SaveWeaponUpgrade(int skillID, int skillLevel)
+    public void SaveSkillUpgrade(int skillID, int skillLevel)
     {
         Dictionary<int, int> skillUpgradeDictionary = new Dictionary<int, int>();
 
@@ -43,7 +43,7 @@ public class SaveLoadManager : MonoBehaviour
         saveFile.Sync();
     }
 
-    public Dictionary<int, int> LoadWeaponUpgrade()
+    public Dictionary<int, int> LoadSkillUpgrade()
     {
         Dictionary<int, int> skillUpgradeDictionary = new Dictionary<int, int>();
 

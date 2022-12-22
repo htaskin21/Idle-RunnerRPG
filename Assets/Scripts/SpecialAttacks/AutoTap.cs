@@ -25,7 +25,7 @@ namespace SpecialAttacks
 
         private void Start()
         {
-            var dictionary = SaveLoadManager.Instance.LoadWeaponUpgrade();
+            var dictionary = SaveLoadManager.Instance.LoadSkillUpgrade();
             if (dictionary.ContainsKey(identifier) == false)
             {
                 specialAttackButton.StartLockState();

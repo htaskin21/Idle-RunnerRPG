@@ -67,7 +67,7 @@ namespace UI
 
         private void FillSkillUIRow()
         {
-            _skillUpgradeDictionary = SaveLoadManager.Instance.LoadWeaponUpgrade();
+            _skillUpgradeDictionary = SaveLoadManager.Instance.LoadSkillUpgrade();
 
             var a = _skillUpgradeDictionary.ContainsKey(_skillUpgrade.ID);
 
@@ -112,7 +112,7 @@ namespace UI
             if (coin >= cost)
             {
                 _level++;
-                SaveLoadManager.Instance.SaveWeaponUpgrade(_skillUpgrade.ID, _level);
+                SaveLoadManager.Instance.SaveSkillUpgrade(_skillUpgrade.ID, _level);
                 Calculator.OnUpdateDamageCalculation.Invoke(_skillUpgrade.ID, _level);
                 EconomyManager.OnSpendCoin.Invoke(-cost);
                 coin -= cost;

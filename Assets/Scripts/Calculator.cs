@@ -28,7 +28,7 @@ public class Calculator : MonoBehaviour
         ResetHeroDamageData();
 
         _skillUpgrades = _dataReader.SkillData;
-        var saveData = SaveLoadManager.Instance.LoadWeaponUpgrade();
+        var saveData = SaveLoadManager.Instance.LoadSkillUpgrade();
         List<SkillUpgrade> availableSkillUpgrades = new List<SkillUpgrade>();
 
         //Uygun tüm upgradeleri buluyoruz
