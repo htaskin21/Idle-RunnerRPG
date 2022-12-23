@@ -12,6 +12,8 @@ namespace States
 
         protected override void EnterState()
         {
+            GameManager.Instance.EnemyController.TapDamageController.enabled = true;
+            
             CharacterController.AnimationController.PlayAnimation(AnimationType.Hit);
             CharacterController.AnimationController.onAnimationEnd.AddListener(DecideNextState);
 

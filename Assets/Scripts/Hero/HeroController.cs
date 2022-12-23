@@ -42,11 +42,11 @@ namespace Hero
             {
                 TransitionToRunState().Forget();
             }
-            else
+         /*  else
             {
                 var idleState = GetState(StateType.Idle);
                 TransitionToState(idleState);
-            }
+            }*/
         }
 
         private async UniTask TransitionToRunState()
