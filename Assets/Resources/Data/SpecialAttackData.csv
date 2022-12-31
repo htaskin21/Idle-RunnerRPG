@@ -1,6 +1,6 @@
 ID,Skill Type,StartAmount,IncrementAmount,Cost
 9001,AutoTapSpecial,60000,1000,10
-9002,FireDmgSpecial,10,2,10
-9003,WaterDmgSpecial,10,2,30
-9004,LightningDmgSpecial,10,2,30
-9005,CoinSpecial,10,1,90
+9002,FireDmgSpecial,20,2,10
+9003,WaterDmgSpecial,20,2,30
+9004,LightningDmgSpecial,20,2,30
+9005,CoinSpecial,20,1,90

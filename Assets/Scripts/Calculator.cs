@@ -68,6 +68,24 @@ public class Calculator : MonoBehaviour
                                                               (float) availableSkillUpgrade.BaseIncrementAmount *
                                                               saveData[availableSkillUpgrade.ID];
                     break;
+                case SkillTypes.FireDmgSpecial:
+                    _heroDamageDataSo.FireSpecialAttackMultiplier += (float) availableSkillUpgrade.StartAmount +
+                                                                     (float) availableSkillUpgrade.BaseIncrementAmount *
+                                                                     saveData[availableSkillUpgrade.ID];
+                    break;
+                case SkillTypes.LightningDmgSpecial:
+                    _heroDamageDataSo.lightningSpecialAttackMultiplier += (float) availableSkillUpgrade.StartAmount +
+                                                                          (float) availableSkillUpgrade
+                                                                              .BaseIncrementAmount *
+                                                                          saveData[availableSkillUpgrade.ID];
+                    break;
+                case SkillTypes.WaterDmgSpecial:
+                    _heroDamageDataSo.WaterSpecialAttackMultiplier += (float) availableSkillUpgrade.StartAmount +
+                                                                      (float) availableSkillUpgrade
+                                                                          .BaseIncrementAmount *
+                                                                      saveData[availableSkillUpgrade.ID];
+                    break;
+
                 default:
                     Debug.LogWarning("Calculate Damage Default geldi");
                     _heroDamageDataSo.heroAttack +=
@@ -102,6 +120,15 @@ public class Calculator : MonoBehaviour
                 break;
             case SkillTypes.CriticalAttackChance:
                 _heroDamageDataSo.criticalAttackChance += (float) difference;
+                break;
+            case SkillTypes.FireDmgSpecial:
+                _heroDamageDataSo.FireSpecialAttackMultiplier += (float) difference;
+                break;
+            case SkillTypes.WaterDmgSpecial:
+                _heroDamageDataSo.WaterSpecialAttackMultiplier += (float) difference;
+                break;
+            case SkillTypes.LightningDmgSpecial:
+                _heroDamageDataSo.lightningSpecialAttackMultiplier += (float) difference;
                 break;
             default:
                 Debug.LogWarning("Update Damage Default geldi");
