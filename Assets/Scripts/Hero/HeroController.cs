@@ -34,8 +34,6 @@ namespace Hero
             {
                 var idleState = GetState(StateType.Idle);
                 TransitionToState(idleState);
-                //_cancellationTokenSource = new CancellationTokenSource();
-                //TransitionToIdleState().Forget();
             }
         }
 
@@ -49,25 +47,11 @@ namespace Hero
             }
             else
             {
-                TransitionToIdleState2();
+                TransitionToIdleState();
             }
         }
 
-        private async UniTask TransitionToIdleState()
-        {
-            await UniTask.WaitUntil(() =>
-                currentState.stateType != StateType.Attack && currentState.stateType != StateType.SpecialAttack);
-
-            if (currentState.stateType != StateType.Idle)
-            {
-                var idleState = GetState(StateType.Idle);
-                TransitionToState(idleState);
-            }
-
-            _cancellationTokenSource.Cancel();
-        }
-
-        private void TransitionToIdleState2()
+        private void TransitionToIdleState()
         {
             if (currentState.stateType == StateType.Attack || currentState.stateType == StateType.SpecialAttack)
             {

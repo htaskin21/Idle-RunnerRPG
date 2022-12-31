@@ -3,7 +3,6 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Hero;
 using ScriptableObjects;
-using States;
 using UI;
 using UnityEngine;
 
@@ -23,6 +22,7 @@ namespace SpecialAttacks
         private CancellationTokenSource _cts;
         private CancellationTokenSource _durationCts;
         private CancellationTokenSource _cooldownCts;
+        private CancellationTokenSource _uiTimerCts;
 
         private void Start()
         {
@@ -43,23 +43,36 @@ namespace SpecialAttacks
                 heroDamageDataSo.autoTapAttackDuration;
             var finishTime = DateTime.UtcNow.AddMilliseconds(autoTapAttackDuration);
 
-            specialAttackButton.StartDurationState((int) autoTapAttackDuration, _durationCts).Forget();
+            StartTimerUI((int) autoTapAttackDuration, _durationCts, _cooldownCts).Forget();
 
+            HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack);
             while (finishTime >= DateTime.UtcNow)
             {
-                if (GameManager.Instance.HeroController.currentState.stateType == StateType.Run)
-                {
-                    return;
-                }
-
-                HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack);
-                GameManager.Instance.HeroController.DecideNextStateAfterTapDamage(heroDamageDataSo.tapAttack);
-
+                await UniTask.WaitUntil(
+                    () => GameManager.Instance.EnemyController.enemyHealth.Health > 0 &&
+                          GameManager.Instance.EnemyController.TapDamageController.isTapDamageEnable);
                 await UniTask.Delay(heroDamageDataSo.tapAttackCoolDown);
+                if (finishTime >= DateTime.UtcNow)
+                {
+                    HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack);
+                }
             }
 
-            specialAttackButton.StartCoolDownState((int) heroDamageDataSo.autoTapAttackCooldown, _cooldownCts).Forget();
             _cts.Cancel();
+        }
+
+        private async UniTask StartTimerUI(int autoTapAttackDuration, CancellationTokenSource durationCts,
+            CancellationTokenSource cooldownCts)
+        {
+            _uiTimerCts = new CancellationTokenSource();
+
+            specialAttackButton.StartDurationState(autoTapAttackDuration, durationCts).Forget();
+            await UniTask.WaitUntilCanceled(durationCts.Token);
+
+            specialAttackButton.StartCoolDownState((int) heroDamageDataSo.autoTapAttackCooldown, cooldownCts).Forget();
+            await UniTask.WaitUntilCanceled(cooldownCts.Token);
+
+            _uiTimerCts.Cancel();
         }
 
         public void StartAutoTap()
