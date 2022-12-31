@@ -29,8 +29,8 @@ namespace Enemy
         {
             HeroAttack.OnInflictDamage += TakeDamage;
             HeroAttack.OnTapDamage += TakeDamage;
-
-            tapDamageController.enabled = false;
+            
+            tapDamageController.isTapDamageEnable = false;
         }
 
         private void TakeDamage(double attackPoint)

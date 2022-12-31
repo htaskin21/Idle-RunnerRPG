@@ -14,11 +14,12 @@ namespace Enemy
         [SerializeField]
         private HeroDamageDataSO heroDamageDataSo;
 
+        public bool isTapDamageEnable;
         private bool _canAttack = true;
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (_canAttack)
+            if (_canAttack && isTapDamageEnable)
             {
                 TapToDamage().Forget();
             }

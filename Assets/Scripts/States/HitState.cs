@@ -1,3 +1,4 @@
+using Enemy;
 using UnityEngine;
 
 namespace States
@@ -12,8 +13,9 @@ namespace States
 
         protected override void EnterState()
         {
-            GameManager.Instance.EnemyController.TapDamageController.enabled = true;
-            
+            var enemyController = (EnemyController) CharacterController;
+            enemyController.TapDamageController.isTapDamageEnable = true;
+
             CharacterController.AnimationController.PlayAnimation(AnimationType.Hit);
             CharacterController.AnimationController.onAnimationEnd.AddListener(DecideNextState);
 
@@ -28,15 +30,8 @@ namespace States
 
         private void DecideNextState()
         {
-            if (GameManager.Instance.EnemyController.enemyHealth.Health <= 0)
-            {
-                GameManager.Instance.EnemyController.BoxCollider2D.enabled = false;
-                CharacterController.TransitionToState(dieState);
-            }
-            else
-            {
-                CharacterController.TransitionToState(idleState);
-            }
+            var enemyController = (EnemyController) CharacterController;
+            CharacterController.TransitionToState(enemyController.enemyHealth.Health <= 0 ? dieState : idleState);
         }
     }
 }

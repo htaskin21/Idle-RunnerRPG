@@ -38,7 +38,7 @@ namespace SpecialAttacks
         {
             _durationCts = new CancellationTokenSource();
             _cooldownCts = new CancellationTokenSource();
-            
+
             var autoTapAttackDuration =
                 heroDamageDataSo.autoTapAttackDuration;
             var finishTime = DateTime.UtcNow.AddMilliseconds(autoTapAttackDuration);
@@ -47,14 +47,15 @@ namespace SpecialAttacks
 
             while (finishTime >= DateTime.UtcNow)
             {
-                HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack);
+                if (GameManager.Instance.HeroController.currentState.stateType == StateType.Run)
+                {
+                    return;
+                }
 
+                HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack);
                 GameManager.Instance.HeroController.DecideNextStateAfterTapDamage(heroDamageDataSo.tapAttack);
 
                 await UniTask.Delay(heroDamageDataSo.tapAttackCoolDown);
-                await UniTask.WaitUntil(() =>
-                    GameManager.Instance.EnemyController.enemyHealth.Health > 0 &&
-                    GameManager.Instance.HeroController.currentState.stateType != StateType.Run);
             }
 
             specialAttackButton.StartCoolDownState((int) heroDamageDataSo.autoTapAttackCooldown, _cooldownCts).Forget();

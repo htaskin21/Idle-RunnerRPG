@@ -15,9 +15,13 @@ namespace Hero
         [SerializeField]
         private List<PetController> pets;
 
+        private CancellationTokenSource _cancellationTokenSource;
+
         private void Start()
         {
             pets[0].gameObject.SetActive(true);
+
+            HeroAttack.OnTapDamage += DecideNextStateAfterTapDamage;
         }
 
         public void DecideNextState()
@@ -28,11 +32,10 @@ namespace Hero
             }
             else
             {
-                if (currentState.stateType != StateType.Idle)
-                {
-                    var idleState = GetState(StateType.Idle);
-                    TransitionToState(idleState);
-                }
+                var idleState = GetState(StateType.Idle);
+                TransitionToState(idleState);
+                //_cancellationTokenSource = new CancellationTokenSource();
+                //TransitionToIdleState().Forget();
             }
         }
 
@@ -44,16 +47,46 @@ namespace Hero
             {
                 TransitionToRunState().Forget();
             }
+            else
+            {
+                TransitionToIdleState2();
+            }
         }
-        
+
+        private async UniTask TransitionToIdleState()
+        {
+            await UniTask.WaitUntil(() =>
+                currentState.stateType != StateType.Attack && currentState.stateType != StateType.SpecialAttack);
+
+            if (currentState.stateType != StateType.Idle)
+            {
+                var idleState = GetState(StateType.Idle);
+                TransitionToState(idleState);
+            }
+
+            _cancellationTokenSource.Cancel();
+        }
+
+        private void TransitionToIdleState2()
+        {
+            if (currentState.stateType == StateType.Attack || currentState.stateType == StateType.SpecialAttack)
+            {
+                return;
+            }
+
+            if (currentState.stateType != StateType.Idle)
+            {
+                var idleState = GetState(StateType.Idle);
+                TransitionToState(idleState);
+            }
+        }
+
         private async UniTask TransitionToRunState()
         {
             CancellationTokenSource cts = new CancellationTokenSource();
-
             await UniTask.WaitUntil(() => currentState.stateType == StateType.Idle, cancellationToken: cts.Token);
 
-            var runState = GetState(StateType.Run);
-            TransitionToState(runState);
+            StartRunning();
 
             cts.Cancel();
         }
