@@ -11,19 +11,19 @@ namespace Utils
             switch (skillTypes)
             {
                 case SkillTypes.BaseAttackBoost:
-                    return stringBuilder.Append("x DPS");
+                    return stringBuilder.Append("j DPS");
                 case SkillTypes.TapDamageBoost:
-                    return stringBuilder.Append("x Tap Damage");
+                    return stringBuilder.Append("j Tap Damage");
                 case SkillTypes.CriticalAttackBoost:
-                    return stringBuilder.Append("x Critical Damage");
+                    return stringBuilder.Append("j Critical Damage");
                 case SkillTypes.CriticalAttackChance:
-                    return stringBuilder.Append("+x % Critical Attack Chance");
+                    return stringBuilder.Append("+j % Critical Attack Chance");
                 case SkillTypes.FireDmgSpecial:
-                    return stringBuilder.Append("x more Fire Damage");
+                    return stringBuilder.Append("xj more Fire Damage");
                 case SkillTypes.WaterDmgSpecial:
-                    return stringBuilder.Append("x more Water Damage");
+                    return stringBuilder.Append("xj more Water Damage");
                 case SkillTypes.LightningDmgSpecial:
-                    return stringBuilder.Append("x more Lightning Damage");
+                    return stringBuilder.Append("xj more Lightning Damage");
                 default:
                     Debug.LogWarning("GetDescription Default geldi");
                     return stringBuilder.Append("empty");

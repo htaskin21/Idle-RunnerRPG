@@ -50,9 +50,9 @@ namespace SpecialAttacks
             var damage = CalcUtils.FormatNumber(_specialAttackUpgrade.BaseIncrementAmount * _level);
 
             var stringBuilder = DescriptionUtils.GetDescription(_specialAttackUpgrade.SkillTypes);
-            if (stringBuilder.ToString().Contains("x"))
+            if (stringBuilder.ToString().Contains("j"))
             {
-                stringBuilder.Replace("x", damage);
+                stringBuilder.Replace("j", damage);
             }
 
             descriptionText.text = stringBuilder.ToString();
