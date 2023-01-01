@@ -34,6 +34,7 @@ MonoBehaviour:
     - UniTask.Linq
     - Assembly-CSharp
     - DamageNumbersPro
+    - UIEffect
     - UniTask.DOTween
     - UniTask.TextMeshPro
     - UniTask.Addressables

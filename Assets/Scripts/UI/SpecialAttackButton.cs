@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using Coffee.UIEffects;
 using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace UI
         public Image outerCircleImage;
         public Image sliderImage;
         public TextMeshProUGUI timeText;
+        public UIShiny iconShine;
 
         private void Start()
         {
@@ -78,6 +80,7 @@ namespace UI
 
             DisableSliderImage();
             buttonComponent.enabled = true;
+            iconShine.Play();
             cancellationTokenSource.Cancel();
         }
 
