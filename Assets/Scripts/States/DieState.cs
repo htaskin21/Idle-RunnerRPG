@@ -8,7 +8,8 @@ namespace States
         {
             var enemyController = (EnemyController) CharacterController;
             enemyController.BoxCollider2D.enabled = false;
-            
+            enemyController.TapDamageController.isTapDamageEnable = false;
+
             CharacterController.AnimationController.PlayAnimation(AnimationType.Die);
             CharacterController.AnimationController.onAnimationEnd.AddListener(OnDie);
 

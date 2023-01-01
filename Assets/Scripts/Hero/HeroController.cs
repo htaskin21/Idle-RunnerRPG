@@ -43,7 +43,10 @@ namespace Hero
 
             if (enemyHealth <= 0)
             {
-                TransitionToRunState().Forget();
+                if (currentState.stateType == StateType.Idle)
+                {
+                    StartRunning();
+                }
             }
             else
             {
@@ -68,7 +71,11 @@ namespace Hero
         private async UniTask TransitionToRunState()
         {
             CancellationTokenSource cts = new CancellationTokenSource();
-            await UniTask.WaitUntil(() => currentState.stateType == StateType.Idle, cancellationToken: cts.Token);
+            if (currentState.stateType == StateType.Attack || currentState.stateType == StateType.SpecialAttack)
+            {
+                await UniTask.WaitUntil(() => currentState.stateType == StateType.Idle, cancellationToken: cts.Token);
+            }
+            
 
             StartRunning();
 
