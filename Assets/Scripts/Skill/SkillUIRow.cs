@@ -65,7 +65,7 @@ namespace Skill
         public override void SetButtonState(double totalCoin)
         {
             var cost = _skillUpgrade.BaseIncrementCost * _level;
-            buttonCostText.text = $"{CalcUtils.FormatNumber(cost)} <sprite index= 11>";
+            buttonCostText.text = $"{CalcUtils.FormatNumber(cost)} <sprite index= 1>";
 
             buttonDescriptionText.text = _level > 1 ? "LEVEL UP" : "BUY";
 

@@ -19,11 +19,11 @@ namespace Utils
                 case SkillTypes.CriticalAttackChance:
                     return stringBuilder.Append("+j % Critical Attack Chance");
                 case SkillTypes.FireDmgSpecial:
-                    return stringBuilder.Append("xj more Fire Damage");
+                    return stringBuilder.Append("xj more <sprite=2> Damage");
                 case SkillTypes.WaterDmgSpecial:
-                    return stringBuilder.Append("xj more Water Damage");
+                    return stringBuilder.Append("xj more <sprite=3> Damage");
                 case SkillTypes.LightningDmgSpecial:
-                    return stringBuilder.Append("xj more Lightning Damage");
+                    return stringBuilder.Append("xj more <sprite=4> Damage");
                 default:
                     Debug.LogWarning("GetDescription Default geldi");
                     return stringBuilder.Append("empty");
