@@ -48,12 +48,21 @@ namespace Skill
                 _level = 1;
             }
 
-            var damage = CalcUtils.FormatNumber(_skillUpgrade.BaseIncrementAmount * _level);
+            var damage = (_skillUpgrade.BaseIncrementAmount * _level);
 
             var stringBuilder = DescriptionUtils.GetDescription(_skillUpgrade.SkillTypes);
             if (stringBuilder.ToString().Contains("j"))
             {
-                stringBuilder.Replace("j", damage);
+                if (_skillUpgrade.SkillTypes == SkillTypes.AutoTapSpecial)
+                {
+                    DescriptionUtils.ConvertToMinutes((float) damage);
+                }
+                else
+                {
+                    
+                    var damageString = CalcUtils.FormatNumber(damage);
+                    stringBuilder.Replace("j", damageString);
+                }
             }
 
             descriptionText.text = stringBuilder.ToString();
