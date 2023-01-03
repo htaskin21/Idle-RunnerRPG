@@ -16,9 +16,9 @@ namespace Utils
                 case SkillTypes.TapDamageBoost:
                     return stringBuilder.Append("j Tap Damage");
                 case SkillTypes.CriticalAttackBoost:
-                    return stringBuilder.Append("j Critical Damage");
+                    return stringBuilder.Append("j Crit. Dmg");
                 case SkillTypes.CriticalAttackChance:
-                    return stringBuilder.Append("+j % Critical Attack Chance");
+                    return stringBuilder.Append("+j % Crit. Attack Chance");
                 case SkillTypes.FireDmgSpecial:
                     return stringBuilder.Append("Deals jx Dmg to <sprite=5>");
                 case SkillTypes.WaterDmgSpecial:
@@ -33,13 +33,13 @@ namespace Utils
             }
         }
         
-        public static float ConvertToMinutes(float milliseconds)
+        public static string ConvertToMinutes(float milliseconds)
         {
             var a=  milliseconds / 60_000;
 
             var y = a.ToString("{0:F3}",CultureInfo.InvariantCulture);
-            
-            return 1;
+
+            return y;
         }
     }
     

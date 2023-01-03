@@ -53,16 +53,17 @@ namespace Skill
             var stringBuilder = DescriptionUtils.GetDescription(_skillUpgrade.SkillTypes);
             if (stringBuilder.ToString().Contains("j"))
             {
+                var damageString = "";
                 if (_skillUpgrade.SkillTypes == SkillTypes.AutoTapSpecial)
                 {
-                    DescriptionUtils.ConvertToMinutes((float) damage);
+                    damageString= DescriptionUtils.ConvertToMinutes((float) damage);
                 }
                 else
                 {
                     
-                    var damageString = CalcUtils.FormatNumber(damage);
-                    stringBuilder.Replace("j", damageString);
+                    damageString = CalcUtils.FormatNumber(damage);
                 }
+                stringBuilder.Replace("j", damageString);
             }
 
             descriptionText.text = stringBuilder.ToString();

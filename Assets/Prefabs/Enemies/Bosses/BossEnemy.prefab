@@ -498,6 +498,14 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 8771561038845922234, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771561038845922234, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
 --- !u!1 &3110957140271317556 stripped

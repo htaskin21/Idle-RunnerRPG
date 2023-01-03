@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1019587274848115025, guid: 1320f28339640429a8fd003f383a0410, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5119f23cf3c1742ca87469e0ca74f8d7, type: 3}
+      objectReference: {fileID: 21300000, guid: 9f5e45fd762e540c79efc11c34033deb, type: 3}
     - target: {fileID: 2592043425687570521, guid: 1320f28339640429a8fd003f383a0410, type: 3}
       propertyPath: m_SizeDelta.x
       value: 80
@@ -110,6 +110,10 @@ PrefabInstance:
     - target: {fileID: 2592043426292044271, guid: 1320f28339640429a8fd003f383a0410, type: 3}
       propertyPath: m_Name
       value: UIIRow Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767768776563877943, guid: 1320f28339640429a8fd003f383a0410, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2592043426292044267, guid: 1320f28339640429a8fd003f383a0410, type: 3}

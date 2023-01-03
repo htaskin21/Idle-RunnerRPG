@@ -29,7 +29,7 @@ namespace UI
             var specialAttackState = GameManager.Instance.HeroController.GetState(StateType.SpecialAttack);
             GameManager.Instance.HeroController.TransitionToState(specialAttackState);
 
-            specialAttackButton.StartCoolDownState((int) heroDamageDataSo.autoTapAttackCooldown, _cts).Forget();
+            specialAttackButton.StartCoolDownState(heroDamageDataSo.specialAttackCoolDown, _cts).Forget();
         }
     }
 }

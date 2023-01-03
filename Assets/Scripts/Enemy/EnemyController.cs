@@ -35,10 +35,12 @@ namespace Enemy
 
         private void TakeDamage(double attackPoint)
         {
+            if (!(enemyHealth.Health > 0)) return;
             enemyHealth.SetHealth(attackPoint);
 
             var hitState = GetState(StateType.Hit);
             TransitionToState(hitState);
+
         }
 
         private void OnDestroy()

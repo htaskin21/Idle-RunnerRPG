@@ -20,6 +20,8 @@ namespace ScriptableObjects
         public double FireSpecialAttackMultiplier;
         public double WaterSpecialAttackMultiplier;
 
+        public int specialAttackCoolDown;
+
 
         public double earthDamageMultiplier = 1;
         public double plantDamageMultiplier = 1;
