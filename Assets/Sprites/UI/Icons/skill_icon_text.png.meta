@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: 5f22735cfd19c4735a5f881d78452cc4
+guid: 335994ecf6801487aa41233896e87fe9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8028461402617222168
-    second: skill_icon_text_0
+      213: 1328830352151843250
+    second: Calsma_Yuzeyi_1_0
   - first:
-      213: -490747602417003897
-    second: skill_icon_text_1
+      213: -9043468194747486372
+    second: Calsma_Yuzeyi_1_1
   - first:
-      213: -7228784097936668698
-    second: skill_icon_text_2
+      213: -3848124759443724012
+    second: Calsma_Yuzeyi_1_2
   - first:
-      213: 4572667618918942069
-    second: skill_icon_text_3
+      213: 2562842487889158468
+    second: Calsma_Yuzeyi_1_3
   - first:
-      213: 6834847102407564298
-    second: skill_icon_text_4
+      213: -4040639246456808473
+    second: Calsma_Yuzeyi_1_4
   - first:
-      213: 890469251157182755
-    second: skill_icon_text_5
+      213: -5954070572100555975
+    second: Calsma_Yuzeyi_1_5
   - first:
-      213: -6381189682922964155
-    second: skill_icon_text_6
+      213: 4477518520786294083
+    second: Calsma_Yuzeyi_1_6
   - first:
-      213: -2060772697886323703
-    second: skill_icon_text_7
+      213: -7760824070591118094
+    second: Calsma_Yuzeyi_1_7
   - first:
-      213: 7832940665902682059
-    second: skill_icon_text_8
+      213: 3044858017016584181
+    second: Calsma_Yuzeyi_1_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -142,7 +142,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: skill_icon_text_0
+      name: Calsma_Yuzeyi_1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -156,14 +156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ebe01414ec259090800000000000000
-      internalID: -8028461402617222168
+      spriteID: 2b194c23a24f07210800000000000000
+      internalID: 1328830352151843250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skill_icon_text_1
+      name: Calsma_Yuzeyi_1_1
       rect:
         serializedVersion: 2
         x: 0
@@ -177,14 +177,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7825f8bd7a38039f0800000000000000
-      internalID: -490747602417003897
+      spriteID: c5f688a57952f7280800000000000000
+      internalID: -9043468194747486372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skill_icon_text_2
+      name: Calsma_Yuzeyi_1_2
       rect:
         serializedVersion: 2
         x: 0
@@ -198,14 +198,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e70e74a9233eab90800000000000000
-      internalID: -7228784097936668698
+      spriteID: 419a8f56be6b89ac0800000000000000
+      internalID: -3848124759443724012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skill_icon_text_3
+      name: Calsma_Yuzeyi_1_3
       rect:
         serializedVersion: 2
         x: 0
@@ -219,14 +219,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 575489de8f0657f30800000000000000
-      internalID: 4572667618918942069
+      spriteID: 44169e90aab019320800000000000000
+      internalID: 2562842487889158468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skill_icon_text_4
+      name: Calsma_Yuzeyi_1_4
       rect:
         serializedVersion: 2
         x: 0
@@ -240,14 +240,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0c5c112a314ade50800000000000000
-      internalID: 6834847102407564298
+      spriteID: 7eb90797304cce7c0800000000000000
+      internalID: -4040639246456808473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skill_icon_text_5
+      name: Calsma_Yuzeyi_1_5
       rect:
         serializedVersion: 2
         x: 0
@@ -261,14 +261,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 329c1a6e0159b5c00800000000000000
-      internalID: 890469251157182755
+      spriteID: 93be6565c54ee5da0800000000000000
+      internalID: -5954070572100555975
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skill_icon_text_6
+      name: Calsma_Yuzeyi_1_6
       rect:
         serializedVersion: 2
         x: 0
@@ -282,14 +282,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54b3df8dac57177a0800000000000000
-      internalID: -6381189682922964155
+      spriteID: 34513ba2f57532e30800000000000000
+      internalID: 4477518520786294083
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skill_icon_text_7
+      name: Calsma_Yuzeyi_1_7
       rect:
         serializedVersion: 2
         x: 0
@@ -303,14 +303,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90c89a3562aa663e0800000000000000
-      internalID: -2060772697886323703
+      spriteID: 2f48d1c50a30c4490800000000000000
+      internalID: -7760824070591118094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skill_icon_text_8
+      name: Calsma_Yuzeyi_1_8
       rect:
         serializedVersion: 2
         x: 0
@@ -324,8 +324,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcf47d1f80234bc60800000000000000
-      internalID: 7832940665902682059
+      spriteID: 5f716cfeb32814a20800000000000000
+      internalID: 3044858017016584181
       vertices: []
       indices: 
       edges: []

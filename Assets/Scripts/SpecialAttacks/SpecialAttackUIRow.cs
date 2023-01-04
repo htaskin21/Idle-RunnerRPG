@@ -47,12 +47,22 @@ namespace SpecialAttacks
                 _level = 1;
             }
 
-            var damage = CalcUtils.FormatNumber(_specialAttackUpgrade.BaseIncrementAmount * _level);
+            var damage = _specialAttackUpgrade.StartAmount + (_specialAttackUpgrade.BaseIncrementAmount * _level);
 
             var stringBuilder = DescriptionUtils.GetDescription(_specialAttackUpgrade.SkillTypes);
             if (stringBuilder.ToString().Contains("j"))
             {
-                stringBuilder.Replace("j", damage);
+                var damageString = "";
+                if (_specialAttackUpgrade.SkillTypes == SkillTypes.AutoTapSpecial)
+                {
+                    damageString= DescriptionUtils.ConvertToMinutes((float) damage);
+                }
+                else
+                {
+                    
+                    damageString = CalcUtils.FormatNumber(damage);
+                }
+                stringBuilder.Replace("j", damageString);
             }
 
             descriptionText.text = stringBuilder.ToString();
@@ -64,7 +74,7 @@ namespace SpecialAttacks
         public override void SetButtonState(double totalCoin)
         {
             var cost = _specialAttackUpgrade.BaseIncrementCost * _level;
-            buttonCostText.text = $"{CalcUtils.FormatNumber(cost)} <sprite index= 1>";
+            buttonCostText.text = $"{CalcUtils.FormatNumber(cost)} <sprite index= 0>";
 
             buttonDescriptionText.text = _level > 1 ? "LEVEL UP" : "BUY";
 

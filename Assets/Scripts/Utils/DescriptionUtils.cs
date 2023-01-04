@@ -1,4 +1,4 @@
-using System.Globalization;
+using System;
 using System.Text;
 using UnityEngine;
 
@@ -20,11 +20,11 @@ namespace Utils
                 case SkillTypes.CriticalAttackChance:
                     return stringBuilder.Append("+j % Crit. Attack Chance");
                 case SkillTypes.FireDmgSpecial:
-                    return stringBuilder.Append("Deals jx Dmg to <sprite=5>");
+                    return stringBuilder.Append("Deals jx Dmg to <sprite=4>");
                 case SkillTypes.WaterDmgSpecial:
-                    return stringBuilder.Append("Deals jx Dmg to <sprite=2>");
+                    return stringBuilder.Append("Deals jx Dmg to <sprite=1>");
                 case SkillTypes.LightningDmgSpecial:
-                    return stringBuilder.Append("Deals jx Dmg to <sprite=3>");
+                    return stringBuilder.Append("Deals jx Dmg to <sprite=2>");
                 case SkillTypes.AutoTapSpecial:
                     return stringBuilder.Append("Auto Tap for j minutes");
                 default:
@@ -32,16 +32,13 @@ namespace Utils
                     return stringBuilder.Append("empty");
             }
         }
-        
+
         public static string ConvertToMinutes(float milliseconds)
         {
-            var a=  milliseconds / 60_000;
+            TimeSpan timeSpan = TimeSpan.FromMilliseconds((int)milliseconds);
+            var minutesString = $"{timeSpan.Minutes}:{timeSpan.Seconds:D2}";
 
-            var y = a.ToString("{0:F3}",CultureInfo.InvariantCulture);
-
-            return y;
+            return minutesString;
         }
     }
-    
-   
 }

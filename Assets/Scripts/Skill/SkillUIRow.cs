@@ -48,7 +48,7 @@ namespace Skill
                 _level = 1;
             }
 
-            var damage = (_skillUpgrade.BaseIncrementAmount * _level);
+            var damage = _skillUpgrade.StartAmount + (_skillUpgrade.BaseIncrementAmount * _level);
 
             var stringBuilder = DescriptionUtils.GetDescription(_skillUpgrade.SkillTypes);
             if (stringBuilder.ToString().Contains("j"))
@@ -56,13 +56,13 @@ namespace Skill
                 var damageString = "";
                 if (_skillUpgrade.SkillTypes == SkillTypes.AutoTapSpecial)
                 {
-                    damageString= DescriptionUtils.ConvertToMinutes((float) damage);
+                    damageString = DescriptionUtils.ConvertToMinutes((float) damage);
                 }
                 else
                 {
-                    
                     damageString = CalcUtils.FormatNumber(damage);
                 }
+
                 stringBuilder.Replace("j", damageString);
             }
 
@@ -75,7 +75,7 @@ namespace Skill
         public override void SetButtonState(double totalCoin)
         {
             var cost = _skillUpgrade.BaseIncrementCost * _level;
-            buttonCostText.text = $"{CalcUtils.FormatNumber(cost)} <sprite index= 1>";
+            buttonCostText.text = $"{CalcUtils.FormatNumber(cost)} <sprite index= 0>";
 
             buttonDescriptionText.text = _level > 1 ? "LEVEL UP" : "BUY";
 

@@ -529,10 +529,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7fca031f9a948f443a7332780919a784, type: 2}
-  m_sharedMaterial: {fileID: 2625009218440367740, guid: 7fca031f9a948f443a7332780919a784, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: eb6d657d22f8d469abbb045f8cf95242, type: 2}
+  m_sharedMaterial: {fileID: -5240181373281596307, guid: eb6d657d22f8d469abbb045f8cf95242, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3237,6 +3237,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1616116786}
     m_Modifications:
+    - target: {fileID: 368733274924005565, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1578890527179965597, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Sprite
       value: 

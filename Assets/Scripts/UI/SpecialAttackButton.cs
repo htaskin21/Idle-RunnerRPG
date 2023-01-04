@@ -92,7 +92,7 @@ namespace UI
             outerCircleImage.fillAmount = difference;
 
             TimeSpan timeSpan = TimeSpan.FromMilliseconds(maximumTime - currentTime);
-            timeText.text = $"{timeSpan.Minutes}.{timeSpan.Seconds}";
+            timeText.text = $"{timeSpan.Minutes}:{timeSpan.Seconds:D2}";
         }
 
         private void DisableSliderImage()
