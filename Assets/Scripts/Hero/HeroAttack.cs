@@ -97,42 +97,25 @@ namespace Hero
 
         public double GetSpecialAttackDamage()
         {
-            double specialAttackMultiplier = 0;
-            double damageMultiplierByDamageType = 0;
-
-
-            switch (specialAttackType)
-            {
-                case SpecialAttackType.Lightning:
-                    specialAttackMultiplier = heroDamageDataSo.lightningSpecialAttackMultiplier;
-                    break;
-
-                case SpecialAttackType.Explosion:
-                    specialAttackMultiplier = heroDamageDataSo.FireSpecialAttackMultiplier;
-                    break;
-
-                case SpecialAttackType.IceAttack:
-                    specialAttackMultiplier = heroDamageDataSo.WaterSpecialAttackMultiplier;
-                    break;
-
-                default:
-                    specialAttackMultiplier = 1;
-                    break;
-            }
+            double specialAttackMultiplier = 1;
+            double damageMultiplierByDamageType = 1;
 
             if (specialAttackType == SpecialAttackType.Lightning && CurrentEnemy.enemyDamageType == DamageType.Water)
             {
                 damageMultiplierByDamageType = GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
+                specialAttackMultiplier = heroDamageDataSo.lightningSpecialAttackMultiplier;
             }
 
             if (specialAttackType == SpecialAttackType.IceAttack && CurrentEnemy.enemyDamageType == DamageType.Fire)
             {
                 damageMultiplierByDamageType = GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
+                specialAttackMultiplier = heroDamageDataSo.WaterSpecialAttackMultiplier;
             }
 
             if (specialAttackType == SpecialAttackType.Explosion && CurrentEnemy.enemyDamageType == DamageType.Plant)
             {
                 damageMultiplierByDamageType = GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
+                specialAttackMultiplier = heroDamageDataSo.FireSpecialAttackMultiplier;
             }
 
             var totalDamage = heroDamageDataSo.heroAttack * specialAttackMultiplier * damageMultiplierByDamageType;

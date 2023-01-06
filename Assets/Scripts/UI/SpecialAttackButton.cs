@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using Coffee.UIEffects;
 using Cysharp.Threading.Tasks;
-using SpecialAttacks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,7 +28,7 @@ namespace UI
 
         public async UniTask StartDurationState(int maximumTime, CancellationTokenSource cancellationTokenSource)
         {
-            buttonComponent.enabled = true;
+            buttonComponent.enabled = false;
             outerCircleImage.fillClockwise = false;
 
             var baseTime = maximumTime;
@@ -106,7 +104,7 @@ namespace UI
         {
             var dictionary = SaveLoadManager.Instance.LoadSpecialAttackUpgrade();
             var state = dictionary.ContainsKey(id);
-            
+
             lockBackground.SetActive(!state);
             buttonComponent.enabled = state;
         }

@@ -21,7 +21,7 @@ namespace Hero
         {
             pets[0].gameObject.SetActive(true);
 
-            HeroAttack.OnTapDamage += DecideNextStateAfterTapDamage;
+            //HeroAttack.OnTapDamage += DecideNextStateAfterTapDamage;
         }
 
         public void DecideNextState()
@@ -43,7 +43,7 @@ namespace Hero
 
             if (enemyHealth <= 0)
             {
-                if (currentState.stateType == StateType.Idle)
+                if (currentState.stateType == StateType.Idle || currentState.stateType == StateType.WakeUp)
                 {
                     StartRunning();
                 }
@@ -56,7 +56,7 @@ namespace Hero
 
         private void TransitionToIdleState()
         {
-            if (currentState.stateType == StateType.Attack || currentState.stateType == StateType.SpecialAttack)
+            if (currentState.stateType == StateType.Attack || currentState.stateType == StateType.SpecialAttack ||currentState.stateType == StateType.WakeUp )
             {
                 return;
             }
