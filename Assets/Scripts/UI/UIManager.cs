@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Skill;
 using SpecialAttacks;
 using TMPro;
@@ -42,12 +43,13 @@ namespace UI
 
         [SerializeField]
         private SkillUIPanel skillUIPanel;
-
         [SerializeField]
         private SpecialAttackUIPanel heroUIPanel;
 
-        public static Action<double> OnUpdateCoinHud;
+        [SerializeField]
+        private List<UIPanel> uiPanels;
 
+        public static Action<double> OnUpdateCoinHud;
         public static Action<double, double> OnUpdateDamageHud;
 
         private void Awake()
@@ -67,16 +69,6 @@ namespace UI
             OnUpdateCoinHud.Invoke(coin);
         }
 
-        public void OpenSkillPanel()
-        {
-            skillUIPanel.OpenPanel();
-        }
-
-        public void CloseSkillPanel()
-        {
-            skillUIPanel.ClosePanel();
-        }
-
         public void LoadScrollers()
         {
             skillUIPanel.LoadData(DataReader.Instance.SkillData);
@@ -92,6 +84,25 @@ namespace UI
         {
             heroDamageText.text = CalcUtils.FormatNumber(heroDamage);
             tapDamageText.text = CalcUtils.FormatNumber(tapAttack);
+        }
+
+        public void AddPanelToUIPanels(UIPanel panel)
+        {
+            uiPanels.Add(panel);
+        }
+
+        public void CloseOtherUIPanels(UIPanel panel)
+        {
+            if (uiPanels.FindAll(x => x.gameObject.activeInHierarchy).Count > 0)
+            {
+                foreach (var uiPanel in uiPanels)
+                {
+                    if (uiPanel != panel)
+                    {
+                        uiPanel.InstantClosePanel();
+                    }
+                }
+            }
         }
     }
 }

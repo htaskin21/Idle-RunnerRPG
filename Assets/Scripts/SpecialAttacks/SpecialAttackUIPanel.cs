@@ -13,13 +13,12 @@ namespace SpecialAttacks
         [SerializeField]
         private EnhancedScrollerCellView enhancedScrollerCellView;
 
-        public GameObject panelObject;
-
         private List<SpecialAttackUpgrade> _specialAttackUpgrades;
 
-        private void Start()
+        public override void Start()
         {
             enhancedScroller.Delegate = this;
+            base.Start();
         }
 
         public void LoadData(List<SpecialAttackUpgrade> specialAttackUpgrades)

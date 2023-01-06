@@ -13,13 +13,12 @@ namespace Skill
         [SerializeField]
         private EnhancedScrollerCellView enhancedScrollerCellView;
 
-        public GameObject panelObject;
-
         private List<SkillUpgrade> _skillUis;
 
-        private void Start()
+        public override void Start()
         {
             enhancedScroller.Delegate = this;
+            base.Start();
         }
 
         public void LoadData(List<SkillUpgrade> skillUpgrades)

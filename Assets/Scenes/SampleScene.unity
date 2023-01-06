@@ -3650,6 +3650,7 @@ MonoBehaviour:
   tapDamageText: {fileID: 1721389074}
   skillUIPanel: {fileID: 401647301}
   heroUIPanel: {fileID: 1518390999}
+  uiPanels: []
 --- !u!4 &1018802025
 Transform:
   m_ObjectHideFlags: 0
