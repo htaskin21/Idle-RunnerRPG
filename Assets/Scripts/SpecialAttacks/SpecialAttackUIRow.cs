@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using ScriptableObjects;
 using UI;
@@ -18,6 +19,8 @@ namespace SpecialAttacks
         private Dictionary<int, int> _specialAttackDictionary;
 
         private Dictionary<int, int> _saveData;
+        
+        public static Action<int> OnUpdateSpecialAttack;
 
         private void Start()
         {
@@ -55,13 +58,13 @@ namespace SpecialAttacks
                 var damageString = "";
                 if (_specialAttackUpgrade.SkillTypes == SkillTypes.AutoTapSpecial)
                 {
-                    damageString= DescriptionUtils.ConvertToMinutes((float) damage);
+                    damageString = DescriptionUtils.ConvertToMinutes((float) damage);
                 }
                 else
                 {
-                    
                     damageString = CalcUtils.FormatNumber(damage);
                 }
+
                 stringBuilder.Replace("j", damageString);
             }
 
@@ -89,12 +92,17 @@ namespace SpecialAttacks
             if (coin >= cost)
             {
                 _level++;
-                SaveLoadManager.Instance.SaveSkillUpgrade(_specialAttackUpgrade.ID, _level);
-                Calculator.OnUpdateDamageCalculation.Invoke(_specialAttackUpgrade.ID, _level);
+                SaveLoadManager.Instance.SaveSpecialAttackUpgrade(_specialAttackUpgrade.ID, _level);
+                Calculator.OnUpdateSpecialAttackDamageCalculation.Invoke(_specialAttackUpgrade.ID, _level);
                 EconomyManager.OnSpendCoin.Invoke(-cost);
                 coin -= cost;
 
                 UpdateRow(coin);
+                
+                if (_level <= 2)
+                {
+                    OnUpdateSpecialAttack?.Invoke(_specialAttackUpgrade.ID);
+                }
             }
         }
 

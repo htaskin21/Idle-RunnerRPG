@@ -26,12 +26,8 @@ namespace SpecialAttacks
 
         private void Start()
         {
-            /*
-            var dictionary = SaveLoadManager.Instance.LoadSkillUpgrade();
-            if (dictionary.ContainsKey(identifier) == false)
-            {
-                specialAttackButton.StartLockState();
-            }*/
+            SpecialAttackUIRow.OnUpdateSpecialAttack += CheckLockState;
+            specialAttackButton.SetLockState(identifier);
         }
 
         private async UniTask AutoTapRoutine()
@@ -79,6 +75,14 @@ namespace SpecialAttacks
         {
             _cts = new CancellationTokenSource();
             AutoTapRoutine().Forget();
+        }
+
+        private void CheckLockState(int id)
+        {
+            if (id == identifier)
+            {
+                specialAttackButton.SetLockState(identifier);
+            }
         }
     }
 }

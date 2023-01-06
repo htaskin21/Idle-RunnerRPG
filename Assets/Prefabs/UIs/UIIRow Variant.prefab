@@ -22,6 +22,14 @@ PrefabInstance:
     - target: {fileID: 2592043425798272008, guid: 1320f28339640429a8fd003f383a0410, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1894227988027411433}
+    - target: {fileID: 2592043425798272008, guid: 1320f28339640429a8fd003f383a0410, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnBuy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592043425798272008, guid: 1320f28339640429a8fd003f383a0410, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpecialAttacks.SpecialAttackUIRow, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2592043426292044268, guid: 1320f28339640429a8fd003f383a0410, type: 3}
       propertyPath: m_Pivot.x

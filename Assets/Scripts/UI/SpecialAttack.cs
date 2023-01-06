@@ -2,6 +2,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Hero;
 using ScriptableObjects;
+using SpecialAttacks;
 using States;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ namespace UI
 {
     public class SpecialAttack : MonoBehaviour
     {
+        [SerializeField]
+        private int identifier;
+        
         [SerializeField]
         private SpecialAttackType specialAttackType;
 
@@ -20,6 +24,12 @@ namespace UI
 
         private CancellationTokenSource _cts;
 
+        private void Start()
+        {
+            SpecialAttackUIRow.OnUpdateSpecialAttack += CheckLockState;
+            specialAttackButton.SetLockState(identifier);
+        }
+
         public void StartSpecialAttack()
         {
             _cts = new CancellationTokenSource();
@@ -30,6 +40,14 @@ namespace UI
             GameManager.Instance.HeroController.TransitionToState(specialAttackState);
 
             specialAttackButton.StartCoolDownState(heroDamageDataSo.specialAttackCoolDown, _cts).Forget();
+        }
+        
+        private void CheckLockState(int id)
+        {
+            if (id == identifier)
+            {
+                specialAttackButton.SetLockState(identifier);
+            }
         }
     }
 }

@@ -103,8 +103,10 @@ public class GameManager : MonoBehaviour
 
         _calculator.CalculateDamages();
 
+        _calculator.CalculateSpecialAttackDamage();
+
         CreateCharacters();
-        
+
         _heroController.StartRunning();
 
         //UIManager.OnUpdateCoinHud(0);
@@ -185,7 +187,7 @@ public class GameManager : MonoBehaviour
         _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
 
         CreateEnemy();
-        
+
         _heroController.StartRunning();
     }
 }

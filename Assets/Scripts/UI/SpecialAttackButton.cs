@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using Coffee.UIEffects;
 using Cysharp.Threading.Tasks;
+using SpecialAttacks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -100,10 +102,13 @@ namespace UI
             sliderImage.gameObject.SetActive(false);
         }
 
-        public void StartLockState()
+        public void SetLockState(int id)
         {
-            lockBackground.SetActive(true);
-            buttonComponent.enabled = false;
+            var dictionary = SaveLoadManager.Instance.LoadSpecialAttackUpgrade();
+            var state = dictionary.ContainsKey(id);
+            
+            lockBackground.SetActive(!state);
+            buttonComponent.enabled = state;
         }
     }
 }

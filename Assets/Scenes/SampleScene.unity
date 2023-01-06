@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6e33b7eebe408ea230c9b700923d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  identifier: 0
+  identifier: 9001
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
   specialAttackButton: {fileID: 1446687088}
 --- !u!114 &34780190 stripped
@@ -1303,6 +1303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05aa10b0da84492dbd5db841e1f25a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifier: 9003
   specialAttackType: 2
   specialAttackButton: {fileID: 34780190}
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
@@ -6816,6 +6817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05aa10b0da84492dbd5db841e1f25a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifier: 9004
   specialAttackType: 0
   specialAttackButton: {fileID: 118255114}
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
@@ -6836,6 +6838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05aa10b0da84492dbd5db841e1f25a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifier: 9002
   specialAttackType: 1
   specialAttackButton: {fileID: 1330673158}
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
