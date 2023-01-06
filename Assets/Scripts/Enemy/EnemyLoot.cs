@@ -21,10 +21,6 @@ namespace Enemy
             var go = GameManager.Instance.ObjectPool.GetGameObject(lootType.ToString());
             var lootObject = go.GetComponent<LootObject>();
 
-            var a = enemyController.AnimationController.transform.localPosition;
-
-            
-            
             lootObject.SetInitialPosition(enemyController.transform, lootAmount);
         }
     }

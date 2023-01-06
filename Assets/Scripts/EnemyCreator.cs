@@ -11,6 +11,7 @@ public class EnemyCreator : MonoBehaviour
     public void SetEnemyData(EnemyController enemyController, int level)
     {
         enemyController.enemyLevel = level;
+        enemyController.enemyHealth.SetMaxHealth(level);
 
         var icon = damageIconDataSo.GetIcon(enemyController.enemyDamageType);
         enemyController.enemyDamageTypeIcon.sprite = icon;

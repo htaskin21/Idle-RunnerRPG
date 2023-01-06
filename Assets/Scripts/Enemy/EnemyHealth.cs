@@ -12,7 +12,7 @@ namespace Enemy
         [SerializeField]
         private float maxHealth;
 
-        public float MaxHealth => maxHealth;
+        private float _levelMultiplier = 4.75f;
 
         [SerializeField]
         private double health;
@@ -37,21 +37,6 @@ namespace Enemy
             OnEnemyDie = delegate { };
         }
 
-        private void Start()
-        {
-            health = maxHealth;
-
-            floatMultiplier = 100 / maxHealth;
-
-            healthBar.minValue = 0;
-            healthBar.maxValue = (float) (maxHealth * floatMultiplier);
-            healthBar.value = (float) (health * floatMultiplier);
-
-            healthBarCanvasGroup.alpha = 1;
-
-            healthText.text = CalcUtils.FormatNumber(health);
-        }
-
         public void SetHealth(double attackDamage)
         {
             health -= attackDamage;
@@ -62,6 +47,22 @@ namespace Enemy
             {
                 healthBarCanvasGroup.DOFade(0, .35f).SetEase(Ease.InCirc);
             }
+        }
+
+        public void SetMaxHealth(int level)
+        {
+            health = maxHealth;
+            health += health * (level / _levelMultiplier);
+
+            floatMultiplier = 100 / health;
+
+            healthBar.minValue = 0;
+            healthBar.maxValue = (float) (health * floatMultiplier);
+            healthBar.value = (float) (health * floatMultiplier);
+
+            healthBarCanvasGroup.alpha = 1;
+
+            healthText.text = CalcUtils.FormatNumber(health);
         }
     }
 }
