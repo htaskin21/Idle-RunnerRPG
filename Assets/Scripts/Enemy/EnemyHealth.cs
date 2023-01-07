@@ -12,8 +12,6 @@ namespace Enemy
         [SerializeField]
         private float maxHealth;
 
-        private float _levelMultiplier = 4.75f;
-
         [SerializeField]
         private double health;
 
@@ -52,7 +50,7 @@ namespace Enemy
         public void SetMaxHealth(int level)
         {
             health = maxHealth;
-            health += health * (level / _levelMultiplier);
+            health += health * level;
 
             floatMultiplier = 100 / health;
 
