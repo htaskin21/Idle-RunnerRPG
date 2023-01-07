@@ -17,4 +17,5 @@ MonoBehaviour:
   regularEnemies:
   - {fileID: 3179790188444746945, guid: 0c5d1a24565b146a880c519207601efe, type: 3}
   - {fileID: 647848768215458366, guid: d20520f2ec6244df98bcf527d5ab030f, type: 3}
+  - {fileID: 887762799773015445, guid: 19d2f51c7d7184d19b38c5363b38468e, type: 3}
   bossEnemy: {fileID: 6057125930083822405, guid: 57dee4ce00a0e4e968a496ae0b9b27ae, type: 3}
