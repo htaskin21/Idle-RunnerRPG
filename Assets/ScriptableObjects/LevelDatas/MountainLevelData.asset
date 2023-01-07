@@ -16,6 +16,6 @@ MonoBehaviour:
   skyImage: {fileID: 4068245934471779675, guid: be211d25b815c499a9d860a2ecbc7b4d, type: 3}
   regularEnemies:
   - {fileID: 3179790188444746945, guid: 0c5d1a24565b146a880c519207601efe, type: 3}
-  - {fileID: 647848768215458366, guid: d20520f2ec6244df98bcf527d5ab030f, type: 3}
   - {fileID: 887762799773015445, guid: 19d2f51c7d7184d19b38c5363b38468e, type: 3}
+  - {fileID: 6894057439482407638, guid: 0b46875d81e5b43eb9f87b9c12c2191d, type: 3}
   bossEnemy: {fileID: 6057125930083822405, guid: 57dee4ce00a0e4e968a496ae0b9b27ae, type: 3}

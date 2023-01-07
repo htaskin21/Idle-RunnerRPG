@@ -1,23 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3653294005227748890
+--- !u!1001 &7011665560904911193
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -1278369992585130925, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
-      propertyPath: lootAmount
-      value: 11
+    - target: {fileID: 4531443774268580751, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: enemyDamageType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6335787440788954558, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_Name
-      value: Wild Boar
-      objectReference: {fileID: 0}
-    - target: {fileID: 6607414481439564884, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.164
+      value: Skeleton
       objectReference: {fileID: 0}
     - target: {fileID: 6806274545325703046, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_RootOrder
@@ -29,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6806274545325703046, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.25
+      value: -0.925
       objectReference: {fileID: 0}
     - target: {fileID: 6806274545325703046, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_LocalPosition.z
@@ -65,15 +61,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6880065268576177032, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: maxHealth
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6882271475068717389, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 22100000, guid: c8260abd140cc480d8982d1772a35627, type: 2}
+      objectReference: {fileID: 22100000, guid: 6760c17d6dcd74bd797948fe3abed04a, type: 2}
+    - target: {fileID: 8349136554718834253, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8349136554718834253, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 5757592713928485237, guid: eb055c110fa6d4abdb4d13e7c5a0b2f4, type: 3}
+      objectReference: {fileID: 972248280460351773, guid: 4fbff8130ecfc4ceea8aacf6c279287f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}

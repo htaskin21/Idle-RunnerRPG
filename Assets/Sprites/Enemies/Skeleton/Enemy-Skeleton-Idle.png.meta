@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 3af7ae49846754b48a4dd921bebd9fe3
+guid: 4fbff8130ecfc4ceea8aacf6c279287f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2643388938159623079
-    second: Die-Sheet - Color 1_0
+      213: 972248280460351773
+    second: Enemy-Skeleton-Idle_0
   - first:
-      213: 966190245230008846
-    second: Die-Sheet - Color 1_1
+      213: -7345719892136836984
+    second: Enemy-Skeleton-Idle_1
   - first:
-      213: -8792300466651982273
-    second: Die-Sheet - Color 1_2
+      213: 5789844080864802341
+    second: Enemy-Skeleton-Idle_2
   - first:
-      213: -5437540766860016310
-    second: Die-Sheet - Color 1_3
+      213: 7072025826789863705
+    second: Enemy-Skeleton-Idle_3
+  - first:
+      213: -2530254099389467554
+    second: Enemy-Skeleton-Idle_4
+  - first:
+      213: 952612317388115160
+    second: Enemy-Skeleton-Idle_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -58,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,13 +133,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Die-Sheet - Color 1_0
+      name: Enemy-Skeleton-Idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 48
+        width: 85
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ab8336eb343fa420800000000000000
-      internalID: 2643388938159623079
+      spriteID: d19d25ee8ae1e7d00800000000000000
+      internalID: 972248280460351773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Die-Sheet - Color 1_1
+      name: Enemy-Skeleton-Idle_1
       rect:
         serializedVersion: 2
-        x: 96
+        x: 85
         y: 0
-        width: 96
-        height: 48
+        width: 85
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0ad160b8e8986d00800000000000000
-      internalID: 966190245230008846
+      spriteID: 880c9a96da2ce0a90800000000000000
+      internalID: -7345719892136836984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Die-Sheet - Color 1_2
+      name: Enemy-Skeleton-Idle_2
       rect:
         serializedVersion: 2
-        x: 192
+        x: 170
         y: 0
-        width: 96
-        height: 48
+        width: 85
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +189,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3615b62f497bf580800000000000000
-      internalID: -8792300466651982273
+      spriteID: 52638d00488a95050800000000000000
+      internalID: 5789844080864802341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Die-Sheet - Color 1_3
+      name: Enemy-Skeleton-Idle_3
       rect:
         serializedVersion: 2
-        x: 288
+        x: 255
         y: 0
-        width: 96
-        height: 48
+        width: 85
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,8 +210,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a458a9b5b79f984b0800000000000000
-      internalID: -5437540766860016310
+      spriteID: 911b2303502e42260800000000000000
+      internalID: 7072025826789863705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-Skeleton-Idle_4
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 0
+        width: 85
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e543a6e6d4bb2ecd0800000000000000
+      internalID: -2530254099389467554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-Skeleton-Idle_5
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 0
+        width: 85
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dc84920bdb583d00800000000000000
+      internalID: 952612317388115160
       vertices: []
       indices: 
       edges: []
