@@ -61,7 +61,7 @@ namespace States
             }
 
             var position = specialAttack.transform.position;
-            position = new Vector3(GameManager.Instance.EnemyController.transform.position.x,
+            position = new Vector3(GameManager.Instance.EnemyController.specialAttackPosition.position.x,
                 position.y, position.z);
             specialAttack.transform.position = position;
 

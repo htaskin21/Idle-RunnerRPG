@@ -15,6 +15,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Slime
       objectReference: {fileID: 0}
+    - target: {fileID: 6607414481439564884, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.135
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607414481439564884, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.37
+      objectReference: {fileID: 0}
     - target: {fileID: 6806274545325703046, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_RootOrder
       value: 0

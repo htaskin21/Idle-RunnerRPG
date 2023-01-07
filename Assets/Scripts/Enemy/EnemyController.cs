@@ -12,11 +12,13 @@ namespace Enemy
         [SerializeField]
         private BoxCollider2D boxCollider2D;
 
+        public Transform specialAttackPosition;
+
         [SerializeField]
         private TapDamageController tapDamageController;
 
         public TapDamageController TapDamageController => tapDamageController;
-
+        
         public BoxCollider2D BoxCollider2D => boxCollider2D;
 
         public DamageType enemyDamageType;
