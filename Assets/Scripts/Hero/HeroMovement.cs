@@ -25,7 +25,7 @@ namespace Hero
         private void StartRunning()
         {
             var go = gameObject;
-            _runningTweener = go.transform.DOMoveX(go.transform.position.x + 1, 1).SetLoops(-1, LoopType.Incremental)
+            _runningTweener = go.transform.DOMoveX(go.transform.position.x + 1, .75f).SetLoops(-1, LoopType.Incremental)
                 .SetEase(Ease.Linear);
         }
 

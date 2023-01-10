@@ -17,7 +17,7 @@ public class CameraFollower : MonoBehaviour
 
     private void StartCameraMove()
     {
-        _cameraMoveTweener = mainCamera.transform.DOLocalMoveX(mainCamera.transform.position.x + 1, 1f)
+        _cameraMoveTweener = mainCamera.transform.DOLocalMoveX(mainCamera.transform.position.x + 1, .75f)
             .SetLoops(-1, LoopType.Incremental)
             .SetEase(Ease.Linear);
     }
