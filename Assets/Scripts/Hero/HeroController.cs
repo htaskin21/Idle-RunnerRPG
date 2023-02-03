@@ -21,7 +21,7 @@ namespace Hero
         {
             pets[0].gameObject.SetActive(true);
 
-            //HeroAttack.OnTapDamage += DecideNextStateAfterTapDamage;
+            HeroAttack.OnTapDamage += DecideNextStateAfterTapDamage;
         }
 
         public void DecideNextState()
@@ -37,7 +37,7 @@ namespace Hero
             }
         }
 
-        public void DecideNextStateAfterTapDamage(double damage)
+        private void DecideNextStateAfterTapDamage(double damage)
         {
             var enemyHealth = heroAttack.CurrentEnemy.enemyHealth.Health - damage;
 

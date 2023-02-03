@@ -42,7 +42,7 @@ namespace SpecialAttacks
             StartTimerUI((int) autoTapAttackDuration, _durationCts, _cooldownCts).Forget();
 
             HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack);
-            GameManager.Instance.HeroController.DecideNextStateAfterTapDamage(heroDamageDataSo.tapAttack);
+            //GameManager.Instance.HeroController.DecideNextStateAfterTapDamage(heroDamageDataSo.tapAttack);
             while (finishTime >= DateTime.UtcNow)
             {
                 await UniTask.WaitUntil(
@@ -52,7 +52,7 @@ namespace SpecialAttacks
                 if (finishTime >= DateTime.UtcNow)
                 {
                     HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack);
-                    GameManager.Instance.HeroController.DecideNextStateAfterTapDamage(heroDamageDataSo.tapAttack);
+                    //GameManager.Instance.HeroController.DecideNextStateAfterTapDamage(heroDamageDataSo.tapAttack);
                 }
             }
 
