@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 8771116208650398045}
   - component: {fileID: 2870046646152597569}
   - component: {fileID: 4840570725145640340}
-  - component: {fileID: 1334286639947347112}
   - component: {fileID: 6847509286784404000}
   m_Layer: 0
   m_Name: Canvas
@@ -115,23 +114,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 1
---- !u!114 &1334286639947347112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521047250224247125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!225 &6847509286784404000
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -297,7 +279,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 9067888179955700757}
   m_HandleRect: {fileID: 0}
@@ -720,6 +702,7 @@ MonoBehaviour:
   idleState: {fileID: 7561752539425017337}
   explosionAttackPrefab: {fileID: 0}
   lightningAttackPrefab: {fileID: 0}
+  iceAttackPrefab: {fileID: 0}
 --- !u!1 &7561752539621336802
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,6 +946,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 657047802600f4a6f85ef25f2108abe5, type: 3}
+--- !u!4 &8003036169808321158 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8990462152619925294, guid: 657047802600f4a6f85ef25f2108abe5, type: 3}
+  m_PrefabInstance: {fileID: 1429038901120861608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6379126677860379366 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5427895991927041870, guid: 657047802600f4a6f85ef25f2108abe5, type: 3}
@@ -974,8 +962,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b776a872fc344d2864196fb0e7304e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &8003036169808321158 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8990462152619925294, guid: 657047802600f4a6f85ef25f2108abe5, type: 3}
-  m_PrefabInstance: {fileID: 1429038901120861608}
-  m_PrefabAsset: {fileID: 0}

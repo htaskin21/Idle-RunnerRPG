@@ -183,7 +183,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 8771561038845922234}
   m_HandleRect: {fileID: 0}
@@ -311,7 +311,6 @@ GameObject:
   - component: {fileID: 4943456792635212303}
   - component: {fileID: 7595135246533247800}
   - component: {fileID: 530468803620172686}
-  - component: {fileID: 3439138488817213687}
   - component: {fileID: 6907578407276662875}
   m_Layer: 0
   m_Name: Canvas
@@ -385,23 +384,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 1
---- !u!114 &3439138488817213687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2121867333083523192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!225 &6907578407276662875
 CanvasGroup:
   m_ObjectHideFlags: 0
