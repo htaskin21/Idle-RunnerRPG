@@ -86,15 +86,12 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 30;
         //Buraya save sistemi gelicek.
 
-        SetScene().Forget();
+        SetScene();
     }
 
-    private async UniTask SetScene()
+    private void SetScene()
     {
-//        CancellationTokenSource cts = new CancellationTokenSource();
-
-        await _dataReader.ReadAllData();
-
+        _dataReader.ReadAllData();
         _uiManager.LoadScrollers();
 
         _currentLevelData = levelData[0];
@@ -102,19 +99,13 @@ public class GameManager : MonoBehaviour
         _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
 
         _calculator.CalculateDamages();
-
         _calculator.CalculateSpecialAttackDamage();
 
         CreateCharacters();
-
         _heroController.StartRunning();
-
-        //UIManager.OnUpdateCoinHud(0);
-
-//        cts.Cancel();
     }
 
-    private async UniTask CreateHero()
+    private void CreateHero()
     {
         _heroController = Instantiate(_heroController, new Vector3(-1.3f, _heroController.transform.position.y, 0),
             quaternion.identity);

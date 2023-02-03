@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Threading;
-using Cysharp.Threading.Tasks;
 using Skill;
 using SpecialAttacks;
 using UnityEngine;
@@ -37,14 +35,10 @@ public class DataReader : MonoBehaviour
         _instance = this;
     }
 
-    public async UniTask ReadAllData()
+    public void ReadAllData()
     {
-        CancellationTokenSource cts = new CancellationTokenSource();
-
         ReadSkillData();
         ReadSpecialAttackData();
-
-        cts.Cancel();
     }
 
     private void ReadSkillData()

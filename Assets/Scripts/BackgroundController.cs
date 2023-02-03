@@ -1,3 +1,4 @@
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -29,20 +30,25 @@ public class BackgroundController : MonoBehaviour
     public SkyImage secondSkyImage;
     public SkyImage outOfCameraSkyImage;
 
+    private CancellationTokenSource _backgroundCts;
 
     public async UniTask SetBackgrounds(SkyImage skyImage, TilemapRenderer tilemapRenderer)
     {
+        _backgroundCts = new CancellationTokenSource();
+
         fadeImage.gameObject.SetActive(true);
         await fadeImage.DOColor(new Color(0, 0, 0, 1), .65f).SetEase(Ease.OutQuad).AsyncWaitForCompletion();
 
-        await SetSkyImages(skyImage);
-        await SetGroundObject(tilemapRenderer);
+        SetSkyImages(skyImage);
+        SetGroundObject(tilemapRenderer);
 
         await fadeImage.DOColor(new Color(0, 0, 0, 0), .65f).SetEase(Ease.OutQuad)
             .OnComplete(() => fadeImage.gameObject.SetActive(false)).AsyncWaitForCompletion();
+
+        _backgroundCts.Cancel();
     }
 
-    async UniTask SetSkyImages(SkyImage skyImage)
+    private void SetSkyImages(SkyImage skyImage)
     {
         if (firstSkyImage != null)
         {
@@ -57,7 +63,7 @@ public class BackgroundController : MonoBehaviour
             new Vector3(firstSkyImage.transform.position.x + firstSkyImage.firstLayer.bounds.size.x, 0, 0);
     }
 
-    async UniTask SetGroundObject(TilemapRenderer tilemapRenderer)
+    private void SetGroundObject(TilemapRenderer tilemapRenderer)
     {
         if (firstGroundObject != null)
         {
