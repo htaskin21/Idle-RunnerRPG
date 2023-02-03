@@ -37,8 +37,6 @@ namespace Skill
         {
             _skillUpgradeDictionary = SaveLoadManager.Instance.LoadSkillUpgrade();
 
-            var a = _skillUpgradeDictionary.ContainsKey(_skillUpgrade.ID);
-
             if (_skillUpgradeDictionary.ContainsKey(_skillUpgrade.ID))
             {
                 _level = _skillUpgradeDictionary[_skillUpgrade.ID];
