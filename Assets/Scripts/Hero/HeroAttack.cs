@@ -1,6 +1,7 @@
 using System;
 using DamageNumbersPro;
 using Enemy;
+using Enums;
 using ScriptableObjects;
 using States;
 using UnityEngine;
@@ -32,16 +33,20 @@ namespace Hero
 
         public EnemyController CurrentEnemy { get; private set; }
 
-        public static Action<double> OnInflictDamage;
-        public static Action<double> OnTapDamage;
+        private bool _isCriticalAttack;
+
+        public static Action<double, AttackType> OnInflictDamage;
+        public static Action<double, AttackType> OnTapDamage;
 
         private void Awake()
         {
-            OnInflictDamage = delegate(double damage) { };
+            /*
+            OnInflictDamage = delegate(double damage, AttackType attackType) { };
             OnInflictDamage += SpawnDamagePopUp;
 
-            OnTapDamage = delegate(double damage) { };
+            OnTapDamage = delegate(double damage, AttackType attackType) { };
             OnTapDamage += SpawnDamagePopUp;
+            */
         }
 
         private void OnTriggerEnter2D(Collider2D col)
@@ -55,29 +60,36 @@ namespace Hero
             }
         }
 
-        private void SpawnDamagePopUp(double damage)
+        private void SpawnDamagePopUp(double damage, AttackType attackType)
         {
             Vector3 enemyPosition = GameManager.Instance.EnemyController.transform.position;
 
             Vector3 correctedPosition = new Vector3(enemyPosition.x, enemyPosition.y + 1f, enemyPosition.z);
 
-            var a = CalcUtils.FormatNumber(damage);
+            switch (attackType)
+            {
+                case AttackType.HeroDamage:
 
-            if (damage < heroDamageDataSo.heroAttack)
-            {
-                DamageNumber damageNumber =
                     heroAttackPrefab.Spawn(correctedPosition, CalcUtils.FormatNumber(damage));
-            }
-            else
-            {
-                DamageNumber damageNumber =
+                    break;
+                case AttackType.TapDamage:
                     tapAttackPrefab.Spawn(correctedPosition, CalcUtils.FormatNumber(damage));
+                    break;
+                case AttackType.CriticalDamage:
+                    heroAttackPrefab.Spawn(correctedPosition, CalcUtils.FormatNumber(damage));
+                    break;
+                case AttackType.SpecialAttackDamage:
+                    tapAttackPrefab.Spawn(correctedPosition, CalcUtils.FormatNumber(damage));
+                    break;
             }
+
+            Debug.Log("Damage Pop Up Yerine Girdi");
         }
 
         public double CalculateDamage()
         {
-            return heroDamageDataSo.heroAttack * GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType) * GetCriticalDamage();
+            return heroDamageDataSo.heroAttack * GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType) *
+                   GetCriticalDamage();
         }
 
         private double GetDamageMultiplierByDamageType(DamageType damageType)
@@ -103,10 +115,17 @@ namespace Hero
 
             if (rnd <= critChance)
             {
+                _isCriticalAttack = true;
                 return heroDamageDataSo.criticalAttack;
             }
 
+            _isCriticalAttack = false;
             return 1;
+        }
+
+        public AttackType GetAttackType()
+        {
+            return _isCriticalAttack ? AttackType.SpecialAttackDamage : AttackType.CriticalDamage;
         }
 
         public double GetSpecialAttackDamage()
@@ -135,13 +154,5 @@ namespace Hero
             var totalDamage = heroDamageDataSo.heroAttack * specialAttackMultiplier * damageMultiplierByDamageType;
             return totalDamage;
         }
-    }
-
-    public enum SpecialAttackType
-    {
-        Lightning,
-        Explosion,
-        IceAttack,
-        AutoTap
     }
 }

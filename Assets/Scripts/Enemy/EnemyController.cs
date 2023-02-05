@@ -1,3 +1,4 @@
+using Enums;
 using Hero;
 using States;
 using UnityEngine;
@@ -35,7 +36,7 @@ namespace Enemy
             tapDamageController.isTapDamageEnable = false;
         }
 
-        private void TakeDamage(double attackPoint)
+        private void TakeDamage(double attackPoint, AttackType attackType)
         {
             if (!(enemyHealth.Health > 0)) return;
             enemyHealth.SetHealth(attackPoint);

@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Enums;
 using Hero;
 using ScriptableObjects;
 using UI;
@@ -41,7 +42,7 @@ namespace SpecialAttacks
 
             StartTimerUI((int) autoTapAttackDuration, _durationCts, _cooldownCts).Forget();
 
-            HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack);
+            HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack,AttackType.TapDamage);
             //GameManager.Instance.HeroController.DecideNextStateAfterTapDamage(heroDamageDataSo.tapAttack);
             while (finishTime >= DateTime.UtcNow)
             {
@@ -51,7 +52,7 @@ namespace SpecialAttacks
                 await UniTask.Delay(heroDamageDataSo.tapAttackCoolDown);
                 if (finishTime >= DateTime.UtcNow)
                 {
-                    HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack);
+                    HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack,AttackType.TapDamage);
                     //GameManager.Instance.HeroController.DecideNextStateAfterTapDamage(heroDamageDataSo.tapAttack);
                 }
             }

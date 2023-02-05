@@ -1,3 +1,4 @@
+using Enums;
 using Hero;
 using UI;
 using UnityEngine;
@@ -27,7 +28,7 @@ namespace States
 
             CharacterController.AnimationController.onAnimationAction.AddListener(() =>
                 HeroAttack.OnInflictDamage?.Invoke(
-                    GameManager.Instance.HeroController.heroAttack.GetSpecialAttackDamage()));
+                    GameManager.Instance.HeroController.heroAttack.GetSpecialAttackDamage(),AttackType.SpecialAttackDamage));
 
             HeroController heroController = (HeroController) CharacterController;
             CharacterController.AnimationController.onAnimationEnd.AddListener(heroController.DecideNextState);

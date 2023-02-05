@@ -1,6 +1,6 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using Hero;
+using Enums;
 using ScriptableObjects;
 using SpecialAttacks;
 using States;
@@ -12,7 +12,7 @@ namespace UI
     {
         [SerializeField]
         private int identifier;
-        
+
         [SerializeField]
         private SpecialAttackType specialAttackType;
 
@@ -41,7 +41,7 @@ namespace UI
 
             specialAttackButton.StartCoolDownState(heroDamageDataSo.specialAttackCoolDown, _cts).Forget();
         }
-        
+
         private void CheckLockState(int id)
         {
             if (id == identifier)

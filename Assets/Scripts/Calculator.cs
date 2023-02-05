@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Enums;
 using ScriptableObjects;
 using Skill;
 using SpecialAttacks;

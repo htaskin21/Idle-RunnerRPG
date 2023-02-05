@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Enums;
 using ScriptableObjects;
 using UI;
 using UnityEngine;

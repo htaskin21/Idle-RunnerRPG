@@ -10,12 +10,14 @@ namespace States
 
         protected override void EnterState()
         {
+            HeroController heroController = (HeroController) CharacterController;
+
             CharacterController.AnimationController.PlayAnimation(AnimationType.Attack);
 
             CharacterController.AnimationController.onAnimationAction.AddListener(() =>
-                HeroAttack.OnInflictDamage?.Invoke(GameManager.Instance.HeroController.heroAttack.CalculateDamage()));
+                HeroAttack.OnInflictDamage?.Invoke(heroController.heroAttack.CalculateDamage(),
+                    heroController.heroAttack.GetAttackType()));
 
-            HeroController heroController = (HeroController) CharacterController;
             CharacterController.AnimationController.onAnimationEnd.AddListener(heroController.DecideNextState);
 
             ButtonController.OnActiveAttackButtons?.Invoke(true);

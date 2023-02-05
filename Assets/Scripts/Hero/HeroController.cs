@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Enums;
 using States;
 using UnityEngine;
 
@@ -37,7 +38,7 @@ namespace Hero
             }
         }
 
-        private void DecideNextStateAfterTapDamage(double damage)
+        private void DecideNextStateAfterTapDamage(double damage,AttackType attackType)
         {
             var enemyHealth = heroAttack.CurrentEnemy.enemyHealth.Health - damage;
 
