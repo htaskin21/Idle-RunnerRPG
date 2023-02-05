@@ -241,14 +241,13 @@ public class Calculator : MonoBehaviour
 
     private void ResetHeroDamageData()
     {
-        _heroDamageDataSo.criticalAttack = 0;
         _heroDamageDataSo.heroAttack = 10;
         _heroDamageDataSo.tapAttack = 1;
         _heroDamageDataSo.earthDamageMultiplier = 1;
         _heroDamageDataSo.plantDamageMultiplier = 1;
         _heroDamageDataSo.waterDamageMultiplier = 1;
         _heroDamageDataSo.criticalAttack = 1;
-        _heroDamageDataSo.criticalAttack = 0;
+        _heroDamageDataSo.criticalAttackChance = 0;
     }
 
     private void ResetHeroSpecialAttackDamageData()

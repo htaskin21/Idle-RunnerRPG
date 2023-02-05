@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Utils
 {
@@ -27,7 +28,7 @@ namespace Utils
 
             if (newVal < 1d)
             {
-                return "0";
+                return newVal.ToString(format:"F",CultureInfo.InvariantCulture);
             }
 
             var n = (int) Math.Log(newVal, 1000);

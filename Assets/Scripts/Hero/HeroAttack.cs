@@ -5,6 +5,7 @@ using ScriptableObjects;
 using States;
 using UnityEngine;
 using Utils;
+using Random = UnityEngine.Random;
 
 namespace Hero
 {
@@ -76,7 +77,7 @@ namespace Hero
 
         public double CalculateDamage()
         {
-            return heroDamageDataSo.heroAttack * GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
+            return heroDamageDataSo.heroAttack * GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType) * GetCriticalDamage();
         }
 
         private double GetDamageMultiplierByDamageType(DamageType damageType)
@@ -93,6 +94,19 @@ namespace Hero
                 default:
                     return 1f;
             }
+        }
+
+        private float GetCriticalDamage()
+        {
+            float rnd = Random.Range(0, 100);
+            var critChance = heroDamageDataSo.criticalAttackChance;
+
+            if (rnd <= critChance)
+            {
+                return heroDamageDataSo.criticalAttack;
+            }
+
+            return 1;
         }
 
         public double GetSpecialAttackDamage()
