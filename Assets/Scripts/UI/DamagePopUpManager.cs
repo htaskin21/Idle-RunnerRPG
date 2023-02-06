@@ -23,10 +23,7 @@ namespace UI
 
         private void Start()
         {
-            HeroAttack.OnInflictDamage = delegate(double damage, AttackType attackType) { };
             HeroAttack.OnInflictDamage += SpawnDamagePopUp;
-
-            HeroAttack.OnTapDamage = delegate(double damage, AttackType attackType) { };
             HeroAttack.OnTapDamage += SpawnDamagePopUp;
         }
 

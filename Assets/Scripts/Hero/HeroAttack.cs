@@ -29,6 +29,12 @@ namespace Hero
         public static Action<double, AttackType> OnInflictDamage;
         public static Action<double, AttackType> OnTapDamage;
 
+        private void Awake()
+        {
+           OnInflictDamage = delegate(double damage, AttackType attackType) { };
+           OnTapDamage = delegate(double damage, AttackType attackType) { };
+        }
+
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.gameObject.CompareTag($"Enemy"))
