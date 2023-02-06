@@ -7346,10 +7346,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9bab26d1274794bc44dd7451d8b863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroAttackPrefab: {fileID: 2151027515920951202, guid: ffec972368df24f7fb578bc0fcaac5f1, type: 3}
-  _tapAttackPrefab: {fileID: 9082777676698030928, guid: 23e6c8b1be7aa42b7aac083d66d12ffc, type: 3}
-  _critAttackPrefab: {fileID: 2151027515920951202, guid: ffec972368df24f7fb578bc0fcaac5f1, type: 3}
-  _specialAttackPrefab: {fileID: 9082777676698030928, guid: 23e6c8b1be7aa42b7aac083d66d12ffc, type: 3}
+  _heroAttackPrefab: {fileID: 2151027515920951202, guid: 4bd0e5e97eca64bd68be2258a079a560, type: 3}
+  _tapAttackPrefab: {fileID: 2151027515920951202, guid: d16d9299a6f7240ea8546cfe9eea1482, type: 3}
+  _critAttackPrefab: {fileID: 2151027515920951202, guid: 8e4014e258f6847ecaeca65cfdd5125c, type: 3}
+  _specialAttackPrefab: {fileID: 2151027515920951202, guid: 3b2e2b77bba444da7aa1e2a545c83f14, type: 3}
 --- !u!1001 &2020034534
 PrefabInstance:
   m_ObjectHideFlags: 0

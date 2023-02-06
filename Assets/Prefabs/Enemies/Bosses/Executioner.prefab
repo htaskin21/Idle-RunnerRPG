@@ -75,6 +75,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.77
       objectReference: {fileID: 0}
+    - target: {fileID: 3093406261767402592, guid: b49cc640a4177431bb3ec43b5664c3cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093406261767402592, guid: b49cc640a4177431bb3ec43b5664c3cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.57
+      objectReference: {fileID: 0}
     - target: {fileID: 3110957140271317556, guid: b49cc640a4177431bb3ec43b5664c3cd, type: 3}
       propertyPath: m_Name
       value: Executioner

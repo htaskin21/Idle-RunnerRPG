@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: lootAmount
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 6209503504601476074, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.171
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209503504601476074, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.492
+      objectReference: {fileID: 0}
     - target: {fileID: 6335787440788954558, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_Name
       value: Wild Boar

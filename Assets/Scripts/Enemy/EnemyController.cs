@@ -15,6 +15,8 @@ namespace Enemy
 
         public Transform specialAttackPosition;
 
+        public Transform damagePopUpPosition;
+
         [SerializeField]
         private TapDamageController tapDamageController;
 
@@ -43,7 +45,6 @@ namespace Enemy
 
             var hitState = GetState(StateType.Hit);
             TransitionToState(hitState);
-
         }
 
         private void OnDestroy()

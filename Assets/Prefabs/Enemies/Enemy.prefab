@@ -333,7 +333,7 @@ RectTransform:
   - {fileID: 3619866337583125161}
   - {fileID: 4159388512986539614}
   m_Father: {fileID: 6806274545325703046}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -703,6 +703,7 @@ Transform:
   - {fileID: 6075032680474860399}
   - {fileID: 2564208344764438380}
   - {fileID: 6607414481439564884}
+  - {fileID: 6209503504601476074}
   - {fileID: 4943456792635212303}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -751,6 +752,7 @@ MonoBehaviour:
   enemyHealth: {fileID: 6880065268576177032}
   boxCollider2D: {fileID: 8885628202984723388}
   specialAttackPosition: {fileID: 6607414481439564884}
+  damagePopUpPosition: {fileID: 6209503504601476074}
   tapDamageController: {fileID: 8491517519486077023}
   enemyDamageType: 0
   enemyDamageTypeIcon: {fileID: 6057918724211574257}
@@ -971,3 +973,33 @@ RectTransform:
   m_AnchoredPosition: {x: 9.04, y: 0}
   m_SizeDelta: {x: 72.28, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &8531997193075410151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6209503504601476074}
+  m_Layer: 0
+  m_Name: DamagePopUpPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6209503504601476074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8531997193075410151}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.656, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6806274545325703046}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

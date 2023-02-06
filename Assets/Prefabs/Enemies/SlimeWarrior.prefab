@@ -27,6 +27,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6209503504601476074, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.399
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209503504601476074, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.042
+      objectReference: {fileID: 0}
     - target: {fileID: 6335787440788954558, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_Name
       value: SlimeWarrior

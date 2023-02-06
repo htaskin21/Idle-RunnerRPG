@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Hero;
 using UnityEngine;
@@ -24,6 +25,11 @@ public class CameraFollower : MonoBehaviour
 
     private void StopCameraMove()
     {
-        _cameraMoveTweener.Kill();
+        _cameraMoveTweener?.Kill();
+    }
+
+    private void OnDestroy()
+    {
+        _cameraMoveTweener?.Kill();
     }
 }

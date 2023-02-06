@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2151027515920951202}
   - component: {fileID: 7739072230389852305}
   m_Layer: 0
-  m_Name: Attack
+  m_Name: TapDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   permanent: 0
-  lifetime: 1
+  lifetime: 0.5
   unscaledTime: 0
   enable3DGame: 0
   faceCameraView: 1
@@ -155,7 +155,7 @@ MonoBehaviour:
     vertical: 0
     characterSpacing: 0
     size: 0
-  enableColorByNumber: 0
+  enableColorByNumber: 1
   colorByNumberSettings:
     colorGradient:
       serializedVersion: 2
@@ -188,35 +188,35 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
     fromNumber: 10
     toNumber: 100
-  durationFadeIn: 0.25
-  enableOffsetFadeIn: 1
-  offsetFadeIn: {x: 0, y: 0.5}
+  durationFadeIn: 0.05
+  enableOffsetFadeIn: 0
+  offsetFadeIn: {x: 0.5, y: 0}
   enableScaleFadeIn: 1
-  scaleFadeIn: {x: 0.5, y: 2}
-  enableCrossScaleFadeIn: 1
+  scaleFadeIn: {x: 0.5, y: 0.5}
+  enableCrossScaleFadeIn: 0
   crossScaleFadeIn: {x: 1, y: 1.5}
-  enableShakeFadeIn: 1
-  shakeOffsetFadeIn: {x: 0, y: 1}
+  enableShakeFadeIn: 0
+  shakeOffsetFadeIn: {x: 0, y: 1.5}
   shakeFrequencyFadeIn: 4
   durationFadeOut: 0.2
   enableOffsetFadeOut: 0
   offsetFadeOut: {x: 0.5, y: 0}
   enableScaleFadeOut: 1
-  scaleFadeOut: {x: -0.3, y: 1}
+  scaleFadeOut: {x: 0.4, y: 0.4}
   enableCrossScaleFadeOut: 0
   crossScaleFadeOut: {x: 1, y: 1.5}
   enableShakeFadeOut: 0
   shakeOffsetFadeOut: {x: 0, y: 1.5}
   shakeFrequencyFadeOut: 4
-  enableLerp: 0
+  enableLerp: 1
   lerpSettings:
     speed: 5
-    minX: -0.1
-    maxX: 0.1
-    minY: 0.6
-    maxY: 0.8
+    minX: -0.4
+    maxX: 0.4
+    minY: 0.5
+    maxY: 1
     randomFlip: 0
-  enableVelocity: 1
+  enableVelocity: 0
   velocitySettings:
     minX: -1
     maxX: 1
@@ -239,9 +239,9 @@ MonoBehaviour:
   minRotation: -4
   maxRotation: 4
   rotationRandomFlip: 0
-  enableRotateOverTime: 1
-  minRotationSpeed: -10
-  maxRotationSpeed: 10
+  enableRotateOverTime: 0
+  minRotationSpeed: -15
+  maxRotationSpeed: 15
   rotationSpeedRandomFlip: 0
   rotateOverTime:
     serializedVersion: 2
@@ -256,8 +256,17 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.2
+      time: 0.4
       value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.8
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -281,8 +290,8 @@ MonoBehaviour:
     fromNumber: 0
     toNumber: 1000
     fromScale: 1
-    toScale: 1.25
-  enableScaleOverTime: 1
+    toScale: 2
+  enableScaleOverTime: 0
   scaleOverTime:
     serializedVersion: 2
     m_Curve:
@@ -297,7 +306,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0.8
+      value: 0.7
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -327,8 +336,17 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 0.7
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
         time: 1
-        value: 0.5
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -343,6 +361,15 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.5
         value: 1
         inSlope: 0
         outSlope: 0
@@ -421,18 +448,18 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  enableCollision: 0
+  enableCollision: 1
   collisionSettings:
     radius: 0.5
-    pushFactor: 1
+    pushFactor: 1.5
     desiredDirection: {x: 0, y: 0, z: 0}
   enablePush: 0
   pushSettings:
-    radius: 4
-    pushOffset: 0.5
+    radius: 3
+    pushOffset: 0.8
   updateDelay: 0.0125
   enablePooling: 1
-  poolSize: 20
+  poolSize: 5
   position: {x: 0, y: 0, z: 0}
 --- !u!210 &7739072230389852305
 SortingGroup:
@@ -496,7 +523,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7813419849211700074, guid: 9c531f7132a5fa44a87992df50ab3582, type: 2}
+  - {fileID: 2625009218440367740, guid: 7fca031f9a948f443a7332780919a784, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -577,7 +604,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7813419849211700074, guid: 9c531f7132a5fa44a87992df50ab3582, type: 2}
+  - {fileID: 2625009218440367740, guid: 7fca031f9a948f443a7332780919a784, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -663,7 +690,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7813419849211700074, guid: 9c531f7132a5fa44a87992df50ab3582, type: 2}
+  - {fileID: 2625009218440367740, guid: 7fca031f9a948f443a7332780919a784, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -705,17 +732,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9c531f7132a5fa44a87992df50ab3582, type: 2}
-  m_sharedMaterial: {fileID: 7813419849211700074, guid: 9c531f7132a5fa44a87992df50ab3582, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7fca031f9a948f443a7332780919a784, type: 2}
+  m_sharedMaterial: {fileID: 2625009218440367740, guid: 7fca031f9a948f443a7332780919a784, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 0.23529412, b: 0.23529412, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -732,8 +759,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5
-  m_fontSizeBase: 5
+  m_fontSize: 2.5
+  m_fontSizeBase: 2.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -38,5 +38,8 @@ public class SkyImage : MonoBehaviour
     {
         HeroMovement.OnHeroStartRunning -= StartSkyImageMove;
         HeroMovement.OnHeroStopRunning -= StopSkyImageMove;
+        
+        _skyImageTweener?.Kill();
+        
     }
 }

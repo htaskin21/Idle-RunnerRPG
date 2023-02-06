@@ -33,5 +33,10 @@ namespace Hero
         {
             _runningTweener.Kill();
         }
+
+        private void OnDestroy()
+        {
+            _runningTweener.Kill();
+        }
     }
 }
