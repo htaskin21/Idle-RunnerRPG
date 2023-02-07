@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ScriptableObjects
 {
-    [CreateAssetMenu(menuName = "Create DamageIconDataSO", fileName = "DamageIconDataSO", order = 1)]
+    [CreateAssetMenu(menuName = "Create Damage Icon Data", fileName = "DamageIconDataSO", order = 1)]
     public class DamageIconDataSO : SerializedScriptableObject
     {
         public Dictionary<DamageType, Sprite> Icons = new Dictionary<DamageType, Sprite>();

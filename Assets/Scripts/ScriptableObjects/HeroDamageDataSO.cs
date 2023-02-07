@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ScriptableObjects
 {
-    [CreateAssetMenu(menuName = "Create HeroDamageDataSO", fileName = "HeroDamageDataSO")]
+    [CreateAssetMenu(menuName = "Create Hero Damage Data", fileName = "HeroDamageDataSO")]
     public class HeroDamageDataSO :ScriptableObject
     {
         public double heroAttack = 10;

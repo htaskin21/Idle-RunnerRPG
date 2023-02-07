@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 namespace ScriptableObjects
 {
-    [CreateAssetMenu(menuName = "Create LevelDataSO", fileName = "LevelDataSO", order = 0)]
+    [CreateAssetMenu(menuName = "Create Level Data", fileName = "LevelDataSO", order = 0)]
     public class LevelDataSO : ScriptableObject
     {
         public TilemapRenderer groundObject;
