@@ -1,5 +1,8 @@
 using System;
+using Items;
+using Managers;
 using UnityEngine;
+using LootType = Enums.LootType;
 
 namespace Enemy
 {

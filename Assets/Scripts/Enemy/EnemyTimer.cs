@@ -2,6 +2,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Hero;
+using Managers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
