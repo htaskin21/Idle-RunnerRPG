@@ -1,6 +1,7 @@
 using System;
 using Enemy;
 using Enums;
+using Managers;
 using ScriptableObjects;
 using States;
 using UnityEngine;
@@ -26,13 +27,31 @@ namespace Hero
 
         private bool _isCriticalAttack;
 
+        [SerializeField]
+        private float _strengthBoostMultiplier;
+
+        private float StrengthBoost
+        {
+            get
+            {
+                if (SaveLoadManager.Instance.LoadStrengthBoostTime() >= DateTime.UtcNow)
+                {
+                    return _strengthBoostMultiplier;
+                }
+
+                return 1;
+            }
+
+            set => _strengthBoostMultiplier = value;
+        }
+
         public static Action<double, AttackType> OnInflictDamage;
         public static Action<double, AttackType> OnTapDamage;
 
         private void Awake()
         {
-           OnInflictDamage = delegate(double damage, AttackType attackType) { };
-           OnTapDamage = delegate(double damage, AttackType attackType) { };
+            OnInflictDamage = delegate(double damage, AttackType attackType) { };
+            OnTapDamage = delegate(double damage, AttackType attackType) { };
         }
 
         private void OnTriggerEnter2D(Collider2D col)
@@ -49,7 +68,7 @@ namespace Hero
         public double CalculateDamage()
         {
             return heroDamageDataSo.heroAttack * GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType) *
-                   GetCriticalDamage();
+                   GetCriticalDamage() * CalculateBoost();
         }
 
         private double GetDamageMultiplierByDamageType(DamageType damageType)
@@ -113,6 +132,11 @@ namespace Hero
 
             var totalDamage = heroDamageDataSo.heroAttack * specialAttackMultiplier * damageMultiplierByDamageType;
             return totalDamage;
+        }
+
+        private float CalculateBoost()
+        {
+            return StrengthBoost;
         }
     }
 }

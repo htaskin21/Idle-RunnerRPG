@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6de3ae013ce84dceb1d5087331ade405, type: 3}
+  m_Script: {fileID: 11500000, guid: f376826647b314540b26f3dfd6141ca3, type: 3}
   m_Name: StrengthPotion
   m_EditorClassIdentifier: 
   _potionType: 0
   fullImage: {fileID: -6487766520125065523, guid: 635a4249d11a94609a0c779e8f7bc417, type: 3}
   emptyImage: {fileID: 2196526440641311090, guid: 635a4249d11a94609a0c779e8f7bc417, type: 3}
+  boostDuration: 120000

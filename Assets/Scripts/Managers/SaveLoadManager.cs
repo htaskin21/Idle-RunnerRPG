@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Enums;
 using UnityEngine;
 
 namespace Managers
@@ -55,7 +57,7 @@ namespace Managers
 
             return skillUpgradeDictionary;
         }
-    
+
         public void SaveSpecialAttackUpgrade(int specialAttackID, int skillLevel)
         {
             Dictionary<int, int> heroSectionDictionary = new Dictionary<int, int>();
@@ -99,6 +101,72 @@ namespace Managers
             var coin = saveFile.Load<double>("totalCoin", 0);
 
             return coin;
+        }
+
+        private void SaveGem(int totalGem)
+        {
+            var saveFile = new ES3File("economySaveFile.es3");
+            var gem = saveFile.Load<double>("totalGem", 0);
+
+            gem += totalGem;
+
+            saveFile.Save("totalGem", gem);
+            saveFile.Sync();
+        }
+
+        public double LoadGem()
+        {
+            var saveFile = new ES3File("economySaveFile.es3");
+            var gem = saveFile.Load<double>("totalGem", 0);
+
+            return gem;
+        }
+
+        public void SavePotion(PotionType potionType, int amount)
+        {
+            var desc = potionType.ToString();
+
+            var saveFile = new ES3File("potionSaveFile.es3");
+            var potionCount = saveFile.Load<int>(desc, 0);
+
+            potionCount += amount;
+
+            saveFile.Save(desc, potionCount);
+            saveFile.Sync();
+        }
+
+        public int LoadPotion(PotionType potionType)
+        {
+            var desc = potionType.ToString();
+
+            var saveFile = new ES3File("potionSaveFile.es3");
+            var potionCount = saveFile.Load<int>(desc, 0);
+
+            return potionCount;
+        }
+
+        public void SaveStrengthBoostTime(int milliSeconds)
+        {
+            var saveFile = new ES3File("boostTimeSaveFile.es3");
+            var boostTime = saveFile.Load<DateTime>("strengthBoostTime", DateTime.UtcNow);
+
+            if (boostTime < DateTime.UtcNow)
+            {
+                boostTime = DateTime.UtcNow;
+            }
+
+            var addedBoostTime = boostTime.AddMilliseconds(milliSeconds);
+
+            saveFile.Save("strengthBoostTime", addedBoostTime);
+            saveFile.Sync();
+        }
+
+        public DateTime LoadStrengthBoostTime()
+        {
+            var saveFile = new ES3File("boostTimeSaveFile.es3");
+            var boostTime = saveFile.Load<DateTime>("strengthBoostTime", DateTime.UtcNow);
+
+            return boostTime;
         }
     }
 }

@@ -7,6 +7,28 @@ public class ObjectPool : MonoBehaviour
     public List<PoolItem> items;
     public List<GameObject> pooledItems;
 
+    #region Singleton
+
+    private static ObjectPool _instance;
+
+    public static ObjectPool Instance
+    {
+        get
+        {
+            if (_instance == null)
+                Debug.LogError("Missing ObjectPool");
+
+            return _instance;
+        }
+    }
+
+    #endregion
+
+    private void Awake()
+    {
+        _instance = this;
+    }
+
     private void Start()
     {
         pooledItems = new List<GameObject>();
