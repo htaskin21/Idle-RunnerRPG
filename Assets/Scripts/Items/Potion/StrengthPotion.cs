@@ -36,7 +36,7 @@ namespace Items.Potion
         //TODO Store'u ekledikten sonra sil
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 SaveLoadManager.Instance.SavePotion(_potionData._potionType, 1);
                 SetData();

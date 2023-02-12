@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using Coffee.UIEffects;
 using Cysharp.Threading.Tasks;
+using Enums;
 using Managers;
 using TMPro;
 using UnityEngine;
@@ -20,6 +21,9 @@ namespace UI
         public TextMeshProUGUI timeText;
         public UIShiny iconShine;
 
+        private SpecialAttackButtonState _specialAttackButtonState;
+        public SpecialAttackButtonState SpecialAttackButtonState => _specialAttackButtonState;
+
         private void Start()
         {
             baseBorderColor = buttonBackground.color;
@@ -29,6 +33,8 @@ namespace UI
 
         public async UniTask StartDurationState(int maximumTime, CancellationTokenSource cancellationTokenSource)
         {
+            _specialAttackButtonState = SpecialAttackButtonState.OnPressed;
+
             buttonComponent.enabled = false;
             outerCircleImage.fillClockwise = false;
 
@@ -57,8 +63,11 @@ namespace UI
             timeText.text = $"{timeSpan.Milliseconds}";
         }
 
-        public async UniTask StartCoolDownState(int maximumTime, CancellationTokenSource cancellationTokenSource)
+        public async UniTask StartCoolDownState(int remainingTime, int maximumTime,
+            CancellationTokenSource cancellationTokenSource)
         {
+            _specialAttackButtonState = SpecialAttackButtonState.OnCoolDown;
+
             buttonComponent.enabled = false;
 
             sliderImage.fillAmount = 1;
@@ -67,17 +76,18 @@ namespace UI
 
             outerCircleImage.fillClockwise = true;
 
-            var baseTime = maximumTime;
             var passingTime = 100;
-            var currentTime = 0;
+            var currentTime = maximumTime - remainingTime;
 
-            while (maximumTime > 0)
+            while (remainingTime > 0)
             {
-                maximumTime -= passingTime;
-                SetCoolDownState(currentTime, baseTime);
+                remainingTime -= passingTime;
+                SetCoolDownState(currentTime, maximumTime);
                 await UniTask.Delay(passingTime);
                 currentTime += passingTime;
             }
+
+            _specialAttackButtonState = SpecialAttackButtonState.OnReady;
 
             DisableSliderImage();
             buttonComponent.enabled = true;
@@ -101,13 +111,15 @@ namespace UI
             sliderImage.gameObject.SetActive(false);
         }
 
-        public void SetLockState(int id)
+        public bool SetLockState(int id)
         {
             var dictionary = SaveLoadManager.Instance.LoadSpecialAttackUpgrade();
             var state = dictionary.ContainsKey(id);
 
             lockBackground.SetActive(!state);
             buttonComponent.enabled = state;
+
+            return state;
         }
     }
 }

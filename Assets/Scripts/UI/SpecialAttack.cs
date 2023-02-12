@@ -27,8 +27,14 @@ namespace UI
 
         private void Start()
         {
-            SpecialAttackUIRow.OnUpdateSpecialAttack += CheckLockState;
-            specialAttackButton.SetLockState(identifier);
+            var isUnlocked = specialAttackButton.SetLockState(identifier);
+            if (isUnlocked)
+            {
+            }
+            else
+            {
+                SpecialAttackUIRow.OnUpdateSpecialAttack += CheckLockState;
+            }
         }
 
         public void StartSpecialAttack()
@@ -40,7 +46,8 @@ namespace UI
             var specialAttackState = GameManager.Instance.HeroController.GetState(StateType.SpecialAttack);
             GameManager.Instance.HeroController.TransitionToState(specialAttackState);
 
-            specialAttackButton.StartCoolDownState(heroDamageDataSo.specialAttackCoolDown, _cts).Forget();
+            specialAttackButton.StartCoolDownState(heroDamageDataSo.specialAttackCoolDown,
+                heroDamageDataSo.specialAttackCoolDown, _cts).Forget();
         }
 
         private void CheckLockState(int id)

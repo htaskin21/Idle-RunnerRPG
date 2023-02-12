@@ -21,6 +21,9 @@ namespace SpecialAttacks
         [SerializeField]
         private SpecialAttackButton specialAttackButton;
 
+        [SerializeField]
+        private HeroController _heroController;
+
         private CancellationTokenSource _cts;
         private CancellationTokenSource _durationCts;
         private CancellationTokenSource _cooldownCts;
@@ -28,33 +31,67 @@ namespace SpecialAttacks
 
         private void Start()
         {
-            SpecialAttackUIRow.OnUpdateSpecialAttack += CheckLockState;
-            specialAttackButton.SetLockState(identifier);
+            var isUnlocked = specialAttackButton.SetLockState(identifier);
+            if (isUnlocked)
+            {
+                var durations = SaveLoadManager.Instance.LoadSpecialAttackDuration();
+                var isContain = durations.ContainsKey(identifier);
+                if (isContain)
+                {
+                    var durationDate = durations[identifier];
+                    if (durationDate > DateTime.UtcNow)
+                    {
+                        var duration = durationDate.Subtract(DateTime.UtcNow).TotalMilliseconds;
+                        AutoTapRoutine(duration).Forget();
+                        return;
+                    }
+                }
+
+                durations = SaveLoadManager.Instance.LoadSpecialAttackCoolDown();
+                isContain = durations.ContainsKey(identifier);
+                if (isContain)
+                {
+                    var durationDate = durations[identifier];
+                    if (durationDate > DateTime.UtcNow)
+                    {
+                        _cooldownCts = new CancellationTokenSource();
+                        var duration = durationDate.Subtract(DateTime.UtcNow).TotalMilliseconds;
+                        specialAttackButton.StartCoolDownState((int) duration,
+                            (int) heroDamageDataSo.autoTapAttackCooldown, _cooldownCts).Forget();
+                    }
+                }
+            }
+            else
+            {
+                SpecialAttackUIRow.OnUpdateSpecialAttack += CheckLockState;
+            }
         }
 
-        private async UniTask AutoTapRoutine()
+        private async UniTask AutoTapRoutine(double duration)
         {
             _durationCts = new CancellationTokenSource();
             _cooldownCts = new CancellationTokenSource();
+            _cts = new CancellationTokenSource();
 
-            var autoTapAttackDuration =
-                heroDamageDataSo.autoTapAttackDuration;
-            var finishTime = DateTime.UtcNow.AddMilliseconds(autoTapAttackDuration);
+            StartTimerUI((int) duration, _durationCts, _cooldownCts).Forget();
 
-            StartTimerUI((int) autoTapAttackDuration, _durationCts, _cooldownCts).Forget();
+            await UniTask.WaitUntil(
+                () => _heroController.heroAttack.CurrentEnemy != null, cancellationToken:
+                _cts.Token);
 
-            HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack,AttackType.TapDamage);
-            //GameManager.Instance.HeroController.DecideNextStateAfterTapDamage(heroDamageDataSo.tapAttack);
-            while (finishTime >= DateTime.UtcNow)
+            HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack, AttackType.TapDamage);
+
+            var finishTime = DateTime.UtcNow.AddMilliseconds(duration);
+            while (finishTime >= DateTime.UtcNow || _cts.IsCancellationRequested == false)
             {
                 await UniTask.WaitUntil(
                     () => GameManager.Instance.EnemyController.enemyHealth.Health > 0 &&
-                          GameManager.Instance.EnemyController.TapDamageController.isTapDamageEnable);
-                await UniTask.Delay(heroDamageDataSo.tapAttackCoolDown);
+                          GameManager.Instance.EnemyController.TapDamageController.isTapDamageEnable, cancellationToken:
+                    _cts.Token);
+                await UniTask.Delay(heroDamageDataSo.tapAttackCoolDown, cancellationToken: _cts.Token);
                 if (finishTime >= DateTime.UtcNow)
                 {
-                    HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack,AttackType.TapDamage);
-                    //GameManager.Instance.HeroController.DecideNextStateAfterTapDamage(heroDamageDataSo.tapAttack);
+                    HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack, AttackType.TapDamage);
                 }
             }
 
@@ -66,10 +103,18 @@ namespace SpecialAttacks
         {
             _uiTimerCts = new CancellationTokenSource();
 
+            SaveLoadManager.Instance.SaveSpecialAttackDuration(identifier,
+                DateTime.UtcNow.AddMilliseconds(autoTapAttackDuration));
+           
+            var totalDuration = autoTapAttackDuration + heroDamageDataSo.autoTapAttackCooldown;
+            SaveLoadManager.Instance.SaveSpecialAttackCoolDown(identifier,
+                DateTime.UtcNow.AddMilliseconds(totalDuration));
+            
             specialAttackButton.StartDurationState(autoTapAttackDuration, durationCts).Forget();
             await UniTask.WaitUntilCanceled(durationCts.Token);
-
-            specialAttackButton.StartCoolDownState((int) heroDamageDataSo.autoTapAttackCooldown, cooldownCts).Forget();
+            
+            specialAttackButton.StartCoolDownState((int) heroDamageDataSo.autoTapAttackCooldown,
+                (int) heroDamageDataSo.autoTapAttackCooldown, cooldownCts).Forget();
             await UniTask.WaitUntilCanceled(cooldownCts.Token);
 
             _uiTimerCts.Cancel();
@@ -77,8 +122,10 @@ namespace SpecialAttacks
 
         public void StartAutoTap()
         {
-            _cts = new CancellationTokenSource();
-            AutoTapRoutine().Forget();
+            var autoTapAttackDuration =
+                heroDamageDataSo.autoTapAttackDuration;
+
+            AutoTapRoutine(autoTapAttackDuration).Forget();
         }
 
         private void CheckLockState(int id)
@@ -87,6 +134,11 @@ namespace SpecialAttacks
             {
                 specialAttackButton.SetLockState(identifier);
             }
+        }
+
+        private void OnDestroy()
+        {
+            _cts?.Cancel();
         }
     }
 }

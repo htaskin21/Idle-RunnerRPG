@@ -104,7 +104,8 @@ namespace Managers
             _calculator.CalculateSpecialAttackDamage();
 
             CreateCharacters();
-            _heroController.StartRunning();
+            
+           _heroController.StartRunning();
         }
 
         private void CreateHero()

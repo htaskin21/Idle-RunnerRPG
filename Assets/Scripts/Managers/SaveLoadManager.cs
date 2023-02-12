@@ -83,6 +83,58 @@ namespace Managers
 
             return heroSectionDictionary;
         }
+        
+        public void SaveSpecialAttackCoolDown(int specialAttackID, DateTime coolDownTime)
+        {
+            Dictionary<int, DateTime> specialAttackCoolDown = new Dictionary<int, DateTime>();
+
+            var saveFile = new ES3File("specialAttackTimeSaveFile.es3");
+
+            specialAttackCoolDown =
+                saveFile.Load<Dictionary<int, DateTime>>("specialAttackCoolDown", specialAttackCoolDown);
+
+            specialAttackCoolDown[specialAttackID] = coolDownTime;
+
+            saveFile.Save<Dictionary<int, DateTime>>("specialAttackCoolDown", specialAttackCoolDown);
+            saveFile.Sync();
+        }
+        
+        public Dictionary<int, DateTime> LoadSpecialAttackCoolDown()
+        {
+            Dictionary<int, DateTime> specialAttackCoolDown = new Dictionary<int, DateTime>();
+
+            var saveFile = new ES3File("specialAttackTimeSaveFile.es3");
+
+            specialAttackCoolDown = saveFile.Load<Dictionary<int, DateTime>>("specialAttackCoolDown", specialAttackCoolDown);
+
+            return specialAttackCoolDown;
+        }
+        
+        public void SaveSpecialAttackDuration(int specialAttackID, DateTime durationTime)
+        {
+            Dictionary<int, DateTime> specialAttackDuration = new Dictionary<int, DateTime>();
+
+            var saveFile = new ES3File("specialAttackTimeSaveFile.es3");
+
+            specialAttackDuration =
+                saveFile.Load<Dictionary<int, DateTime>>("specialAttackDuration", specialAttackDuration);
+
+            specialAttackDuration[specialAttackID] = durationTime;
+
+            saveFile.Save<Dictionary<int, DateTime>>("specialAttackDuration", specialAttackDuration);
+            saveFile.Sync();
+        }
+        
+        public Dictionary<int, DateTime> LoadSpecialAttackDuration()
+        {
+            Dictionary<int, DateTime> specialAttackDuration = new Dictionary<int, DateTime>();
+
+            var saveFile = new ES3File("specialAttackTimeSaveFile.es3");
+
+            specialAttackDuration = saveFile.Load<Dictionary<int, DateTime>>("specialAttackDuration", specialAttackDuration);
+
+            return specialAttackDuration;
+        }
 
         private void SaveCoin(double totalCoin)
         {
