@@ -144,6 +144,22 @@ MonoBehaviour:
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
   specialAttackButton: {fileID: 1446687088}
   _heroController: {fileID: 2020034535}
+  _boostIconController: {fileID: 2954311}
+--- !u!114 &2954311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2954309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3e3c85486e34bcda5587cee41f51fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _iconSprite: {fileID: -2319468965142247315, guid: ce300894134eb4557a8e8042f7e689dd, type: 3}
+  _boostIconsPanel: {fileID: 192271598}
+  boostIcon: {fileID: 0}
 --- !u!114 &34780190 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2659541618948628148, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
@@ -981,7 +997,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -25, y: -270.5}
+  m_AnchoredPosition: {x: -25, y: -271.6}
   m_SizeDelta: {x: 461.1309, y: 154.6291}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &192271599
@@ -8812,7 +8828,7 @@ PrefabInstance:
     - target: {fileID: 3727230231953676422, guid: c98550b60f46e4e35bdcc608aa32de8a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3617733678514173852}
     - target: {fileID: 3727230231953676422, guid: c98550b60f46e4e35bdcc608aa32de8a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

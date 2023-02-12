@@ -22,6 +22,7 @@ namespace UI
             boostIcon.icomImage.sprite = _iconSprite;
 
             go.transform.SetParent(_boostIconsPanel);
+            go.transform.localScale = new Vector3(1, 1, 1);
         }
 
         public void SetBoostIcon(DateTime boostTime)

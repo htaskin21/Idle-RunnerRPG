@@ -24,6 +24,9 @@ namespace SpecialAttacks
         [SerializeField]
         private HeroController _heroController;
 
+        [SerializeField]
+        private BoostIconController _boostIconController;
+
         private CancellationTokenSource _cts;
         private CancellationTokenSource _durationCts;
         private CancellationTokenSource _cooldownCts;
@@ -73,6 +76,8 @@ namespace SpecialAttacks
             _cooldownCts = new CancellationTokenSource();
             _cts = new CancellationTokenSource();
 
+            _boostIconController.SetBoostIcon(DateTime.UtcNow.AddMilliseconds(duration));
+
             StartTimerUI((int) duration, _durationCts, _cooldownCts).Forget();
 
             await UniTask.WaitUntil(
@@ -105,14 +110,14 @@ namespace SpecialAttacks
 
             SaveLoadManager.Instance.SaveSpecialAttackDuration(identifier,
                 DateTime.UtcNow.AddMilliseconds(autoTapAttackDuration));
-           
+
             var totalDuration = autoTapAttackDuration + heroDamageDataSo.autoTapAttackCooldown;
             SaveLoadManager.Instance.SaveSpecialAttackCoolDown(identifier,
                 DateTime.UtcNow.AddMilliseconds(totalDuration));
-            
+
             specialAttackButton.StartDurationState(autoTapAttackDuration, durationCts).Forget();
             await UniTask.WaitUntilCanceled(durationCts.Token);
-            
+
             specialAttackButton.StartCoolDownState((int) heroDamageDataSo.autoTapAttackCooldown,
                 (int) heroDamageDataSo.autoTapAttackCooldown, cooldownCts).Forget();
             await UniTask.WaitUntilCanceled(cooldownCts.Token);
