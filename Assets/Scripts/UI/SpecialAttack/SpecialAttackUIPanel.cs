@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using EnhancedUI.EnhancedScroller;
-using UI;
+using SpecialAttacks;
 using UnityEngine;
 
-namespace SpecialAttacks
+namespace UI.SpecialAttack
 {
     public class SpecialAttackUIPanel : UIPanel, IEnhancedScrollerDelegate
     {

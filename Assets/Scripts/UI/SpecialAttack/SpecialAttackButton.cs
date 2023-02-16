@@ -8,7 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.SpecialAttack
 {
     public class SpecialAttackButton : MonoBehaviour
     {

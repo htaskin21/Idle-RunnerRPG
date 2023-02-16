@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using Managers;
 using Skill;
-using SpecialAttacks;
 using TMPro;
+using UI.SpecialAttack;
 using UnityEngine;
 using Utils;
 
@@ -44,6 +44,7 @@ namespace UI
 
         [SerializeField]
         private SkillUIPanel skillUIPanel;
+
         [SerializeField]
         private SpecialAttackUIPanel heroUIPanel;
 

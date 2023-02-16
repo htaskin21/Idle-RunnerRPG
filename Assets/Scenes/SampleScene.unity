@@ -1522,9 +1522,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifier: 9003
-  specialAttackType: 2
-  specialAttackButton: {fileID: 34780190}
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
+  specialAttackButton: {fileID: 34780190}
+  _specialAttackType: 2
 --- !u!1 &290020446
 GameObject:
   m_ObjectHideFlags: 0
@@ -7254,9 +7254,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifier: 9004
-  specialAttackType: 0
-  specialAttackButton: {fileID: 118255114}
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
+  specialAttackButton: {fileID: 118255114}
+  _specialAttackType: 0
 --- !u!1 &1748140802 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5904951516062476238, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
@@ -7275,9 +7275,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifier: 9002
-  specialAttackType: 1
-  specialAttackButton: {fileID: 1330673158}
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
+  specialAttackButton: {fileID: 1330673158}
+  _specialAttackType: 1
 --- !u!1 &1751895129
 GameObject:
   m_ObjectHideFlags: 0

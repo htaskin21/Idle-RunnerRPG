@@ -1,27 +1,18 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Enums;
 using Managers;
-using ScriptableObjects;
-using SpecialAttacks;
 using States;
+using UI.SpecialAttack;
 using UnityEngine;
 
-namespace UI
+namespace SpecialAttacks
 {
-    public class SpecialAttack : MonoBehaviour
+    public class SpecialAttack : BaseSpecialAttack
     {
         [SerializeField]
-        private int identifier;
-
-        [SerializeField]
-        private SpecialAttackType specialAttackType;
-
-        [SerializeField]
-        private SpecialAttackButton specialAttackButton;
-
-        [SerializeField]
-        private HeroDamageDataSO heroDamageDataSo;
+        private SpecialAttackType _specialAttackType;
 
         private CancellationTokenSource _cts;
 
@@ -30,6 +21,7 @@ namespace UI
             var isUnlocked = specialAttackButton.SetLockState(identifier);
             if (isUnlocked)
             {
+                LoadCoolDownState(heroDamageDataSo.specialAttackCoolDown, _cts);
             }
             else
             {
@@ -41,21 +33,16 @@ namespace UI
         {
             _cts = new CancellationTokenSource();
 
-            GameManager.Instance.HeroController.heroAttack.specialAttackType = specialAttackType;
+            GameManager.Instance.HeroController.heroAttack.specialAttackType = _specialAttackType;
 
             var specialAttackState = GameManager.Instance.HeroController.GetState(StateType.SpecialAttack);
             GameManager.Instance.HeroController.TransitionToState(specialAttackState);
 
+            SaveLoadManager.Instance.SaveSpecialAttackCoolDown(identifier,
+                DateTime.UtcNow.AddMilliseconds(heroDamageDataSo.specialAttackCoolDown));
+            
             specialAttackButton.StartCoolDownState(heroDamageDataSo.specialAttackCoolDown,
                 heroDamageDataSo.specialAttackCoolDown, _cts).Forget();
-        }
-
-        private void CheckLockState(int id)
-        {
-            if (id == identifier)
-            {
-                specialAttackButton.SetLockState(identifier);
-            }
         }
     }
 }

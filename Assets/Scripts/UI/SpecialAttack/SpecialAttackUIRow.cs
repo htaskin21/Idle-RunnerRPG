@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Enums;
 using Managers;
 using ScriptableObjects;
-using UI;
+using SpecialAttacks;
 using UnityEngine;
 using Utils;
 
-namespace SpecialAttacks
+namespace UI.SpecialAttack
 {
     public class SpecialAttackUIRow : UIRow
     {

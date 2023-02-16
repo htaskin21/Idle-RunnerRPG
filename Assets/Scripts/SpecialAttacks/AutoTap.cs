@@ -4,23 +4,14 @@ using Cysharp.Threading.Tasks;
 using Enums;
 using Hero;
 using Managers;
-using ScriptableObjects;
 using UI;
+using UI.SpecialAttack;
 using UnityEngine;
 
 namespace SpecialAttacks
 {
-    public class AutoTap : MonoBehaviour
+    public class AutoTap : BaseSpecialAttack
     {
-        [SerializeField]
-        private int identifier;
-
-        [SerializeField]
-        private HeroDamageDataSO heroDamageDataSo;
-
-        [SerializeField]
-        private SpecialAttackButton specialAttackButton;
-
         [SerializeField]
         private HeroController _heroController;
 
@@ -37,32 +28,7 @@ namespace SpecialAttacks
             var isUnlocked = specialAttackButton.SetLockState(identifier);
             if (isUnlocked)
             {
-                var durations = SaveLoadManager.Instance.LoadSpecialAttackDuration();
-                var isContain = durations.ContainsKey(identifier);
-                if (isContain)
-                {
-                    var durationDate = durations[identifier];
-                    if (durationDate > DateTime.UtcNow)
-                    {
-                        var duration = durationDate.Subtract(DateTime.UtcNow).TotalMilliseconds;
-                        AutoTapRoutine(duration).Forget();
-                        return;
-                    }
-                }
-
-                durations = SaveLoadManager.Instance.LoadSpecialAttackCoolDown();
-                isContain = durations.ContainsKey(identifier);
-                if (isContain)
-                {
-                    var durationDate = durations[identifier];
-                    if (durationDate > DateTime.UtcNow)
-                    {
-                        _cooldownCts = new CancellationTokenSource();
-                        var duration = durationDate.Subtract(DateTime.UtcNow).TotalMilliseconds;
-                        specialAttackButton.StartCoolDownState((int) duration,
-                            (int) heroDamageDataSo.autoTapAttackCooldown, _cooldownCts).Forget();
-                    }
-                }
+                SetSpecialAttackState();
             }
             else
             {
@@ -135,11 +101,25 @@ namespace SpecialAttacks
             AutoTapRoutine(autoTapAttackDuration).Forget();
         }
 
-        private void CheckLockState(int id)
+//Check special attack save file for this special attack is coolDown or already using.
+        private void SetSpecialAttackState()
         {
-            if (id == identifier)
+            var durations = SaveLoadManager.Instance.LoadSpecialAttackDuration();
+            var isContain = durations.ContainsKey(identifier);
+            if (isContain)
             {
-                specialAttackButton.SetLockState(identifier);
+                var durationDate = durations[identifier];
+                if (durationDate > DateTime.UtcNow)
+                {
+                    var duration = durationDate.Subtract(DateTime.UtcNow).TotalMilliseconds;
+                    AutoTapRoutine(duration).Forget();
+                    return;
+                }
+            }
+            
+            if (isContain)
+            {
+                LoadCoolDownState((int) heroDamageDataSo.autoTapAttackCooldown, _cooldownCts);
             }
         }
 
