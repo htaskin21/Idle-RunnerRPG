@@ -31,21 +31,20 @@ namespace UI
             buttonBackground.color = Color.grey;
         }
 
-        public async UniTask StartDurationState(int maximumTime, CancellationTokenSource cancellationTokenSource)
+        public async UniTask StartDurationState(int remainingTime,int maximumTime, CancellationTokenSource cancellationTokenSource)
         {
             _specialAttackButtonState = SpecialAttackButtonState.OnPressed;
 
             buttonComponent.enabled = false;
             outerCircleImage.fillClockwise = false;
-
-            var baseTime = maximumTime;
+            
             var passingTime = 100;
-            var currentTime = 0;
+            var currentTime = maximumTime - remainingTime;
 
-            while (maximumTime > 0)
+            while (remainingTime > 0)
             {
-                maximumTime -= passingTime;
-                SetDurationState(currentTime, baseTime);
+                remainingTime -= passingTime;
+                SetDurationState(currentTime, maximumTime);
                 await UniTask.Delay(passingTime);
                 currentTime += passingTime;
             }

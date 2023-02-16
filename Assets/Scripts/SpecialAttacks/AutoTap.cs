@@ -115,7 +115,9 @@ namespace SpecialAttacks
             SaveLoadManager.Instance.SaveSpecialAttackCoolDown(identifier,
                 DateTime.UtcNow.AddMilliseconds(totalDuration));
 
-            specialAttackButton.StartDurationState(autoTapAttackDuration, durationCts).Forget();
+            specialAttackButton
+                .StartDurationState(autoTapAttackDuration, (int) heroDamageDataSo.autoTapAttackDuration, durationCts)
+                .Forget();
             await UniTask.WaitUntilCanceled(durationCts.Token);
 
             specialAttackButton.StartCoolDownState((int) heroDamageDataSo.autoTapAttackCooldown,
