@@ -183,7 +183,7 @@ TextureImporter:
       213: 4194897986125887375
     second: gui_paper_59
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -204,6 +204,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -242,6 +243,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -281,6 +283,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1564,6 +1578,67 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      gui_paper_51: -376241742968505882
+      gui_paper_53: 8411363555413930464
+      gui_paper_5: -3334079535791250161
+      gui_paper_28: 8049376270005815253
+      gui_paper_45: 2477401444218177713
+      gui_paper_7: 489973607971835141
+      gui_paper_24: 738861075468735890
+      gui_paper_3: 1728432244017678716
+      gui_paper_15: -1055086478911914513
+      gui_paper_21: -4164239444245736370
+      gui_paper_14: 3758947179887998738
+      gui_paper_57: -7198956592190449974
+      gui_paper_19: -3829078038224737272
+      gui_paper_34: 2365570661807517755
+      gui_paper_10: 5051037406276504725
+      gui_paper_29: -7530611930636664679
+      gui_paper_59: 4194897986125887375
+      gui_paper_11: 8252809963540343722
+      gui_paper_33: 5503004479555622505
+      gui_paper_42: 6004263912928437396
+      gui_paper_30: -6687070014832379202
+      gui_paper_48: 8316607113054144499
+      gui_paper_56: -4910597369255442954
+      gui_paper_0: -4880425147404727518
+      gui_paper_37: -6558462097398412150
+      gui_paper_26: 800411700141101448
+      gui_paper_54: -2870433004414691837
+      gui_paper_22: -1890472052307961322
+      gui_paper_6: -9135447139482761941
+      gui_paper_46: 384868228575213187
+      gui_paper_39: 8218811924313717320
+      gui_paper_16: 4151538634617418243
+      gui_paper_58: -4080310340414819681
+      gui_paper_2: 4491593792817037607
+      gui_paper_17: -2664597552761767534
+      gui_paper_8: -139848167691991237
+      gui_paper_49: -7078097029017074136
+      gui_paper_40: -3389983998594619304
+      gui_paper_23: -127129218451190924
+      gui_paper_27: -1293303668539084528
+      gui_paper_50: 344368623630231873
+      gui_paper_36: 6197857377195695449
+      gui_paper_18: 3120237971890870990
+      gui_paper_20: 8964046769411594800
+      gui_paper_32: 136040847663739194
+      gui_paper_35: -9178740576132861407
+      gui_paper_13: 7326462634280186186
+      gui_paper_4: -1465607649048646796
+      gui_paper_25: 1500759465651550764
+      gui_paper_12: 4786954680343935142
+      gui_paper_52: -6232435783293534555
+      gui_paper_38: 4089827391941762767
+      gui_paper_44: 5092635533381387760
+      gui_paper_55: 8636929433349579092
+      gui_paper_9: -2697711669736410588
+      gui_paper_47: -7825292193223474575
+      gui_paper_41: -8816873453192636808
+      gui_paper_31: -1640881750261776670
+      gui_paper_1: -8840559861522753125
+      gui_paper_43: -6742164230092219683
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -423,7 +423,7 @@ TextureImporter:
       213: -7464891297627787136
     second: iconset_32x32_01_standalone_139
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -444,6 +444,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -482,6 +483,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -521,6 +523,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -3484,6 +3498,147 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      iconset_32x32_01_standalone_7: 7986227487976424583
+      iconset_32x32_01_standalone_117: -5982736606365856371
+      iconset_32x32_01_standalone_105: 50373537002342213
+      iconset_32x32_01_standalone_62: 6326828852699971421
+      iconset_32x32_01_standalone_109: -4352737256143109965
+      iconset_32x32_01_standalone_132: 6058884456814528542
+      iconset_32x32_01_standalone_23: -1718422896703685496
+      iconset_32x32_01_standalone_30: -3386194589405974544
+      iconset_32x32_01_standalone_35: -3266199367716308895
+      iconset_32x32_01_standalone_40: 3878623289307306657
+      iconset_32x32_01_standalone_54: 3456024067161483562
+      iconset_32x32_01_standalone_76: -1717315199468524789
+      iconset_32x32_01_standalone_90: -1909041049017536281
+      iconset_32x32_01_standalone_83: -207889343413130635
+      iconset_32x32_01_standalone_82: -8141604337299782440
+      iconset_32x32_01_standalone_99: -8495841641541346488
+      iconset_32x32_01_standalone_89: 3825806169991899626
+      iconset_32x32_01_standalone_51: -3825710032356277231
+      iconset_32x32_01_standalone_100: 6142968679491123240
+      iconset_32x32_01_standalone_116: -5011671921430471097
+      iconset_32x32_01_standalone_136: -5993098824215434904
+      iconset_32x32_01_standalone_96: -3376250205248493582
+      iconset_32x32_01_standalone_131: 9007366209010844820
+      iconset_32x32_01_standalone_60: 2198920669415206729
+      iconset_32x32_01_standalone_137: 412454665328498805
+      iconset_32x32_01_standalone_71: -1695197625992756544
+      iconset_32x32_01_standalone_34: -2476509787555036190
+      iconset_32x32_01_standalone_64: -3680589748017882697
+      iconset_32x32_01_standalone_98: -8952679098885383319
+      iconset_32x32_01_standalone_113: 6677205484957896024
+      iconset_32x32_01_standalone_108: 1890725128827876589
+      iconset_32x32_01_standalone_84: 2290267688910038797
+      iconset_32x32_01_standalone_49: -4198650062551882568
+      iconset_32x32_01_standalone_9: -8638600523010182229
+      iconset_32x32_01_standalone_122: 7847744552852691164
+      iconset_32x32_01_standalone_121: 1778514254378622463
+      iconset_32x32_01_standalone_129: 5718547607135000355
+      iconset_32x32_01_standalone_112: 932791501516107922
+      iconset_32x32_01_standalone_31: 1112321540078614726
+      iconset_32x32_01_standalone_6: 3910484714646821809
+      iconset_32x32_01_standalone_37: 5008635939455462784
+      iconset_32x32_01_standalone_139: -7464891297627787136
+      iconset_32x32_01_standalone_91: 570582281536026532
+      iconset_32x32_01_standalone_47: 7301709899529582192
+      iconset_32x32_01_standalone_57: 121559233345124586
+      iconset_32x32_01_standalone_74: -6659737005982414487
+      iconset_32x32_01_standalone_69: -7447163000251930437
+      iconset_32x32_01_standalone_21: -4962810285679129021
+      iconset_32x32_01_standalone_3: -6487766520125065523
+      iconset_32x32_01_standalone_75: 2288244634665850962
+      iconset_32x32_01_standalone_46: 1204392577925957825
+      iconset_32x32_01_standalone_135: -7675231357538884694
+      iconset_32x32_01_standalone_5: -4471773146103607813
+      iconset_32x32_01_standalone_115: -8153276405267127547
+      iconset_32x32_01_standalone_125: -246883097572753284
+      iconset_32x32_01_standalone_55: 3419064434804767041
+      iconset_32x32_01_standalone_87: 58509330053039545
+      iconset_32x32_01_standalone_58: -6060400555746191948
+      iconset_32x32_01_standalone_104: 4578507908990564330
+      iconset_32x32_01_standalone_24: -7717561905552968576
+      iconset_32x32_01_standalone_124: -8126603763453500787
+      iconset_32x32_01_standalone_43: 8461241831117835906
+      iconset_32x32_01_standalone_15: 4877843444791803879
+      iconset_32x32_01_standalone_29: -8750608230608891550
+      iconset_32x32_01_standalone_119: -7784902071878879377
+      iconset_32x32_01_standalone_63: 3968307326363886165
+      iconset_32x32_01_standalone_42: 6007717298907104155
+      iconset_32x32_01_standalone_11: 8833851715768228657
+      iconset_32x32_01_standalone_1: -7189436036983593270
+      iconset_32x32_01_standalone_17: 6854157274670978354
+      iconset_32x32_01_standalone_27: -4491700786162401640
+      iconset_32x32_01_standalone_72: -4874111208436635285
+      iconset_32x32_01_standalone_52: 4455037134667903781
+      iconset_32x32_01_standalone_79: 4220004973902067732
+      iconset_32x32_01_standalone_127: -4493454494956395035
+      iconset_32x32_01_standalone_61: -7008844584646529504
+      iconset_32x32_01_standalone_28: -8113342917608410005
+      iconset_32x32_01_standalone_106: -980912094753600162
+      iconset_32x32_01_standalone_94: 3639425357222560639
+      iconset_32x32_01_standalone_14: -2319468965142247315
+      iconset_32x32_01_standalone_111: -5007309353015992437
+      iconset_32x32_01_standalone_77: 8237671347112782823
+      iconset_32x32_01_standalone_67: -8001413249930810600
+      iconset_32x32_01_standalone_133: 3879382909404934765
+      iconset_32x32_01_standalone_8: -2403641051746185632
+      iconset_32x32_01_standalone_130: 3332268191117042866
+      iconset_32x32_01_standalone_126: 8134868306462110551
+      iconset_32x32_01_standalone_92: 3199060926501643115
+      iconset_32x32_01_standalone_18: -3196232417624077661
+      iconset_32x32_01_standalone_20: 3428725136058698971
+      iconset_32x32_01_standalone_4: -8271405766639434962
+      iconset_32x32_01_standalone_102: -2441031221250355749
+      iconset_32x32_01_standalone_2: -4993047294899185446
+      iconset_32x32_01_standalone_32: 8073802240236528363
+      iconset_32x32_01_standalone_10: 2196526440641311090
+      iconset_32x32_01_standalone_26: 6845605603503095708
+      iconset_32x32_01_standalone_59: 5397804351873561651
+      iconset_32x32_01_standalone_45: 4372924999487208472
+      iconset_32x32_01_standalone_93: -6495233166035082130
+      iconset_32x32_01_standalone_114: 2254105965932681706
+      iconset_32x32_01_standalone_118: 827524213023981564
+      iconset_32x32_01_standalone_97: 986966780182752453
+      iconset_32x32_01_standalone_128: 2949505608749621000
+      iconset_32x32_01_standalone_123: 6029461787348348230
+      iconset_32x32_01_standalone_39: 7628469069571252507
+      iconset_32x32_01_standalone_138: 3954094472764465690
+      iconset_32x32_01_standalone_41: 8305198291677111152
+      iconset_32x32_01_standalone_44: -5339430535374276533
+      iconset_32x32_01_standalone_48: 7793941037187473645
+      iconset_32x32_01_standalone_19: 497528725377894515
+      iconset_32x32_01_standalone_110: 6804345094359536028
+      iconset_32x32_01_standalone_22: -1853959376656670510
+      iconset_32x32_01_standalone_78: -2235053791343215835
+      iconset_32x32_01_standalone_95: 6680658122092936955
+      iconset_32x32_01_standalone_80: -5367122348088328247
+      iconset_32x32_01_standalone_0: 8880849793824309528
+      iconset_32x32_01_standalone_101: 1628990920601220286
+      iconset_32x32_01_standalone_120: -201472857989483143
+      iconset_32x32_01_standalone_134: -1567408525366725884
+      iconset_32x32_01_standalone_66: -5111663870331942305
+      iconset_32x32_01_standalone_81: 7506442413810825942
+      iconset_32x32_01_standalone_86: 2137165139142884385
+      iconset_32x32_01_standalone_103: 7190340992695507937
+      iconset_32x32_01_standalone_73: -2698284754939654911
+      iconset_32x32_01_standalone_53: -6194584806060935578
+      iconset_32x32_01_standalone_38: -3441730166217064865
+      iconset_32x32_01_standalone_70: 8155805237790423417
+      iconset_32x32_01_standalone_85: 1566547765360419919
+      iconset_32x32_01_standalone_33: 322605931604558504
+      iconset_32x32_01_standalone_65: 8731287578500676599
+      iconset_32x32_01_standalone_12: -8854083364681147498
+      iconset_32x32_01_standalone_68: -6476167623757539795
+      iconset_32x32_01_standalone_36: 980598415188965590
+      iconset_32x32_01_standalone_107: 9218087842453227302
+      iconset_32x32_01_standalone_50: -4084039494257290028
+      iconset_32x32_01_standalone_16: 6465829072929496931
+      iconset_32x32_01_standalone_56: 7606465062411936896
+      iconset_32x32_01_standalone_88: -4075714323452599531
+      iconset_32x32_01_standalone_25: 4052578015836841833
+      iconset_32x32_01_standalone_13: -779909751069742487
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

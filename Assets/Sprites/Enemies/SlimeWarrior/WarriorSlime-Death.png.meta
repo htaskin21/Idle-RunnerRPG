@@ -48,7 +48,7 @@ TextureImporter:
       213: 1084764291720319881
     second: WarriorSlime-Death_14
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -69,6 +69,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -107,6 +108,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -146,6 +148,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -484,6 +498,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      WarriorSlime-Death_7: -261860875513259295
+      WarriorSlime-Death_6: 7526915653616748218
+      WarriorSlime-Death_8: 7868704824489533409
+      WarriorSlime-Death_3: 8026054273050541261
+      WarriorSlime-Death_14: 1084764291720319881
+      WarriorSlime-Death_1: -7060828196282777058
+      WarriorSlime-Death_11: -1456086522672116619
+      WarriorSlime-Death_12: -862438752809409658
+      WarriorSlime-Death_9: -4196668869092959040
+      WarriorSlime-Death_10: 5259959733328427287
+      WarriorSlime-Death_13: 7594340856450106619
+      WarriorSlime-Death_0: -1690671170948978775
+      WarriorSlime-Death_5: -4433522575787926954
+      WarriorSlime-Death_4: 8709529602290800172
+      WarriorSlime-Death_2: -3745680172560406864
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

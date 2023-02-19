@@ -99,7 +99,7 @@ TextureImporter:
       213: 6154531641016901576
     second: Spitter_Plant_31
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -120,6 +120,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -158,6 +159,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -197,6 +199,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -892,6 +906,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Spitter_Plant_15: 4404552941173709500
+      Spitter_Plant_1: -3515161462268056466
+      Spitter_Plant_0: -4529109802334449788
+      Spitter_Plant_2: -6867610062559125845
+      Spitter_Plant_3: 9196516212992196587
+      Spitter_Plant_25: -8213249187303228709
+      Spitter_Plant_28: 4908738703879403032
+      Spitter_Plant_29: -4204530644551902717
+      Spitter_Plant_31: 6154531641016901576
+      Spitter_Plant_5: -7606859958942445448
+      Spitter_Plant_22: 8450407752019376265
+      Spitter_Plant_20: 1001635589548659218
+      Spitter_Plant_11: 6186240816463551246
+      Spitter_Plant_13: -6509662575900267076
+      Spitter_Plant_6: -8974297491410360931
+      Spitter_Plant_12: -6935723004342206871
+      Spitter_Plant_18: 4413209135772795792
+      Spitter_Plant_8: 5841808467184675049
+      Spitter_Plant_17: 5726791587897202439
+      Spitter_Plant_16: 2831423510054376596
+      Spitter_Plant_19: 8269549491011861000
+      Spitter_Plant_26: -7870269984678745940
+      Spitter_Plant_4: 3168335304993308385
+      Spitter_Plant_7: -3183552341475304865
+      Spitter_Plant_24: 4090436230036110813
+      Spitter_Plant_30: -2677691893427130702
+      Spitter_Plant_21: 2307744733892249930
+      Spitter_Plant_23: -2316425037131217275
+      Spitter_Plant_9: -6695765077892059503
+      Spitter_Plant_27: 1880226669061557008
+      Spitter_Plant_10: -2969819482082209996
+      Spitter_Plant_14: 1044369527703543356
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

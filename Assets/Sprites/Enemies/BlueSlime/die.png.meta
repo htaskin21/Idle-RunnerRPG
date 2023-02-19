@@ -150,7 +150,7 @@ TextureImporter:
       213: -6224448550747257981
     second: blue_poring_5_48
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -171,6 +171,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -209,6 +210,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -248,6 +250,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1300,6 +1314,56 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      blue_poring_5_10: 433430381893415011
+      blue_poring_5_48: -6224448550747257981
+      blue_poring_5_22: -5540791109628615311
+      blue_poring_5_2: -2510958240046605310
+      blue_poring_5_28: 8070217820007144638
+      blue_poring_5_39: -2693260474673714588
+      blue_poring_5_11: -7130989761812609831
+      blue_poring_5_42: 1217457318819945901
+      blue_poring_5_12: -5350469812194090462
+      blue_poring_5_23: -1103202411032043963
+      blue_poring_5_1: 7870999395977418910
+      blue_poring_5_24: 7096954614523149098
+      blue_poring_5_5: 7568432219414479215
+      blue_poring_5_19: -618679496831096845
+      blue_poring_5_33: 6619397130826498562
+      blue_poring_5_41: 6128069474891551461
+      blue_poring_5_21: 4800271694262172551
+      blue_poring_5_43: -1347032711162356968
+      blue_poring_5_9: 6297779508921955692
+      blue_poring_5_17: -656326742784288900
+      blue_poring_5_4: 2729283265642226145
+      blue_poring_5_26: 5990945001722358785
+      blue_poring_5_14: -3959257812800107978
+      blue_poring_5_36: -1031065100206186515
+      blue_poring_5_31: -434230989925103235
+      blue_poring_5_34: -3732030944475884152
+      blue_poring_5_37: -4370776865134643384
+      blue_poring_5_29: 3943834469626393786
+      blue_poring_5_38: 6327666426518957308
+      blue_poring_5_8: -1455942752820468439
+      blue_poring_5_6: -5596817371028873670
+      blue_poring_5_3: 2209243079462712554
+      blue_poring_5_13: -8421854623531604211
+      blue_poring_5_47: 8748668514186937775
+      blue_poring_5_20: 609670546020623626
+      blue_poring_5_32: 2303136074913507817
+      blue_poring_5_45: -6415030695225223584
+      blue_poring_5_35: -2905865108086672931
+      blue_poring_5_15: 1658839293764228452
+      blue_poring_5_16: 1334016744210744721
+      blue_poring_5_27: -4837871439070447009
+      blue_poring_5_18: 5132056558152051901
+      blue_poring_5_25: -8088524935717185622
+      blue_poring_5_7: 576682142814927149
+      blue_poring_5_0: 1239579947254224015
+      blue_poring_5_44: 2633189040499638153
+      blue_poring_5_46: -4656432406578349510
+      blue_poring_5_30: 9004061847845153380
+      blue_poring_5_40: -8615794178860204790
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

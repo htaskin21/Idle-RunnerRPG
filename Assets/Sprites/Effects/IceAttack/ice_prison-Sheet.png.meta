@@ -111,7 +111,7 @@ TextureImporter:
       213: -7197721719082441633
     second: ice_prison-Sheet_35
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -132,6 +132,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -170,6 +171,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -209,6 +211,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -988,6 +1002,43 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      ice_prison-Sheet_17: 8502234551752933974
+      ice_prison-Sheet_32: -154723580867608143
+      ice_prison-Sheet_23: -3134621509116508147
+      ice_prison-Sheet_1: -7578131707808338039
+      ice_prison-Sheet_3: 3952202409328951104
+      ice_prison-Sheet_5: 4183193975027839101
+      ice_prison-Sheet_8: -4169050928159505686
+      ice_prison-Sheet_28: -5429830743154361743
+      ice_prison-Sheet_18: -7996096540004838067
+      ice_prison-Sheet_16: 2111157624535568504
+      ice_prison-Sheet_20: 9149378733336070694
+      ice_prison-Sheet_19: -8372869348507149513
+      ice_prison-Sheet_29: 2543587659941421789
+      ice_prison-Sheet_26: -4946550752028997346
+      ice_prison-Sheet_14: 3703088145690684559
+      ice_prison-Sheet_33: -5413244391574714440
+      ice_prison-Sheet_7: -7454543449564389583
+      ice_prison-Sheet_25: -3389946747332407912
+      ice_prison-Sheet_9: -4399673851718014973
+      ice_prison-Sheet_13: -8820211473316917910
+      ice_prison-Sheet_30: -245506414592635420
+      ice_prison-Sheet_34: -6919065876515955654
+      ice_prison-Sheet_6: 6915197909963415874
+      ice_prison-Sheet_21: -5799154433249440972
+      ice_prison-Sheet_12: -5379472181641460645
+      ice_prison-Sheet_22: 1383226613834811938
+      ice_prison-Sheet_15: -6019506585667099006
+      ice_prison-Sheet_10: 3590831091082825400
+      ice_prison-Sheet_2: -1721420402244598159
+      ice_prison-Sheet_4: 1559893607769793450
+      ice_prison-Sheet_11: -6744331930478806707
+      ice_prison-Sheet_27: 4542409749248850095
+      ice_prison-Sheet_31: -9207506902527676036
+      ice_prison-Sheet_0: 808491567797610889
+      ice_prison-Sheet_35: -7197721719082441633
+      ice_prison-Sheet_24: -7609304482695145635
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

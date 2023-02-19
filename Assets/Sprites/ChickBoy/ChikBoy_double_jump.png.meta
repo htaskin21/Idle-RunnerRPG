@@ -60,7 +60,7 @@ TextureImporter:
       213: 9081382738666199348
     second: ChikBoy_double_jump_18
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -81,6 +81,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -119,6 +120,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -158,6 +160,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -580,6 +594,26 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      ChikBoy_double_jump_1: -2688407578437127588
+      ChikBoy_double_jump_16: -8397908036617800038
+      ChikBoy_double_jump_5: -2844311037366751716
+      ChikBoy_double_jump_14: 4168011638461751588
+      ChikBoy_double_jump_7: 3234230431163801027
+      ChikBoy_double_jump_6: -3962923318809136961
+      ChikBoy_double_jump_8: 3611312040270885706
+      ChikBoy_double_jump_9: 6279879608037410776
+      ChikBoy_double_jump_17: 1534414706978802998
+      ChikBoy_double_jump_13: 5547491235953550201
+      ChikBoy_double_jump_18: 9081382738666199348
+      ChikBoy_double_jump_10: 8681653595548876739
+      ChikBoy_double_jump_2: -5306701850549787205
+      ChikBoy_double_jump_0: 4532465183871523654
+      ChikBoy_double_jump_15: -2065041884884754902
+      ChikBoy_double_jump_11: 3275579129379317861
+      ChikBoy_double_jump_12: 8225611051676800576
+      ChikBoy_double_jump_3: -7679298824589617954
+      ChikBoy_double_jump_4: -5345856166750793120
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

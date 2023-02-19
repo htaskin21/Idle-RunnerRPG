@@ -105,7 +105,7 @@ TextureImporter:
       213: -8473090489618384685
     second: executioner-Sheet_33
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -126,6 +126,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -164,6 +165,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -203,6 +205,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -940,6 +954,41 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      executioner-Sheet_27: -6927051672858002611
+      executioner-Sheet_33: -8473090489618384685
+      executioner-Sheet_15: -8528210484682137447
+      executioner-Sheet_18: -4703111914276012453
+      executioner-Sheet_4: -5006425527968525234
+      executioner-Sheet_8: -2555924045642371429
+      executioner-Sheet_13: -9071239937389866913
+      executioner-Sheet_5: -8304459774864987706
+      executioner-Sheet_14: 3042950840715384999
+      executioner-Sheet_23: -814203992586746938
+      executioner-Sheet_31: -639460812415068385
+      executioner-Sheet_28: -8368296442705996394
+      executioner-Sheet_19: 7672427961151204883
+      executioner-Sheet_24: 5408527389633369421
+      executioner-Sheet_25: -6257259585469566963
+      executioner-Sheet_9: 7476807993047192224
+      executioner-Sheet_11: 1170517816776000222
+      executioner-Sheet_20: -3834399333860017150
+      executioner-Sheet_29: 4654106608903408160
+      executioner-Sheet_30: 6608444140858862971
+      executioner-Sheet_26: -5925767070109719414
+      executioner-Sheet_10: 3523876972143750298
+      executioner-Sheet_32: -700503980361254605
+      executioner-Sheet_22: 3170388427108697702
+      executioner-Sheet_0: -7241368326906401379
+      executioner-Sheet_12: -6075315623118539504
+      executioner-Sheet_3: -6779759754775150306
+      executioner-Sheet_1: 778059228898034195
+      executioner-Sheet_16: 8628738640574485388
+      executioner-Sheet_6: -7498414414159193413
+      executioner-Sheet_2: 2537848323609049377
+      executioner-Sheet_17: 4972525151798372432
+      executioner-Sheet_21: -9014798667814381252
+      executioner-Sheet_7: 8733531164282561842
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

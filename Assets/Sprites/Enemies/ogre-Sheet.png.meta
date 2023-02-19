@@ -108,7 +108,7 @@ TextureImporter:
       213: 8681487431256108640
     second: ogre-Sheet_34
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -129,6 +129,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -167,6 +168,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -206,6 +208,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -964,6 +978,42 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      ogre-Sheet_3: -9089128695472915992
+      ogre-Sheet_2: -5006596820196206342
+      ogre-Sheet_15: 5147221698804086250
+      ogre-Sheet_10: -2317247665144838539
+      ogre-Sheet_16: 943123431740588722
+      ogre-Sheet_1: -940593243143092139
+      ogre-Sheet_8: 4746537769536800470
+      ogre-Sheet_33: 6718445205060819911
+      ogre-Sheet_27: 5494255853315027134
+      ogre-Sheet_22: 305129746782009548
+      ogre-Sheet_28: 6326580372405250724
+      ogre-Sheet_29: -4952918132918365378
+      ogre-Sheet_32: -3531529738317070981
+      ogre-Sheet_18: -7797483070798494716
+      ogre-Sheet_7: -4077704795199071960
+      ogre-Sheet_12: -2454601561552485289
+      ogre-Sheet_23: 8505721784590179966
+      ogre-Sheet_19: -2158917618525547958
+      ogre-Sheet_9: 9149341430829201514
+      ogre-Sheet_26: 7168765273095591697
+      ogre-Sheet_34: 8681487431256108640
+      ogre-Sheet_0: -7026482853496196451
+      ogre-Sheet_5: -1395496336137989210
+      ogre-Sheet_13: -8327185645714379685
+      ogre-Sheet_11: 6358799082685115618
+      ogre-Sheet_6: -8354448101048773561
+      ogre-Sheet_14: -8384470208538113935
+      ogre-Sheet_17: -8648421201507792096
+      ogre-Sheet_30: -4473029221276611493
+      ogre-Sheet_25: -1879644756116085300
+      ogre-Sheet_4: 3754607289109938367
+      ogre-Sheet_20: -6765289141968812295
+      ogre-Sheet_21: -4371552050132194994
+      ogre-Sheet_24: -4315240691799317384
+      ogre-Sheet_31: -8350804037261151528
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

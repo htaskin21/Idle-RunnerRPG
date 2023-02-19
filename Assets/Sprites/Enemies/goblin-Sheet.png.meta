@@ -105,7 +105,7 @@ TextureImporter:
       213: 5643526386204703604
     second: goblin-Sheet_33
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -126,6 +126,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -164,6 +165,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -203,6 +205,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -940,6 +954,41 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      goblin-Sheet_7: -2911507692443386264
+      goblin-Sheet_18: 4472324754768877579
+      goblin-Sheet_11: -201704255192839364
+      goblin-Sheet_12: 8077588856098095682
+      goblin-Sheet_22: -4383384719846717327
+      goblin-Sheet_2: 5396687720425474013
+      goblin-Sheet_16: -4857877286424717670
+      goblin-Sheet_8: 7514786075388414967
+      goblin-Sheet_30: 1982906204432294545
+      goblin-Sheet_15: 4930209295791775243
+      goblin-Sheet_13: 912695425111744977
+      goblin-Sheet_14: -2384103128658157833
+      goblin-Sheet_4: -8293950181162528834
+      goblin-Sheet_19: -41092530093495540
+      goblin-Sheet_20: 8806808179970534028
+      goblin-Sheet_32: 8167236046314642403
+      goblin-Sheet_24: -8602311617690400888
+      goblin-Sheet_5: -4608195833796281032
+      goblin-Sheet_3: -1615670086358904370
+      goblin-Sheet_6: 446420552899350457
+      goblin-Sheet_21: -6469058888677550856
+      goblin-Sheet_25: 1806893502485518884
+      goblin-Sheet_26: 8195476997597841450
+      goblin-Sheet_23: -1242092967084280074
+      goblin-Sheet_31: 4715755121537825241
+      goblin-Sheet_29: -4209820618676173714
+      goblin-Sheet_27: 2385552846999560442
+      goblin-Sheet_28: 8730014881508184399
+      goblin-Sheet_33: 5643526386204703604
+      goblin-Sheet_10: -9062196860437265112
+      goblin-Sheet_1: 9204801544016715563
+      goblin-Sheet_17: 4144795330621171222
+      goblin-Sheet_0: 1863409009748958598
+      goblin-Sheet_9: -1616227787975885373
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

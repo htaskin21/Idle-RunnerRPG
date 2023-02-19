@@ -33,7 +33,7 @@ TextureImporter:
       213: 6111063852447247486
     second: Enemy-SneakyGoblin-Death_9
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -54,6 +54,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -92,6 +93,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -131,6 +133,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -364,6 +378,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Enemy-SneakyGoblin-Death_9: 6111063852447247486
+      Enemy-SneakyGoblin-Death_7: 8482532274867084854
+      Enemy-SneakyGoblin-Death_4: 8752487139950962418
+      Enemy-SneakyGoblin-Death_0: 6053033725025096613
+      Enemy-SneakyGoblin-Death_2: -5748215050826540213
+      Enemy-SneakyGoblin-Death_6: -5931718664428397176
+      Enemy-SneakyGoblin-Death_8: 4876314733831054531
+      Enemy-SneakyGoblin-Death_3: 8276956437074166349
+      Enemy-SneakyGoblin-Death_5: 519111812965496807
+      Enemy-SneakyGoblin-Death_1: 8344342458983292040
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

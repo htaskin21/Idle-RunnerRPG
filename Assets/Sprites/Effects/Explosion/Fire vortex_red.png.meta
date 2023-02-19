@@ -84,7 +84,7 @@ TextureImporter:
       213: 6631333042877636363
     second: Fire vortex_red_26
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -105,6 +105,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -143,6 +144,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -182,6 +184,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -772,6 +786,34 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Fire vortex_red_7: -4710101052465749522
+      Fire vortex_red_3: -8077494097874771929
+      Fire vortex_red_1: 3870485394162482367
+      Fire vortex_red_14: 2317187252689325140
+      Fire vortex_red_23: 1176621374351794872
+      Fire vortex_red_12: -4275341318717743438
+      Fire vortex_red_0: 5971238895544392931
+      Fire vortex_red_15: -3115577564412766859
+      Fire vortex_red_21: -1937318477299765312
+      Fire vortex_red_4: -5815883166638605479
+      Fire vortex_red_19: 4592023713694515575
+      Fire vortex_red_9: -594017615428102845
+      Fire vortex_red_18: 2245554509803641791
+      Fire vortex_red_22: 4475132994743907105
+      Fire vortex_red_25: -499962502637005025
+      Fire vortex_red_13: -2868097050986742505
+      Fire vortex_red_17: -6036190089792200043
+      Fire vortex_red_26: 6631333042877636363
+      Fire vortex_red_20: 5191491223319258603
+      Fire vortex_red_11: -3641105901559471450
+      Fire vortex_red_2: 7599094124779464583
+      Fire vortex_red_5: -8478597743846855002
+      Fire vortex_red_10: 2978282675345465921
+      Fire vortex_red_8: 3486926059880837967
+      Fire vortex_red_16: -7593058561725646094
+      Fire vortex_red_24: 2203168010502675661
+      Fire vortex_red_6: -950012329250082336
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
