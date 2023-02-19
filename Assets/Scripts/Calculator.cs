@@ -257,6 +257,6 @@ public class Calculator : MonoBehaviour
         _heroDamageDataSo.FireSpecialAttackMultiplier = 1;
         _heroDamageDataSo.lightningSpecialAttackMultiplier = 1;
         _heroDamageDataSo.WaterSpecialAttackMultiplier = 1;
-        _heroDamageDataSo.autoTapAttackDuration = 0;
+        _heroDamageDataSo.autoTapAttackDuration = 29000;
     }
 }

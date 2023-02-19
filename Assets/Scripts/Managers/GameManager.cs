@@ -86,16 +86,18 @@ namespace Managers
         private void Start()
         {
             Application.targetFrameRate = 30;
-            //Buraya save sistemi gelicek.
 
             SetScene();
         }
 
         private void SetScene()
         {
+           //ES3.DeleteDirectory(Application.persistentDataPath);
+           //ES3.DeleteFile(Application.persistentDataPath);
+            
             _dataReader.ReadAllData();
             _uiManager.LoadScrollers();
-
+            
             _currentLevelData = levelData[0];
 
             _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
@@ -104,8 +106,8 @@ namespace Managers
             _calculator.CalculateSpecialAttackDamage();
 
             CreateCharacters();
-            
-           _heroController.StartRunning();
+
+            _heroController.StartRunning();
         }
 
         private void CreateHero()
@@ -164,7 +166,8 @@ namespace Managers
 
                 _currentLevelData = levelData[Random.Range(0, levelData.Count)];
 
-                _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
+                _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject)
+                    .Forget();
 
                 CreateEnemy();
             }
