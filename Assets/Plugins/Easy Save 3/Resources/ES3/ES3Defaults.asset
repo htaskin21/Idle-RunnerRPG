@@ -39,6 +39,7 @@ MonoBehaviour:
     - UniTask.DOTween
     - UniTask.TextMeshPro
     - UniTask.Addressables
+    - AllIn1SpriteShaderAssembly
     - PsdPlugin
     - UniTask.Editor
     - Sirenix.OdinInspector.Modules.UnityMathematics
