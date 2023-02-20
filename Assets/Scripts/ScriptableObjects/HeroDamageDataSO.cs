@@ -25,8 +25,5 @@ namespace ScriptableObjects
         public double earthDamageMultiplier = 1;
         public double plantDamageMultiplier = 1;
         public double waterDamageMultiplier = 1;
-
-        public float strengthBoost = 2;
-
     }
 }
