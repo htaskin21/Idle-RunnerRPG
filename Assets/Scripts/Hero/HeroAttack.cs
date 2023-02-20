@@ -36,7 +36,7 @@ namespace Hero
             {
                 if (SaveLoadManager.Instance.LoadStrengthBoostTime() >= DateTime.UtcNow)
                 {
-                    return _strengthBoostMultiplier;
+                    return heroDamageDataSo.strengthBoost;
                 }
 
                 return 1;

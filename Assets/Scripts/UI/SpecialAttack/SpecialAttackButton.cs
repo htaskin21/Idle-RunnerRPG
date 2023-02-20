@@ -17,6 +17,7 @@ namespace UI.SpecialAttack
         public Button buttonComponent;
         public Image buttonBackground;
         public Image outerCircleImage;
+        public UIShiny outerCircleShine;
         public Image sliderImage;
         public TextMeshProUGUI timeText;
         public UIShiny iconShine;
@@ -31,13 +32,17 @@ namespace UI.SpecialAttack
             buttonBackground.color = Color.grey;
         }
 
-        public async UniTask StartDurationState(int remainingTime,int maximumTime, CancellationTokenSource cancellationTokenSource)
+        public async UniTask StartDurationState(int remainingTime, int maximumTime,
+            CancellationTokenSource cancellationTokenSource)
         {
             _specialAttackButtonState = SpecialAttackButtonState.OnPressed;
 
             buttonComponent.enabled = false;
             outerCircleImage.fillClockwise = false;
-            
+
+            outerCircleShine.effectPlayer.loop = true;
+            outerCircleShine.effectPlayer.play = true;
+
             var passingTime = 100;
             var currentTime = maximumTime - remainingTime;
 
@@ -48,6 +53,10 @@ namespace UI.SpecialAttack
                 await UniTask.Delay(passingTime);
                 currentTime += passingTime;
             }
+
+            outerCircleShine.effectPlayer.loop = false;
+            outerCircleShine.effectPlayer.play = false;
+            outerCircleShine.effectFactor = 1;
 
             cancellationTokenSource.Cancel();
         }
