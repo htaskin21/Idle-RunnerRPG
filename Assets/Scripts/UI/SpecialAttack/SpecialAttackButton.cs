@@ -78,7 +78,7 @@ namespace UI.SpecialAttack
             var passingTime = 100;
             var currentTime = maximumTime - remainingTime;
 
-            while (remainingTime > 0)
+            while (remainingTime > 0 && cancellationTokenSource.IsCancellationRequested == false)
             {
                 remainingTime -= passingTime;
                 SetCoolDownState(currentTime, maximumTime);
@@ -88,6 +88,7 @@ namespace UI.SpecialAttack
 
             _specialAttackButtonState = SpecialAttackButtonState.OnReady;
 
+            outerCircleImage.fillAmount = 1;
             DisableSliderImage();
             buttonComponent.enabled = true;
             iconShine.Play();

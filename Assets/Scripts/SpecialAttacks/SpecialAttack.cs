@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Enums;
+using Items.Potion;
 using Managers;
 using States;
 using UI.SpecialAttack;
@@ -27,6 +28,8 @@ namespace SpecialAttacks
             {
                 SpecialAttackUIRow.OnUpdateSpecialAttack += CheckLockState;
             }
+
+            RefreshPotion.OnRefreshAllSpecialAttack += RefreshSpecialAttack;
         }
 
         public void StartSpecialAttack()
@@ -40,9 +43,20 @@ namespace SpecialAttacks
 
             SaveLoadManager.Instance.SaveSpecialAttackCoolDown(identifier,
                 DateTime.UtcNow.AddMilliseconds(heroDamageDataSo.specialAttackCoolDown));
-            
+
             specialAttackButton.StartCoolDownState(heroDamageDataSo.specialAttackCoolDown,
                 heroDamageDataSo.specialAttackCoolDown, _cts).Forget();
+        }
+
+        private void RefreshSpecialAttack()
+        {
+            if (specialAttackButton.SpecialAttackButtonState == SpecialAttackButtonState.OnCoolDown)
+            {
+                SaveLoadManager.Instance.SaveSpecialAttackCoolDown(identifier,
+                    DateTime.UtcNow);
+
+                _cts?.Cancel();
+            }
         }
     }
 }

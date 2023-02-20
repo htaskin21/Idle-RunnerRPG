@@ -30,6 +30,7 @@ namespace Hero
         {
             if (heroAttack.CurrentEnemy.enemyHealth.Health <= 0)
             {
+                heroAttack.CurrentEnemy = null;
                 StartRunning();
             }
             else
@@ -45,8 +46,9 @@ namespace Hero
 
             if (enemyHealth <= 0)
             {
-                if (currentState.stateType == StateType.Idle || currentState.stateType == StateType.WakeUp)
+                if (currentState.stateType is StateType.Idle or StateType.WakeUp)
                 {
+                    heroAttack.CurrentEnemy = null;
                     StartRunning();
                 }
             }
@@ -58,7 +60,7 @@ namespace Hero
 
         private void TransitionToIdleState()
         {
-            if (currentState.stateType == StateType.Attack || currentState.stateType == StateType.SpecialAttack ||currentState.stateType == StateType.WakeUp )
+            if (currentState.stateType is StateType.Attack or StateType.SpecialAttack or StateType.WakeUp )
             {
                 return;
             }
@@ -68,20 +70,6 @@ namespace Hero
                 var idleState = GetState(StateType.Idle);
                 TransitionToState(idleState);
             }
-        }
-
-        private async UniTask TransitionToRunState()
-        {
-            CancellationTokenSource cts = new CancellationTokenSource();
-            if (currentState.stateType == StateType.Attack || currentState.stateType == StateType.SpecialAttack)
-            {
-                await UniTask.WaitUntil(() => currentState.stateType == StateType.Idle, cancellationToken: cts.Token);
-            }
-            
-
-            StartRunning();
-
-            cts.Cancel();
         }
 
         public void StartRunning()

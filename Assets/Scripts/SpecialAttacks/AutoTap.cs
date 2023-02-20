@@ -3,6 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Enums;
 using Hero;
+using Items.Potion;
 using Managers;
 using UI;
 using UI.SpecialAttack;
@@ -34,6 +35,8 @@ namespace SpecialAttacks
             {
                 SpecialAttackUIRow.OnUpdateSpecialAttack += CheckLockState;
             }
+
+            RefreshPotion.OnRefreshAllSpecialAttack += RefreshSpecialAttack;
         }
 
         private async UniTask AutoTapRoutine(double duration)
@@ -56,8 +59,10 @@ namespace SpecialAttacks
             while (finishTime >= DateTime.UtcNow || _cts.IsCancellationRequested == false)
             {
                 await UniTask.WaitUntil(
-                    () => GameManager.Instance.EnemyController.enemyHealth.Health > 0 &&
-                          GameManager.Instance.EnemyController.TapDamageController.isTapDamageEnable, cancellationToken:
+                    () => _heroController.heroAttack.CurrentEnemy != null &&
+                          _heroController.heroAttack.CurrentEnemy.enemyHealth.Health > 0 &&
+                          _heroController.heroAttack.CurrentEnemy.TapDamageController.isTapDamageEnable,
+                    cancellationToken:
                     _cts.Token);
                 await UniTask.Delay(heroDamageDataSo.tapAttackCoolDown, cancellationToken: _cts.Token);
                 if (finishTime >= DateTime.UtcNow)
@@ -116,10 +121,21 @@ namespace SpecialAttacks
                     return;
                 }
             }
-            
+
             if (isContain)
             {
                 LoadCoolDownState((int) heroDamageDataSo.autoTapAttackCooldown, _cooldownCts);
+            }
+        }
+
+        private void RefreshSpecialAttack()
+        {
+            if (specialAttackButton.SpecialAttackButtonState == SpecialAttackButtonState.OnCoolDown)
+            {
+                SaveLoadManager.Instance.SaveSpecialAttackCoolDown(identifier,
+                    DateTime.UtcNow);
+
+                _cooldownCts?.Cancel();
             }
         }
 

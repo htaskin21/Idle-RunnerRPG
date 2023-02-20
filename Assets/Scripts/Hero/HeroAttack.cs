@@ -23,7 +23,7 @@ namespace Hero
         [Header("Variables")]
         public SpecialAttackType specialAttackType;
 
-        public EnemyController CurrentEnemy { get; private set; }
+        public EnemyController CurrentEnemy { get; set; }
 
         private bool _isCriticalAttack;
 

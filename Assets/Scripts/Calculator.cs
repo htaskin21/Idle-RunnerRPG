@@ -54,36 +54,42 @@ public class Calculator : MonoBehaviour
             }
         }
 
-        foreach (var availableSpecialAttackUpgrade in availableSpecialAttackUpgrades)
+        foreach (var specialAttackUpgrade in _specialAttackUpgrades)
         {
-            switch (availableSpecialAttackUpgrade.SkillTypes)
+            var level = 0;
+            if (saveData.ContainsKey(specialAttackUpgrade.ID))
+            {
+                level = saveData[specialAttackUpgrade.ID];
+            }
+
+            switch (specialAttackUpgrade.SkillTypes)
             {
                 case SkillTypes.FireDmgSpecial:
-                    _heroDamageDataSo.FireSpecialAttackMultiplier += (float) availableSpecialAttackUpgrade.StartAmount +
-                                                                     (float) availableSpecialAttackUpgrade
+                    _heroDamageDataSo.FireSpecialAttackMultiplier += (float) specialAttackUpgrade.StartAmount +
+                                                                     (float) specialAttackUpgrade
                                                                          .BaseIncrementAmount *
-                                                                     saveData[availableSpecialAttackUpgrade.ID];
+                                                                     level;
                     break;
                 case SkillTypes.LightningDmgSpecial:
                     _heroDamageDataSo.lightningSpecialAttackMultiplier +=
-                        (float) availableSpecialAttackUpgrade.StartAmount +
-                        (float) availableSpecialAttackUpgrade
+                        (float) specialAttackUpgrade.StartAmount +
+                        (float) specialAttackUpgrade
                             .BaseIncrementAmount *
-                        saveData[availableSpecialAttackUpgrade.ID];
+                        level;
                     break;
                 case SkillTypes.WaterDmgSpecial:
                     _heroDamageDataSo.WaterSpecialAttackMultiplier +=
-                        (float) availableSpecialAttackUpgrade.StartAmount +
-                        (float) availableSpecialAttackUpgrade
+                        (float) specialAttackUpgrade.StartAmount +
+                        (float) specialAttackUpgrade
                             .BaseIncrementAmount *
-                        saveData[availableSpecialAttackUpgrade.ID];
+                        level;
                     break;
                 case SkillTypes.AutoTapSpecial:
                     _heroDamageDataSo.autoTapAttackDuration +=
-                        (float) availableSpecialAttackUpgrade.StartAmount +
-                        (float) availableSpecialAttackUpgrade
+                        (float) specialAttackUpgrade.StartAmount +
+                        (float) specialAttackUpgrade
                             .BaseIncrementAmount *
-                        saveData[availableSpecialAttackUpgrade.ID];
+                        level;
                     break;
 
                 default:
@@ -257,6 +263,6 @@ public class Calculator : MonoBehaviour
         _heroDamageDataSo.FireSpecialAttackMultiplier = 1;
         _heroDamageDataSo.lightningSpecialAttackMultiplier = 1;
         _heroDamageDataSo.WaterSpecialAttackMultiplier = 1;
-        _heroDamageDataSo.autoTapAttackDuration = 29000;
+        _heroDamageDataSo.autoTapAttackDuration = 1;
     }
 }

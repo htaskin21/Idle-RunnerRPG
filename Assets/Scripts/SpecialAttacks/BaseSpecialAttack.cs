@@ -15,6 +15,8 @@ namespace SpecialAttacks
         public HeroDamageDataSO heroDamageDataSo;
 
         public SpecialAttackButton specialAttackButton;
+        
+        protected CancellationTokenSource _cts;
 
         protected void CheckLockState(int id)
         {
@@ -26,8 +28,8 @@ namespace SpecialAttacks
 
         protected void LoadCoolDownState(int coolDownDuration, CancellationTokenSource cooldownCts)
         {
-           var durations = SaveLoadManager.Instance.LoadSpecialAttackCoolDown();
-           var  isContain = durations.ContainsKey(identifier);
+            var durations = SaveLoadManager.Instance.LoadSpecialAttackCoolDown();
+            var isContain = durations.ContainsKey(identifier);
             if (isContain)
             {
                 var durationDate = durations[identifier];
