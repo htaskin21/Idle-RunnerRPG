@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace ScriptableObjects
 {
-    [CreateAssetMenu(menuName = "Create Skill Icon Data", fileName = "SkillIconDataSO", order = 1)]
-    public class SkillIconDataSO: SerializedScriptableObject
+    [CreateAssetMenu(menuName = "Create Icon Data", fileName = "IconDataSO", order = 1)]
+    public class IconDataSO: SerializedScriptableObject
     {
         public Dictionary<int, Sprite> Icons = new Dictionary<int, Sprite>();
 

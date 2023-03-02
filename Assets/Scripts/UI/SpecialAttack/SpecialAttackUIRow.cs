@@ -12,7 +12,7 @@ namespace UI.SpecialAttack
     public class SpecialAttackUIRow : UIRow
     {
         [SerializeField]
-        private SkillIconDataSO skillIconDataSo;
+        private IconDataSO _iconDataSo;
 
         private SpecialAttackUpgrade _specialAttackUpgrade;
 
@@ -73,7 +73,7 @@ namespace UI.SpecialAttack
             descriptionText.text = stringBuilder.ToString();
             levelText.text = $"Level {_level}";
 
-            icon.sprite = skillIconDataSo.GetIcon(_specialAttackUpgrade.ID);
+            icon.sprite = _iconDataSo.GetIcon(_specialAttackUpgrade.ID);
         }
 
         public override void SetButtonState(double totalCoin)

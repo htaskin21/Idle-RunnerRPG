@@ -18,8 +18,7 @@ namespace SpecialAttacks
 
         [SerializeField]
         private BoostIconController _boostIconController;
-
-        private CancellationTokenSource _cts;
+        
         private CancellationTokenSource _durationCts;
         private CancellationTokenSource _cooldownCts;
         private CancellationTokenSource _uiTimerCts;

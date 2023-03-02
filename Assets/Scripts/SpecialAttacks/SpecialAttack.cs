@@ -15,8 +15,6 @@ namespace SpecialAttacks
         [SerializeField]
         private SpecialAttackType _specialAttackType;
 
-        private CancellationTokenSource _cts;
-
         private void Start()
         {
             var isUnlocked = specialAttackButton.SetLockState(identifier);

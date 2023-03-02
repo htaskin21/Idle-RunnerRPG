@@ -11,7 +11,7 @@ namespace Skill
     public class SkillUIRow : UIRow
     {
         [SerializeField]
-        private SkillIconDataSO skillIconDataSo;
+        private IconDataSO _iconDataSo;
 
         private SkillUpgrade _skillUpgrade;
         private int _level = 1;
@@ -69,7 +69,7 @@ namespace Skill
             descriptionText.text = stringBuilder.ToString();
             levelText.text = $"Level {_level}";
 
-            icon.sprite = skillIconDataSo.GetIcon(_skillUpgrade.ID);
+            icon.sprite = _iconDataSo.GetIcon(_skillUpgrade.ID);
         }
 
         public override void SetButtonState(double totalCoin)

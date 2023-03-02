@@ -369,7 +369,7 @@ MonoBehaviour:
   buyButtonImage: {fileID: 513107813}
   activeButtonSprite: {fileID: 21300000, guid: 2b9ef8fd07ea648188df59d7013692e4, type: 3}
   deActiveButtonSprite: {fileID: 21300000, guid: 51fb4eb3009c441418d8001b35bfc35b, type: 3}
-  skillIconDataSo: {fileID: 11400000, guid: 3be454a94ca2940b8b946409354c9cf5, type: 2}
+  _iconDataSo: {fileID: 0}
 --- !u!114 &61682305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7933,7 +7933,7 @@ MonoBehaviour:
   buyButtonImage: {fileID: 3323114938523761802}
   activeButtonSprite: {fileID: 21300000, guid: 2b9ef8fd07ea648188df59d7013692e4, type: 3}
   deActiveButtonSprite: {fileID: 21300000, guid: 51fb4eb3009c441418d8001b35bfc35b, type: 3}
-  skillIconDataSo: {fileID: 11400000, guid: 3be454a94ca2940b8b946409354c9cf5, type: 2}
+  _iconDataSo: {fileID: 0}
 --- !u!222 &3323114940177389929
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8629,6 +8629,10 @@ PrefabInstance:
     - target: {fileID: 5904951516062476238, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Name
       value: SpecialAttackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904951516062476238, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
