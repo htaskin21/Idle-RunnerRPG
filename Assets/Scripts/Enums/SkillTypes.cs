@@ -10,7 +10,10 @@ namespace Enums
         FireDmgSpecial,
         WaterDmgSpecial,
         LightningDmgSpecial,
-        CoinSpecial
+        CoinSpecial,
+        HolyDmgSpecial,
+        TapGold,
+        RageBoost
     
     }
 }
