@@ -6,21 +6,17 @@ using Items.Potion;
 using Managers;
 using States;
 using UI.SpecialAttack;
-using UnityEngine;
 
 namespace SpecialAttacks
 {
     public class SpecialAttack : BaseSpecialAttack
     {
-        [SerializeField]
-        private SpecialAttackType _specialAttackType;
-
         private void Start()
         {
             var isUnlocked = specialAttackButton.SetLockState(identifier);
             if (isUnlocked)
             {
-                LoadCoolDownState(heroDamageDataSo.specialAttackCoolDown, _cts);
+                LoadCoolDownState(_cts);
             }
             else
             {
@@ -34,16 +30,18 @@ namespace SpecialAttacks
         {
             _cts = new CancellationTokenSource();
 
-            GameManager.Instance.HeroController.heroAttack.specialAttackType = _specialAttackType;
+            _heroController.heroAttack.specialAttackType = _specialAttackType;
 
             var specialAttackState = GameManager.Instance.HeroController.GetState(StateType.SpecialAttack);
             GameManager.Instance.HeroController.TransitionToState(specialAttackState);
 
-            SaveLoadManager.Instance.SaveSpecialAttackCoolDown(identifier,
-                DateTime.UtcNow.AddMilliseconds(heroDamageDataSo.specialAttackCoolDown));
+            var coolDown = heroDamageDataSo.GetCoolDownBySpecialAttackType(_specialAttackType);
 
-            specialAttackButton.StartCoolDownState(heroDamageDataSo.specialAttackCoolDown,
-                heroDamageDataSo.specialAttackCoolDown, _cts).Forget();
+            SaveLoadManager.Instance.SaveSpecialAttackCoolDown(identifier,
+                DateTime.UtcNow.AddMilliseconds(coolDown));
+
+            specialAttackButton.StartCoolDownState(coolDown,
+                coolDown, _cts).Forget();
         }
 
         private void RefreshSpecialAttack()

@@ -14,16 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroAttack: 10
   attackCooldown: 1500
+  currentRageAmount: 1
   tapAttack: 1
   tapAttackCoolDown: 500
   autoTapAttackDuration: 64000
   autoTapAttackCooldown: 90000
+  goldenTapDuration: 0
+  goldenTapCooldown: 0
+  rageAmount: 0.5
+  rageDuration: 64000
+  rageCoolDown: 90000
   criticalAttack: 0
   criticalAttackChance: 364.18958
   lightningSpecialAttackMultiplier: 25
-  FireSpecialAttackMultiplier: 25
-  WaterSpecialAttackMultiplier: 25
-  specialAttackCoolDown: 60000
+  fireSpecialAttackMultiplier: 0
+  waterSpecialAttackMultiplier: 0
+  holySpecialAttackMultiplier: 0
+  lightningSpecialAttackCoolDown: 90000
+  fireSpecialAttackCoolDown: 90000
+  waterSpecialAttackCoolDown: 90000
+  holySpecialAttackCoolDown: 90000
   earthDamageMultiplier: 1
   plantDamageMultiplier: 1
   waterDamageMultiplier: 1
+  holyDamageMultiplier: 1

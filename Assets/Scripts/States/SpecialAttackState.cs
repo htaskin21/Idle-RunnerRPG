@@ -29,7 +29,8 @@ namespace States
 
             CharacterController.AnimationController.onAnimationAction.AddListener(() =>
                 HeroAttack.OnInflictDamage?.Invoke(
-                    GameManager.Instance.HeroController.heroAttack.GetSpecialAttackDamage(),AttackType.SpecialAttackDamage));
+                    GameManager.Instance.HeroController.heroAttack.GetSpecialAttackDamage(),
+                    AttackType.SpecialAttackDamage));
 
             HeroController heroController = (HeroController) CharacterController;
             CharacterController.AnimationController.onAnimationEnd.AddListener(heroController.DecideNextState);
@@ -48,8 +49,9 @@ namespace States
         private GameObject SetSpecialAttackPrefab()
         {
             GameObject specialAttack = null;
-
-            switch (GameManager.Instance.HeroController.heroAttack.specialAttackType)
+            
+            HeroController heroController = (HeroController) CharacterController;
+            switch (heroController.heroAttack.specialAttackType)
             {
                 case SpecialAttackType.Explosion:
                     specialAttack = explosionAttackPrefab;

@@ -1,6 +1,8 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Enums;
+using Hero;
 using Managers;
 using ScriptableObjects;
 using UI.SpecialAttack;
@@ -10,12 +12,18 @@ namespace SpecialAttacks
 {
     public abstract class BaseSpecialAttack : MonoBehaviour
     {
+        [SerializeField]
+        protected HeroController _heroController;
+
+        [SerializeField]
+        protected SpecialAttackType _specialAttackType;
+
         public int identifier;
 
         public HeroDamageDataSO heroDamageDataSo;
 
         public SpecialAttackButton specialAttackButton;
-        
+
         protected CancellationTokenSource _cts;
 
         protected void CheckLockState(int id)
@@ -26,7 +34,7 @@ namespace SpecialAttacks
             }
         }
 
-        protected void LoadCoolDownState(int coolDownDuration, CancellationTokenSource cooldownCts)
+        protected void LoadCoolDownState(CancellationTokenSource cooldownCts)
         {
             var durations = SaveLoadManager.Instance.LoadSpecialAttackCoolDown();
             var isContain = durations.ContainsKey(identifier);
@@ -37,8 +45,9 @@ namespace SpecialAttacks
                 {
                     cooldownCts = new CancellationTokenSource();
                     var duration = durationDate.Subtract(DateTime.UtcNow).TotalMilliseconds;
+                    var coolDown = heroDamageDataSo.GetCoolDownBySpecialAttackType(_specialAttackType);
                     specialAttackButton.StartCoolDownState((int) duration,
-                        (int) heroDamageDataSo.autoTapAttackCooldown, cooldownCts).Forget();
+                        coolDown, cooldownCts).Forget();
                 }
             }
         }

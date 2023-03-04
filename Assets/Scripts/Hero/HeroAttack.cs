@@ -121,13 +121,13 @@ namespace Hero
             if (specialAttackType == SpecialAttackType.IceAttack && CurrentEnemy.enemyDamageType == DamageType.Fire)
             {
                 damageMultiplierByDamageType = GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
-                specialAttackMultiplier = heroDamageDataSo.WaterSpecialAttackMultiplier;
+                specialAttackMultiplier = heroDamageDataSo.waterSpecialAttackMultiplier;
             }
 
             if (specialAttackType == SpecialAttackType.Explosion && CurrentEnemy.enemyDamageType == DamageType.Plant)
             {
                 damageMultiplierByDamageType = GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
-                specialAttackMultiplier = heroDamageDataSo.FireSpecialAttackMultiplier;
+                specialAttackMultiplier = heroDamageDataSo.fireSpecialAttackMultiplier;
             }
 
             var totalDamage = heroDamageDataSo.heroAttack * specialAttackMultiplier * damageMultiplierByDamageType;

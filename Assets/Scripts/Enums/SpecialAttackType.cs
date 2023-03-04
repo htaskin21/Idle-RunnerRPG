@@ -5,6 +5,9 @@ namespace Enums
         Lightning,
         Explosion,
         IceAttack,
-        AutoTap
+        AutoTap,
+        Holy,
+        GoldenTap,
+        Rage
     }
 }

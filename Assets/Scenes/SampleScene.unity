@@ -140,10 +140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6e33b7eebe408ea230c9b700923d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroController: {fileID: 2020034535}
+  _specialAttackType: 3
   identifier: 9001
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
   specialAttackButton: {fileID: 1446687088}
-  _heroController: {fileID: 2020034535}
   _boostIconController: {fileID: 2954311}
 --- !u!114 &2954311
 MonoBehaviour:
@@ -1110,10 +1111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05aa10b0da84492dbd5db841e1f25a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroController: {fileID: 0}
+  _specialAttackType: 2
   identifier: 9003
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
   specialAttackButton: {fileID: 34780190}
-  _specialAttackType: 2
 --- !u!1 &290020446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,6 +1922,18 @@ PrefabInstance:
     - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1576092082}
+    - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartSpecialAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpecialAttacks.DurationalSpecialAttack, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6553750857544011452, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_IsActive
@@ -6368,6 +6382,24 @@ MonoBehaviour:
   _iconSprite: {fileID: 7628469069571252507, guid: ce300894134eb4557a8e8042f7e689dd, type: 3}
   _boostIconsPanel: {fileID: 192271598}
   boostIcon: {fileID: 0}
+--- !u!114 &1576092082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576092076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1768512c3106a4851808ed1f1b339379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroController: {fileID: 2020034535}
+  _specialAttackType: 6
+  identifier: 9008
+  heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
+  specialAttackButton: {fileID: 405134255}
+  _boostIconController: {fileID: 1576092081}
 --- !u!1 &1588566345
 GameObject:
   m_ObjectHideFlags: 0
@@ -6844,10 +6876,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05aa10b0da84492dbd5db841e1f25a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroController: {fileID: 0}
+  _specialAttackType: 0
   identifier: 9004
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
   specialAttackButton: {fileID: 118255114}
-  _specialAttackType: 0
 --- !u!1 &1748140802 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5904951516062476238, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
@@ -6865,10 +6898,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05aa10b0da84492dbd5db841e1f25a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroController: {fileID: 0}
+  _specialAttackType: 1
   identifier: 9002
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
   specialAttackButton: {fileID: 1330673158}
-  _specialAttackType: 1
 --- !u!1 &1751895129
 GameObject:
   m_ObjectHideFlags: 0
@@ -8979,11 +9013,11 @@ PrefabInstance:
       objectReference: {fileID: 2954310}
     - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartAutoTap
+      value: StartSpecialAttack
       objectReference: {fileID: 0}
     - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SpecialAttacks.AutoTap, Assembly-CSharp
+      value: SpecialAttacks.DurationalSpecialAttack, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6553750857544011452, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_IsActive
