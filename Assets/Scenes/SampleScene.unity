@@ -1111,7 +1111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05aa10b0da84492dbd5db841e1f25a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroController: {fileID: 0}
+  _heroController: {fileID: 2020034535}
   _specialAttackType: 2
   identifier: 9003
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
@@ -6859,7 +6859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05aa10b0da84492dbd5db841e1f25a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroController: {fileID: 0}
+  _heroController: {fileID: 2020034535}
   _specialAttackType: 0
   identifier: 9004
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
@@ -6881,7 +6881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05aa10b0da84492dbd5db841e1f25a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroController: {fileID: 0}
+  _heroController: {fileID: 2020034535}
   _specialAttackType: 1
   identifier: 9002
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
