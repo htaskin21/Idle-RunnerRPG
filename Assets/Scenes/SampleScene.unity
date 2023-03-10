@@ -1501,6 +1501,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &338702188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5904951516062476238, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
+  m_PrefabInstance: {fileID: 741815903}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &365916052
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,6 +2131,8 @@ MonoBehaviour:
     amount: 5
   - prefab: {fileID: 545863252798454915, guid: ac064b11d4546406e9d4aad5bc4870fb, type: 3}
     amount: 2
+  - prefab: {fileID: 2704397770442671764, guid: c89dc3db682b64f11b5c4276ea936c22, type: 3}
+    amount: 3
   pooledItems: []
 --- !u!4 &514332009
 Transform:
@@ -2909,7 +2916,7 @@ PrefabInstance:
     - target: {fileID: 1578890527179965597, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6845605603503095708, guid: 635a4249d11a94609a0c779e8f7bc417, type: 3}
+      objectReference: {fileID: 21300000, guid: 68a5bcc04932249ec84573f3afef2b34, type: 3}
     - target: {fileID: 3028475484966874370, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_fontColor.b
       value: 1
@@ -3044,7 +3051,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 741815910}
+    - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartSpecialAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpecialAttacks.DurationalSpecialAttack, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6553750857544011452, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_IsActive
@@ -3069,6 +3088,50 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
   m_PrefabInstance: {fileID: 741815903}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &741815907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2659541618948628148, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
+  m_PrefabInstance: {fileID: 741815903}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338702188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d424f192d34ae59d9ad364c022b648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &741815910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338702188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 234a7f32fe9914f9895dba8ac5f5b582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroController: {fileID: 2020034535}
+  _specialAttackType: 5
+  identifier: 9007
+  heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
+  specialAttackButton: {fileID: 741815907}
+  _boostIconController: {fileID: 741815911}
+--- !u!114 &741815911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338702188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3e3c85486e34bcda5587cee41f51fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _iconSprite: {fileID: 21300000, guid: 68a5bcc04932249ec84573f3afef2b34, type: 3}
+  _boostIconsPanel: {fileID: 192271598}
+  boostIcon: {fileID: 0}
 --- !u!1001 &819855935
 PrefabInstance:
   m_ObjectHideFlags: 0

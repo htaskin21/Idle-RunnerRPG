@@ -21,6 +21,8 @@ namespace Enemy
         private TapDamageController tapDamageController;
 
         public TapDamageController TapDamageController => tapDamageController;
+
+        public EnemyLoot enemyLoot;
         
         public BoxCollider2D BoxCollider2D => boxCollider2D;
 

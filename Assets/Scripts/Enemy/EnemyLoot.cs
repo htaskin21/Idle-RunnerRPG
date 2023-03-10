@@ -16,7 +16,9 @@ namespace Enemy
 
         [SerializeField]
         private double lootAmount;
-        
+
+        public double LootAmount => lootAmount;
+
         public void InitiateLootItem()
         {
             lootAmount *= enemyController.enemyLevel;

@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Coin
   - BoostIcon
+  - SingleCoin
   layers:
   - Default
   - TransparentFX

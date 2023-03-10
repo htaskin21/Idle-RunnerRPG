@@ -17,18 +17,18 @@ MonoBehaviour:
   currentRageAmount: 1
   tapAttack: 1
   tapAttackCoolDown: 500
-  autoTapAttackDuration: 64000
+  autoTapAttackDuration: 31001
   autoTapAttackCooldown: 90000
-  goldenTapDuration: 0
-  goldenTapCooldown: 0
+  goldenTapDuration: 64000
+  goldenTapCooldown: 90000
   rageAmount: 0.5
   rageDuration: 64000
   rageCoolDown: 90000
-  criticalAttack: 0
-  criticalAttackChance: 364.18958
-  lightningSpecialAttackMultiplier: 25
-  fireSpecialAttackMultiplier: 0
-  waterSpecialAttackMultiplier: 0
+  criticalAttack: 1
+  criticalAttackChance: 0
+  lightningSpecialAttackMultiplier: 21
+  fireSpecialAttackMultiplier: 41
+  waterSpecialAttackMultiplier: 21
   holySpecialAttackMultiplier: 0
   lightningSpecialAttackCoolDown: 90000
   fireSpecialAttackCoolDown: 90000

@@ -33,7 +33,7 @@ namespace Items
             var position = enemyPosition.transform.position;
             o.transform.position = new Vector3(position.x, 0, position.z);
 
-            for (int i = 0; i < _defaultPositions.Count - 1; i++)
+            for (int i = 0; i < _defaultPositions.Count; i++)
             {
                 sprites[i].transform.localPosition = _defaultPositions[i];
                 sprites[i].transform.localScale = new Vector3(.5f, .5f, .5f);
@@ -42,7 +42,7 @@ namespace Items
             o.SetActive(true);
         }
 
-        private async UniTask MoveLoot(CancellationTokenSource cts)
+        public async UniTask MoveLoot(CancellationTokenSource cts)
         {
             var targetPosition = Camera.main.ScreenToWorldPoint(UIManager.Instance.CoinHud.transform.position);
             Sequence mySequence = null;
@@ -54,7 +54,7 @@ namespace Items
                     .OnPlay(() =>
                         coinSprite.transform.DOScale(new Vector3(0, 0, 0), movementDuration).SetEase(Ease.InCirc));
 
-                await UniTask.Delay(200);
+                await UniTask.Delay(150);
             }
 
             EconomyManager.OnCollectCoin.Invoke(_lootAmount);
