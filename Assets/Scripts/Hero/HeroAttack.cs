@@ -62,6 +62,8 @@ namespace Hero
                     return heroDamageDataSo.plantDamageMultiplier;
                 case DamageType.Water:
                     return heroDamageDataSo.waterDamageMultiplier;
+                case DamageType.Holy:
+                    return heroDamageDataSo.holyDamageMultiplier;
                 case DamageType.Normal:
                 default:
                     return 1f;
@@ -109,6 +111,12 @@ namespace Hero
             {
                 damageMultiplierByDamageType = GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
                 specialAttackMultiplier = heroDamageDataSo.fireSpecialAttackMultiplier;
+            }
+            
+            if (specialAttackType == SpecialAttackType.Holy && CurrentEnemy.enemyDamageType == DamageType.Normal)
+            {
+                damageMultiplierByDamageType = GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
+                specialAttackMultiplier = heroDamageDataSo.holySpecialAttackMultiplier;
             }
 
             var totalDamage = heroDamageDataSo.heroAttack * specialAttackMultiplier * damageMultiplierByDamageType * heroDamageDataSo.currentRageAmount;

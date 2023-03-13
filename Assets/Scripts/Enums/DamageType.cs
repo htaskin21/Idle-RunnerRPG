@@ -6,6 +6,7 @@ namespace Enums
             Plant,
             Water,
             Normal,
-            Fire
+            Fire,
+            Holy
       }
 }

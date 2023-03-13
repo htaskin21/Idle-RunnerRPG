@@ -18,6 +18,8 @@ namespace States
 
         public GameObject iceAttackPrefab;
 
+        public GameObject holyAttackPrefab;
+
         protected override void EnterState()
         {
             ButtonController.OnActiveAttackButtons?.Invoke(false);
@@ -61,6 +63,9 @@ namespace States
                     break;
                 case SpecialAttackType.IceAttack:
                     specialAttack = iceAttackPrefab;
+                    break;
+                case SpecialAttackType.Holy:
+                    specialAttack = holyAttackPrefab;
                     break;
             }
 
