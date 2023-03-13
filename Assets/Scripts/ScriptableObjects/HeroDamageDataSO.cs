@@ -6,11 +6,11 @@ namespace ScriptableObjects
     [CreateAssetMenu(menuName = "Create Hero Damage Data", fileName = "HeroDamageDataSO")]
     public class HeroDamageDataSO : ScriptableObject
     {
-        public double heroAttack = 10;
+        public double heroAttack;
         public int attackCooldown;
         public float currentRageAmount;
 
-        public double tapAttack = 1;
+        public double tapAttack;
         public int tapAttackCoolDown;
 
         public int autoTapAttackDuration;
@@ -23,8 +23,8 @@ namespace ScriptableObjects
         public int rageDuration;
         public int rageCoolDown;
 
-        public float criticalAttack = 5;
-        public float criticalAttackChance = 0;
+        public float criticalAttackMultiplier;
+        public float criticalAttackChance;
 
         public double lightningSpecialAttackMultiplier;
         public double fireSpecialAttackMultiplier;
@@ -36,10 +36,10 @@ namespace ScriptableObjects
         public int waterSpecialAttackCoolDown;
         public int holySpecialAttackCoolDown;
 
-        public double earthDamageMultiplier = 1;
-        public double plantDamageMultiplier = 1;
-        public double waterDamageMultiplier = 1;
-        public double holyDamageMultiplier = 1;
+        public double earthDamageMultiplier;
+        public double plantDamageMultiplier;
+        public double waterDamageMultiplier;
+        public double holyDamageMultiplier;
 
         public int GetCoolDownBySpecialAttackType(SpecialAttackType specialAttackType)
         {
@@ -64,12 +64,11 @@ namespace ScriptableObjects
                     return 1500;
             }
         }
-        
+
         public int GetDurationBySpecialAttackType(SpecialAttackType specialAttackType)
         {
             switch (specialAttackType)
             {
-               
                 case SpecialAttackType.AutoTap:
                     return autoTapAttackDuration;
                 case SpecialAttackType.GoldenTap:
@@ -80,6 +79,44 @@ namespace ScriptableObjects
                     Debug.LogError("GetDurationBySpecialAttackType is Null");
                     return 1500;
             }
+        }
+
+        public void ResetHeroDamageDataSO(HeroDamageDataSO baseHeroDamageDataSo)
+        {
+            heroAttack = baseHeroDamageDataSo.heroAttack;
+            attackCooldown = baseHeroDamageDataSo.attackCooldown;
+            currentRageAmount = baseHeroDamageDataSo.currentRageAmount;
+
+            tapAttack = baseHeroDamageDataSo.tapAttack;
+            tapAttackCoolDown = baseHeroDamageDataSo.tapAttackCoolDown;
+
+            autoTapAttackDuration = baseHeroDamageDataSo.autoTapAttackDuration;
+            autoTapAttackCooldown = baseHeroDamageDataSo.autoTapAttackCooldown;
+
+            goldenTapDuration = baseHeroDamageDataSo.goldenTapDuration;
+            goldenTapCooldown = baseHeroDamageDataSo.goldenTapCooldown;
+
+            rageAmount = baseHeroDamageDataSo.rageAmount;
+            rageDuration = baseHeroDamageDataSo.rageDuration;
+            rageCoolDown = baseHeroDamageDataSo.rageCoolDown;
+
+            criticalAttackMultiplier = baseHeroDamageDataSo.criticalAttackMultiplier;
+            criticalAttackChance = baseHeroDamageDataSo.criticalAttackChance;
+
+            lightningSpecialAttackMultiplier = baseHeroDamageDataSo.lightningSpecialAttackMultiplier;
+            fireSpecialAttackMultiplier = baseHeroDamageDataSo.fireSpecialAttackMultiplier;
+            waterSpecialAttackMultiplier = baseHeroDamageDataSo.waterSpecialAttackMultiplier;
+            holySpecialAttackMultiplier = baseHeroDamageDataSo.holySpecialAttackMultiplier;
+
+            lightningSpecialAttackCoolDown = baseHeroDamageDataSo.lightningSpecialAttackCoolDown;
+            fireSpecialAttackCoolDown = baseHeroDamageDataSo.fireSpecialAttackCoolDown;
+            waterSpecialAttackCoolDown = baseHeroDamageDataSo.waterSpecialAttackCoolDown;
+            holySpecialAttackCoolDown = baseHeroDamageDataSo.holySpecialAttackCoolDown;
+
+            earthDamageMultiplier = baseHeroDamageDataSo.earthDamageMultiplier;
+            plantDamageMultiplier = baseHeroDamageDataSo.plantDamageMultiplier;
+            waterDamageMultiplier = baseHeroDamageDataSo.waterDamageMultiplier;
+            holyDamageMultiplier = baseHeroDamageDataSo.holyDamageMultiplier;
         }
     }
 }

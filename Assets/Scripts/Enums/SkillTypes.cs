@@ -12,7 +12,7 @@ namespace Enums
         LightningDmgSpecial,
         CoinSpecial,
         HolyDmgSpecial,
-        TapGold,
+        GoldenTap,
         RageBoost
     
     }

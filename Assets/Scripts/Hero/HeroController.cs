@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading;
-using Cysharp.Threading.Tasks;
 using Enums;
 using Managers;
 using States;
@@ -40,9 +39,20 @@ namespace Hero
             }
         }
 
-        private void DecideNextStateAfterTapDamage(double damage,AttackType attackType)
+        private void DecideNextStateAfterTapDamage(double damage, AttackType attackType)
         {
-            var enemyHealth = heroAttack.CurrentEnemy.enemyHealth.Health - damage;
+            double enemyHealth = 0;
+
+            if (heroAttack.CurrentEnemy == null)
+            {
+                enemyHealth = 0;
+            }
+            else
+            {
+                enemyHealth =
+                heroAttack.CurrentEnemy.enemyHealth.Health - damage;
+            }
+               
 
             if (enemyHealth <= 0)
             {
@@ -60,7 +70,7 @@ namespace Hero
 
         private void TransitionToIdleState()
         {
-            if (currentState.stateType is StateType.Attack or StateType.SpecialAttack or StateType.WakeUp )
+            if (currentState.stateType is StateType.Attack or StateType.SpecialAttack or StateType.WakeUp)
             {
                 return;
             }

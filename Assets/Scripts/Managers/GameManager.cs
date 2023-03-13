@@ -92,18 +92,17 @@ namespace Managers
 
         private void SetScene()
         {
-           //ES3.DeleteDirectory(Application.persistentDataPath);
-           //ES3.DeleteFile(Application.persistentDataPath);
-            
+            //ES3.DeleteDirectory(Application.persistentDataPath);
+            //ES3.DeleteFile(Application.persistentDataPath);
+
             _dataReader.ReadAllData();
             _uiManager.LoadScrollers();
-            
+
             _currentLevelData = levelData[0];
 
             _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
 
-            _calculator.CalculateDamages();
-            _calculator.CalculateSpecialAttackDamage();
+            _calculator.InitialCalculation();
 
             CreateCharacters();
 

@@ -17,6 +17,9 @@ public class Calculator : MonoBehaviour
     [SerializeField]
     private HeroDamageDataSO _heroDamageDataSo;
 
+    [SerializeField]
+    private HeroDamageDataSO _baseHeroDamageDataSo;
+
     private List<SkillUpgrade> _skillUpgrades = new List<SkillUpgrade>();
 
     private List<SpecialAttackUpgrade> _specialAttackUpgrades = new List<SpecialAttackUpgrade>();
@@ -34,10 +37,8 @@ public class Calculator : MonoBehaviour
         OnUpdateSpecialAttackDamageCalculation += UpdateSpecialAttackDamage;
     }
 
-    public void CalculateSpecialAttackDamage()
+    private void CalculateSpecialAttackDamage()
     {
-        ResetHeroSpecialAttackDamageData();
-
         _specialAttackUpgrades = _dataReader.SpecialAttackData;
         var saveData = SaveLoadManager.Instance.LoadSpecialAttackUpgrade();
         List<SpecialAttackUpgrade> availableSpecialAttackUpgrades = new List<SpecialAttackUpgrade>();
@@ -91,6 +92,14 @@ public class Calculator : MonoBehaviour
                             .BaseIncrementAmount *
                         level;
                     break;
+                
+                case SkillTypes.GoldenTap:
+                    _heroDamageDataSo.goldenTapDuration +=
+                        (int) specialAttackUpgrade.StartAmount +
+                        (int) specialAttackUpgrade
+                            .BaseIncrementAmount *
+                        level;
+                    break;
 
                 default:
                     Debug.LogWarning("Calculate Damage Default geldi");
@@ -123,6 +132,9 @@ public class Calculator : MonoBehaviour
             case SkillTypes.AutoTapSpecial:
                 _heroDamageDataSo.autoTapAttackDuration += (int) difference;
                 break;
+            case SkillTypes.GoldenTap:
+                _heroDamageDataSo.goldenTapDuration += (int) difference;
+                break;
             default:
                 Debug.LogWarning("Update Damage Default geldi");
                 _heroDamageDataSo.heroAttack +=
@@ -131,10 +143,8 @@ public class Calculator : MonoBehaviour
         }
     }
 
-    public void CalculateDamages()
+    private void CalculateDamages()
     {
-        ResetHeroDamageData();
-
         _skillUpgrades = _dataReader.SkillData;
         var saveData = SaveLoadManager.Instance.LoadSkillUpgrade();
         List<SkillUpgrade> availableSkillUpgrades = new List<SkillUpgrade>();
@@ -166,9 +176,9 @@ public class Calculator : MonoBehaviour
                                                    saveData[availableSkillUpgrade.ID];
                     break;
                 case SkillTypes.CriticalAttackBoost:
-                    _heroDamageDataSo.criticalAttack += (float) availableSkillUpgrade.StartAmount +
-                                                        (float) availableSkillUpgrade.BaseIncrementAmount *
-                                                        saveData[availableSkillUpgrade.ID];
+                    _heroDamageDataSo.criticalAttackMultiplier += (float) availableSkillUpgrade.StartAmount +
+                                                                  (float) availableSkillUpgrade.BaseIncrementAmount *
+                                                                  saveData[availableSkillUpgrade.ID];
                     break;
                 case SkillTypes.CriticalAttackChance:
                     _heroDamageDataSo.criticalAttackChance += (float) availableSkillUpgrade.StartAmount +
@@ -223,7 +233,7 @@ public class Calculator : MonoBehaviour
                     difference;
                 break;
             case SkillTypes.CriticalAttackBoost:
-                _heroDamageDataSo.criticalAttack += (float) difference;
+                _heroDamageDataSo.criticalAttackMultiplier += (float) difference;
                 break;
             case SkillTypes.CriticalAttackChance:
                 _heroDamageDataSo.criticalAttackChance += (float) difference;
@@ -247,22 +257,11 @@ public class Calculator : MonoBehaviour
         UIManager.OnUpdateDamageHud.Invoke(_heroDamageDataSo.heroAttack, _heroDamageDataSo.tapAttack);
     }
 
-    private void ResetHeroDamageData()
+    public void InitialCalculation()
     {
-        _heroDamageDataSo.heroAttack = 10;
-        _heroDamageDataSo.tapAttack = 1;
-        _heroDamageDataSo.earthDamageMultiplier = 1;
-        _heroDamageDataSo.plantDamageMultiplier = 1;
-        _heroDamageDataSo.waterDamageMultiplier = 1;
-        _heroDamageDataSo.criticalAttack = 1;
-        _heroDamageDataSo.criticalAttackChance = 0;
-    }
+        _heroDamageDataSo.ResetHeroDamageDataSO(_baseHeroDamageDataSo);
 
-    private void ResetHeroSpecialAttackDamageData()
-    {
-        _heroDamageDataSo.fireSpecialAttackMultiplier = 1;
-        _heroDamageDataSo.lightningSpecialAttackMultiplier = 1;
-        _heroDamageDataSo.waterSpecialAttackMultiplier = 1;
-        _heroDamageDataSo.autoTapAttackDuration = 1;
+        CalculateDamages();
+        CalculateSpecialAttackDamage();
     }
 }

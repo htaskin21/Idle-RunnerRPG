@@ -1,7 +1,6 @@
 using System;
 using Enemy;
 using Enums;
-using Managers;
 using ScriptableObjects;
 using States;
 using UnityEngine;
@@ -27,24 +26,6 @@ namespace Hero
 
         private bool _isCriticalAttack;
 
-        [SerializeField]
-        private float _strengthBoostMultiplier;
-
-        private float StrengthBoost
-        {
-            get
-            {
-                if (SaveLoadManager.Instance.LoadStrengthBoostTime() >= DateTime.UtcNow)
-                {
-                    return _strengthBoostMultiplier;
-                }
-
-                return 1;
-            }
-
-            set => _strengthBoostMultiplier = value;
-        }
-
         public static Action<double, AttackType> OnInflictDamage;
         public static Action<double, AttackType> OnTapDamage;
 
@@ -68,7 +49,7 @@ namespace Hero
         public double CalculateDamage()
         {
             return heroDamageDataSo.heroAttack * GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType) *
-                   GetCriticalDamage() * CalculateBoost();
+                   GetCriticalDamage() * heroDamageDataSo.currentRageAmount;
         }
 
         private double GetDamageMultiplierByDamageType(DamageType damageType)
@@ -89,13 +70,13 @@ namespace Hero
 
         private float GetCriticalDamage()
         {
-            float rnd = Random.Range(0, 100);
+            float rnd = Random.Range(0.1f, 100);
             var critChance = heroDamageDataSo.criticalAttackChance;
 
             if (rnd <= critChance)
             {
                 _isCriticalAttack = true;
-                return heroDamageDataSo.criticalAttack;
+                return heroDamageDataSo.criticalAttackMultiplier;
             }
 
             _isCriticalAttack = false;
@@ -130,13 +111,8 @@ namespace Hero
                 specialAttackMultiplier = heroDamageDataSo.fireSpecialAttackMultiplier;
             }
 
-            var totalDamage = heroDamageDataSo.heroAttack * specialAttackMultiplier * damageMultiplierByDamageType;
+            var totalDamage = heroDamageDataSo.heroAttack * specialAttackMultiplier * damageMultiplierByDamageType * heroDamageDataSo.currentRageAmount;
             return totalDamage;
-        }
-
-        private float CalculateBoost()
-        {
-            return StrengthBoost;
         }
     }
 }

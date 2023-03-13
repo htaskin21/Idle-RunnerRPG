@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Enums;
@@ -22,10 +21,10 @@ namespace SpecialAttacks
 
             HeroAttack.OnTapDamage += ActivateGoldenTap;
 
-            var finishTime = DateTime.UtcNow.AddMilliseconds(duration);
-            while (finishTime >= DateTime.UtcNow || _cts.IsCancellationRequested == false)
+            while (duration >= 0 || _cts.IsCancellationRequested == false)
             {
                 await UniTask.Delay(100, cancellationToken: _cts.Token);
+                duration -= 100;
             }
 
             HeroAttack.OnTapDamage -= ActivateGoldenTap;
@@ -35,12 +34,12 @@ namespace SpecialAttacks
 
         private void ActivateGoldenTap(double tapAttackAmount, AttackType attackType)
         {
+            if (_heroController.heroAttack.CurrentEnemy == null) return;
             CancellationTokenSource cts = new CancellationTokenSource();
             var go = GameManager.Instance.ObjectPool.GetGameObject(LootType.SingleCoin.ToString());
             var lootObject = go.GetComponent<LootObject>();
 
             var enemy = _heroController.heroAttack.CurrentEnemy;
-
             lootObject.SetInitialPosition(enemy.transform, enemy.enemyLoot.LootAmount * 0.05);
             lootObject.MoveLoot(cts).Forget();
         }
