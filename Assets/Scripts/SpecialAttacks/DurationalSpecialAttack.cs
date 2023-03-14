@@ -108,6 +108,9 @@ namespace SpecialAttacks
             {
                 SaveLoadManager.Instance.SaveSpecialAttackCoolDown(identifier,
                     DateTime.UtcNow);
+                
+                var coolDown = heroDamageDataSo.GetCoolDownBySpecialAttackType(_specialAttackType);
+                SetSpecialAttackState(DurationalSpecialAttackRoutine, coolDown);
 
                 _cooldownCts?.Cancel();
             }

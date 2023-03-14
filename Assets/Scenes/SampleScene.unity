@@ -1249,7 +1249,7 @@ PrefabInstance:
     - target: {fileID: 1578890527179965597, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6845605603503095708, guid: 635a4249d11a94609a0c779e8f7bc417, type: 3}
+      objectReference: {fileID: 980598415188965590, guid: ce300894134eb4557a8e8042f7e689dd, type: 3}
     - target: {fileID: 3028475484966874370, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_fontColor.b
       value: 1
@@ -1268,15 +1268,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Pivot.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Pivot.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1332,11 +1332,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 842
+      value: 892.5
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -161
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1364,7 +1364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3988548477759444001, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.58431375
       objectReference: {fileID: 0}
     - target: {fileID: 3988548477759444001, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Color.g
@@ -1372,7 +1372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3988548477759444001, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Color.r
-      value: 0.69803923
+      value: 0.98039216
       objectReference: {fileID: 0}
     - target: {fileID: 5793197838241485964, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_IsActive
@@ -1380,7 +1380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5904951516062476238, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Name
-      value: SpecialAttackButton (6)
+      value: HolySpecialAttackButton
       objectReference: {fileID: 0}
     - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Enabled
@@ -1859,7 +1859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1915,7 +1915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 372
+      value: 607
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1963,7 +1963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5904951516062476238, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Name
-      value: SpecialAttackButton (4)
+      value: RageSpecialAttackButton
       objectReference: {fileID: 0}
     - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Enabled
@@ -2322,7 +2322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3617733677929158344, guid: c98550b60f46e4e35bdcc608aa32de8a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3617733677929158344, guid: c98550b60f46e4e35bdcc608aa32de8a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2382,7 +2382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3617733677929158344, guid: c98550b60f46e4e35bdcc608aa32de8a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -70
+      value: 131.4
       objectReference: {fileID: 0}
     - target: {fileID: 3617733677929158344, guid: c98550b60f46e4e35bdcc608aa32de8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2555,7 +2555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2611,7 +2611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 892.5
+      value: 657.5
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2647,7 +2647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5904951516062476238, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Name
-      value: SpecialAttackButton (2)
+      value: LightningSpecialAttackButton
       objectReference: {fileID: 0}
     - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2985,7 +2985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3041,7 +3041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 607
+      value: 842
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3073,15 +3073,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3988548477759444001, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.3137255
       objectReference: {fileID: 0}
     - target: {fileID: 3988548477759444001, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.8745098
       objectReference: {fileID: 0}
     - target: {fileID: 3988548477759444001, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Color.r
-      value: 0.69803923
+      value: 0.9843137
       objectReference: {fileID: 0}
     - target: {fileID: 5793197838241485964, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_IsActive
@@ -3089,7 +3089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5904951516062476238, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Name
-      value: SpecialAttackButton (5)
+      value: GoldenTapSpecialAttackButton
       objectReference: {fileID: 0}
     - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Enabled
@@ -3569,7 +3569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3625,7 +3625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 657.5
+      value: 422.5
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3661,7 +3661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5904951516062476238, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Name
-      value: SpecialAttackButton (3)
+      value: IceSpecialAttackButton
       objectReference: {fileID: 0}
     - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5594,15 +5594,15 @@ PrefabInstance:
       objectReference: {fileID: 3968307326363886165, guid: ce300894134eb4557a8e8042f7e689dd, type: 3}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5658,11 +5658,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 422.5
+      value: 255
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -45
+      value: 22.5
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5694,7 +5694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5904951516062476238, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Name
-      value: SpecialAttackButton (1)
+      value: FireSpecialAttackButton
       objectReference: {fileID: 0}
     - target: {fileID: 5921887806511480483, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6672,13 +6672,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8256890240594209643}
   - {fileID: 1389490681}
   - {fileID: 882140919}
   - {fileID: 643571301}
+  - {fileID: 305075494}
+  - {fileID: 8256890240594209643}
   - {fileID: 486162786}
   - {fileID: 741815904}
-  - {fileID: 305075494}
   m_Father: {fileID: 875743120}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6700,10 +6700,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackButtons:
-  - {fileID: 1446687088}
   - {fileID: 1330673158}
-  - {fileID: 118255114}
   - {fileID: 34780190}
+  - {fileID: 118255114}
+  - {fileID: 305075497}
+  - {fileID: 1446687088}
+  - {fileID: 741815907}
   - {fileID: 405134255}
 --- !u!1 &1623985897
 GameObject:
@@ -8944,7 +8946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchorMax.x
@@ -9000,11 +9002,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 255
+      value: 372
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 22.5
+      value: -161
       objectReference: {fileID: 0}
     - target: {fileID: 3157103567009904895, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9036,7 +9038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5904951516062476238, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_Name
-      value: SpecialAttackButton
+      value: AutoTapSpecialAttackButton
       objectReference: {fileID: 0}
     - target: {fileID: 5904951516062476238, guid: 48ffb93c8d7734040aae59faedb4e421, type: 3}
       propertyPath: m_IsActive
