@@ -1,4 +1,3 @@
-using System;
 using Cysharp.Threading.Tasks;
 
 namespace SpecialAttacks
@@ -16,11 +15,11 @@ namespace SpecialAttacks
                 _cooldownCts).Forget();
 
             heroDamageDataSo.currentRageAmount = heroDamageDataSo.rageAmount;
-
-            var finishTime = DateTime.UtcNow.AddMilliseconds(duration);
-            while (finishTime >= DateTime.UtcNow || _cts.IsCancellationRequested == false)
+            
+            while (duration > 0 && _cts.IsCancellationRequested == false)
             {
                 await UniTask.Delay(100, cancellationToken: _cts.Token);
+                duration -= 100;
             }
 
             heroDamageDataSo.currentRageAmount = 1;

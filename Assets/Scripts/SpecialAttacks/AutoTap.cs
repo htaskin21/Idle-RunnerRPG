@@ -25,7 +25,7 @@ namespace SpecialAttacks
 
             var passingTimeToTap = 0;
 
-            while (duration <= 0 || _cts.IsCancellationRequested == false)
+            while (duration > 0 && _cts.IsCancellationRequested == false)
             {
                 await UniTask.Delay(100, cancellationToken: _cts.Token);
                 duration -= 100;
