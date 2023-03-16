@@ -14,6 +14,9 @@ public class CameraFollower : MonoBehaviour
     {
         HeroMovement.OnHeroStartRunning += StartCameraMove;
         HeroMovement.OnHeroStopRunning += StopCameraMove;
+        
+        HeroMovement.OnHeroStartRunning += ZoomOutCamera;
+        HeroMovement.OnHeroStopRunning += ZoomInCamera;
 
         HeroAttack.OnInflictDamage += ShakeCamera;
     }
@@ -28,6 +31,17 @@ public class CameraFollower : MonoBehaviour
     private void StopCameraMove()
     {
         _cameraMoveTweener?.Kill();
+    }
+
+    private void ZoomInCamera()
+    {
+        mainCamera.DOOrthoSize(8.5f,0.35f).SetEase(Ease.Flash);
+
+    }
+    
+    private void ZoomOutCamera()
+    {
+        mainCamera.DOOrthoSize(9f,0.35f).SetEase(Ease.Flash);
     }
 
     private void ShakeCamera(double damage, AttackType attackType)
