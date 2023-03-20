@@ -57,7 +57,8 @@ namespace SpecialAttacks
                 cancellationToken:
                 _cts.Token);
 
-            HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack, AttackType.TapDamage);
+            var tapAttack = _heroController.heroAttack.CalculateTapDamage();
+            HeroAttack.OnTapDamage?.Invoke(tapAttack, AttackType.TapDamage);
 
             _activeTapCts.Cancel();
             _activeTapCts = null;

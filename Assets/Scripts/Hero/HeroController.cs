@@ -14,13 +14,14 @@ namespace Hero
         public HeroUI heroUI;
 
         [SerializeField]
-        private List<PetController> pets;
+        private List<Pet> pets;
 
         private CancellationTokenSource _cancellationTokenSource;
 
         private void Start()
         {
             pets[0].gameObject.SetActive(true);
+            pets[1].gameObject.SetActive(true);
 
             HeroAttack.OnTapDamage += DecideNextStateAfterTapDamage;
         }

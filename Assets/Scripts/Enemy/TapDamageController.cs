@@ -2,6 +2,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Enums;
 using Hero;
+using Managers;
 using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -31,7 +32,8 @@ namespace Enemy
             _cts = new CancellationTokenSource();
 
             _canAttack = false;
-            HeroAttack.OnTapDamage?.Invoke(heroDamageDataSo.tapAttack,AttackType.TapDamage);
+            var tapAttack = GameManager.Instance.HeroController.heroAttack.CalculateTapDamage();
+            HeroAttack.OnTapDamage?.Invoke(tapAttack, AttackType.TapDamage);
 
             await UniTask.Delay(heroDamageDataSo.tapAttackCoolDown);
             _canAttack = true;

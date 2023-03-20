@@ -30,10 +30,10 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - UniTask
+    - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - UniTask.Linq
     - EnhancedScroller_asmdef
-    - Assembly-CSharp
     - DamageNumbersPro
     - UIEffect
     - UniTask.DOTween

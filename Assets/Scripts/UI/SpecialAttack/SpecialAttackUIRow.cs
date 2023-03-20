@@ -76,14 +76,14 @@ namespace UI.SpecialAttack
             icon.sprite = _iconDataSo.GetIcon(_specialAttackUpgrade.ID);
         }
 
-        public override void SetButtonState(double totalCoin)
+        public override void SetButtonState(double totalGem)
         {
             var cost = _specialAttackUpgrade.BaseIncrementCost * _level;
             buttonCostText.text = $"{CalcUtils.FormatNumber(cost)} <sprite index= 0>";
 
             buttonDescriptionText.text = _level > 1 ? "LEVEL UP" : "BUY";
 
-            buyButton.enabled = cost <= totalCoin;
+            buyButton.enabled = cost <= totalGem;
             buyButtonImage.sprite = buyButton.enabled ? activeButtonSprite : deActiveButtonSprite;
         }
 
@@ -108,10 +108,10 @@ namespace UI.SpecialAttack
             }
         }
 
-        public override void UpdateRow(double totalCoin)
+        public override void UpdateRow(double totalGem)
         {
             FillUIRow();
-            SetButtonState(totalCoin);
+            SetButtonState(totalGem);
         }
     }
 }

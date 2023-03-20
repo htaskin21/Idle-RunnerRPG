@@ -92,7 +92,7 @@ public class Calculator : MonoBehaviour
                             .BaseIncrementAmount *
                         level;
                     break;
-                
+
                 case SkillTypes.GoldenTap:
                     _heroDamageDataSo.goldenTapDuration +=
                         (int) specialAttackUpgrade.StartAmount +

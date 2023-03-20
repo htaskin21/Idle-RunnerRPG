@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1288beae36c8143b09f2f01909f85548, type: 3}
+  m_Name: Bunny
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: PetSkill
+      Entry: 7
+      Data: 0|PetSkills.AddClickCountToDps, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  id: 1
+  icon: {fileID: -938322203, guid: 6bc768853c51a4264b0d54bca41cc541, type: 3}
+  cost: 100
+  petPrefab: {fileID: 2062858163077295212, guid: ae4e7ac1c373b4b4da8c13a9ff92b63c, type: 3}
+  heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}

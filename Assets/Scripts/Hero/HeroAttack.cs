@@ -1,6 +1,7 @@
 using System;
 using Enemy;
 using Enums;
+using Managers;
 using ScriptableObjects;
 using States;
 using UnityEngine;
@@ -33,6 +34,10 @@ namespace Hero
         {
             OnInflictDamage = delegate(double damage, AttackType attackType) { };
             OnTapDamage = delegate(double damage, AttackType attackType) { };
+
+            OnTapDamage += UpdateTapCount;
+
+            PlayerPrefs.SetInt("TapCount", 0);
         }
 
         private void OnTriggerEnter2D(Collider2D col)
@@ -48,8 +53,21 @@ namespace Hero
 
         public double CalculateDamage()
         {
-            return heroDamageDataSo.heroAttack * GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType) *
+            return (heroDamageDataSo.heroAttack + GetPassingTime() + GetTapCount()) *
+                   GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType) *
                    GetCriticalDamage() * heroDamageDataSo.currentRageAmount;
+        }
+
+        public double CalculateTapDamage()
+        {
+            var critDamage = 1f;
+            if (heroDamageDataSo.isCriticalTapActive)
+            {
+                critDamage = GetCriticalDamage();
+            }
+
+            return heroDamageDataSo.tapAttack *
+                   critDamage;
         }
 
         private double GetDamageMultiplierByDamageType(DamageType damageType)
@@ -68,6 +86,33 @@ namespace Hero
                 default:
                     return 1f;
             }
+        }
+
+        private int GetTapCount()
+        {
+            var tapCount = 0;
+
+            if (heroDamageDataSo.isAddClickCountToDPS)
+            {
+                tapCount = PlayerPrefs.GetInt("TapCount", 0);
+            }
+
+            return tapCount;
+        }
+
+        private double GetPassingTime()
+        {
+            var timeAttack = 0;
+
+            if (heroDamageDataSo.isAddTimeToDamageActive)
+            {
+                var startingTime = SaveLoadManager.Instance.LoadGameStartTime();
+                var currentTime = DateTime.UtcNow;
+
+                timeAttack = currentTime.Subtract(startingTime).Minutes;
+            }
+
+            return timeAttack;
         }
 
         private float GetCriticalDamage()
@@ -112,15 +157,23 @@ namespace Hero
                 damageMultiplierByDamageType = GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
                 specialAttackMultiplier = heroDamageDataSo.fireSpecialAttackMultiplier;
             }
-            
+
             if (specialAttackType == SpecialAttackType.Holy && CurrentEnemy.enemyDamageType == DamageType.Normal)
             {
                 damageMultiplierByDamageType = GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
                 specialAttackMultiplier = heroDamageDataSo.holySpecialAttackMultiplier;
             }
 
-            var totalDamage = heroDamageDataSo.heroAttack * specialAttackMultiplier * damageMultiplierByDamageType * heroDamageDataSo.currentRageAmount;
+            var totalDamage = heroDamageDataSo.heroAttack * specialAttackMultiplier * damageMultiplierByDamageType *
+                              heroDamageDataSo.currentRageAmount;
             return totalDamage;
+        }
+
+        private void UpdateTapCount(double damage, AttackType attackType)
+        {
+            var count = PlayerPrefs.GetInt("TapCount", 0);
+            count++;
+            PlayerPrefs.SetInt("TapCount", count);
         }
     }
 }

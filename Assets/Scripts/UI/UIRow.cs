@@ -1,4 +1,6 @@
+using System;
 using EnhancedUI.EnhancedScroller;
+using ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,14 +39,28 @@ namespace UI
         [SerializeField]
         protected Sprite deActiveButtonSprite;
 
-        public abstract void SetUIRow(UpgradableStat upgradableStat);
+        public virtual void SetUIRow(UpgradableStat upgradableStat)
+        {
+        }
+
+        public virtual void SetUIRow(PetSO pet)
+        {
+        }
 
         public abstract void FillUIRow();
 
-        public abstract void SetButtonState(double totalCoin);
+        public abstract void SetButtonState(double totalGem);
 
         public abstract void OnBuy();
 
-        public abstract void UpdateRow(double totalCoin);
+        public virtual void UpdateRow(double totalCoin)
+        {
+            
+        }
+        
+        public virtual void UpdateRow(int totalGem)
+        {
+            
+        }
     }
 }

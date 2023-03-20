@@ -107,6 +107,8 @@ namespace Managers
             CreateCharacters();
 
             _heroController.StartRunning();
+
+            SaveLoadManager.Instance.SaveGameStartTime(DateTime.UtcNow);
         }
 
         private void CreateHero()

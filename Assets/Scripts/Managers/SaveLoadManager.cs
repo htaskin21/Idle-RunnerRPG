@@ -30,8 +30,29 @@ namespace Managers
 
             EconomyManager.OnCollectCoin += SaveCoin;
             EconomyManager.OnSpendCoin += SaveCoin;
+
+            EconomyManager.OnCollectGem += SaveGem;
+            EconomyManager.OnSpendGem += SaveGem;
         }
 
+        public void SaveGameStartTime(DateTime startTime)
+        {
+            var saveFile = new ES3File("InGameSaveFile.es3");
+
+            saveFile.Save<DateTime>("gameStartTime", startTime);
+
+            saveFile.Sync();
+        }
+
+        public DateTime LoadGameStartTime()
+        {
+            var saveFile = new ES3File("InGameSaveFile.es3");
+
+            var currentTime = saveFile.Load<DateTime>("gameStartTime", DateTime.UtcNow);
+
+            return currentTime;
+        }
+        
         public void SaveSkillUpgrade(int skillID, int skillLevel)
         {
             Dictionary<int, int> skillUpgradeDictionary = new Dictionary<int, int>();
@@ -83,7 +104,70 @@ namespace Managers
 
             return heroSectionDictionary;
         }
-        
+
+
+        public void SavePetData(int petID)
+        {
+            List<int> pets = new List<int>();
+
+            var saveFile = new ES3File("PetData.es3");
+
+            pets = saveFile.Load<List<int>>("unlockedPet", pets);
+
+            pets.Add(petID);
+
+            saveFile.Save<List<int>>("unlockedPet", pets);
+
+            saveFile.Sync();
+        }
+
+        public List<int> LoadPetData()
+        {
+            List<int> pets = new List<int>();
+
+            var saveFile = new ES3File("PetData.es3");
+
+            pets = saveFile.Load<List<int>>("unlockedPet", pets);
+
+            return pets;
+        }
+
+        public void SaveSelectedPetData(int petID, bool isSelected)
+        {
+            List<int> pets = new List<int>();
+
+            var saveFile = new ES3File("PetData.es3");
+
+            pets = saveFile.Load<List<int>>("selectedPet", pets);
+
+            if (isSelected)
+            {
+                pets.Add(petID);
+            }
+            else
+            {
+                if (pets.Contains(petID))
+                {
+                    pets.Remove(petID);
+                }
+            }
+
+            saveFile.Save<List<int>>("selectedPet", pets);
+
+            saveFile.Sync();
+        }
+
+        public List<int> LoadSelectedPetData()
+        {
+            List<int> pets = new List<int>();
+
+            var saveFile = new ES3File("PetData.es3");
+
+            pets = saveFile.Load<List<int>>("selectedPet", pets);
+
+            return pets;
+        }
+
         public void SaveSpecialAttackCoolDown(int specialAttackID, DateTime coolDownTime)
         {
             Dictionary<int, DateTime> specialAttackCoolDown = new Dictionary<int, DateTime>();
@@ -98,18 +182,19 @@ namespace Managers
             saveFile.Save<Dictionary<int, DateTime>>("specialAttackCoolDown", specialAttackCoolDown);
             saveFile.Sync();
         }
-        
+
         public Dictionary<int, DateTime> LoadSpecialAttackCoolDown()
         {
             Dictionary<int, DateTime> specialAttackCoolDown = new Dictionary<int, DateTime>();
 
             var saveFile = new ES3File("specialAttackTimeSaveFile.es3");
 
-            specialAttackCoolDown = saveFile.Load<Dictionary<int, DateTime>>("specialAttackCoolDown", specialAttackCoolDown);
+            specialAttackCoolDown =
+                saveFile.Load<Dictionary<int, DateTime>>("specialAttackCoolDown", specialAttackCoolDown);
 
             return specialAttackCoolDown;
         }
-        
+
         public void SaveSpecialAttackDuration(int specialAttackID, DateTime durationTime)
         {
             Dictionary<int, DateTime> specialAttackDuration = new Dictionary<int, DateTime>();
@@ -124,14 +209,15 @@ namespace Managers
             saveFile.Save<Dictionary<int, DateTime>>("specialAttackDuration", specialAttackDuration);
             saveFile.Sync();
         }
-        
+
         public Dictionary<int, DateTime> LoadSpecialAttackDuration()
         {
             Dictionary<int, DateTime> specialAttackDuration = new Dictionary<int, DateTime>();
 
             var saveFile = new ES3File("specialAttackTimeSaveFile.es3");
 
-            specialAttackDuration = saveFile.Load<Dictionary<int, DateTime>>("specialAttackDuration", specialAttackDuration);
+            specialAttackDuration =
+                saveFile.Load<Dictionary<int, DateTime>>("specialAttackDuration", specialAttackDuration);
 
             return specialAttackDuration;
         }
@@ -155,10 +241,10 @@ namespace Managers
             return coin;
         }
 
-        private void SaveGem(int totalGem)
+        public void SaveGem(int totalGem)
         {
             var saveFile = new ES3File("economySaveFile.es3");
-            var gem = saveFile.Load<double>("totalGem", 0);
+            var gem = saveFile.Load<int>("totalGem", 0);
 
             gem += totalGem;
 
@@ -166,10 +252,10 @@ namespace Managers
             saveFile.Sync();
         }
 
-        public double LoadGem()
+        public int LoadGem()
         {
             var saveFile = new ES3File("economySaveFile.es3");
-            var gem = saveFile.Load<double>("totalGem", 0);
+            var gem = saveFile.Load<int>("totalGem", 0);
 
             return gem;
         }

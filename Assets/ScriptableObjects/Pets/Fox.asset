@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92bb382d88f2425094ec5b3dfc85c61e, type: 3}
-  m_Name: PetIconDataSO
+  m_Script: {fileID: 11500000, guid: 1288beae36c8143b09f2f01909f85548, type: 3}
+  m_Name: Fox
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,23 +21,14 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: Icons
+    - Name: PetSkill
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[UnityEngine.Sprite,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
-        mscorlib]], mscorlib
+      Data: 0|PetSkills.CriticTap, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+  id: 4
+  icon: {fileID: -1741780992, guid: 868f005f5f4684379a4f9b124ab56b8a, type: 3}
+  cost: 100
+  petPrefab: {fileID: 2062858163077295212, guid: 033107d4a8ab54143b591a05ccb94f19, type: 3}
+  heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}

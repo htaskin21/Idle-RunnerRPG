@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Managers;
 using Skill;
 using TMPro;
+using UI.Pet;
 using UI.SpecialAttack;
 using UnityEngine;
 using Utils;
@@ -37,6 +38,9 @@ namespace UI
         private TextMeshProUGUI coinText;
 
         [SerializeField]
+        private TextMeshProUGUI gemText;
+
+        [SerializeField]
         private TextMeshProUGUI heroDamageText;
 
         [SerializeField]
@@ -49,9 +53,13 @@ namespace UI
         private SpecialAttackUIPanel heroUIPanel;
 
         [SerializeField]
+        private PetUIPanel _petUIPanel;
+
+        [SerializeField]
         private List<UIPanel> uiPanels;
 
         public static Action<double> OnUpdateCoinHud;
+        public static Action<int> OnUpdateGemHud;
         public static Action<double, double> OnUpdateDamageHud;
 
         private void Awake()
@@ -61,6 +69,9 @@ namespace UI
             OnUpdateCoinHud = delegate(double d) { };
             OnUpdateCoinHud += UpdateCoinHud;
 
+            OnUpdateGemHud = delegate(int d) { };
+            OnUpdateGemHud += UpdateGemHud;
+
             OnUpdateDamageHud = delegate(double d, double d1) { };
             OnUpdateDamageHud += UpdateDamageHud;
         }
@@ -69,6 +80,9 @@ namespace UI
         {
             var coin = SaveLoadManager.Instance.LoadCoin();
             OnUpdateCoinHud.Invoke(coin);
+
+            var gem = SaveLoadManager.Instance.LoadGem();
+            OnUpdateGemHud.Invoke(gem);
         }
 
         public void LoadScrollers()
@@ -80,6 +94,11 @@ namespace UI
         private void UpdateCoinHud(double coin)
         {
             coinText.text = CalcUtils.FormatNumber(coin);
+        }
+
+        private void UpdateGemHud(int gem)
+        {
+            gemText.text = CalcUtils.FormatNumber(gem);
         }
 
         private void UpdateDamageHud(double heroDamage, double tapAttack)
