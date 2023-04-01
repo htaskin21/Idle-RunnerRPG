@@ -74,16 +74,23 @@ namespace Managers
             {
                 var petGameObject = Instantiate(pet.petPrefab.gameObject, _petPositions[selectedPetCount].position,
                     Quaternion.identity, _heroParent);
-                petGameObject.gameObject.SetActive(true);
-                _activePetGameObjects.Add(petGameObject.GetComponent<Pet>());
+                
+                Pet tempPet = petGameObject.GetComponent<Pet>();
+                tempPet.petId = pet.id;
+                _activePetGameObjects.Add(tempPet);
+                tempPet.gameObject.SetActive(true);
             }
         }
 
         private void ResetPetGameObject(PetSO petSo)
         {
-            var petGO = _activePetGameObjects.FirstOrDefault(x => x == petSo.petPrefab);
+            var petGO = _activePetGameObjects.FirstOrDefault(x => x.petId == petSo.id);
+
+            petGO.gameObject.SetActive(false);
+            _deActivePetGameObjects.Add(petGO);
             _activePetGameObjects.Remove(petGO);
 
+            /*
             if (petGO.transform.position.x == _petPositions[0].position.x)
             {
                 if (_activePetGameObjects.Count > 0 & petGO.transform.position.x == _petPositions[0].position.x)
@@ -91,10 +98,15 @@ namespace Managers
                     var activePet = _activePetGameObjects.FirstOrDefault(x => x.gameObject.activeInHierarchy);
                     activePet.transform.position = _petPositions[0].transform.position;
                 }
-            }
+            }*/
 
-            petGO.gameObject.SetActive(false);
-            _deActivePetGameObjects.Add(petGO);
+            if (_activePetGameObjects.Count > 0)
+            {
+                _activePetGameObjects[0].transform.localPosition = new Vector3(_petPositions[0].transform.position.x,
+                    _activePetGameObjects[0].transform.position.y, _activePetGameObjects[0].transform.position.z);
+
+               Debug.Log(_activePetGameObjects[0].transform.localPosition); 
+            }
         }
     }
 }

@@ -1,8 +1,13 @@
 using Hero;
+using Managers;
+using States;
 using UnityEngine;
 
 public class Pet : MonoBehaviour
 {
+    [HideInInspector]
+    public int petId;
+    
     [SerializeField]
     private AnimationController animationController;
 
@@ -10,6 +15,15 @@ public class Pet : MonoBehaviour
     {
         HeroMovement.OnHeroStartRunning += StartRunning;
         HeroMovement.OnHeroStopRunning += StartIdle;
+
+        if (GameManager.Instance.HeroController.currentState.stateType == StateType.Run)
+        {
+            animationController.PlayAnimation(AnimationType.Run);
+        }
+        else
+        {
+            animationController.PlayAnimation(AnimationType.Idle);
+        }
     }
 
     private void StartRunning()

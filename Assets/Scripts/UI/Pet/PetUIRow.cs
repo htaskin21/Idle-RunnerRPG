@@ -39,7 +39,7 @@ namespace UI.Pet
         {
             var stringBuilder = DescriptionUtils.GetDescription(_pet.PetSkill);
             descriptionText.text = stringBuilder.ToString();
-            
+
             _petIDs = SaveLoadManager.Instance.LoadPetData();
 
             icon.sprite = _pet.icon;
@@ -47,10 +47,8 @@ namespace UI.Pet
 
         public override void SetButtonState(double totalGem)
         {
-            buyButton.gameObject.SetActive(false);
-            _addPetButton.gameObject.SetActive(false);
-            _takeOffPetButton.gameObject.SetActive(false);
-            
+            DisableAllButtons();
+
             if (_petIDs.Contains(_pet.id))
             {
                 var selectedPets = SaveLoadManager.Instance.LoadSelectedPetData();
@@ -74,6 +72,13 @@ namespace UI.Pet
             }
         }
 
+        private void DisableAllButtons()
+        {
+            buyButton.gameObject.SetActive(false);
+            _addPetButton.gameObject.SetActive(false);
+            _takeOffPetButton.gameObject.SetActive(false);
+        }
+
         public override void OnBuy()
         {
             var gem = SaveLoadManager.Instance.LoadGem();
@@ -92,6 +97,8 @@ namespace UI.Pet
         {
             SaveLoadManager.Instance.SaveSelectedPetData(_pet.id, true);
             _pet.PetSkill.AddSkill(_pet.heroDamageDataSo);
+            DisableAllButtons();
+            _takeOffPetButton.gameObject.SetActive(true);
             PetManager.OnEquipPet.Invoke(_pet);
         }
 
@@ -99,6 +106,8 @@ namespace UI.Pet
         {
             SaveLoadManager.Instance.SaveSelectedPetData(_pet.id, false);
             _pet.PetSkill.RemoveSkill(_pet.heroDamageDataSo);
+            DisableAllButtons();
+            _addPetButton.gameObject.SetActive(true);
             PetManager.OnTakeOffPet.Invoke(_pet);
         }
 
