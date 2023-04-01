@@ -777,8 +777,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -27.287964}
-  m_SizeDelta: {x: 0, y: -135.3221}
+  m_AnchoredPosition: {x: 0, y: 20.187}
+  m_SizeDelta: {x: 0, y: -40.373}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &163109357
 GameObject:
@@ -1830,8 +1830,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -335.45584}
-  m_SizeDelta: {x: 0, y: -722.5281}
+  m_AnchoredPosition: {x: 0, y: -285.16742}
+  m_SizeDelta: {x: 0, y: -760.1693}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &309075386
 MonoBehaviour:
@@ -3294,6 +3294,9 @@ MonoBehaviour:
   panelObject: {fileID: 149163982}
   enhancedScroller: {fileID: 161785573}
   enhancedScrollerCellView: {fileID: 4026901456349834329, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
+  _mainUIRows:
+  - {fileID: 1376085878}
+  - {fileID: 1154613834}
 --- !u!1 &663435453
 GameObject:
   m_ObjectHideFlags: 0
@@ -4882,7 +4885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1054019329
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5518,6 +5521,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 295258426671401228, guid: e0d601f4748dc4c78ab0052558709936, type: 3}
   m_PrefabInstance: {fileID: 1836776291}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1154613834 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5857058870212447534, guid: e0d601f4748dc4c78ab0052558709936, type: 3}
+  m_PrefabInstance: {fileID: 1836776291}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad754a76e9ed42afaa110f4bcbc7f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1231937290
 GameObject:
   m_ObjectHideFlags: 0
@@ -6252,6 +6266,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 295258426671401228, guid: e0d601f4748dc4c78ab0052558709936, type: 3}
   m_PrefabInstance: {fileID: 8654762103361249652}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1376085878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5857058870212447534, guid: e0d601f4748dc4c78ab0052558709936, type: 3}
+  m_PrefabInstance: {fileID: 8654762103361249652}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad754a76e9ed42afaa110f4bcbc7f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1379008037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7420,6 +7445,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a7fce06bf58de4789a0b7d6746b38de0, type: 2}
   - {fileID: 11400000, guid: b9ac5c26d2cb744428ded995adda4a8a, type: 2}
   - {fileID: 11400000, guid: 98c625947ea8746c7a6696542e532ae2, type: 2}
+  - {fileID: 11400000, guid: 64268e0e4259a4a8e853468ff23cc237, type: 2}
+  - {fileID: 11400000, guid: 406a5c1ad4c9241729f2579e5e624d55, type: 2}
   _petUIPanel: {fileID: 651324045}
   _activePetGameObjects: []
   _deActivePetGameObjects: []

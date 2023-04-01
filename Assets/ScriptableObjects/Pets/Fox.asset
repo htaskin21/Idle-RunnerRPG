@@ -28,7 +28,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
   id: 4
-  icon: {fileID: -1741780992, guid: 868f005f5f4684379a4f9b124ab56b8a, type: 3}
+  icon: {fileID: 21300000, guid: 2cec2591e4efc4a3c977a885b9ebb315, type: 3}
   cost: 100
-  petPrefab: {fileID: 2062858163077295212, guid: 033107d4a8ab54143b591a05ccb94f19, type: 3}
+  petPrefab: {fileID: 5427895991927041870, guid: 033107d4a8ab54143b591a05ccb94f19, type: 3}
   heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}

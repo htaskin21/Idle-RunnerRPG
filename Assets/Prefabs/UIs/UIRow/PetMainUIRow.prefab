@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UI.Pet.PetUIRow, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 4707091939639759312, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4151538634617418243, guid: 6ca22d4074f1640fdb72c63cc584006c, type: 3}
     - target: {fileID: 4707091939639759313, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -107,9 +111,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: PetMainUIRow
       objectReference: {fileID: 0}
+    - target: {fileID: 4707091940336656425, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
+      propertyPath: m_text
+      value: CHOOSE PET
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707091940336656425, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4707091941274465333, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707091941457496187, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 497528725377894515, guid: e11d885b6583e4820a33942f814f386b, type: 3}
+    - target: {fileID: 4707091941457496187, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707091941457496187, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707091941457496187, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4026901456349834329, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
@@ -146,6 +174,7 @@ MonoBehaviour:
   _addPetButton: {fileID: 8475658125833145908}
   _takeOffPetButton: {fileID: 8836551938358402996}
   _defaultIcon: {fileID: 497528725377894515, guid: e11d885b6583e4820a33942f814f386b, type: 3}
+  _currentPet: {fileID: 0}
 --- !u!114 &295258427519367412 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4707091940336656425, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}

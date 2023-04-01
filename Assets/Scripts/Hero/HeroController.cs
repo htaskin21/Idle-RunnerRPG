@@ -20,8 +20,8 @@ namespace Hero
 
         private void Start()
         {
-            pets[0].gameObject.SetActive(true);
-            pets[1].gameObject.SetActive(true);
+            //pets[0].gameObject.SetActive(true);
+            //pets[1].gameObject.SetActive(true);
 
             HeroAttack.OnTapDamage += DecideNextStateAfterTapDamage;
         }

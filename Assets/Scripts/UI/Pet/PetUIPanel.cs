@@ -15,6 +15,7 @@ namespace UI.Pet
         [SerializeField]
         private EnhancedScrollerCellView enhancedScrollerCellView;
 
+        [SerializeField]
         private List<PetMainUIRow> _mainUIRows;
 
         private List<PetSO> pets;

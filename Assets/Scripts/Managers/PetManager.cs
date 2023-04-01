@@ -31,7 +31,7 @@ namespace Managers
         public static Action<PetSO> OnEquipPet;
         public static Action<PetSO> OnTakeOffPet;
 
-        private void Start()
+        private void Awake()
         {
             _activePetGameObjects = new List<Pet>();
             _deActivePetGameObjects = new List<Pet>();
@@ -45,9 +45,22 @@ namespace Managers
             _petUIPanel.LoadData(_pets);
         }
 
+        private void Start()
+        {
+            var selectedPets = SaveLoadManager.Instance.LoadSelectedPetData();
+            if (selectedPets.Count > 0)
+            {
+                for (int i = 0; i < selectedPets.Count; i++)
+                {
+                    var petSo = _pets.FirstOrDefault(x => x.id == selectedPets[i]);
+                    OnEquipPet.Invoke(petSo);
+                }
+            }
+        }
+
         private void SetPetGameObject(PetSO pet)
         {
-            var selectedPetCount = SaveLoadManager.Instance.LoadSelectedPetData().Count - 1;
+            var selectedPetCount = _activePetGameObjects.Count;
             if (_deActivePetGameObjects.Contains(pet.petPrefab))
             {
                 var petGO = _deActivePetGameObjects.FirstOrDefault(x => x == pet.petPrefab);
@@ -59,7 +72,7 @@ namespace Managers
             }
             else
             {
-                var petGameObject = Instantiate(pet.petPrefab, _petPositions[selectedPetCount].position,
+                var petGameObject = Instantiate(pet.petPrefab.gameObject, _petPositions[selectedPetCount].position,
                     Quaternion.identity, _heroParent);
                 petGameObject.gameObject.SetActive(true);
                 _activePetGameObjects.Add(petGameObject.GetComponent<Pet>());

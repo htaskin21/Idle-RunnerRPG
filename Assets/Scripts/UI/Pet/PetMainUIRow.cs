@@ -11,6 +11,11 @@ namespace UI.Pet
 
         public PetSO _currentPet;
 
+        private protected override void Start()
+        {
+            
+        }
+
         public void SetMainUIRow(PetSO pet)
         {
             _currentPet = pet;

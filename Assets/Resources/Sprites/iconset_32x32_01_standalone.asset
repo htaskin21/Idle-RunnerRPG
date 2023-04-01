@@ -2,14 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &-610777249282604750
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TextMeshPro/Sprite
   m_Shader: {fileID: 4800000, guid: cf81c85f95fe47e1a27f6ae460cf182c, type: 3}
-  m_ShaderKeywords: 
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -23,6 +24,7 @@ Material:
         m_Texture: {fileID: 2800000, guid: 335994ecf6801487aa41233896e87fe9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _ColorMask: 15
     - _CullMode: 0
@@ -58,6 +60,7 @@ MonoBehaviour:
     m_StyleName: 
     m_PointSize: 0
     m_Scale: 0
+    m_UnitsPerEM: 0
     m_LineHeight: 0
     m_AscentLine: 0
     m_CapLine: 0
@@ -138,6 +141,7 @@ MonoBehaviour:
       m_Height: 32
     m_Scale: 1.5
     m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
     sprite: {fileID: -490747602417003897, guid: 5f22735cfd19c4735a5f881d78452cc4, type: 3}
   - m_Index: 142
     m_Metrics:
@@ -153,6 +157,7 @@ MonoBehaviour:
       m_Height: 32
     m_Scale: 1.7
     m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
     sprite: {fileID: -7228784097936668698, guid: 5f22735cfd19c4735a5f881d78452cc4, type: 3}
   - m_Index: 143
     m_Metrics:
@@ -168,6 +173,7 @@ MonoBehaviour:
       m_Height: 32
     m_Scale: 1.7
     m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
     sprite: {fileID: 4572667618918942069, guid: 5f22735cfd19c4735a5f881d78452cc4, type: 3}
   - m_Index: 144
     m_Metrics:
@@ -183,6 +189,7 @@ MonoBehaviour:
       m_Height: 32
     m_Scale: 1.7
     m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
     sprite: {fileID: 6834847102407564298, guid: 5f22735cfd19c4735a5f881d78452cc4, type: 3}
   - m_Index: 145
     m_Metrics:
@@ -198,6 +205,7 @@ MonoBehaviour:
       m_Height: 32
     m_Scale: 1.7
     m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
     sprite: {fileID: 890469251157182755, guid: 5f22735cfd19c4735a5f881d78452cc4, type: 3}
   - m_Index: 146
     m_Metrics:
@@ -213,6 +221,7 @@ MonoBehaviour:
       m_Height: 32
     m_Scale: 1
     m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
     sprite: {fileID: -6381189682922964155, guid: 5f22735cfd19c4735a5f881d78452cc4, type: 3}
   - m_Index: 147
     m_Metrics:
@@ -228,21 +237,23 @@ MonoBehaviour:
       m_Height: 32
     m_Scale: 1.7
     m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
     sprite: {fileID: -2060772697886323703, guid: 5f22735cfd19c4735a5f881d78452cc4, type: 3}
   - m_Index: 148
     m_Metrics:
       m_Width: 32
       m_Height: 32
-      m_HorizontalBearingX: -16
-      m_HorizontalBearingY: 16
+      m_HorizontalBearingX: -4
+      m_HorizontalBearingY: 28
       m_HorizontalAdvance: 32
     m_GlyphRect:
       m_X: 0
       m_Y: 0
       m_Width: 32
       m_Height: 32
-    m_Scale: 1
+    m_Scale: 1.5
     m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
     sprite: {fileID: 7832940665902682059, guid: 5f22735cfd19c4735a5f881d78452cc4, type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []

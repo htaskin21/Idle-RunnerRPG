@@ -21,7 +21,7 @@ namespace UI.Pet
         private List<int> _petIDs;
         private PetSO _pet;
 
-        void Start()
+        private protected virtual void Start()
         {
             UIManager.OnUpdateGemHud += UpdateRow;
         }
@@ -37,10 +37,10 @@ namespace UI.Pet
 
         public override void FillUIRow()
         {
-            _petIDs = SaveLoadManager.Instance.LoadPetData();
-
             var stringBuilder = DescriptionUtils.GetDescription(_pet.PetSkill);
             descriptionText.text = stringBuilder.ToString();
+            
+            _petIDs = SaveLoadManager.Instance.LoadPetData();
 
             icon.sprite = _pet.icon;
         }
@@ -50,7 +50,7 @@ namespace UI.Pet
             buyButton.gameObject.SetActive(false);
             _addPetButton.gameObject.SetActive(false);
             _takeOffPetButton.gameObject.SetActive(false);
-
+            
             if (_petIDs.Contains(_pet.id))
             {
                 var selectedPets = SaveLoadManager.Instance.LoadSelectedPetData();
@@ -69,7 +69,7 @@ namespace UI.Pet
                 buttonCostText.text = $"{CalcUtils.FormatNumber(cost)} <sprite index= 7>";
 
                 buyButton.gameObject.SetActive(true);
-                buyButton.enabled = cost <= totalGem;
+                buyButton.enabled = cost < totalGem;
                 buyButtonImage.sprite = buyButton.enabled ? activeButtonSprite : deActiveButtonSprite;
             }
         }
