@@ -1,3 +1,5 @@
+using System.Linq;
+using Managers;
 using ScriptableObjects;
 using UnityEngine;
 using Utils;
@@ -9,16 +11,18 @@ namespace UI.Pet
         [SerializeField]
         private Sprite _defaultIcon;
 
-        public PetSO _currentPet;
+        [SerializeField]
+        private PetUIPanel _petUIPanel;
+
+        public PetSO CurrentPet => _pet;
 
         private protected override void Start()
         {
-            
         }
 
         public void SetMainUIRow(PetSO pet)
         {
-            _currentPet = pet;
+            _pet = pet;
 
             icon.color = Color.white;
             icon.sprite = pet.icon;
@@ -31,7 +35,7 @@ namespace UI.Pet
 
         public void ResetMainUIRow()
         {
-            _currentPet = null;
+            _pet = null;
 
             icon.color = Color.black;
             icon.sprite = _defaultIcon;
@@ -40,6 +44,14 @@ namespace UI.Pet
             descriptionText.text = stringBuilder.ToString();
 
             _takeOffPetButton.gameObject.SetActive(false);
+        }
+
+        public override void OnTakeOff()
+        {
+            SaveLoadManager.Instance.SaveSelectedPetData(_pet.id, false);
+            _pet.PetSkill.RemoveSkill(_pet.heroDamageDataSo);
+            _petUIPanel._petUIRows.FirstOrDefault(x => x.cellIdentifier == _pet.id.ToString()).ActivateAddPetButton();
+            PetManager.OnTakeOffPet.Invoke(_pet);
         }
     }
 }

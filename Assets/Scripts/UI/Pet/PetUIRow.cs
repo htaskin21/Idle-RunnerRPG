@@ -19,7 +19,7 @@ namespace UI.Pet
         protected Button _takeOffPetButton;
 
         private List<int> _petIDs;
-        private PetSO _pet;
+        protected PetSO _pet;
 
         private protected virtual void Start()
         {
@@ -102,12 +102,11 @@ namespace UI.Pet
             PetManager.OnEquipPet.Invoke(_pet);
         }
 
-        public void OnTakeOff()
+        public virtual void OnTakeOff()
         {
             SaveLoadManager.Instance.SaveSelectedPetData(_pet.id, false);
             _pet.PetSkill.RemoveSkill(_pet.heroDamageDataSo);
-            DisableAllButtons();
-            _addPetButton.gameObject.SetActive(true);
+            ActivateAddPetButton();
             PetManager.OnTakeOffPet.Invoke(_pet);
         }
 
@@ -115,6 +114,12 @@ namespace UI.Pet
         {
             FillUIRow();
             SetButtonState(totalGem);
+        }
+
+        public void ActivateAddPetButton()
+        {
+            DisableAllButtons();
+            _addPetButton.gameObject.SetActive(true);
         }
     }
 }

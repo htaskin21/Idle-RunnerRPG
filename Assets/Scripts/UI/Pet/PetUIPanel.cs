@@ -18,6 +18,8 @@ namespace UI.Pet
         [SerializeField]
         private List<PetMainUIRow> _mainUIRows;
 
+        public List<PetUIRow> _petUIRows;
+
         private List<PetSO> pets;
 
         public override void Start()
@@ -55,6 +57,7 @@ namespace UI.Pet
                 enhancedScroller.GetCellView(enhancedScrollerCellView) as PetUIRow;
 
             petUIRow.SetUIRow(pets[dataIndex]);
+            _petUIRows.Add(petUIRow);
 
             return petUIRow;
         }
@@ -74,13 +77,13 @@ namespace UI.Pet
 
         private void SetMainRow(PetSO petSo)
         {
-            var emptyMainRow = _mainUIRows.FirstOrDefault(x => x._currentPet == null);
+            var emptyMainRow = _mainUIRows.FirstOrDefault(x => x.CurrentPet == null);
             emptyMainRow.SetMainUIRow(petSo);
         }
 
         private void ResetMainRow(PetSO petSo)
         {
-            var mainRow = _mainUIRows.FirstOrDefault(x => x._currentPet == petSo);
+            var mainRow = _mainUIRows.FirstOrDefault(x => x.CurrentPet == petSo);
             mainRow.ResetMainUIRow();
         }
     }

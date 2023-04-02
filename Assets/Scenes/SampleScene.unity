@@ -3244,6 +3244,7 @@ MonoBehaviour:
   _mainUIRows:
   - {fileID: 1376085878}
   - {fileID: 1154613834}
+  _petUIRows: []
 --- !u!1 &663435453
 GameObject:
   m_ObjectHideFlags: 0
@@ -8330,6 +8331,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PetMainUIRow (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5857058870212447534, guid: e0d601f4748dc4c78ab0052558709936, type: 3}
+      propertyPath: _petUIPanel
+      value: 
+      objectReference: {fileID: 651324045}
     - target: {fileID: 8654762102525563229, guid: e0d601f4748dc4c78ab0052558709936, type: 3}
       propertyPath: m_Name
       value: PetMainUIRow
@@ -10514,6 +10519,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -65
       objectReference: {fileID: 0}
+    - target: {fileID: 5857058870212447534, guid: e0d601f4748dc4c78ab0052558709936, type: 3}
+      propertyPath: _petUIPanel
+      value: 
+      objectReference: {fileID: 651324045}
     - target: {fileID: 5857058870212447534, guid: e0d601f4748dc4c78ab0052558709936, type: 3}
       propertyPath: _defaultIcon
       value: 
