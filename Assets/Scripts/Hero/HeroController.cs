@@ -1,9 +1,6 @@
-using System.Collections.Generic;
 using System.Threading;
 using Enums;
-using Managers;
 using States;
-using UnityEngine;
 
 namespace Hero
 {
@@ -13,16 +10,10 @@ namespace Hero
 
         public HeroUI heroUI;
 
-        [SerializeField]
-        private List<Pet> pets;
-
         private CancellationTokenSource _cancellationTokenSource;
 
         private void Start()
         {
-            //pets[0].gameObject.SetActive(true);
-            //pets[1].gameObject.SetActive(true);
-
             HeroAttack.OnTapDamage += DecideNextStateAfterTapDamage;
         }
 
@@ -51,9 +42,9 @@ namespace Hero
             else
             {
                 enemyHealth =
-                heroAttack.CurrentEnemy.enemyHealth.Health - damage;
+                    heroAttack.CurrentEnemy.enemyHealth.Health - damage;
             }
-               
+
 
             if (enemyHealth <= 0)
             {

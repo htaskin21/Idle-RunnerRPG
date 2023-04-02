@@ -74,7 +74,7 @@ namespace Managers
             {
                 var petGameObject = Instantiate(pet.petPrefab.gameObject, _petPositions[selectedPetCount].position,
                     Quaternion.identity, _heroParent);
-                
+
                 Pet tempPet = petGameObject.GetComponent<Pet>();
                 tempPet.petId = pet.id;
                 _activePetGameObjects.Add(tempPet);
@@ -90,22 +90,10 @@ namespace Managers
             _deActivePetGameObjects.Add(petGO);
             _activePetGameObjects.Remove(petGO);
 
-            /*
-            if (petGO.transform.position.x == _petPositions[0].position.x)
-            {
-                if (_activePetGameObjects.Count > 0 & petGO.transform.position.x == _petPositions[0].position.x)
-                {
-                    var activePet = _activePetGameObjects.FirstOrDefault(x => x.gameObject.activeInHierarchy);
-                    activePet.transform.position = _petPositions[0].transform.position;
-                }
-            }*/
-
             if (_activePetGameObjects.Count > 0)
             {
                 _activePetGameObjects[0].transform.position = new Vector3(_petPositions[0].transform.position.x,
                     _activePetGameObjects[0].transform.position.y, _activePetGameObjects[0].transform.position.z);
-
-               Debug.Log(_activePetGameObjects[0].transform.localPosition); 
             }
         }
     }
