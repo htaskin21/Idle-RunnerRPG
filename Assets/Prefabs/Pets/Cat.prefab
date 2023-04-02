@@ -9,10 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8990462152619925294}
-  - component: {fileID: 6954473441979386569}
-  - component: {fileID: 8633671589197542055}
   - component: {fileID: 5427895991927041870}
-  - component: {fileID: 2459829166835881982}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -28,20 +25,70 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062858163077295212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.49, y: -0.129, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 426459252074851887}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6954473441979386569
-SpriteRenderer:
+--- !u!114 &5427895991927041870
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062858163077295212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b776a872fc344d2864196fb0e7304e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  petId: 0
+  animationController: {fileID: 6849777900634346909}
+--- !u!1 &9173622735666924979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426459252074851887}
+  - component: {fileID: 2511213070034627910}
+  - component: {fileID: 3404260731464250887}
+  - component: {fileID: 3169573222530424681}
+  - component: {fileID: 6849777900634346909}
+  m_Layer: 0
+  m_Name: Spirte
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &426459252074851887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9173622735666924979}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8990462152619925294}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &2511213070034627910
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9173622735666924979}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -87,14 +134,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8633671589197542055
+--- !u!95 &3404260731464250887
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062858163077295212}
+  m_GameObject: {fileID: 9173622735666924979}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: a286c37a5039f405583500bd5cbdf9e9, type: 2}
@@ -107,32 +154,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &5427895991927041870
+--- !u!114 &3169573222530424681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062858163077295212}
+  m_GameObject: {fileID: 9173622735666924979}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b776a872fc344d2864196fb0e7304e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationController: {fileID: 2459829166835881982}
---- !u!114 &2459829166835881982
+  petId: 0
+  animationController: {fileID: 6849777900634346909}
+--- !u!114 &6849777900634346909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062858163077295212}
+  m_GameObject: {fileID: 9173622735666924979}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af8a1d976b91545a191088b77669e5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 8633671589197542055}
+  animator: {fileID: 3404260731464250887}
   onAnimationAction:
     m_PersistentCalls:
       m_Calls: []

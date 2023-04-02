@@ -102,7 +102,7 @@ namespace Managers
 
             if (_activePetGameObjects.Count > 0)
             {
-                _activePetGameObjects[0].transform.localPosition = new Vector3(_petPositions[0].transform.position.x,
+                _activePetGameObjects[0].transform.position = new Vector3(_petPositions[0].transform.position.x,
                     _activePetGameObjects[0].transform.position.y, _activePetGameObjects[0].transform.position.z);
 
                Debug.Log(_activePetGameObjects[0].transform.localPosition); 
