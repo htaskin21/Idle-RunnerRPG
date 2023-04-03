@@ -44,7 +44,7 @@ namespace ScriptableObjects
         public bool isCriticalTapActive = false;
         public bool isAddTimeToDamageActive = false;
         public bool isAddClickCountToDPS;
-        
+
         public int GetCoolDownBySpecialAttackType(SpecialAttackType specialAttackType)
         {
             switch (specialAttackType)

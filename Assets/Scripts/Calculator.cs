@@ -85,6 +85,13 @@ public class Calculator : MonoBehaviour
                             .BaseIncrementAmount *
                         level;
                     break;
+                case SkillTypes.HolyDmgSpecial:
+                    _heroDamageDataSo.holySpecialAttackMultiplier +=
+                        specialAttackUpgrade.StartAmount +
+                        specialAttackUpgrade
+                            .BaseIncrementAmount *
+                        level;
+                    break;
                 case SkillTypes.AutoTapSpecial:
                     _heroDamageDataSo.autoTapAttackDuration +=
                         (int) specialAttackUpgrade.StartAmount +
@@ -128,6 +135,9 @@ public class Calculator : MonoBehaviour
                 break;
             case SkillTypes.LightningDmgSpecial:
                 _heroDamageDataSo.lightningSpecialAttackMultiplier += difference;
+                break;
+            case SkillTypes.HolyDmgSpecial:
+                _heroDamageDataSo.holySpecialAttackMultiplier += difference;
                 break;
             case SkillTypes.AutoTapSpecial:
                 _heroDamageDataSo.autoTapAttackDuration += (int) difference;
@@ -202,6 +212,12 @@ public class Calculator : MonoBehaviour
                                                                           .BaseIncrementAmount *
                                                                       saveData[availableSkillUpgrade.ID];
                     break;
+                case SkillTypes.HolyDmgSpecial:
+                    _heroDamageDataSo.holySpecialAttackMultiplier += availableSkillUpgrade.StartAmount +
+                                                                     availableSkillUpgrade
+                                                                         .BaseIncrementAmount *
+                                                                     saveData[availableSkillUpgrade.ID];
+                    break;
 
                 default:
                     Debug.LogWarning("Calculate Damage Default geldi");
@@ -246,6 +262,9 @@ public class Calculator : MonoBehaviour
                 break;
             case SkillTypes.LightningDmgSpecial:
                 _heroDamageDataSo.lightningSpecialAttackMultiplier += difference;
+                break;
+            case SkillTypes.HolyDmgSpecial:
+                _heroDamageDataSo.holySpecialAttackMultiplier += difference;
                 break;
             default:
                 Debug.LogWarning("Update Damage Default geldi");
