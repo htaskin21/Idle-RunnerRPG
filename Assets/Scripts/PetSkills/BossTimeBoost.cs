@@ -1,4 +1,3 @@
-using System;
 using ScriptableObjects;
 
 namespace PetSkills

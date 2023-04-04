@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: RefreshPotion
   m_EditorClassIdentifier: 
   _potionType: 1
-  fullImage: {fileID: -4993047294899185446, guid: 635a4249d11a94609a0c779e8f7bc417, type: 3}
-  emptyImage: {fileID: 2196526440641311090, guid: 635a4249d11a94609a0c779e8f7bc417, type: 3}
+  fullImage: {fileID: 1557773595, guid: 3ed0028052aae4dac885b611f41e3363, type: 3}
+  emptyImage: {fileID: -1657542634, guid: 3ed0028052aae4dac885b611f41e3363, type: 3}
+  boostDuration: 0

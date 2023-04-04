@@ -70,7 +70,12 @@ namespace Utils
             {
                 return stringBuilder.Append("Tap Damage can do Critical Damage");
             }
-
+            
+            if (petSkill.GetType() == typeof(BossTimeBoost))
+            {
+                return stringBuilder.Append("Add 5 sec. To Boss Time");
+            }
+            
             return stringBuilder;
         }
 

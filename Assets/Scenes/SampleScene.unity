@@ -2910,7 +2910,7 @@ PrefabInstance:
     - target: {fileID: 3617733677929158347, guid: c98550b60f46e4e35bdcc608aa32de8a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -4993047294899185446, guid: 635a4249d11a94609a0c779e8f7bc417, type: 3}
+      objectReference: {fileID: 1557773595, guid: 3ed0028052aae4dac885b611f41e3363, type: 3}
     - target: {fileID: 3727230231953676422, guid: c98550b60f46e4e35bdcc608aa32de8a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
