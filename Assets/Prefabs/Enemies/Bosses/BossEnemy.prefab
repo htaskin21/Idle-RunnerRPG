@@ -28,6 +28,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7042429466879897284}
   m_RootOrder: 2
@@ -160,6 +161,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5957047577178243524}
   m_Father: {fileID: 7042429466879897284}
@@ -198,6 +200,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5016799591943495043}
   - {fileID: 742426106855248157}
@@ -301,6 +304,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7042429466879897284}
   m_RootOrder: 0
@@ -376,6 +380,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 742426106855248157}
   m_RootOrder: 0
@@ -438,6 +443,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -19.9
       objectReference: {fileID: 0}
+    - target: {fileID: 4531443774268580751, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: _enemyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531443774268580751, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: enemyTimer
+      value: 
+      objectReference: {fileID: -3174551142873163521}
     - target: {fileID: 4943456792635212303, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_SizeDelta.y
       value: 91.5567
@@ -508,11 +521,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
---- !u!1 &3110957140271317556 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6335787440788954558, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
-  m_PrefabInstance: {fileID: 8989582959934513034}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2574806618972705794 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6880065268576177032, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
@@ -524,9 +532,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3699a133ed8a84b75be855a42c8fde9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4061056987663605125 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4943456792635212303, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+--- !u!1 &3110957140271317556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6335787440788954558, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
   m_PrefabInstance: {fileID: 8989582959934513034}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &-3174551142873163521
@@ -544,3 +552,8 @@ MonoBehaviour:
   enemyHealth: {fileID: 2574806618972705794}
   timeBar: {fileID: 1728355324891477292}
   timeText: {fileID: 7416774135830604976}
+--- !u!224 &4061056987663605125 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4943456792635212303, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+  m_PrefabInstance: {fileID: 8989582959934513034}
+  m_PrefabAsset: {fileID: 0}

@@ -35,7 +35,7 @@ public class CameraFollower : MonoBehaviour
 
     private void ZoomInCamera()
     {
-        mainCamera.DOOrthoSize(8.5f,0.35f).SetEase(Ease.Flash);
+        mainCamera.DOOrthoSize(8.5f,0.17f).SetEase(Ease.Flash);
 
     }
     

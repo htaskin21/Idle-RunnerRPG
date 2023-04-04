@@ -45,6 +45,8 @@ namespace ScriptableObjects
         public bool isAddTimeToDamageActive = false;
         public bool isAddClickCountToDPS;
 
+        public int bossDurationBonus;
+
         public int GetCoolDownBySpecialAttackType(SpecialAttackType specialAttackType)
         {
             switch (specialAttackType)
@@ -121,6 +123,8 @@ namespace ScriptableObjects
             plantDamageMultiplier = baseHeroDamageDataSo.plantDamageMultiplier;
             waterDamageMultiplier = baseHeroDamageDataSo.waterDamageMultiplier;
             holyDamageMultiplier = baseHeroDamageDataSo.holyDamageMultiplier;
+
+            bossDurationBonus = baseHeroDamageDataSo.bossDurationBonus;
         }
     }
 }

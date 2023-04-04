@@ -3985,7 +3985,7 @@ PrefabInstance:
     - target: {fileID: 6568851936825556235, guid: c9ac8a2824e8f4234870405c4468da65, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -4993047294899185446, guid: ce300894134eb4557a8e8042f7e689dd, type: 3}
+      objectReference: {fileID: 795910986, guid: e0756e0085dd94a4195d9b2d17d29f4b, type: 3}
     - target: {fileID: 6568851936825556236, guid: c9ac8a2824e8f4234870405c4468da65, type: 3}
       propertyPath: m_LocalPosition.x
       value: -250
@@ -6089,6 +6089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageIconDataSo: {fileID: 11400000, guid: bbb0692481eee40b9b1c59fbccc1e882, type: 2}
+  _heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
 --- !u!4 &1340543639
 Transform:
   m_ObjectHideFlags: 0
@@ -6241,7 +6242,7 @@ PrefabInstance:
     - target: {fileID: 6568851936825556235, guid: c9ac8a2824e8f4234870405c4468da65, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1718422896703685496, guid: ce300894134eb4557a8e8042f7e689dd, type: 3}
+      objectReference: {fileID: 1323588192004823348, guid: 1749283db2c964ebc99dbf77c0b13e97, type: 3}
     - target: {fileID: 6568851936825556236, guid: c9ac8a2824e8f4234870405c4468da65, type: 3}
       propertyPath: m_LocalPosition.x
       value: -250
@@ -7400,7 +7401,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b9ac5c26d2cb744428ded995adda4a8a, type: 2}
   - {fileID: 11400000, guid: 98c625947ea8746c7a6696542e532ae2, type: 2}
   - {fileID: 11400000, guid: 64268e0e4259a4a8e853468ff23cc237, type: 2}
-  - {fileID: 11400000, guid: 406a5c1ad4c9241729f2579e5e624d55, type: 2}
   _petUIPanel: {fileID: 651324045}
   _activePetGameObjects: []
   _deActivePetGameObjects: []
@@ -9110,7 +9110,7 @@ PrefabInstance:
     - target: {fileID: 6568851936825556235, guid: c9ac8a2824e8f4234870405c4468da65, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6845605603503095708, guid: 635a4249d11a94609a0c779e8f7bc417, type: 3}
+      objectReference: {fileID: -1160900414, guid: 5f175bb254f624227ad6a9701b9e2dd7, type: 3}
     - target: {fileID: 6568851938484762463, guid: c9ac8a2824e8f4234870405c4468da65, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -10127,6 +10127,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 875743120}
     m_Modifications:
+    - target: {fileID: 6568851936825556235, guid: c9ac8a2824e8f4234870405c4468da65, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -787572164, guid: e0756e0085dd94a4195d9b2d17d29f4b, type: 3}
     - target: {fileID: 6568851938484762463, guid: c9ac8a2824e8f4234870405c4468da65, type: 3}
       propertyPath: m_Pivot.x
       value: 0

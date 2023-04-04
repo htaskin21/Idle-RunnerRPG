@@ -22,7 +22,10 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: PetSkill
-      Entry: 6
+      Entry: 7
+      Data: 0|PetSkills.BossTimeBoost, Assembly-CSharp
+    - Name: 
+      Entry: 8
       Data: 
   id: 5
   icon: {fileID: 21300000, guid: 77f3bd4a3946a42cea36bbc889750efe, type: 3}

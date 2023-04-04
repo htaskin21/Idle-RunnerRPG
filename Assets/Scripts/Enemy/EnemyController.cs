@@ -8,7 +8,13 @@ namespace Enemy
 {
     public class EnemyController : CharacterController
     {
+        public EnemyType _enemyType;
+        
         public EnemyHealth enemyHealth;
+
+        public EnemyTimer enemyTimer;
+        
+        public EnemyLoot enemyLoot;
 
         [SerializeField]
         private BoxCollider2D boxCollider2D;
@@ -22,8 +28,6 @@ namespace Enemy
 
         public TapDamageController TapDamageController => tapDamageController;
 
-        public EnemyLoot enemyLoot;
-        
         public BoxCollider2D BoxCollider2D => boxCollider2D;
 
         public DamageType enemyDamageType;

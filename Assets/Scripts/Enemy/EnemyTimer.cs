@@ -22,6 +22,8 @@ namespace Enemy
 
         private Tweener sliderTweener;
 
+        private int _duration = 60;
+
         private CancellationTokenSource _cts;
 
         private void Start()
@@ -33,9 +35,14 @@ namespace Enemy
             HeroMovement.OnHeroStopRunning += SetCoolDownSlider;
         }
 
+        public void SetDuration(int bonusTime)
+        {
+            _duration += bonusTime;
+        }
+
         private void SetCoolDownSlider()
         {
-            sliderTweener = timeBar.DOValue(0, 60).SetEase(Ease.Linear).OnComplete(OnTimesUp);
+            sliderTweener = timeBar.DOValue(0, _duration).SetEase(Ease.Linear).OnComplete(OnTimesUp);
             CountDownTimeText().Forget();
         }
 
@@ -55,7 +62,7 @@ namespace Enemy
 
             timeText.enabled = true;
 
-            var time = 59;
+            var time = _duration - 1;
             do
             {
                 timeText.text = $"{time}s";
