@@ -6744,6 +6744,7 @@ MonoBehaviour:
   _objectPool: {fileID: 514332008}
   _dataReader: {fileID: 311789297}
   _calculator: {fileID: 733598008}
+  _petManager: {fileID: 1563098119}
   levelData:
   - {fileID: 11400000, guid: c5953e2cde76c446197a98121874c73b, type: 2}
   - {fileID: 11400000, guid: 588565df8eb32490c81959c182eb714c, type: 2}

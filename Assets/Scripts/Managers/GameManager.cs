@@ -51,6 +51,9 @@ namespace Managers
         [SerializeField]
         private Calculator _calculator;
 
+        [SerializeField]
+        private PetManager _petManager;
+
         [Header("Level Details")]
         [SerializeField]
         private List<LevelDataSO> levelData;
@@ -103,6 +106,8 @@ namespace Managers
             _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
 
             _calculator.InitialCalculation();
+
+            _petManager.SetInitialPets();
 
             CreateCharacters();
 

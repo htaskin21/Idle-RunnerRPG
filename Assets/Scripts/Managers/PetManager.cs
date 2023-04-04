@@ -45,7 +45,7 @@ namespace Managers
             _petUIPanel.LoadData(_pets);
         }
 
-        private void Start()
+        public void SetInitialPets()
         {
             var selectedPets = SaveLoadManager.Instance.LoadSelectedPetData();
             if (selectedPets.Count > 0)

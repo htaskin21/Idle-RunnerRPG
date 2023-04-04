@@ -124,6 +124,10 @@ namespace ScriptableObjects
             waterDamageMultiplier = baseHeroDamageDataSo.waterDamageMultiplier;
             holyDamageMultiplier = baseHeroDamageDataSo.holyDamageMultiplier;
 
+            isCriticalTapActive = false;
+            isAddTimeToDamageActive = false;
+            isAddClickCountToDPS = false;
+
             bossDurationBonus = baseHeroDamageDataSo.bossDurationBonus;
         }
     }
