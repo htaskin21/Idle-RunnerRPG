@@ -116,5 +116,10 @@ namespace UI.Pet
             DisableAllButtons();
             _addPetButton.gameObject.SetActive(true);
         }
+
+        public void ToggleAddButton(bool status)
+        {
+            _addPetButton.enabled = status;
+        }
     }
 }

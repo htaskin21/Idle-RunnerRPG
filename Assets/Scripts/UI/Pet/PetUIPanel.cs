@@ -86,5 +86,17 @@ namespace UI.Pet
             var mainRow = _mainUIRows.FirstOrDefault(x => x.CurrentPet == petSo);
             mainRow.ResetMainUIRow();
         }
+
+        public void SetAddButtonStatus()
+        {
+            if (_mainUIRows.TrueForAll(x => x.CurrentPet != null))
+            {
+                _petUIRows.ForEach(x => x.ToggleAddButton(false));
+            }
+            else
+            {
+                _petUIRows.ForEach(x => x.ToggleAddButton(true));
+            }
+        }
     }
 }

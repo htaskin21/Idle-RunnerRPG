@@ -31,6 +31,7 @@ namespace UI.Pet
             descriptionText.text = stringBuilder.ToString();
 
             _takeOffPetButton.gameObject.SetActive(true);
+            _petUIPanel.SetAddButtonStatus();
         }
 
         public void ResetMainUIRow()
@@ -44,6 +45,7 @@ namespace UI.Pet
             descriptionText.text = stringBuilder.ToString();
 
             _takeOffPetButton.gameObject.SetActive(false);
+            _petUIPanel.SetAddButtonStatus();
         }
 
         public override void OnTakeOff()
