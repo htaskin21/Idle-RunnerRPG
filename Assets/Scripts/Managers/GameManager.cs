@@ -107,11 +107,11 @@ namespace Managers
 
             _calculator.InitialCalculation();
 
-            _petManager.SetInitialPets();
-
             CreateCharacters();
 
             _heroController.StartRunning();
+            
+            _petManager.SetInitialPets();
 
             SaveLoadManager.Instance.SaveGameStartTime(DateTime.UtcNow);
         }

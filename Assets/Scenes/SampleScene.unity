@@ -7405,6 +7405,7 @@ MonoBehaviour:
   _petUIPanel: {fileID: 651324045}
   _activePetGameObjects: []
   _deActivePetGameObjects: []
+  _heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
   _heroParent: {fileID: 2020034536}
   _petPositions:
   - {fileID: 163109358}

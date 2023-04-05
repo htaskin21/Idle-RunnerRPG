@@ -10,9 +10,6 @@ namespace UI.Pet
     public class PetUIRow : UIRow
     {
         [SerializeField]
-        private PetManager _petManager;
-
-        [SerializeField]
         protected Button _addPetButton;
 
         [SerializeField]
@@ -96,7 +93,6 @@ namespace UI.Pet
         public void OnEquip()
         {
             SaveLoadManager.Instance.SaveSelectedPetData(_pet.id, true);
-            _pet.PetSkill.AddSkill(_pet.heroDamageDataSo);
             DisableAllButtons();
             _takeOffPetButton.gameObject.SetActive(true);
             PetManager.OnEquipPet.Invoke(_pet);
@@ -105,7 +101,6 @@ namespace UI.Pet
         public virtual void OnTakeOff()
         {
             SaveLoadManager.Instance.SaveSelectedPetData(_pet.id, false);
-            _pet.PetSkill.RemoveSkill(_pet.heroDamageDataSo);
             ActivateAddPetButton();
             PetManager.OnTakeOffPet.Invoke(_pet);
         }

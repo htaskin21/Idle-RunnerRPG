@@ -23,6 +23,9 @@ namespace Managers
 
         [Header("Hero")]
         [SerializeField]
+        private HeroDamageDataSO _heroDamageDataSo;
+        
+        [SerializeField]
         private Transform _heroParent;
 
         [SerializeField]
@@ -80,6 +83,8 @@ namespace Managers
                 _activePetGameObjects.Add(tempPet);
                 tempPet.gameObject.SetActive(true);
             }
+            
+            pet.PetSkill.AddSkill(_heroDamageDataSo);
         }
 
         private void ResetPetGameObject(PetSO petSo)
@@ -95,6 +100,8 @@ namespace Managers
                 _activePetGameObjects[0].transform.position = new Vector3(_petPositions[0].transform.position.x,
                     _activePetGameObjects[0].transform.position.y, _activePetGameObjects[0].transform.position.z);
             }
+            
+            petSo.PetSkill.RemoveSkill(_heroDamageDataSo);
         }
     }
 }
