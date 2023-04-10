@@ -32,8 +32,8 @@ namespace SpecialAttacks
 
             _heroController.heroAttack.specialAttackType = _specialAttackType;
 
-            var specialAttackState = GameManager.Instance.HeroController.GetState(StateType.SpecialAttack);
-            GameManager.Instance.HeroController.TransitionToState(specialAttackState);
+            var specialAttackState = _heroController.GetState(StateType.SpecialAttack);
+            _heroController.TransitionToState(specialAttackState);
 
             var coolDown = heroDamageDataSo.GetCoolDownBySpecialAttackType(_specialAttackType);
 

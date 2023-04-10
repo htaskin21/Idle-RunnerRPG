@@ -3,7 +3,6 @@ using Cysharp.Threading.Tasks;
 using Enums;
 using Hero;
 using Items;
-using Managers;
 
 namespace SpecialAttacks
 {
@@ -36,7 +35,7 @@ namespace SpecialAttacks
         {
             if (_heroController.heroAttack.CurrentEnemy == null) return;
             CancellationTokenSource cts = new CancellationTokenSource();
-            var go = GameManager.Instance.ObjectPool.GetGameObject(LootType.SingleCoin.ToString());
+            var go = ObjectPool.Instance.GetGameObject(LootType.SingleCoin.ToString());
             var lootObject = go.GetComponent<LootObject>();
 
             var enemy = _heroController.heroAttack.CurrentEnemy;

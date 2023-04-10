@@ -52,6 +52,24 @@ namespace Managers
 
             return currentTime;
         }
+
+        public void SaveStageProgress(int stage)
+        {
+            var saveFile = new ES3File("InGameSaveFile.es3");
+
+            saveFile.Save<int>("stageProgress", stage);
+
+            saveFile.Sync();
+        }
+        
+        public int LoadStageProgress()
+        {
+            var saveFile = new ES3File("InGameSaveFile.es3");
+
+            var stageProgress = saveFile.Load<int>("stageProgress", 1);
+
+            return stageProgress;
+        }
         
         public void SaveSkillUpgrade(int skillID, int skillLevel)
         {

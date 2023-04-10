@@ -16,7 +16,7 @@ public class Pet : MonoBehaviour
         HeroMovement.OnHeroStartRunning += StartRunning;
         HeroMovement.OnHeroStopRunning += StartIdle;
 
-        if (GameManager.Instance.HeroController.currentState.stateType == StateType.Run)
+        if (StageManager.Instance.HeroController.currentState.stateType == StateType.Run)
         {
             animationController.PlayAnimation(AnimationType.Run);
         }

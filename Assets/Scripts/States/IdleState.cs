@@ -1,6 +1,6 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using Managers;
+using Hero;
 using UI;
 using UnityEngine;
 
@@ -11,8 +11,18 @@ namespace States
         [SerializeField]
         private State wakeUpState;
 
+        private HeroController _heroController;
+
         private CancellationTokenSource _cancellationTokenSource;
         private CancellationToken _cancellationToken;
+
+        private void Start()
+        {
+            if (CharacterController.gameObject.CompareTag("Player"))
+            {
+                _heroController = (HeroController) CharacterController;
+            }
+        }
 
         protected override void EnterState()
         {
@@ -26,18 +36,16 @@ namespace States
                 _cancellationToken = _cancellationTokenSource.Token;
 
                 ButtonController.OnActiveAttackButtons?.Invoke(true);
-                
+
                 WaitForNextAttack().Forget();
             }
         }
 
         private async UniTask WaitForNextAttack()
         {
-            var heroController = GameManager.Instance.HeroController;
+            _heroController.heroUI.SetCoolDownSlider(_heroController.heroAttack.HeroDamageDataSo.attackCooldown);
 
-            heroController.heroUI.SetCoolDownSlider(heroController.heroAttack.HeroDamageDataSo.attackCooldown);
-
-            await UniTask.Delay(heroController.heroAttack.HeroDamageDataSo.attackCooldown,
+            await UniTask.Delay(_heroController.heroAttack.HeroDamageDataSo.attackCooldown,
                 cancellationToken: _cancellationToken);
 
             CharacterController.TransitionToState(wakeUpState);
@@ -48,7 +56,7 @@ namespace States
             if (CharacterController.gameObject.CompareTag("Player"))
             {
                 _cancellationTokenSource.Cancel();
-                GameManager.Instance.HeroController.heroUI.FadeOutSlider();
+                _heroController.heroUI.FadeOutSlider();
             }
 
             base.ExitState();

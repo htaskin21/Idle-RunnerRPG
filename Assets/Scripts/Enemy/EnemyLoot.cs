@@ -1,8 +1,6 @@
-using System;
+using Enums;
 using Items;
-using Managers;
 using UnityEngine;
-using LootType = Enums.LootType;
 
 namespace Enemy
 {
@@ -23,7 +21,7 @@ namespace Enemy
         {
             lootAmount *= enemyController.enemyLevel;
 
-            var go = GameManager.Instance.ObjectPool.GetGameObject(lootType.ToString());
+            var go = ObjectPool.Instance.GetGameObject(lootType.ToString());
             var lootObject = go.GetComponent<LootObject>();
 
             lootObject.SetInitialPosition(enemyController.transform, lootAmount);

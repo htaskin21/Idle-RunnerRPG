@@ -10,7 +10,7 @@ namespace States
 
         [SerializeField]
         private State attackState;
-
+        
         protected override void EnterState()
         {
             CharacterController.AnimationController.PlayAnimation(AnimationType.WakeUp);
@@ -29,7 +29,7 @@ namespace States
 
         private void DecideNextState()
         {
-            if (GameManager.Instance.EnemyController.enemyHealth.Health <= 0)
+            if (StageManager.Instance.EnemyController.enemyHealth.Health <= 0)
             {
                 CharacterController.TransitionToState(runState);
             }

@@ -32,7 +32,7 @@ namespace Enemy
             _cts = new CancellationTokenSource();
 
             _canAttack = false;
-            var tapAttack = GameManager.Instance.HeroController.heroAttack.CalculateTapDamage();
+            var tapAttack = StageManager.Instance.HeroController.heroAttack.CalculateTapDamage();
             HeroAttack.OnTapDamage?.Invoke(tapAttack, AttackType.TapDamage);
 
             await UniTask.Delay(heroDamageDataSo.tapAttackCoolDown);

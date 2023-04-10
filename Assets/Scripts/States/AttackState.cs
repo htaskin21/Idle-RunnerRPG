@@ -8,17 +8,22 @@ namespace States
         public State runState;
         public State idleState;
 
+        private HeroController _heroController;
+
+        private void Start()
+        {
+            _heroController = (HeroController) CharacterController;
+        }
+
         protected override void EnterState()
         {
-            HeroController heroController = (HeroController) CharacterController;
-
             CharacterController.AnimationController.PlayAnimation(AnimationType.Attack);
 
             CharacterController.AnimationController.onAnimationAction.AddListener(() =>
-                HeroAttack.OnInflictDamage?.Invoke(heroController.heroAttack.CalculateDamage(),
-                    heroController.heroAttack.GetAttackType()));
+                HeroAttack.OnInflictDamage?.Invoke(_heroController.heroAttack.CalculateDamage(),
+                    _heroController.heroAttack.GetAttackType()));
 
-            CharacterController.AnimationController.onAnimationEnd.AddListener(heroController.DecideNextState);
+            CharacterController.AnimationController.onAnimationEnd.AddListener(_heroController.DecideNextState);
 
             ButtonController.OnActiveAttackButtons?.Invoke(true);
 

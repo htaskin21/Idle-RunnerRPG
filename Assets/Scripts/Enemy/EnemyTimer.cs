@@ -52,7 +52,7 @@ namespace Enemy
 
             if (enemyHealth.Health > 0)
             {
-                GameManager.Instance.LoadSameLevel();
+                StageManager.Instance.LoadSameLevel();
             }
         }
 

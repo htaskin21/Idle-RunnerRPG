@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class ProgressBar : MonoBehaviour
+    public class StageProgressBar : MonoBehaviour
     {
         [SerializeField]
         private List<RectTransform> _fillImages;

@@ -1,6 +1,5 @@
 using Enums;
 using Hero;
-using Managers;
 using UI;
 using UnityEngine;
 
@@ -11,6 +10,8 @@ namespace States
         public State runState;
         public State idleState;
 
+        private HeroController _heroController;
+
         [Header("Special Attack Prefabs")]
         public GameObject explosionAttackPrefab;
 
@@ -19,6 +20,11 @@ namespace States
         public GameObject iceAttackPrefab;
 
         public GameObject holyAttackPrefab;
+
+        private void Start()
+        {
+            _heroController = (HeroController) CharacterController;
+        }
 
         protected override void EnterState()
         {
@@ -31,11 +37,10 @@ namespace States
 
             CharacterController.AnimationController.onAnimationAction.AddListener(() =>
                 HeroAttack.OnInflictDamage?.Invoke(
-                    GameManager.Instance.HeroController.heroAttack.GetSpecialAttackDamage(),
+                    _heroController.heroAttack.GetSpecialAttackDamage(),
                     AttackType.SpecialAttackDamage));
 
-            HeroController heroController = (HeroController) CharacterController;
-            CharacterController.AnimationController.onAnimationEnd.AddListener(heroController.DecideNextState);
+            CharacterController.AnimationController.onAnimationEnd.AddListener(_heroController.DecideNextState);
 
             base.EnterState();
         }
@@ -51,9 +56,8 @@ namespace States
         private GameObject SetSpecialAttackPrefab()
         {
             GameObject specialAttack = null;
-            
-            HeroController heroController = (HeroController) CharacterController;
-            switch (heroController.heroAttack.specialAttackType)
+
+            switch (_heroController.heroAttack.specialAttackType)
             {
                 case SpecialAttackType.Explosion:
                     specialAttack = explosionAttackPrefab;
@@ -70,7 +74,7 @@ namespace States
             }
 
             var position = specialAttack.transform.position;
-            position = new Vector3(GameManager.Instance.EnemyController.specialAttackPosition.position.x,
+            position = new Vector3(_heroController.heroAttack.CurrentEnemy.specialAttackPosition.position.x,
                 position.y, position.z);
             specialAttack.transform.position = position;
 

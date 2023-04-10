@@ -30,7 +30,7 @@ namespace UI
 
         private void SpawnDamagePopUp(double damage, AttackType attackType)
         {
-            Vector3 enemyPosition = GameManager.Instance.EnemyController.damagePopUpPosition.position;
+            Vector3 enemyPosition = StageManager.Instance.EnemyController.damagePopUpPosition.position;
             Vector3 correctedPosition = new Vector3(enemyPosition.x, enemyPosition.y + 1f, enemyPosition.z);
 
             switch (attackType)
@@ -58,11 +58,12 @@ namespace UI
 
         private void SpawnDamagePopUp2(double damage)
         {
-            Vector3 enemyPosition = GameManager.Instance.HeroController.transform.position;
+            Vector3 enemyPosition = StageManager.Instance.HeroController.transform.position;
             Vector3 correctedPosition = new Vector3(enemyPosition.x, enemyPosition.y + 1f, enemyPosition.z);
 
             _heroAttackPrefab.Spawn(correctedPosition, CalcUtils.FormatNumber(damage));
 
+            //TODO SİL BURALARI
             /*   switch (attackType)
                {
                    case AttackType.HeroDamage:
@@ -81,6 +82,7 @@ namespace UI
                }*/
         }
 
+        //TODO SİL BURALARI
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.J))

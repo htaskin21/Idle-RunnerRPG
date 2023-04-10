@@ -6115,6 +6115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageIconDataSo: {fileID: 11400000, guid: bbb0692481eee40b9b1c59fbccc1e882, type: 2}
   _heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
+  _enemySpawnDistance: 5.7
 --- !u!4 &1340543639
 Transform:
   m_ObjectHideFlags: 0
@@ -6771,20 +6772,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd5b2b11191f4185a4c84e4bef09474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroController: {fileID: 2020034535}
   _uiManager: {fileID: 1018802024}
-  _backgroundController: {fileID: 157393238}
-  _objectPool: {fileID: 514332008}
   _dataReader: {fileID: 311789297}
-  _calculator: {fileID: 733598008}
-  _petManager: {fileID: 1563098119}
-  _progressBar: {fileID: 1295636056}
-  levelData:
-  - {fileID: 11400000, guid: c5953e2cde76c446197a98121874c73b, type: 2}
-  - {fileID: 11400000, guid: 588565df8eb32490c81959c182eb714c, type: 2}
-  maxEnemyKillAmount: 6
-  enemyCreator: {fileID: 1340543638}
-  enemySpawnDistance: 5.7
+  _stageManager: {fileID: 2101358148}
 --- !u!4 &1410243782
 Transform:
   m_ObjectHideFlags: 0
@@ -9249,6 +9239,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2101358147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2101358149}
+  - component: {fileID: 2101358148}
+  m_Layer: 0
+  m_Name: StageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2101358148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101358147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071e323e5c6b54e0394e1f8e69254ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroController: {fileID: 2020034535}
+  _backgroundController: {fileID: 157393238}
+  _calculator: {fileID: 733598008}
+  _petManager: {fileID: 1563098119}
+  _stageProgressBar: {fileID: 1295636056}
+  _enemyCreator: {fileID: 1340543638}
+  _levelData:
+  - {fileID: 11400000, guid: c5953e2cde76c446197a98121874c73b, type: 2}
+  - {fileID: 11400000, guid: 588565df8eb32490c81959c182eb714c, type: 2}
+  _maxEnemyKillAmount: 6
+--- !u!4 &2101358149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101358147}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2132132645
 GameObject:
   m_ObjectHideFlags: 0
