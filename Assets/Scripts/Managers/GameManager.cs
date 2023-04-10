@@ -54,6 +54,9 @@ namespace Managers
         [SerializeField]
         private PetManager _petManager;
 
+        [SerializeField]
+        private ProgressBar _progressBar;
+
         [Header("Level Details")]
         [SerializeField]
         private List<LevelDataSO> levelData;
@@ -103,6 +106,8 @@ namespace Managers
 
             _currentLevelData = levelData[0];
 
+            _progressBar.InitialProgressBar(_levelCount, levelData[0].bossEnemy.enemyDamageType);
+
             _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
 
             _calculator.InitialCalculation();
@@ -110,7 +115,7 @@ namespace Managers
             CreateCharacters();
 
             _heroController.StartRunning();
-            
+
             _petManager.SetInitialPets();
 
             SaveLoadManager.Instance.SaveGameStartTime(DateTime.UtcNow);
@@ -163,6 +168,7 @@ namespace Managers
         private void CheckLevelStatusAfterEnemyDie()
         {
             _enemyKillCount++;
+            _progressBar.IncreaseProgressBar( _enemyKillCount);
 
             if (_enemyKillCount > maxEnemyKillAmount)
             {
@@ -176,6 +182,8 @@ namespace Managers
                     .Forget();
 
                 CreateEnemy();
+
+                _progressBar.InitialProgressBar(_levelCount, _currentLevelData.bossEnemy.enemyDamageType);
             }
             else
             {
@@ -190,6 +198,8 @@ namespace Managers
             _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject).Forget();
 
             CreateEnemy();
+            
+            _progressBar.InitialProgressBar(_levelCount, _currentLevelData.bossEnemy.enemyDamageType);
 
             _heroController.StartRunning();
         }

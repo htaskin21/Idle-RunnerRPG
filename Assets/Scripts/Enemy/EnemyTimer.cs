@@ -22,7 +22,7 @@ namespace Enemy
 
         private Tweener sliderTweener;
 
-        private int _duration = 60;
+        private int _duration = 30;
 
         private CancellationTokenSource _cts;
 
