@@ -21,8 +21,10 @@ namespace UI.SpecialAttack
         private Dictionary<int, int> _specialAttackDictionary;
 
         private Dictionary<int, int> _saveData;
-        
+
         public static Action<int> OnUpdateSpecialAttack;
+
+        private bool _isAchieveMinHeroLevel;
 
         private void Start()
         {
@@ -73,11 +75,44 @@ namespace UI.SpecialAttack
             descriptionText.text = stringBuilder.ToString();
             levelText.text = $"Level {_level}";
 
+            if (_isAchieveMinHeroLevel == false)
+            {
+                CheckMinimumLevel();
+            }
+
             icon.sprite = _iconDataSo.GetIcon(_specialAttackUpgrade.ID);
         }
 
         public override void SetButtonState(double totalGem)
         {
+            if (_isAchieveMinHeroLevel == false)
+            {
+                buyButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                CheckEnoughCoin(totalGem);
+            }
+        }
+
+        private void CheckMinimumLevel()
+        {
+            var saveData = SaveLoadManager.Instance.LoadSkillUpgrade();
+
+            if (saveData[0] < _specialAttackUpgrade.MinimumHeroLevel)
+            {
+                levelText.text = $"Min. Hero Level {_specialAttackUpgrade.MinimumHeroLevel}";
+            }
+            else
+            {
+                _isAchieveMinHeroLevel = true;
+            }
+        }
+
+        private void CheckEnoughCoin(double totalGem)
+        {
+            buyButton.gameObject.SetActive(true);
+
             var cost = _specialAttackUpgrade.BaseIncrementCost * _level;
             buttonCostText.text = $"{CalcUtils.FormatNumber(cost)} <sprite index= 0>";
 
@@ -100,7 +135,7 @@ namespace UI.SpecialAttack
                 coin -= cost;
 
                 UpdateRow(coin);
-                
+
                 if (_level <= 2)
                 {
                     OnUpdateSpecialAttack?.Invoke(_specialAttackUpgrade.ID);

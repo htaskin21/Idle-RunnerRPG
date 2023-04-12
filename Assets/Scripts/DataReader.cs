@@ -98,7 +98,7 @@ public class DataReader : MonoBehaviour
 
             var values = line.Replace("\r", string.Empty).Split(',');
 
-            _specialAttackData.Add(new SpecialAttackUpgrade(values[0], values[1], values[2], values[3], values[4]));
+            _specialAttackData.Add(new SpecialAttackUpgrade(values[0], values[1], values[2], values[3], values[4],values[5]));
             i++;
         }
     }
