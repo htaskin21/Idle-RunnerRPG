@@ -5,7 +5,6 @@ using Enemy;
 using Hero;
 using ScriptableObjects;
 using UI;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -30,13 +29,8 @@ namespace Managers
 
         #endregion
 
-        private void Awake()
-        {
-            _instance = this;
-        }
-
         public EnemyController EnemyController { get; private set; }
-        
+
         [Header("Managers")]
         [SerializeField]
         private HeroController _heroController;
@@ -64,15 +58,24 @@ namespace Managers
 
         [SerializeField]
         private int _maxEnemyKillAmount;
-        
+
         private LevelDataSO _currentLevelData;
         private int _enemyKillCount;
         private int _levelCount = 1;
 
+        public static Action<int> OnPassStage;
+
+        private void Awake()
+        {
+            _instance = this;
+            OnPassStage = delegate(int i) { };
+        }
+
+
         public void SetStage()
         {
             _levelCount = SaveLoadManager.Instance.LoadStageProgress();
-            
+
             _currentLevelData = _levelData[0];
 
             _stageProgressBar.InitialProgressBar(_levelCount, _levelData[0].bossEnemy.enemyDamageType);
@@ -115,6 +118,9 @@ namespace Managers
             if (_enemyKillCount > _maxEnemyKillAmount)
             {
                 _levelCount++;
+
+                SaveLoadManager.Instance.SaveStageProgress(_levelCount);
+                OnPassStage?.Invoke(_levelCount);
 
                 _enemyKillCount = 0;
 

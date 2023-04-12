@@ -1,5 +1,6 @@
 using Enums;
 using Items;
+using Managers;
 using UnityEngine;
 
 namespace Enemy
@@ -19,7 +20,8 @@ namespace Enemy
 
         public void InitiateLootItem()
         {
-            lootAmount *= enemyController.enemyLevel;
+            var prestigeMultiplier = SaveLoadManager.Instance.LoadPrestigeCount() * 0.5f;
+            lootAmount *= (enemyController.enemyLevel + prestigeMultiplier);
 
             var go = ObjectPool.Instance.GetGameObject(lootType.ToString());
             var lootObject = go.GetComponent<LootObject>();

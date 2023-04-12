@@ -61,7 +61,7 @@ namespace Managers
 
             saveFile.Sync();
         }
-        
+
         public int LoadStageProgress()
         {
             var saveFile = new ES3File("InGameSaveFile.es3");
@@ -70,7 +70,26 @@ namespace Managers
 
             return stageProgress;
         }
-        
+
+        public void SavePrestigeCount()
+        {
+            var saveFile = new ES3File("InGameSaveFile.es3");
+
+            var prestigeCount = LoadPrestigeCount() + 1;
+            saveFile.Save<int>("prestigeCount", prestigeCount);
+
+            saveFile.Sync();
+        }
+
+        public int LoadPrestigeCount()
+        {
+            var saveFile = new ES3File("InGameSaveFile.es3");
+
+            var stageProgress = saveFile.Load<int>("prestigeCount", 0);
+
+            return stageProgress;
+        }
+
         public void SaveSkillUpgrade(int skillID, int skillLevel)
         {
             Dictionary<int, int> skillUpgradeDictionary = new Dictionary<int, int>();
