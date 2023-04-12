@@ -156,6 +156,7 @@ public class Calculator : MonoBehaviour
     private void CalculateDamages()
     {
         _skillUpgrades = _dataReader.SkillData;
+
         var saveData = SaveLoadManager.Instance.LoadSkillUpgrade();
         List<SkillUpgrade> availableSkillUpgrades = new List<SkillUpgrade>();
 
@@ -219,6 +220,16 @@ public class Calculator : MonoBehaviour
                                                                      saveData[availableSkillUpgrade.ID];
                     break;
 
+                case SkillTypes.BaseHeroSkill:
+                    _heroDamageDataSo.heroAttack += availableSkillUpgrade.StartAmount +
+                                                    availableSkillUpgrade.BaseIncrementAmount *
+                                                    saveData[availableSkillUpgrade.ID];
+
+                    _heroDamageDataSo.tapAttack += availableSkillUpgrade.StartAmount +
+                                                   availableSkillUpgrade.BaseIncrementAmount *
+                                                   saveData[availableSkillUpgrade.ID];
+                    break;
+
                 default:
                     Debug.LogWarning("Calculate Damage Default geldi");
                     _heroDamageDataSo.heroAttack +=
@@ -265,6 +276,12 @@ public class Calculator : MonoBehaviour
                 break;
             case SkillTypes.HolyDmgSpecial:
                 _heroDamageDataSo.holySpecialAttackMultiplier += difference;
+                break;
+            case SkillTypes.BaseHeroSkill:
+                _heroDamageDataSo.heroAttack +=
+                    difference;
+                _heroDamageDataSo.tapAttack +=
+                    difference;
                 break;
             default:
                 Debug.LogWarning("Update Damage Default geldi");

@@ -1,4 +1,3 @@
-using System;
 using EnhancedUI.EnhancedScroller;
 using ScriptableObjects;
 using TMPro;
@@ -55,12 +54,10 @@ namespace UI
 
         public virtual void UpdateRow(double totalCoin)
         {
-            
         }
-        
+
         public virtual void UpdateRow(int totalGem)
         {
-            
         }
     }
 }

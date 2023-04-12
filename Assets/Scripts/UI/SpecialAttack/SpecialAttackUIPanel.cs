@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using EnhancedUI.EnhancedScroller;
+using Enums;
 using SpecialAttacks;
 using UnityEngine;
 
@@ -25,6 +27,9 @@ namespace UI.SpecialAttack
         {
             _specialAttackUpgrades = new List<SpecialAttackUpgrade>();
             _specialAttackUpgrades = specialAttackUpgrades;
+
+            var baseHeroSkill = _specialAttackUpgrades.FirstOrDefault(x => x.SkillTypes == SkillTypes.BaseHeroSkill);
+            _specialAttackUpgrades.Remove(baseHeroSkill);
 
             enhancedScroller.ReloadData();
         }

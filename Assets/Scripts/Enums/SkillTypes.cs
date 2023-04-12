@@ -13,7 +13,8 @@ namespace Enums
         CoinSpecial,
         HolyDmgSpecial,
         GoldenTap,
-        RageBoost
+        RageBoost,
+        BaseHeroSkill
     
     }
 }
