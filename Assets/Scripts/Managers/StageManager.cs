@@ -62,6 +62,7 @@ namespace Managers
         private LevelDataSO _currentLevelData;
         private int _enemyKillCount;
         private int _levelCount = 1;
+        private int _rndLastEnemy;
 
         public static Action<int> OnPassStage;
 
@@ -101,7 +102,12 @@ namespace Managers
             else
             {
                 var rnd = Random.Range(0, _currentLevelData.regularEnemies.Count);
+                while (_rndLastEnemy == rnd)
+                {
+                    rnd = Random.Range(0, _currentLevelData.regularEnemies.Count);
+                }
 
+                _rndLastEnemy = rnd;
                 EnemyController = _enemyCreator.CreateEnemy(EnemyController, _currentLevelData.regularEnemies[rnd],
                     _heroController.transform.position.x);
             }
