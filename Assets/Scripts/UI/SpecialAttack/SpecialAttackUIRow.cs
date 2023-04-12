@@ -101,7 +101,7 @@ namespace UI.SpecialAttack
 
             if (saveData[0] < _specialAttackUpgrade.MinimumHeroLevel)
             {
-                levelText.text = $"Min. Hero Level {_specialAttackUpgrade.MinimumHeroLevel}";
+                levelText.text = $"<color=#cc0000>Min. Hero Level {_specialAttackUpgrade.MinimumHeroLevel}</color>";
             }
             else
             {
