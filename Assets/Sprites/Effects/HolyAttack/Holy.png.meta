@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f6406b9f8c1b4625baa0db8ed5b79d4
+guid: 292ad11d83993486d861b38678add6c3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,12 +129,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HolyAttack_0
+      name: Buff n Debuff 03_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -143,19 +143,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b002317f043ec4198a8cf7714ba2fdfa
-      internalID: 402428955
+      spriteID: 5bd58b9a19089494a8e773b1b6e8256e
+      internalID: -1370276023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HolyAttack_1
+      name: Buff n Debuff 03_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 48
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -164,19 +164,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68f23d6ddc6714a05a6d6c478bae0111
-      internalID: -827739230
+      spriteID: 5f2c3fafae5254eeeafd5cdd58713aef
+      internalID: 1622338232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HolyAttack_2
+      name: Buff n Debuff 03_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 0
-        width: 48
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -185,40 +185,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a24cf168734684a88ab8f58035cabdf4
-      internalID: 105953846
+      spriteID: 9103240b44a1b46a681f5135d24f33f9
+      internalID: 1304796322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HolyAttack_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01642da14c3224047ab1ff2e3b0c0549
-      internalID: 555252596
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HolyAttack_4
+      name: Buff n Debuff 03_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 48
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -227,19 +206,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef837f50d09134f1da05b6564b6057a2
-      internalID: -2117274002
+      spriteID: 74669d10a3b3a4eca8a2aba856bea9b5
+      internalID: -425992802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HolyAttack_5
+      name: Buff n Debuff 03_4
       rect:
         serializedVersion: 2
-        x: 240
+        x: 256
         y: 0
-        width: 48
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -248,19 +227,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f8ba926cff434a27b3e6f5142d25286
-      internalID: 1492032278
+      spriteID: 1b8728f9da82d46d8bf6a3b127eb83ed
+      internalID: -1297749126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HolyAttack_6
+      name: Buff n Debuff 03_5
       rect:
         serializedVersion: 2
-        x: 288
+        x: 320
         y: 0
-        width: 48
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -269,40 +248,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 189dec2944d4e45fe8585fe102296f14
-      internalID: 1829574623
+      spriteID: de5fe167fc922410fae7d9774000f4c1
+      internalID: -1385298391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HolyAttack_7
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 0
-        width: 48
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 155559a2df8b944c9bdcfa576a791124
-      internalID: -1995781469
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HolyAttack_8
+      name: Buff n Debuff 03_6
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 48
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -311,19 +269,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4120100e43750439096315ede658934a
-      internalID: -100287474
+      spriteID: 38fe07c6b4ba746ceb73ac8b6074df93
+      internalID: 1806727388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HolyAttack_9
+      name: Buff n Debuff 03_7
       rect:
         serializedVersion: 2
-        x: 432
+        x: 448
         y: 0
-        width: 48
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -332,8 +290,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c717047c13c44899929fbdaaa8c52e9
-      internalID: 428611530
+      spriteID: 503c3ac04d1bd460db85c80a3c6ae4b4
+      internalID: -135473665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buff n Debuff 03_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55fd3d51219ce49eabb9098487dd954e
+      internalID: -1035520575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buff n Debuff 03_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcbd2b90fc0a140f799414f77a7938d2
+      internalID: -527238040
       vertices: []
       indices: 
       edges: []
@@ -349,16 +349,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HolyAttack_4: -2117274002
-      HolyAttack_5: 1492032278
-      HolyAttack_2: 105953846
-      HolyAttack_3: 555252596
-      HolyAttack_8: -100287474
-      HolyAttack_1: -827739230
-      HolyAttack_7: -1995781469
-      HolyAttack_6: 1829574623
-      HolyAttack_0: 402428955
-      HolyAttack_9: 428611530
+      Buff n Debuff 03_4: -1297749126
+      Buff n Debuff 03_5: -1385298391
+      Buff n Debuff 03_6: 1806727388
+      Buff n Debuff 03_0: -1370276023
+      Buff n Debuff 03_3: -425992802
+      Buff n Debuff 03_2: 1304796322
+      Buff n Debuff 03_8: -1035520575
+      Buff n Debuff 03_1: 1622338232
+      Buff n Debuff 03_9: -527238040
+      Buff n Debuff 03_7: -135473665
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
