@@ -28,9 +28,6 @@ namespace UI.SpecialAttack
             _specialAttackUpgrades = new List<SpecialAttackUpgrade>();
             _specialAttackUpgrades = specialAttackUpgrades;
 
-            var baseHeroSkill = _specialAttackUpgrades.FirstOrDefault(x => x.SkillTypes == SkillTypes.BaseHeroSkill);
-            _specialAttackUpgrades.Remove(baseHeroSkill);
-
             enhancedScroller.ReloadData();
         }
 

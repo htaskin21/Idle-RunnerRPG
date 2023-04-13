@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using EnhancedUI.EnhancedScroller;
+using Enums;
 using UI;
 using UnityEngine;
 
@@ -17,6 +19,9 @@ namespace Skill
 
         public override void Start()
         {
+            var baseHeroSkill = _skillUis.FirstOrDefault(x => x.SkillTypes == SkillTypes.BaseHeroSkill);
+            _skillUis.Remove(baseHeroSkill);
+            
             enhancedScroller.Delegate = this;
             base.Start();
         }
