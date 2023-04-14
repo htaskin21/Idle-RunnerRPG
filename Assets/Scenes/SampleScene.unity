@@ -7777,7 +7777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -436}
+  m_AnchoredPosition: {x: 0, y: -505}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1616116787
@@ -9380,6 +9380,7 @@ MonoBehaviour:
   _stageProgressBar: {fileID: 1295636056}
   _enemyCreator: {fileID: 1340543638}
   _levelData:
+  - {fileID: 11400000, guid: 274d16013967d475997f50d5b751d105, type: 2}
   - {fileID: 11400000, guid: c5953e2cde76c446197a98121874c73b, type: 2}
   - {fileID: 11400000, guid: 588565df8eb32490c81959c182eb714c, type: 2}
   _maxEnemyKillAmount: 6

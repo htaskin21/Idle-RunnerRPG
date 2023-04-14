@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundObject: {fileID: 8749456134653273865, guid: 668747705a14e4618abea6bd79bf5f73, type: 3}
   skyImage: {fileID: 4523625938790301830, guid: b372b06c89d5942a6a6a2f16b4a5fc8f, type: 3}
-  regularEnemies: []
-  bossEnemy: {fileID: 0}
+  regularEnemies:
+  - {fileID: 6894057439482407638, guid: d30e437664e9845e68db7cc01bc85581, type: 3}
+  - {fileID: 887762799773015445, guid: 0e0cdcd253f0d44da9f48e919e61ea98, type: 3}
+  - {fileID: 1455791055084694860, guid: 77c528b8283a849a4a09e0d9765ea81e, type: 3}
+  bossEnemy: {fileID: 6057125930083822405, guid: e20e5550db8644a379aa5d1811996c98, type: 3}
