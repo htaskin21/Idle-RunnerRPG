@@ -6219,8 +6219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageIconDataSo: {fileID: 11400000, guid: bbb0692481eee40b9b1c59fbccc1e882, type: 2}
-  _heroDamageDataSo: {fileID: 11400000, guid: cf0ea5b4dd3bd442ca438c1f8bfad1a7, type: 2}
-  _enemySpawnDistance: 5.7
+  _heroDamageDataSo: {fileID: 0}
+  _enemySpawnDistance: 0
 --- !u!4 &1340543639
 Transform:
   m_ObjectHideFlags: 0
@@ -9380,9 +9380,9 @@ MonoBehaviour:
   _stageProgressBar: {fileID: 1295636056}
   _enemyCreator: {fileID: 1340543638}
   _levelData:
-  - {fileID: 11400000, guid: 274d16013967d475997f50d5b751d105, type: 2}
   - {fileID: 11400000, guid: c5953e2cde76c446197a98121874c73b, type: 2}
   - {fileID: 11400000, guid: 588565df8eb32490c81959c182eb714c, type: 2}
+  - {fileID: 11400000, guid: 274d16013967d475997f50d5b751d105, type: 2}
   _maxEnemyKillAmount: 6
 --- !u!4 &2101358149
 Transform:
