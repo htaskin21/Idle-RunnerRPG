@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlainLevelData
   m_EditorClassIdentifier: 
   groundObject: {fileID: 2138036762916664947, guid: 7b18c86e431b644928f8943102c1f0de, type: 3}
-  skyImage: {fileID: 4523625938790301830, guid: b372b06c89d5942a6a6a2f16b4a5fc8f, type: 3}
+  skyImage: {fileID: 4523625938790301830, guid: af2de0dadbd794f61bce42ebb8d2a3d4, type: 3}
   regularEnemies:
   - {fileID: 6727319228449694395, guid: 0b0989595c3c042688333c9171f20c71, type: 3}
   - {fileID: 1455791055084694860, guid: f78b2803138b642d98585bdac65d2eeb, type: 3}
