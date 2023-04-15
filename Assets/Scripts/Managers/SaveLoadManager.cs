@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Enums;
+using ScriptableObjects;
 using UnityEngine;
 
 namespace Managers
@@ -70,6 +71,25 @@ namespace Managers
 
             return stageProgress;
         }
+        
+        public void SaveLastStage(LevelDataSO levelDataSo)
+        {
+            var saveFile = new ES3File("InGameSaveFile.es3");
+
+            saveFile.Save<LevelDataSO>("lastStage", levelDataSo);
+
+            saveFile.Sync();
+        }
+
+        public LevelDataSO LoadLastStage()
+        {
+            var saveFile = new ES3File("InGameSaveFile.es3");
+
+            var lastStage = saveFile.Load<LevelDataSO>("lastStage", null);
+
+            return lastStage;
+        }
+        
 
         public void SavePrestigeCount()
         {

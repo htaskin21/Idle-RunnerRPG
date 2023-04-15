@@ -77,7 +77,8 @@ namespace Managers
         {
             _levelCount = SaveLoadManager.Instance.LoadStageProgress();
 
-            _currentLevelData = _levelData[0];
+            var lastStage = SaveLoadManager.Instance.LoadLastStage();
+            _currentLevelData = lastStage != null ? lastStage : _levelData[0];
 
             _stageProgressBar.InitialProgressBar(_levelCount, _levelData[0].bossEnemy.enemyDamageType);
 
@@ -130,7 +131,19 @@ namespace Managers
 
                 _enemyKillCount = 0;
 
-                _currentLevelData = _levelData[Random.Range(0, _levelData.Count)];
+                //_currentLevelData = _levelData[Random.Range(0, _levelData.Count)];
+
+                var nextLevelData = _levelData[Random.Range(0, _levelData.Count)];
+                if (nextLevelData == _currentLevelData)
+                {
+                    while (nextLevelData == _currentLevelData)
+                    {
+                        nextLevelData = _levelData[Random.Range(0, _levelData.Count)];
+                    }
+                }
+
+                _currentLevelData = nextLevelData;
+                SaveLoadManager.Instance.SaveLastStage(_currentLevelData);
 
                 _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject)
                     .Forget();
