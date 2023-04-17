@@ -67,7 +67,10 @@ namespace Skill
             }
 
             descriptionText.text = stringBuilder.ToString();
-            levelText.text = $"Level {_level}";
+
+            levelText.text = _skillUpgrade.SkillTypes == SkillTypes.BaseHeroSkill
+                ? $" Hero Level {_level}"
+                : $"Level {_level}";
 
             icon.sprite = _iconDataSo.GetIcon(_skillUpgrade.ID);
         }

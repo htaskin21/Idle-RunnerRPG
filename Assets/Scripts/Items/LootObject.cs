@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Enums;
 using Managers;
+using States;
 using UI;
 using UnityEngine;
 
@@ -45,6 +46,8 @@ namespace Items
         public async UniTask MoveLoot(CancellationTokenSource cts)
         {
             var targetPosition = Camera.main.ScreenToWorldPoint(UIManager.Instance.CoinHud.transform.position);
+            targetPosition = new Vector3(targetPosition.x + GetTargetDifference(), targetPosition.y, targetPosition.z);
+
             Sequence mySequence = null;
 
             foreach (var coinSprite in sprites)
@@ -73,6 +76,17 @@ namespace Items
                 var cts = new CancellationTokenSource();
                 MoveLoot(cts).Forget();
             }
+        }
+
+        private float GetTargetDifference()
+        {
+            var targetDifference = -0.5f;
+            if (StageManager.Instance.HeroController.currentState.stateType == StateType.Run)
+            {
+                targetDifference = 0.5f;
+            }
+
+            return targetDifference;
         }
     }
 }
