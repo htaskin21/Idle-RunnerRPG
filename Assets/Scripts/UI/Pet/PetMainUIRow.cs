@@ -2,6 +2,7 @@ using System.Linq;
 using Managers;
 using ScriptableObjects;
 using UnityEngine;
+using UnityEngine.UI;
 using Utils;
 
 namespace UI.Pet
@@ -13,6 +14,9 @@ namespace UI.Pet
 
         [SerializeField]
         private PetUIPanel _petUIPanel;
+
+        [SerializeField]
+        private Image _iconFrame;
 
         public PetSO CurrentPet => _pet;
 
@@ -26,6 +30,7 @@ namespace UI.Pet
 
             icon.color = Color.white;
             icon.sprite = pet.icon;
+            _iconFrame.enabled = true;
 
             var stringBuilder = DescriptionUtils.GetDescription(pet.PetSkill);
             descriptionText.text = stringBuilder.ToString();
@@ -40,6 +45,7 @@ namespace UI.Pet
 
             icon.color = Color.black;
             icon.sprite = _defaultIcon;
+            _iconFrame.enabled = false;
 
             var stringBuilder = DescriptionUtils.GetDescription(null);
             descriptionText.text = stringBuilder.ToString();
