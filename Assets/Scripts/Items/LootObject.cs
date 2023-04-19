@@ -60,8 +60,15 @@ namespace Items
                 await UniTask.Delay(150);
             }
 
-            EconomyManager.OnCollectCoin.Invoke(_lootAmount);
-
+            if (lootType == LootType.Gem)
+            {
+                EconomyManager.OnCollectGem.Invoke((int) _lootAmount);
+            }
+            else
+            {
+                EconomyManager.OnCollectCoin.Invoke(_lootAmount);
+            }
+            
             await mySequence.AsyncWaitForCompletion();
 
             this.gameObject.SetActive(false);

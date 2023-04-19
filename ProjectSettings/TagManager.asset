@@ -9,6 +9,7 @@ TagManager:
   - Coin
   - BoostIcon
   - SingleCoin
+  - Gem
   layers:
   - Default
   - TransparentFX

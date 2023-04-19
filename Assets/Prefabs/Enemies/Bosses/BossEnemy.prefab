@@ -435,6 +435,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1278369992585130925, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
+      propertyPath: lootType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3619866337583125161, guid: 1abbbb24734834b9f85fbee8546c2906, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -19.9

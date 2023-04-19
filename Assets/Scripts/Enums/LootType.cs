@@ -3,6 +3,7 @@ namespace Enums
     public enum LootType
     {
         Coin,
-        SingleCoin
+        SingleCoin,
+        Gem
     }
 }
