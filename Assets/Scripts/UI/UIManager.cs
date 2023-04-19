@@ -38,6 +38,11 @@ namespace UI
         private TextMeshProUGUI coinText;
 
         [SerializeField]
+        private GameObject _gemHud;
+
+        public GameObject GemHud => _gemHud;
+
+        [SerializeField]
         private TextMeshProUGUI gemText;
 
         [SerializeField]

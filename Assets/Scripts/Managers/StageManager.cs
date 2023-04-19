@@ -131,8 +131,6 @@ namespace Managers
 
                 _enemyKillCount = 0;
 
-                //_currentLevelData = _levelData[Random.Range(0, _levelData.Count)];
-
                 var nextLevelData = _levelData[Random.Range(0, _levelData.Count)];
                 if (nextLevelData == _currentLevelData)
                 {

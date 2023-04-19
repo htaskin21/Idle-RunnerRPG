@@ -34,9 +34,6 @@ namespace Managers
         {
             _totalCoin = SaveLoadManager.Instance.LoadCoin();
             _totalGem = SaveLoadManager.Instance.LoadGem();
-
-            //TODO
-            OnCollectGem.Invoke(150);
         }
 
         private void AddCoin(double collectedCoin)
