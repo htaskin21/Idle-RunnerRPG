@@ -16,6 +16,8 @@ namespace SpecialAttacks
             var isUnlocked = specialAttackButton.SetLockState(identifier);
             if (isUnlocked)
             {
+            
+                _cts ??= new CancellationTokenSource();
                 LoadCoolDownState(_cts);
             }
             else

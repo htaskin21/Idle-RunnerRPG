@@ -41,14 +41,13 @@ namespace SpecialAttacks
             if (isContain)
             {
                 var durationDate = durations[identifier];
-                if (durationDate > DateTime.UtcNow)
-                {
-                    cooldownCts = new CancellationTokenSource();
-                    var duration = durationDate.Subtract(DateTime.UtcNow).TotalMilliseconds;
-                    var coolDown = heroDamageDataSo.GetCoolDownBySpecialAttackType(_specialAttackType);
-                    specialAttackButton.StartCoolDownState((int) duration,
-                        coolDown, cooldownCts).Forget();
-                }
+                var coolDown = heroDamageDataSo.GetCoolDownBySpecialAttackType(_specialAttackType);
+                
+                var duration = durationDate.Subtract(DateTime.UtcNow).TotalMilliseconds;
+                duration = Mathf.Clamp((int) duration, 0, Int32.MaxValue);
+
+                specialAttackButton.StartCoolDownState((int) duration,
+                    coolDown, cooldownCts).Forget();
             }
         }
     }

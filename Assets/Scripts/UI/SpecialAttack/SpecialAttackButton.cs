@@ -27,6 +27,8 @@ namespace UI.SpecialAttack
 
         private void Start()
         {
+            _specialAttackButtonState = SpecialAttackButtonState.OnReady;
+            
             baseBorderColor = buttonBackground.color;
             outerCircleImage.color = baseBorderColor;
             buttonBackground.color = Color.grey;
@@ -101,7 +103,7 @@ namespace UI.SpecialAttack
             DisableSliderImage();
             buttonComponent.enabled = true;
             iconShine.Play();
-            cancellationTokenSource.Cancel();
+            cancellationTokenSource?.Cancel();
         }
 
         private void SetCoolDownState(int currentTime, int maximumTime)

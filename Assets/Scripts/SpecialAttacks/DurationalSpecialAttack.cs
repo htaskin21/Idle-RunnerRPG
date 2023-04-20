@@ -90,6 +90,8 @@ namespace SpecialAttacks
 
             if (isContain)
             {
+                _cooldownCts ??= new CancellationTokenSource();
+
                 LoadCoolDownState(_cooldownCts);
             }
         }
