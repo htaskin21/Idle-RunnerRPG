@@ -109,7 +109,7 @@ public class Calculator : MonoBehaviour
                     break;
 
                 default:
-                    Debug.LogWarning("Calculate Damage Default geldi");
+                    Debug.LogWarning($"{specialAttackUpgrade.SkillTypes} Calculate Damage Default geldi");
                     _heroDamageDataSo.heroAttack +=
                         0;
                     break;
