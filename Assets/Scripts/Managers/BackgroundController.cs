@@ -44,6 +44,8 @@ namespace Managers
             SetSkyImages(skyImage);
             SetGroundObject(tilemapRenderer);
 
+            await UniTask.Delay(100);
+            
             await fadeImage.DOColor(new Color(0, 0, 0, 0), 1f).SetEase(Ease.OutQuad)
                 .OnComplete(() => fadeImage.gameObject.SetActive(false)).AsyncWaitForCompletion();
 

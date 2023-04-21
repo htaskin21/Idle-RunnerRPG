@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using Enemy;
 using Hero;
@@ -119,6 +121,8 @@ namespace Managers
 
         private void CheckLevelStatusAfterEnemyDie()
         {
+            CancellationTokenSource cts = new CancellationTokenSource();
+
             _enemyKillCount++;
             _stageProgressBar.IncreaseProgressBar(_enemyKillCount);
 
@@ -140,20 +144,26 @@ namespace Managers
                     }
                 }
 
-                _currentLevelData = nextLevelData;
-                SaveLoadManager.Instance.SaveLastStage(_currentLevelData);
-
-                _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject)
-                    .Forget();
-
-                CreateEnemy();
-
-                _stageProgressBar.InitialProgressBar(_levelCount, _currentLevelData.bossEnemy.enemyDamageType);
+                StartCoroutine(PrepareNextLevelRoutine(nextLevelData));
             }
             else
             {
                 CreateEnemy();
             }
+        }
+
+        private IEnumerator PrepareNextLevelRoutine(LevelDataSO nextLevelData)
+        {
+            yield return new WaitForSeconds(0.55f);
+            _currentLevelData = nextLevelData;
+            SaveLoadManager.Instance.SaveLastStage(_currentLevelData);
+
+            _backgroundController.SetBackgrounds(_currentLevelData.skyImage, _currentLevelData.groundObject)
+                .Forget();
+
+            CreateEnemy();
+
+            _stageProgressBar.InitialProgressBar(_levelCount, _currentLevelData.bossEnemy.enemyDamageType);
         }
 
         public void LoadSameLevel()
