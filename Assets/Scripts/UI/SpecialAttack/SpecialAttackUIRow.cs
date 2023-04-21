@@ -98,16 +98,13 @@ namespace UI.SpecialAttack
         private void CheckMinimumLevel()
         {
             var saveData = SaveLoadManager.Instance.LoadSkillUpgrade();
-            if (saveData.ContainsKey(0))
+            if (!saveData.ContainsKey(0) || saveData[0] < _specialAttackUpgrade.MinimumHeroLevel)
             {
-                if (saveData[0] < _specialAttackUpgrade.MinimumHeroLevel)
-                {
-                    levelText.text = $"<color=#cc0000>Min. Hero Level {_specialAttackUpgrade.MinimumHeroLevel}</color>";
-                }
-                else
-                {
-                    _isAchieveMinHeroLevel = true;
-                }
+                levelText.text = $"<color=#cc0000>Min. Hero Level {_specialAttackUpgrade.MinimumHeroLevel}</color>";
+            }
+            else
+            {
+                _isAchieveMinHeroLevel = true;
             }
         }
 
