@@ -48,7 +48,9 @@ namespace Skill
                 _level = 1;
             }
 
-            var damage = _skillUpgrade.StartAmount + (_skillUpgrade.BaseIncrementAmount * _level);
+            var oldDamage = _skillUpgrade.StartAmount + (_skillUpgrade.BaseIncrementAmount * (_level - 1));
+            var newDamage = _skillUpgrade.StartAmount + (_skillUpgrade.BaseIncrementAmount * _level);
+            var damage = _level == 1 ? _skillUpgrade.StartAmount : newDamage - oldDamage;
 
             var stringBuilder = DescriptionUtils.GetDescription(_skillUpgrade.SkillTypes);
             if (stringBuilder.ToString().Contains("j"))
