@@ -30,11 +30,18 @@ MonoBehaviour:
   fireSpecialAttackMultiplier: 1
   waterSpecialAttackMultiplier: 1
   holySpecialAttackMultiplier: 1
+  plantSpecialAttackMultiplier: 1
   lightningSpecialAttackCoolDown: 90000
   fireSpecialAttackCoolDown: 90000
   waterSpecialAttackCoolDown: 90000
   holySpecialAttackCoolDown: 90000
+  plantSpecialAttackCoolDown: 90000
   earthDamageMultiplier: 1
   plantDamageMultiplier: 1
   waterDamageMultiplier: 1
   holyDamageMultiplier: 1
+  fireDamageMultiplier: 1
+  isCriticalTapActive: 0
+  isAddTimeToDamageActive: 0
+  isAddClickCountToDPS: 0
+  bossDurationBonus: 0

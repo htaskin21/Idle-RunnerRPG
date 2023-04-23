@@ -14,7 +14,8 @@ namespace Enums
         HolyDmgSpecial,
         GoldenTap,
         RageBoost,
-        BaseHeroSkill
+        BaseHeroSkill,
+        PlantDmgSpecial
     
     }
 }

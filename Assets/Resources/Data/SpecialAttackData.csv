@@ -7,4 +7,3 @@ ID,Skill Type,StartAmount,IncrementAmount,Cost,MinHeroLevel
 9008,RageBoost,29000,1000,10,12
 9007,GoldenTap,29000,1000,10,14
 9009,PlantDmgSpecial,20,2,10,16
-9010,EarthDmgSpecial,20,2,10,16

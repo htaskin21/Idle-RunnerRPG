@@ -164,6 +164,12 @@ namespace Hero
                 specialAttackMultiplier = heroDamageDataSo.holySpecialAttackMultiplier;
             }
 
+            if (specialAttackType == SpecialAttackType.PlantAttack && CurrentEnemy.enemyDamageType == DamageType.Earth)
+            {
+                damageMultiplierByDamageType = GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
+                specialAttackMultiplier = heroDamageDataSo.plantSpecialAttackMultiplier;
+            }
+
             var totalDamage = heroDamageDataSo.heroAttack * specialAttackMultiplier * damageMultiplierByDamageType *
                               heroDamageDataSo.currentRageAmount;
             return totalDamage;

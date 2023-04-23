@@ -8,6 +8,7 @@ namespace Enums
         AutoTap,
         Holy,
         GoldenTap,
-        Rage
+        Rage,
+        PlantAttack
     }
 }

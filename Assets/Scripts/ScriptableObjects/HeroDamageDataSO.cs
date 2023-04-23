@@ -30,16 +30,19 @@ namespace ScriptableObjects
         public double fireSpecialAttackMultiplier;
         public double waterSpecialAttackMultiplier;
         public double holySpecialAttackMultiplier;
+        public double plantSpecialAttackMultiplier;
 
         public int lightningSpecialAttackCoolDown;
         public int fireSpecialAttackCoolDown;
         public int waterSpecialAttackCoolDown;
         public int holySpecialAttackCoolDown;
+        public int plantSpecialAttackCoolDown;
 
         public double earthDamageMultiplier;
         public double plantDamageMultiplier;
         public double waterDamageMultiplier;
         public double holyDamageMultiplier;
+        public double fireDamageMultiplier;
 
         public bool isCriticalTapActive = false;
         public bool isAddTimeToDamageActive = false;
@@ -65,6 +68,8 @@ namespace ScriptableObjects
                     return goldenTapCooldown;
                 case SpecialAttackType.Rage:
                     return rageCoolDown;
+                case SpecialAttackType.PlantAttack:
+                    return plantSpecialAttackCoolDown;
                 default:
                     Debug.LogError("GetCoolDownBySpecialAttackType is Null");
                     return 1500;
@@ -113,16 +118,19 @@ namespace ScriptableObjects
             fireSpecialAttackMultiplier = baseHeroDamageDataSo.fireSpecialAttackMultiplier;
             waterSpecialAttackMultiplier = baseHeroDamageDataSo.waterSpecialAttackMultiplier;
             holySpecialAttackMultiplier = baseHeroDamageDataSo.holySpecialAttackMultiplier;
+            plantSpecialAttackMultiplier = baseHeroDamageDataSo.plantSpecialAttackMultiplier;
 
             lightningSpecialAttackCoolDown = baseHeroDamageDataSo.lightningSpecialAttackCoolDown;
             fireSpecialAttackCoolDown = baseHeroDamageDataSo.fireSpecialAttackCoolDown;
             waterSpecialAttackCoolDown = baseHeroDamageDataSo.waterSpecialAttackCoolDown;
             holySpecialAttackCoolDown = baseHeroDamageDataSo.holySpecialAttackCoolDown;
+            plantSpecialAttackCoolDown = baseHeroDamageDataSo.plantSpecialAttackCoolDown;
 
             earthDamageMultiplier = baseHeroDamageDataSo.earthDamageMultiplier;
             plantDamageMultiplier = baseHeroDamageDataSo.plantDamageMultiplier;
             waterDamageMultiplier = baseHeroDamageDataSo.waterDamageMultiplier;
             holyDamageMultiplier = baseHeroDamageDataSo.holyDamageMultiplier;
+            fireDamageMultiplier = baseHeroDamageDataSo.fireDamageMultiplier;
 
             isCriticalTapActive = false;
             isAddTimeToDamageActive = false;

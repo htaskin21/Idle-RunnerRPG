@@ -21,6 +21,8 @@ namespace States
 
         public GameObject holyAttackPrefab;
 
+        public GameObject plantAttackPrefab;
+
         private void Start()
         {
             _heroController = (HeroController) CharacterController;
@@ -70,6 +72,10 @@ namespace States
                     break;
                 case SpecialAttackType.Holy:
                     specialAttack = holyAttackPrefab;
+                    break;
+
+                case SpecialAttackType.PlantAttack:
+                    specialAttack = plantAttackPrefab;
                     break;
             }
 

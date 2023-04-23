@@ -92,6 +92,13 @@ public class Calculator : MonoBehaviour
                             .BaseIncrementAmount *
                         level;
                     break;
+                case SkillTypes.PlantDmgSpecial:
+                    _heroDamageDataSo.plantSpecialAttackMultiplier +=
+                        specialAttackUpgrade.StartAmount +
+                        specialAttackUpgrade
+                            .BaseIncrementAmount *
+                        level;
+                    break;
                 case SkillTypes.AutoTapSpecial:
                     _heroDamageDataSo.autoTapAttackDuration +=
                         (int) specialAttackUpgrade.StartAmount +
@@ -135,6 +142,9 @@ public class Calculator : MonoBehaviour
                 break;
             case SkillTypes.LightningDmgSpecial:
                 _heroDamageDataSo.lightningSpecialAttackMultiplier += difference;
+                break;
+            case SkillTypes.PlantDmgSpecial:
+                _heroDamageDataSo.plantSpecialAttackMultiplier += difference;
                 break;
             case SkillTypes.HolyDmgSpecial:
                 _heroDamageDataSo.holySpecialAttackMultiplier += difference;
@@ -213,6 +223,12 @@ public class Calculator : MonoBehaviour
                                                                           .BaseIncrementAmount *
                                                                       saveData[availableSkillUpgrade.ID];
                     break;
+                case SkillTypes.PlantDmgSpecial:
+                    _heroDamageDataSo.plantSpecialAttackMultiplier += availableSkillUpgrade.StartAmount +
+                                                                      availableSkillUpgrade
+                                                                          .BaseIncrementAmount *
+                                                                      saveData[availableSkillUpgrade.ID];
+                    break;
                 case SkillTypes.HolyDmgSpecial:
                     _heroDamageDataSo.holySpecialAttackMultiplier += availableSkillUpgrade.StartAmount +
                                                                      availableSkillUpgrade
@@ -273,6 +289,9 @@ public class Calculator : MonoBehaviour
                 break;
             case SkillTypes.LightningDmgSpecial:
                 _heroDamageDataSo.lightningSpecialAttackMultiplier += difference;
+                break;
+            case SkillTypes.PlantDmgSpecial:
+                _heroDamageDataSo.plantSpecialAttackMultiplier += difference;
                 break;
             case SkillTypes.HolyDmgSpecial:
                 _heroDamageDataSo.holySpecialAttackMultiplier += difference;

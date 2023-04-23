@@ -28,6 +28,8 @@ namespace Utils
                     return stringBuilder.Append("Deals jx Dmg to <sprite=1>");
                 case SkillTypes.LightningDmgSpecial:
                     return stringBuilder.Append("Deals jx Dmg to <sprite=2>");
+                case SkillTypes.PlantDmgSpecial:
+                    return stringBuilder.Append("Deals jx Dmg to <sprite=8>");
                 case SkillTypes.GoldenTap:
                     return stringBuilder.Append("Earn coin with every tap");
                 case SkillTypes.AutoTapSpecial:
