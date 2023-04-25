@@ -14,9 +14,12 @@ namespace UI.SpecialAttack
         [SerializeField]
         private IconDataSO _iconDataSo;
 
+        [SerializeField]
+        private Material _greyMaterial;
+
         private SpecialAttackUpgrade _specialAttackUpgrade;
 
-        private int _level = 1;
+        private int _level;
 
         private Dictionary<int, int> _specialAttackDictionary;
 
@@ -48,13 +51,15 @@ namespace UI.SpecialAttack
             if (_specialAttackDictionary.ContainsKey(_specialAttackUpgrade.ID))
             {
                 _level = _specialAttackDictionary[_specialAttackUpgrade.ID];
+                icon.material = null;
             }
             else
             {
-                _level = 1;
+                _level = 0;
+                icon.material = _greyMaterial;
             }
 
-            var damage = _specialAttackUpgrade.StartAmount + (_specialAttackUpgrade.BaseIncrementAmount * _level);
+            var damage = _specialAttackUpgrade.StartAmount;
 
             var stringBuilder = DescriptionUtils.GetDescription(_specialAttackUpgrade.SkillTypes);
             if (stringBuilder.ToString().Contains("j"))
@@ -85,7 +90,7 @@ namespace UI.SpecialAttack
 
         public override void SetButtonState(double totalGem)
         {
-            if (_isAchieveMinHeroLevel == false)
+            if (_isAchieveMinHeroLevel == false || _level >= 1)
             {
                 buyButton.gameObject.SetActive(false);
             }
@@ -135,10 +140,12 @@ namespace UI.SpecialAttack
 
                 UpdateRow(coin);
 
+                //TODO artık gerek yok
+                /*
                 if (_level <= 2)
                 {
                     OnUpdateSpecialAttack?.Invoke(_specialAttackUpgrade.ID);
-                }
+                }*/
             }
         }
 

@@ -221,6 +221,7 @@ MonoBehaviour:
   activeButtonSprite: {fileID: 21300000, guid: 2b9ef8fd07ea648188df59d7013692e4, type: 3}
   deActiveButtonSprite: {fileID: 21300000, guid: 51fb4eb3009c441418d8001b35bfc35b, type: 3}
   _iconDataSo: {fileID: 11400000, guid: 3be454a94ca2940b8b946409354c9cf5, type: 2}
+  _greyMaterial: {fileID: 2100000, guid: 584ef18ee286a42439d75568cf607862, type: 2}
 --- !u!114 &5506307852394927057 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8252944561609058343, guid: 1320f28339640429a8fd003f383a0410, type: 3}

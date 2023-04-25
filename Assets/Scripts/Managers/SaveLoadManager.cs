@@ -116,11 +116,11 @@ namespace Managers
 
             var saveFile = new ES3File("skillUpgradeSaveFile.es3");
 
-            skillUpgradeDictionary = saveFile.Load<Dictionary<int, int>>("weaponUpgrade", skillUpgradeDictionary);
+            skillUpgradeDictionary = saveFile.Load<Dictionary<int, int>>("skillUpgrade", skillUpgradeDictionary);
 
             skillUpgradeDictionary[skillID] = skillLevel;
 
-            saveFile.Save<Dictionary<int, int>>("weaponUpgrade", skillUpgradeDictionary);
+            saveFile.Save<Dictionary<int, int>>("skillUpgrade", skillUpgradeDictionary);
 
             saveFile.Sync();
         }
@@ -131,7 +131,7 @@ namespace Managers
 
             var saveFile = new ES3File("skillUpgradeSaveFile.es3");
 
-            skillUpgradeDictionary = saveFile.Load<Dictionary<int, int>>("weaponUpgrade", skillUpgradeDictionary);
+            skillUpgradeDictionary = saveFile.Load<Dictionary<int, int>>("skillUpgrade", skillUpgradeDictionary);
 
             return skillUpgradeDictionary;
         }

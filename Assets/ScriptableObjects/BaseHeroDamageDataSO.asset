@@ -22,7 +22,7 @@ MonoBehaviour:
   goldenTapDuration: 1
   goldenTapCooldown: 90000
   rageAmount: 1.5
-  rageDuration: 30000
+  rageDuration: 1
   rageCoolDown: 90000
   criticalAttackMultiplier: 0
   criticalAttackChance: 0
