@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Enums;
 using Managers;
 using ScriptableObjects;
@@ -27,6 +29,9 @@ public class Calculator : MonoBehaviour
     public static Action<int, int> OnUpdateDamageCalculation;
 
     public static Action<int, int> OnUpdateSpecialAttackDamageCalculation;
+
+    private PassiveGoldEarnCalculator _passiveGoldEarnCalculator;
+    private CancellationTokenSource _passiveEarnCancellationTokenSource;
 
     private void Awake()
     {
@@ -187,64 +192,47 @@ public class Calculator : MonoBehaviour
             switch (availableSkillUpgrade.SkillTypes)
             {
                 case SkillTypes.BaseAttackBoost:
-                    _heroDamageDataSo.heroAttack += availableSkillUpgrade.StartAmount +
-                                                    availableSkillUpgrade.BaseIncrementAmount *
-                                                    saveData[availableSkillUpgrade.ID];
+                    _heroDamageDataSo.heroAttack += CalculateSkill(availableSkillUpgrade, saveData);
                     break;
                 case SkillTypes.TapDamageBoost:
-                    _heroDamageDataSo.tapAttack += availableSkillUpgrade.StartAmount +
-                                                   availableSkillUpgrade.BaseIncrementAmount *
-                                                   saveData[availableSkillUpgrade.ID];
+                    _heroDamageDataSo.tapAttack += CalculateSkill(availableSkillUpgrade, saveData);
                     break;
                 case SkillTypes.CriticalAttackBoost:
-                    _heroDamageDataSo.criticalAttackMultiplier += (float) availableSkillUpgrade.StartAmount +
-                                                                  (float) availableSkillUpgrade.BaseIncrementAmount *
-                                                                  saveData[availableSkillUpgrade.ID];
+                    _heroDamageDataSo.criticalAttackMultiplier +=
+                        (float) CalculateSkill(availableSkillUpgrade, saveData);
                     break;
                 case SkillTypes.CriticalAttackChance:
-                    _heroDamageDataSo.criticalAttackChance += (float) availableSkillUpgrade.StartAmount +
-                                                              (float) availableSkillUpgrade.BaseIncrementAmount *
-                                                              saveData[availableSkillUpgrade.ID];
+                    _heroDamageDataSo.criticalAttackChance += (float) CalculateSkill(availableSkillUpgrade, saveData);
                     break;
-                case SkillTypes.FireDmgSpecial:
-                    _heroDamageDataSo.fireSpecialAttackMultiplier += availableSkillUpgrade.StartAmount +
-                                                                     availableSkillUpgrade.BaseIncrementAmount *
-                                                                     saveData[availableSkillUpgrade.ID];
+                case SkillTypes.FireDmg:
+                    _heroDamageDataSo.fireSpecialAttackMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
                     break;
-                case SkillTypes.LightningDmgSpecial:
-                    _heroDamageDataSo.lightningSpecialAttackMultiplier += availableSkillUpgrade.StartAmount +
-                                                                          availableSkillUpgrade
-                                                                              .BaseIncrementAmount *
-                                                                          saveData[availableSkillUpgrade.ID];
+                case SkillTypes.LightningDmg:
+                    _heroDamageDataSo.lightningSpecialAttackMultiplier +=
+                        CalculateSkill(availableSkillUpgrade, saveData);
                     break;
-                case SkillTypes.WaterDmgSpecial:
-                    _heroDamageDataSo.waterSpecialAttackMultiplier += availableSkillUpgrade.StartAmount +
-                                                                      availableSkillUpgrade
-                                                                          .BaseIncrementAmount *
-                                                                      saveData[availableSkillUpgrade.ID];
+                case SkillTypes.WaterDmg:
+                    _heroDamageDataSo.waterSpecialAttackMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
                     break;
-                case SkillTypes.PlantDmgSpecial:
-                    _heroDamageDataSo.plantSpecialAttackMultiplier += availableSkillUpgrade.StartAmount +
-                                                                      availableSkillUpgrade
-                                                                          .BaseIncrementAmount *
-                                                                      saveData[availableSkillUpgrade.ID];
+                case SkillTypes.PlantDmg:
+                    _heroDamageDataSo.plantSpecialAttackMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
                     break;
-                case SkillTypes.HolyDmgSpecial:
-                    _heroDamageDataSo.holySpecialAttackMultiplier += availableSkillUpgrade.StartAmount +
-                                                                     availableSkillUpgrade
-                                                                         .BaseIncrementAmount *
-                                                                     saveData[availableSkillUpgrade.ID];
+                case SkillTypes.HolyDmg:
+                    _heroDamageDataSo.holySpecialAttackMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
                     break;
 
                 case SkillTypes.BaseHeroSkill:
-                    _heroDamageDataSo.heroAttack += availableSkillUpgrade.StartAmount +
-                                                    availableSkillUpgrade.BaseIncrementAmount *
-                                                    saveData[availableSkillUpgrade.ID];
+                    _heroDamageDataSo.heroAttack += CalculateSkill(availableSkillUpgrade, saveData);
 
-                    _heroDamageDataSo.tapAttack += availableSkillUpgrade.StartAmount +
-                                                   availableSkillUpgrade.BaseIncrementAmount *
-                                                   saveData[availableSkillUpgrade.ID];
+                    _heroDamageDataSo.tapAttack += CalculateSkill(availableSkillUpgrade, saveData);
+
                     break;
+
+                case SkillTypes.PassiveGoldEarn:
+                    _heroDamageDataSo.passiveGoldAmount += CalculateSkill(availableSkillUpgrade, saveData);
+                    InitPassiveEarnCalculator();
+                    break;
+
 
                 default:
                     Debug.LogWarning("Calculate Damage Default geldi");
@@ -257,13 +245,25 @@ public class Calculator : MonoBehaviour
         UIManager.OnUpdateDamageHud.Invoke(_heroDamageDataSo.heroAttack, _heroDamageDataSo.tapAttack);
     }
 
+    private double CalculateSkill(SkillUpgrade availableSkillUpgrade, Dictionary<int, int> saveData)
+    {
+        double skillAmount = 0;
+        var skillLevel = saveData[availableSkillUpgrade.ID];
+        for (int i = 0; i < skillLevel; i++)
+        {
+            skillAmount += availableSkillUpgrade.BaseIncrementAmount * Mathf.Pow(skillLevel, 1.2f);
+        }
+
+        return skillAmount;
+    }
+
     private void UpdateDamage(int skillID, int skillLevel)
     {
         var skillUpgrade = _skillUpgrades.FirstOrDefault(x => x.ID == skillID);
 
-        var newDamageAmount = skillUpgrade.BaseIncrementAmount * skillLevel;
-        var oldDamageAmount = skillUpgrade.BaseIncrementAmount * (skillLevel - 1);
-        var difference = newDamageAmount - oldDamageAmount;
+        //var newDamageAmount = skillUpgrade.BaseIncrementAmount * skillLevel;
+        //var oldDamageAmount = skillUpgrade.BaseIncrementAmount * (skillLevel - 1);
+        var difference = skillUpgrade.BaseIncrementAmount * Mathf.Pow((skillLevel - 1), 1.2f);
 
         switch (skillUpgrade.SkillTypes)
         {
@@ -281,19 +281,19 @@ public class Calculator : MonoBehaviour
             case SkillTypes.CriticalAttackChance:
                 _heroDamageDataSo.criticalAttackChance += (float) difference;
                 break;
-            case SkillTypes.FireDmgSpecial:
+            case SkillTypes.FireDmg:
                 _heroDamageDataSo.fireSpecialAttackMultiplier += difference;
                 break;
-            case SkillTypes.WaterDmgSpecial:
+            case SkillTypes.WaterDmg:
                 _heroDamageDataSo.waterSpecialAttackMultiplier += difference;
                 break;
-            case SkillTypes.LightningDmgSpecial:
+            case SkillTypes.LightningDmg:
                 _heroDamageDataSo.lightningSpecialAttackMultiplier += difference;
                 break;
-            case SkillTypes.PlantDmgSpecial:
+            case SkillTypes.PlantDmg:
                 _heroDamageDataSo.plantSpecialAttackMultiplier += difference;
                 break;
-            case SkillTypes.HolyDmgSpecial:
+            case SkillTypes.HolyDmg:
                 _heroDamageDataSo.holySpecialAttackMultiplier += difference;
                 break;
             case SkillTypes.BaseHeroSkill:
@@ -302,6 +302,16 @@ public class Calculator : MonoBehaviour
                 _heroDamageDataSo.tapAttack +=
                     difference;
                 break;
+            case SkillTypes.PassiveGoldEarn:
+                _heroDamageDataSo.passiveGoldAmount += difference;
+                if (skillLevel == 2)
+                {
+                    InitPassiveEarnCalculator();
+                }
+
+                break;
+
+
             default:
                 Debug.LogWarning("Update Damage Default geldi");
                 _heroDamageDataSo.heroAttack +=
@@ -312,11 +322,26 @@ public class Calculator : MonoBehaviour
         UIManager.OnUpdateDamageHud.Invoke(_heroDamageDataSo.heroAttack, _heroDamageDataSo.tapAttack);
     }
 
+    private void InitPassiveEarnCalculator()
+    {
+        _passiveGoldEarnCalculator =
+            new PassiveGoldEarnCalculator(_heroDamageDataSo);
+
+        _passiveEarnCancellationTokenSource = new CancellationTokenSource();
+
+        _passiveGoldEarnCalculator.EarnPassiveGold(_passiveEarnCancellationTokenSource.Token).Forget();
+    }
+
     public void InitialCalculation()
     {
         _heroDamageDataSo.ResetHeroDamageDataSO(_baseHeroDamageDataSo);
 
         CalculateDamages();
         CalculateSpecialAttackDamage();
+    }
+
+    private void OnDestroy()
+    {
+        _passiveEarnCancellationTokenSource?.Cancel();
     }
 }

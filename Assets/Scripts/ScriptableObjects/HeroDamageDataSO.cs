@@ -50,6 +50,8 @@ namespace ScriptableObjects
 
         public int bossDurationBonus;
 
+        public double passiveGoldAmount;
+
         public int GetCoolDownBySpecialAttackType(SpecialAttackType specialAttackType)
         {
             switch (specialAttackType)
@@ -137,6 +139,8 @@ namespace ScriptableObjects
             isAddClickCountToDPS = false;
 
             bossDurationBonus = baseHeroDamageDataSo.bossDurationBonus;
+
+            passiveGoldAmount = baseHeroDamageDataSo.passiveGoldAmount;
         }
     }
 }

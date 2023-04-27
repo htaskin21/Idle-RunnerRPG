@@ -50,7 +50,8 @@ namespace Skill
 
             var oldDamage = _skillUpgrade.StartAmount + (_skillUpgrade.BaseIncrementAmount * (_level - 1));
             var newDamage = _skillUpgrade.StartAmount + (_skillUpgrade.BaseIncrementAmount * _level);
-            var damage = _level == 1 ? _skillUpgrade.StartAmount : newDamage - oldDamage;
+            //var damage = _level == 1 ? _skillUpgrade.StartAmount : newDamage - oldDamage;
+            var damage = _skillUpgrade.BaseIncrementAmount * Mathf.Pow((_level), 1.2f);
 
             var stringBuilder = DescriptionUtils.GetDescription(_skillUpgrade.SkillTypes);
             if (stringBuilder.ToString().Contains("j"))
@@ -79,7 +80,7 @@ namespace Skill
 
         public override void SetButtonState(double totalGem)
         {
-            var cost = _skillUpgrade.BaseIncrementCost * _level;
+            var cost = _skillUpgrade.BaseIncrementCost * Mathf.Pow(_level, 1.2f);
             buttonCostText.text = $"{CalcUtils.FormatNumber(cost)} <sprite index= 0>";
 
             buttonDescriptionText.text = _level > 1 ? "LEVEL UP" : "BUY";

@@ -10,12 +10,17 @@ namespace Enums
         FireDmgSpecial,
         WaterDmgSpecial,
         LightningDmgSpecial,
-        CoinSpecial,
+        PassiveGoldEarn,
         HolyDmgSpecial,
         GoldenTap,
         RageBoost,
         BaseHeroSkill,
-        PlantDmgSpecial
+        PlantDmgSpecial,
+        FireDmg,
+        WaterDmg,
+        LightningDmg,
+        HolyDmg,
+        PlantDmg
     
     }
 }

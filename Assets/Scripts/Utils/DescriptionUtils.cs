@@ -15,13 +15,13 @@ namespace Utils
             switch (skillTypes)
             {
                 case SkillTypes.BaseAttackBoost:
-                    return stringBuilder.Append("j DPS");
+                    return stringBuilder.Append("+j DPS");
                 case SkillTypes.TapDamageBoost:
-                    return stringBuilder.Append("j Tap Damage");
+                    return stringBuilder.Append("+j Tap Damage");
                 case SkillTypes.CriticalAttackBoost:
-                    return stringBuilder.Append("j Crit. Dmg");
+                    return stringBuilder.Append("+j Crit. Dmg");
                 case SkillTypes.CriticalAttackChance:
-                    return stringBuilder.Append("+j % Crit. Attack Chance");
+                    return stringBuilder.Append("+j% Crit. Chance");
                 case SkillTypes.FireDmgSpecial:
                     return stringBuilder.Append("Deals jx Dmg to <sprite=4>");
                 case SkillTypes.WaterDmgSpecial:
@@ -37,15 +37,31 @@ namespace Utils
                 case SkillTypes.RageBoost:
                     return stringBuilder.Append("50% more DPS");
                 case SkillTypes.HolyDmgSpecial:
-                    return stringBuilder.Append("Deals jx Dmg to <sprite=6>");
+                    return stringBuilder.Append("Deals jx Dmg to <sprite=6> Enemy");
                 case SkillTypes.BaseHeroSkill:
                     return stringBuilder.Append("j DPS + j Tap Damage");
+
+                case SkillTypes.FireDmg:
+                    return stringBuilder.Append("+j DPS to <sprite=4>");
+                case SkillTypes.WaterDmg:
+                    return stringBuilder.Append("+j DPS to <sprite=1>");
+                case SkillTypes.PlantDmg:
+                    return stringBuilder.Append("+j DPS to <sprite=2>");
+                case SkillTypes.LightningDmg:
+                    return stringBuilder.Append("+j DPS to <sprite=8>");
+                case SkillTypes.HolyDmg:
+                    return stringBuilder.Append("+j DPS to <sprite=6>");
+
+                case SkillTypes.PassiveGoldEarn:
+                    return stringBuilder.Append("Gain +j <sprite=0> every 5 sec.");
+
+
                 default:
                     Debug.LogWarning("GetDescription Default geldi");
                     return stringBuilder.Append("empty");
             }
         }
-        
+
         public static StringBuilder GetDescription(PetSkill petSkill)
         {
             StringBuilder stringBuilder = new StringBuilder();
@@ -54,17 +70,17 @@ namespace Utils
             {
                 return stringBuilder.Append("Select Pet");
             }
-            
+
             if (petSkill.GetType() == typeof(SkillCoolDown))
             {
                 return stringBuilder.Append("Reduces Ulti cooldown by 10%");
             }
-            
+
             if (petSkill.GetType() == typeof(AddClickCountToDps))
             {
                 return stringBuilder.Append("Adds Tap Count to DPS");
             }
-            
+
             if (petSkill.GetType() == typeof(AddTimeToDamage))
             {
                 return stringBuilder.Append("Adds Game Minutes to DPS");
@@ -74,18 +90,18 @@ namespace Utils
             {
                 return stringBuilder.Append("Tap Damage can do Critical Damage");
             }
-            
+
             if (petSkill.GetType() == typeof(BossTimeBoost))
             {
                 return stringBuilder.Append("Add 5 sec. To Boss Time");
             }
-            
+
             return stringBuilder;
         }
 
         public static string ConvertToMinutes(float milliseconds)
         {
-            TimeSpan timeSpan = TimeSpan.FromMilliseconds((int)milliseconds);
+            TimeSpan timeSpan = TimeSpan.FromMilliseconds((int) milliseconds);
             var minutesString = $"{timeSpan.Minutes}:{timeSpan.Seconds:D2}";
 
             return minutesString;
