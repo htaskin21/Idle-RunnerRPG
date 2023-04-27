@@ -7,6 +7,7 @@ namespace Enums
             Water,
             Normal,
             Fire,
-            Holy
+            Holy,
+            Lightning
       }
 }

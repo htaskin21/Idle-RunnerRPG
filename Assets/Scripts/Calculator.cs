@@ -205,20 +205,20 @@ public class Calculator : MonoBehaviour
                     _heroDamageDataSo.criticalAttackChance += (float) CalculateSkill(availableSkillUpgrade, saveData);
                     break;
                 case SkillTypes.FireDmg:
-                    _heroDamageDataSo.fireSpecialAttackMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
+                    _heroDamageDataSo.fireDamageMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
                     break;
                 case SkillTypes.LightningDmg:
-                    _heroDamageDataSo.lightningSpecialAttackMultiplier +=
+                    _heroDamageDataSo.lightningDamageMultiplier +=
                         CalculateSkill(availableSkillUpgrade, saveData);
                     break;
                 case SkillTypes.WaterDmg:
-                    _heroDamageDataSo.waterSpecialAttackMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
+                    _heroDamageDataSo.waterDamageMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
                     break;
                 case SkillTypes.PlantDmg:
-                    _heroDamageDataSo.plantSpecialAttackMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
+                    _heroDamageDataSo.plantDamageMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
                     break;
                 case SkillTypes.HolyDmg:
-                    _heroDamageDataSo.holySpecialAttackMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
+                    _heroDamageDataSo.holyDamageMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
                     break;
 
                 case SkillTypes.BaseHeroSkill:
@@ -251,7 +251,7 @@ public class Calculator : MonoBehaviour
         var skillLevel = saveData[availableSkillUpgrade.ID];
         for (int i = 0; i < skillLevel; i++)
         {
-            skillAmount += availableSkillUpgrade.BaseIncrementAmount * Mathf.Pow(skillLevel, 1.2f);
+            skillAmount += availableSkillUpgrade.BaseIncrementAmount * Mathf.Pow(i, 1.2f);
         }
 
         return skillAmount;
@@ -263,7 +263,7 @@ public class Calculator : MonoBehaviour
 
         //var newDamageAmount = skillUpgrade.BaseIncrementAmount * skillLevel;
         //var oldDamageAmount = skillUpgrade.BaseIncrementAmount * (skillLevel - 1);
-        var difference = skillUpgrade.BaseIncrementAmount * Mathf.Pow((skillLevel - 1), 1.2f);
+        var difference = skillUpgrade.BaseIncrementAmount * Mathf.Pow(skillLevel - 1, 1.2f);
 
         switch (skillUpgrade.SkillTypes)
         {
@@ -282,19 +282,19 @@ public class Calculator : MonoBehaviour
                 _heroDamageDataSo.criticalAttackChance += (float) difference;
                 break;
             case SkillTypes.FireDmg:
-                _heroDamageDataSo.fireSpecialAttackMultiplier += difference;
+                _heroDamageDataSo.fireDamageMultiplier += difference;
                 break;
             case SkillTypes.WaterDmg:
-                _heroDamageDataSo.waterSpecialAttackMultiplier += difference;
+                _heroDamageDataSo.waterDamageMultiplier += difference;
                 break;
             case SkillTypes.LightningDmg:
-                _heroDamageDataSo.lightningSpecialAttackMultiplier += difference;
+                _heroDamageDataSo.lightningDamageMultiplier += difference;
                 break;
             case SkillTypes.PlantDmg:
-                _heroDamageDataSo.plantSpecialAttackMultiplier += difference;
+                _heroDamageDataSo.plantDamageMultiplier += difference;
                 break;
             case SkillTypes.HolyDmg:
-                _heroDamageDataSo.holySpecialAttackMultiplier += difference;
+                _heroDamageDataSo.holyDamageMultiplier += difference;
                 break;
             case SkillTypes.BaseHeroSkill:
                 _heroDamageDataSo.heroAttack +=

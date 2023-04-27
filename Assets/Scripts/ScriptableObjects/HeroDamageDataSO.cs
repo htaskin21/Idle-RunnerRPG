@@ -43,6 +43,7 @@ namespace ScriptableObjects
         public double waterDamageMultiplier;
         public double holyDamageMultiplier;
         public double fireDamageMultiplier;
+        public double lightningDamageMultiplier;
 
         public bool isCriticalTapActive = false;
         public bool isAddTimeToDamageActive = false;
@@ -133,6 +134,7 @@ namespace ScriptableObjects
             waterDamageMultiplier = baseHeroDamageDataSo.waterDamageMultiplier;
             holyDamageMultiplier = baseHeroDamageDataSo.holyDamageMultiplier;
             fireDamageMultiplier = baseHeroDamageDataSo.fireDamageMultiplier;
+            lightningDamageMultiplier = baseHeroDamageDataSo.lightningDamageMultiplier;
 
             isCriticalTapActive = false;
             isAddTimeToDamageActive = false;

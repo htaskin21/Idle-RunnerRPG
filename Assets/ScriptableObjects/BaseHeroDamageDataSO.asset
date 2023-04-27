@@ -24,7 +24,7 @@ MonoBehaviour:
   rageAmount: 1.5
   rageDuration: 1
   rageCoolDown: 90000
-  criticalAttackMultiplier: 0
+  criticalAttackMultiplier: 2
   criticalAttackChance: 0
   lightningSpecialAttackMultiplier: 1
   fireSpecialAttackMultiplier: 1
@@ -36,12 +36,14 @@ MonoBehaviour:
   waterSpecialAttackCoolDown: 90000
   holySpecialAttackCoolDown: 90000
   plantSpecialAttackCoolDown: 90000
-  earthDamageMultiplier: 1
-  plantDamageMultiplier: 1
-  waterDamageMultiplier: 1
-  holyDamageMultiplier: 1
-  fireDamageMultiplier: 1
+  earthDamageMultiplier: 0
+  plantDamageMultiplier: 0
+  waterDamageMultiplier: 0
+  holyDamageMultiplier: 0
+  fireDamageMultiplier: 0
+  lightningDamageMultiplier: 0
   isCriticalTapActive: 0
   isAddTimeToDamageActive: 0
   isAddClickCountToDPS: 0
   bossDurationBonus: 0
+  passiveGoldAmount: 0

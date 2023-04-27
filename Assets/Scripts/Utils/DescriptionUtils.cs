@@ -37,7 +37,7 @@ namespace Utils
                 case SkillTypes.RageBoost:
                     return stringBuilder.Append("50% more DPS");
                 case SkillTypes.HolyDmgSpecial:
-                    return stringBuilder.Append("Deals jx Dmg to <sprite=6> Enemy");
+                    return stringBuilder.Append("Deals jx Dmg to <sprite=6>");
                 case SkillTypes.BaseHeroSkill:
                     return stringBuilder.Append("j DPS + j Tap Damage");
 

@@ -53,9 +53,14 @@ namespace Hero
 
         public double CalculateDamage()
         {
-            return (heroDamageDataSo.heroAttack + GetPassingTime() + GetTapCount()) *
-                   GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType) *
-                   GetCriticalDamage() * heroDamageDataSo.currentRageAmount;
+            var attack = heroDamageDataSo.heroAttack + GetPassingTime() + GetTapCount() +
+                    GetDamageMultiplierByDamageType(CurrentEnemy.enemyDamageType);
+
+            var attackWithCrit = attack * GetCriticalDamage();
+
+            var attackWithCritAndRage = attackWithCrit * heroDamageDataSo.currentRageAmount;
+
+            return attackWithCritAndRage;
         }
 
         public double CalculateTapDamage()
@@ -75,14 +80,19 @@ namespace Hero
             switch (damageType)
             {
                 case DamageType.Earth:
-                    return heroDamageDataSo.earthDamageMultiplier;
-                case DamageType.Plant:
                     return heroDamageDataSo.plantDamageMultiplier;
+                case DamageType.Plant:
+                    return heroDamageDataSo.fireDamageMultiplier;
                 case DamageType.Water:
-                    return heroDamageDataSo.waterDamageMultiplier;
+                    return heroDamageDataSo.lightningDamageMultiplier;
                 case DamageType.Holy:
                     return heroDamageDataSo.holyDamageMultiplier;
+                case DamageType.Fire:
+                    return heroDamageDataSo.waterDamageMultiplier;
+                case DamageType.Lightning:
+                    return heroDamageDataSo.earthDamageMultiplier;
                 case DamageType.Normal:
+                    return heroDamageDataSo.holyDamageMultiplier;
                 default:
                     return 1f;
             }
@@ -120,7 +130,7 @@ namespace Hero
             float rnd = Random.Range(0.1f, 100);
             var critChance = heroDamageDataSo.criticalAttackChance;
 
-            if (rnd <= critChance)
+            if (critChance > rnd)
             {
                 _isCriticalAttack = true;
                 return heroDamageDataSo.criticalAttackMultiplier;
