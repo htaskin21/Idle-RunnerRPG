@@ -260,9 +260,6 @@ public class Calculator : MonoBehaviour
     private void UpdateDamage(int skillID, int skillLevel)
     {
         var skillUpgrade = _skillUpgrades.FirstOrDefault(x => x.ID == skillID);
-
-        //var newDamageAmount = skillUpgrade.BaseIncrementAmount * skillLevel;
-        //var oldDamageAmount = skillUpgrade.BaseIncrementAmount * (skillLevel - 1);
         var difference = skillUpgrade.BaseIncrementAmount * Mathf.Pow(skillLevel - 1, 1.2f);
 
         switch (skillUpgrade.SkillTypes)
@@ -310,7 +307,6 @@ public class Calculator : MonoBehaviour
                 }
 
                 break;
-
 
             default:
                 Debug.LogWarning("Update Damage Default geldi");
