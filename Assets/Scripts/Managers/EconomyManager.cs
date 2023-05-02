@@ -60,6 +60,7 @@ namespace Managers
             UIManager.OnUpdateGemHud.Invoke(_totalGem);
         }
 
+        //todo Daha sonra sil
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.C))

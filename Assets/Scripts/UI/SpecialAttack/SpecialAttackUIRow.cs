@@ -117,7 +117,7 @@ namespace UI.SpecialAttack
         {
             buyButton.gameObject.SetActive(true);
 
-            var cost = _specialAttackUpgrade.BaseIncrementCost * _level;
+            var cost = _specialAttackUpgrade.BaseIncrementCost;
             buttonCostText.text = $"{CalcUtils.FormatNumber(cost)} <sprite index= 0>";
 
             buttonDescriptionText.text = _level > 1 ? "LEVEL UP" : "BUY";
@@ -129,7 +129,7 @@ namespace UI.SpecialAttack
         public override void OnBuy()
         {
             var coin = SaveLoadManager.Instance.LoadCoin();
-            var cost = _specialAttackUpgrade.BaseIncrementCost * _level;
+            var cost = _specialAttackUpgrade.BaseIncrementCost;
             if (coin >= cost)
             {
                 _level++;
@@ -139,6 +139,7 @@ namespace UI.SpecialAttack
                 coin -= cost;
 
                 UpdateRow(coin);
+                OnUpdateSpecialAttack?.Invoke(_specialAttackUpgrade.ID);
 
                 //TODO artık gerek yok
                 /*

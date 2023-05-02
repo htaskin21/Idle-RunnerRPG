@@ -1,6 +1,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Enums;
 using Managers;
 using UI;
 using UnityEngine;
@@ -14,9 +15,10 @@ namespace Items
             SetTargetPosition();
 
             var mySequence = await TweenObjectToHud();
-            
+
             EconomyManager.OnCollectCoin.Invoke(_lootAmount);
-            
+            CurrencyPopUpPanel.OnShowCurrencyPopUpPanel?.Invoke(_lootAmount, LootType.Coin);
+
             await mySequence.AsyncWaitForCompletion();
 
             this.gameObject.SetActive(false);

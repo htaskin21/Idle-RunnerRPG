@@ -180,7 +180,7 @@ namespace Hero
                 specialAttackMultiplier = heroDamageDataSo.plantSpecialAttackMultiplier;
             }
 
-            var totalDamage = heroDamageDataSo.heroAttack * specialAttackMultiplier * damageMultiplierByDamageType *
+            var totalDamage = (heroDamageDataSo.heroAttack + damageMultiplierByDamageType) * specialAttackMultiplier  *
                               heroDamageDataSo.currentRageAmount;
             return totalDamage;
         }

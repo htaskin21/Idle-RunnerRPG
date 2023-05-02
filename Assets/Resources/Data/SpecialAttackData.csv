@@ -1,9 +1,9 @@
 ID,Skill Type,StartAmount,IncrementAmount,Cost,MinHeroLevel
 9001,AutoTapSpecial,30000,100,10,5
-9002,FireDmgSpecial,20,2,100,10
-9003,WaterDmgSpecial,20,2,100,10
-9009,PlantDmgSpecial,20,2,100,10
-9004,LightningDmgSpecial,20,2,100,10
-9006,HolyDmgSpecial,20,2,100,10
+9002,FireDmgSpecial,5,2,100,10
+9003,WaterDmgSpecial,5,2,100,10
+9009,PlantDmgSpecial,5,2,100,10
+9004,LightningDmgSpecial,5,2,100,10
+9006,HolyDmgSpecial,5,2,100,10
 9008,RageBoost,30000,1000,100,15
 9007,GoldenTap,30000,1000,100,20

@@ -189,47 +189,50 @@ public class Calculator : MonoBehaviour
 
         foreach (var availableSkillUpgrade in availableSkillUpgrades)
         {
+            var skillLevel = saveData[availableSkillUpgrade.ID];
+
             switch (availableSkillUpgrade.SkillTypes)
             {
                 case SkillTypes.BaseAttackBoost:
-                    _heroDamageDataSo.heroAttack += CalculateSkill(availableSkillUpgrade, saveData);
+                    _heroDamageDataSo.heroAttack += CalculateSkill(availableSkillUpgrade, skillLevel);
                     break;
                 case SkillTypes.TapDamageBoost:
-                    _heroDamageDataSo.tapAttack += CalculateSkill(availableSkillUpgrade, saveData);
+                    _heroDamageDataSo.tapAttack += CalculateSkill(availableSkillUpgrade, skillLevel);
                     break;
                 case SkillTypes.CriticalAttackBoost:
                     _heroDamageDataSo.criticalAttackMultiplier +=
-                        (float) CalculateSkill(availableSkillUpgrade, saveData);
+                        CalculateCriticalAttackBoost(availableSkillUpgrade, skillLevel);
+
                     break;
                 case SkillTypes.CriticalAttackChance:
-                    _heroDamageDataSo.criticalAttackChance += (float) CalculateSkill(availableSkillUpgrade, saveData);
+                    _heroDamageDataSo.criticalAttackChance += (float) CalculateSkill(availableSkillUpgrade, skillLevel);
                     break;
                 case SkillTypes.FireDmg:
-                    _heroDamageDataSo.fireDamageMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
+                    _heroDamageDataSo.fireDamageMultiplier += CalculateSkill(availableSkillUpgrade, skillLevel);
                     break;
                 case SkillTypes.LightningDmg:
                     _heroDamageDataSo.lightningDamageMultiplier +=
-                        CalculateSkill(availableSkillUpgrade, saveData);
+                        CalculateSkill(availableSkillUpgrade, skillLevel);
                     break;
                 case SkillTypes.WaterDmg:
-                    _heroDamageDataSo.waterDamageMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
+                    _heroDamageDataSo.waterDamageMultiplier += CalculateSkill(availableSkillUpgrade, skillLevel);
                     break;
                 case SkillTypes.PlantDmg:
-                    _heroDamageDataSo.plantDamageMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
+                    _heroDamageDataSo.plantDamageMultiplier += CalculateSkill(availableSkillUpgrade, skillLevel);
                     break;
                 case SkillTypes.HolyDmg:
-                    _heroDamageDataSo.holyDamageMultiplier += CalculateSkill(availableSkillUpgrade, saveData);
+                    _heroDamageDataSo.holyDamageMultiplier += CalculateSkill(availableSkillUpgrade, skillLevel);
                     break;
 
                 case SkillTypes.BaseHeroSkill:
-                    _heroDamageDataSo.heroAttack += CalculateSkill(availableSkillUpgrade, saveData);
+                    _heroDamageDataSo.heroAttack += CalculateSkill(availableSkillUpgrade, skillLevel);
 
-                    _heroDamageDataSo.tapAttack += CalculateSkill(availableSkillUpgrade, saveData);
+                    _heroDamageDataSo.tapAttack += CalculateSkill(availableSkillUpgrade, skillLevel);
 
                     break;
 
                 case SkillTypes.PassiveGoldEarn:
-                    _heroDamageDataSo.passiveGoldAmount += CalculateSkill(availableSkillUpgrade, saveData);
+                    _heroDamageDataSo.passiveGoldAmount += CalculateSkill(availableSkillUpgrade, skillLevel);
                     InitPassiveEarnCalculator();
                     break;
 
@@ -245,16 +248,23 @@ public class Calculator : MonoBehaviour
         UIManager.OnUpdateDamageHud.Invoke(_heroDamageDataSo.heroAttack, _heroDamageDataSo.tapAttack);
     }
 
-    private double CalculateSkill(SkillUpgrade availableSkillUpgrade, Dictionary<int, int> saveData)
+    private double CalculateSkill(SkillUpgrade availableSkillUpgrade, int skillLevel)
     {
         double skillAmount = 0;
-        var skillLevel = saveData[availableSkillUpgrade.ID];
         for (int i = 0; i < skillLevel; i++)
         {
             skillAmount += availableSkillUpgrade.BaseIncrementAmount * Mathf.Pow(i, 1.2f);
         }
 
         return skillAmount;
+    }
+
+    private float CalculateCriticalAttackBoost(SkillUpgrade availableSkillUpgrade, int skillLevel)
+    {
+        var percentage = (float) CalculateSkill(availableSkillUpgrade, skillLevel);
+        var criticalAttackMultiplier = _baseHeroDamageDataSo.criticalAttackMultiplier;
+        var result = (criticalAttackMultiplier * percentage) / 100;
+        return result;
     }
 
     private void UpdateDamage(int skillID, int skillLevel)
@@ -273,7 +283,8 @@ public class Calculator : MonoBehaviour
                     difference;
                 break;
             case SkillTypes.CriticalAttackBoost:
-                _heroDamageDataSo.criticalAttackMultiplier += (float) difference;
+                _heroDamageDataSo.criticalAttackMultiplier +=
+                    CalculateCriticalAttackBoost(skillUpgrade, skillLevel - 1);
                 break;
             case SkillTypes.CriticalAttackChance:
                 _heroDamageDataSo.criticalAttackChance += (float) difference;
