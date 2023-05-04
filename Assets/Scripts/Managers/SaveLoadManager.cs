@@ -36,6 +36,68 @@ namespace Managers
             EconomyManager.OnSpendGem += SaveGem;
         }
 
+        public void SaveWeapon(Weapon.Weapon weapon)
+        {
+            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
+
+            var saveFile = new ES3File("WeaponData.es3");
+
+            weapons = saveFile.Load<List<Weapon.Weapon>>("Weapons", weapons);
+
+            weapons.Add(weapon);
+
+            saveFile.Save<List<Weapon.Weapon>>("Weapons", weapons);
+
+            saveFile.Sync();
+        }
+
+        public List<Weapon.Weapon> LoadWeapons()
+        {
+            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
+
+            var saveFile = new ES3File("WeaponData.es3");
+
+            weapons = saveFile.Load<List<Weapon.Weapon>>("Weapons", weapons);
+
+            return weapons;
+        }
+
+        public void SaveSelectedWeapon(Weapon.Weapon weapon, bool isSelected)
+        {
+            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
+
+            var saveFile = new ES3File("WeaponData.es3");
+
+            weapons = saveFile.Load<List<Weapon.Weapon>>("selectedWeapon", weapons);
+
+            if (isSelected)
+            {
+                weapons.Add(weapon);
+            }
+            else
+            {
+                if (weapons.Contains(weapon))
+                {
+                    weapons.Remove(weapon);
+                }
+            }
+
+            saveFile.Save<List<Weapon.Weapon>>("selectedWeapon", weapons);
+
+            saveFile.Sync();
+        }
+
+        public List<Weapon.Weapon> LoadSelectedPWeapon()
+        {
+            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
+
+            var saveFile = new ES3File("WeaponData.es3");
+
+            weapons = saveFile.Load<List<Weapon.Weapon>>("selectedWeapon", weapons);
+
+            return weapons;
+        }
+
         public void SaveGameStartTime(DateTime startTime)
         {
             var saveFile = new ES3File("InGameSaveFile.es3");
@@ -71,7 +133,7 @@ namespace Managers
 
             return stageProgress;
         }
-        
+
         public void SaveLastStage(LevelDataSO levelDataSo)
         {
             var saveFile = new ES3File("InGameSaveFile.es3");
@@ -89,7 +151,7 @@ namespace Managers
 
             return lastStage;
         }
-        
+
 
         public void SavePrestigeCount()
         {
