@@ -1,18 +1,50 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class WeaponUIRow : MonoBehaviour
+namespace UI.Weapon
 {
-    // Start is called before the first frame update
-    void Start()
+    public class WeaponUIRow : UIRow
     {
-        
-    }
+        [SerializeField]
+        private List<TextMeshProUGUI> _weaponDescriptionTexts;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private global::Weapon.Weapon _weapon;
+
+
+        public override void SetUIRow(global::Weapon.Weapon weapon)
+        {
+            _weapon = weapon;
+            cellIdentifier = weapon.id.ToString();
+
+            icon.sprite = _weapon.WeaponSprite;
+
+
+            for (int i = 0; i < weapon.WeaponSkills.Length; i++)
+            {
+                var desc = weapon.WeaponSkills[i].GetDescription();
+                _weaponDescriptionTexts[i].text = desc;
+                _weaponDescriptionTexts[i].gameObject.SetActive(true);
+            }
+
+            //var gem = SaveLoadManager.Instance.LoadGem();
+            //UpdateRow(gem);
+        }
+
+        public override void FillUIRow()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SetButtonState(double totalGem)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void OnBuy()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -46,6 +46,11 @@ namespace UI
         {
         }
 
+        public virtual void SetUIRow(global::Weapon.Weapon weapon)
+        {
+        }
+
+
         public abstract void FillUIRow();
 
         public abstract void SetButtonState(double totalGem);

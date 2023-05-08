@@ -1,3 +1,4 @@
+using System;
 using Enums;
 using ScriptableObjects;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Weapon.WeaponSkills
             CurrentDamageType = GetDamageType();
             WeaponSkillPercentage = percentage;
         }
-        
+
         public override void AddWeapon(HeroDamageDataSO heroDamageDataSo)
         {
             switch (CurrentDamageType)
@@ -62,6 +63,34 @@ namespace Weapon.WeaponSkills
                     Debug.LogWarning("Ulti Multiplier Boş Geldi");
                     break;
             }
+        }
+
+        public override string GetDescription()
+        {
+            string elementIcon = String.Empty;
+            switch (CurrentDamageType)
+            {
+                case DamageType.Plant:
+                    elementIcon = "<sprite=4>";
+                    break;
+                case DamageType.Water:
+                    elementIcon = "<sprite=2>";
+                    break;
+                case DamageType.Fire:
+                    elementIcon = "<sprite=1>";
+                    break;
+                case DamageType.Holy:
+                    elementIcon = "<sprite=4>";
+                    break;
+                case DamageType.Lightning:
+                    elementIcon = "<sprite=3>";
+                    break;
+                default:
+                    Debug.LogWarning("ElementalDmg GetDescription Boş Geldi");
+                    break;
+            }
+
+            return $"+{WeaponSkillPercentage}% to {elementIcon}";
         }
     }
 }

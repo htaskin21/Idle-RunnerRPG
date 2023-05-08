@@ -33,5 +33,7 @@ namespace Weapon.WeaponSkills
 
             return type;
         }
+
+        public abstract string GetDescription();
     }
 }

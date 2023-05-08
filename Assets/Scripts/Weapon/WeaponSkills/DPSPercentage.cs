@@ -16,5 +16,10 @@ namespace Weapon.WeaponSkills
             var attackAmount = attackAmountWithPercentage - (attackAmountWithPercentage * WeaponSkillPercentage);
             heroDamageDataSo.heroAttack = attackAmount;
         }
+
+        public override string GetDescription()
+        {
+            return $"Increase +{WeaponSkillPercentage}% to DPS";
+        }
     }
 }

@@ -16,5 +16,10 @@ namespace Weapon.WeaponSkills
             var attackAmount = attackAmountWithPercentage - (attackAmountWithPercentage * WeaponSkillPercentage);
             heroDamageDataSo.tapAttack = attackAmount;
         }
+
+        public override string GetDescription()
+        {
+            return $"Increase +{WeaponSkillPercentage}% to Tap Dmg";
+        }
     }
 }

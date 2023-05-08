@@ -1,3 +1,4 @@
+using System;
 using Enums;
 using ScriptableObjects;
 using UnityEngine;
@@ -63,6 +64,34 @@ namespace Weapon.WeaponSkills
                     Debug.LogWarning("ElementalDmgPercentage Boş Geldi");
                     break;
             }
+        }
+
+        public override string GetDescription()
+        {
+            string elementIcon = String.Empty;
+            switch (CurrentDamageType)
+            {
+                case DamageType.Plant:
+                    elementIcon = "<sprite=4>";
+                    break;
+                case DamageType.Water:
+                    elementIcon = "<sprite=2>";
+                    break;
+                case DamageType.Fire:
+                    elementIcon = "<sprite=1>";
+                    break;
+                case DamageType.Holy:
+                    elementIcon = "<sprite=4>";
+                    break;
+                case DamageType.Lightning:
+                    elementIcon = "<sprite=3>";
+                    break;
+                default:
+                    Debug.LogWarning("ElementalDmg GetDescription Boş Geldi");
+                    break;
+            }
+            
+            return $"Increase +{WeaponSkillPercentage}% to {elementIcon} Dmg";
         }
 
         private double RemovePercentage(double attackAmount)

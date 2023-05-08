@@ -55,7 +55,7 @@ namespace Weapon
             var iconCount = weaponIconData.Icons.Keys.Count;
             var rnd = Random.Range(0, iconCount);
 
-            var w = new Weapon(weaponRarityType, GetWeaponSkills(weaponRarityType), rnd);
+            var w = new Weapon(weaponRarityType, GetWeaponSkills(weaponRarityType), weaponIconData.Icons[rnd]);
 
             return w;
         }
