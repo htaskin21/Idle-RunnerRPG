@@ -87,7 +87,7 @@ namespace Managers
             saveFile.Sync();
         }
 
-        public List<Weapon.Weapon> LoadSelectedPWeapon()
+        public List<Weapon.Weapon> LoadSelectedWeapons()
         {
             List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
 

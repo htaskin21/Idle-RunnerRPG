@@ -64,5 +64,9 @@ namespace UI
         public virtual void UpdateRow(int totalGem)
         {
         }
+        
+        public virtual void UpdateRow()
+        {
+        }
     }
 }
