@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Managers;
+using ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Weapon;
 
 namespace UI.Weapon
 {
@@ -25,14 +28,22 @@ namespace UI.Weapon
         [SerializeField]
         protected Button _sellWeaponButton;
 
+        [SerializeField]
+        private TextMeshProUGUI _sellWeaponCostText;
 
-        public override void SetUIRow(global::Weapon.Weapon weapon)
+        [SerializeField]
+        [CanBeNull]
+        protected IconDataSO _weaponIconData;
+
+
+        public override void SetUIRow(global::Weapon.Weapon weapon, bool isEquipped)
         {
             _weapon = weapon;
             cellIdentifier = weapon.id.ToString();
 
-            icon.sprite = _weapon.WeaponSprite;
+            icon.sprite = _weaponIconData.Icons[_weapon.WeaponSpriteID];
 
+            _sellWeaponCostText.text = $"{_weapon.Cost} <sprite=7>";
 
             for (int i = 0; i < weapon.WeaponSkills.Length; i++)
             {
@@ -41,31 +52,25 @@ namespace UI.Weapon
                 _weaponDescriptionTexts[i].gameObject.SetActive(true);
             }
 
+            //DisableAllButtons();
+            ToggleAddButton(!isEquipped);
+
             //var gem = SaveLoadManager.Instance.LoadGem();
             //UpdateRow(gem);
         }
 
         public override void FillUIRow()
         {
-            _weapons = SaveLoadManager.Instance.LoadWeapons();
-            SetButtonState();
+            //_weapons = SaveLoadManager.Instance.LoadWeapons();
+            //SetButtonState();
         }
 
         public override void SetButtonState(double totalGem = 0)
         {
             DisableAllButtons();
 
-            var selectedWeapons = SaveLoadManager.Instance.LoadSelectedWeapons();
-
-            if (selectedWeapons.Contains(_weapon))
-            {
-                //_takeOffPetButton.gameObject.SetActive(true);
-            }
-            else
-            {
-                _addWeaponButton.gameObject.SetActive(true);
-                _sellWeaponButton.gameObject.SetActive(true);
-            }
+            _addWeaponButton.gameObject.SetActive(true);
+            _sellWeaponButton.gameObject.SetActive(true);
         }
 
         private void DisableAllButtons()
@@ -78,21 +83,26 @@ namespace UI.Weapon
         public void OnEquip()
         {
             SaveLoadManager.Instance.SaveSelectedWeapon(_weapon, true);
-            DisableAllButtons();
-            //_takeOffPetButton.gameObject.SetActive(true);
-            //PetManager.OnEquipPet.Invoke(_pet);
+            ToggleAddButton(false);
+
+            WeaponManager.OnEquipWeapon.Invoke(_weapon);
         }
 
         public virtual void OnTakeOff()
         {
             SaveLoadManager.Instance.SaveSelectedWeapon(_weapon, false);
-            //ActivateAddPetButton();
-            //PetManager.OnTakeOffPet.Invoke(_pet);
+
+            _addWeaponButton.gameObject.SetActive(true);
+            _sellWeaponButton.gameObject.SetActive(true);
+
+            WeaponManager.OnTakeOffWeapon.Invoke(_weapon);
         }
-        
+
         public void ToggleAddButton(bool status)
         {
-            _addWeaponButton.enabled = status;
+            _takeOffWeaponButton.gameObject.SetActive(!status);
+            _addWeaponButton.gameObject.SetActive(status);
+            _sellWeaponButton.gameObject.SetActive(status);
         }
 
         public override void OnBuy()
@@ -102,7 +112,7 @@ namespace UI.Weapon
 
         public override void UpdateRow()
         {
-            SetButtonState();
+            //SetButtonState();
         }
     }
 }

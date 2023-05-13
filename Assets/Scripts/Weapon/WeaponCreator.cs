@@ -26,7 +26,7 @@ namespace Weapon
 
             var _skillUpgradeDictionary = SaveLoadManager.Instance.LoadSkillUpgrade();
 
-            var level = _skillUpgradeDictionary[0];
+            var level = 1;
 
 
             WeaponSkill[] weaponSkills;
@@ -55,7 +55,7 @@ namespace Weapon
             var iconCount = weaponIconData.Icons.Keys.Count;
             var rnd = Random.Range(0, iconCount);
 
-            var w = new Weapon(weaponRarityType, GetWeaponSkills(weaponRarityType), weaponIconData.Icons[rnd]);
+            var w = new Weapon(weaponRarityType, GetWeaponSkills(weaponRarityType), rnd);
 
             return w;
         }

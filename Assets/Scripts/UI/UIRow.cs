@@ -46,7 +46,7 @@ namespace UI
         {
         }
 
-        public virtual void SetUIRow(global::Weapon.Weapon weapon)
+        public virtual void SetUIRow(global::Weapon.Weapon weapon, bool isEquipped)
         {
         }
 

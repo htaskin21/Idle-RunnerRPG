@@ -3,6 +3,7 @@ using System.Linq;
 using EnhancedUI.EnhancedScroller;
 using Managers;
 using UnityEngine;
+using Weapon;
 
 namespace UI.Weapon
 {
@@ -23,13 +24,19 @@ namespace UI.Weapon
 
         public override void Start()
         {
+            LoadData();
             SetMainRows();
 
-            //PetManager.OnEquipPet += SetMainRow;
-            //PetManager.OnTakeOffPet += ResetMainRow;
+            WeaponManager.OnEquipWeapon += SetMainRow;
+            WeaponManager.OnTakeOffWeapon += ResetMainRow;
 
             enhancedScroller.Delegate = this;
             base.Start();
+        }
+
+        private void OnEnable()
+        {
+            LoadData();
         }
 
         public void LoadData()
@@ -55,7 +62,10 @@ namespace UI.Weapon
             WeaponUIRow weaponUIRow =
                 enhancedScroller.GetCellView(enhancedScrollerCellView) as WeaponUIRow;
 
-            weaponUIRow.SetUIRow(_weapons[dataIndex]);
+            var data = SaveLoadManager.Instance.LoadSelectedWeapons();
+            bool isEquipped = data.FirstOrDefault(x => x.id == _weapons[dataIndex].id) != null;
+
+            weaponUIRow.SetUIRow(_weapons[dataIndex], isEquipped);
             _weaponUIRows.Add(weaponUIRow);
 
             return weaponUIRow;
@@ -69,7 +79,8 @@ namespace UI.Weapon
                 for (int i = 0; i < data.Count; i++)
                 {
                     var weapon = _weapons.FirstOrDefault(x => x.id == data[i].id);
-                    _mainUIRows[i].SetMainUIRow(weapon);
+                    SetMainRow(weapon);
+                    WeaponManager.OnEquipWeapon.Invoke(weapon);
                 }
             }
         }

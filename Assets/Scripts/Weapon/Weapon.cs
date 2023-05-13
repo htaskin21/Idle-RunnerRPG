@@ -1,6 +1,5 @@
 using System;
 using Enums;
-using UnityEngine;
 using Weapon.WeaponSkills;
 
 namespace Weapon
@@ -13,14 +12,32 @@ namespace Weapon
 
         public WeaponSkill[] WeaponSkills;
 
-        public Sprite WeaponSprite;
+        public int WeaponSpriteID;
 
-        public Weapon(WeaponRarityType weaponRarityType, WeaponSkill[] weaponSkills, Sprite weaponSprite)
+        public int Cost
+        {
+            get
+            {
+                switch (WeaponRarityType)
+                {
+                    case WeaponRarityType.Common:
+                        return 1;
+                    case WeaponRarityType.Rare:
+                        return 4;
+                    case WeaponRarityType.Epic:
+                        return 16;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+
+        public Weapon(WeaponRarityType weaponRarityType, WeaponSkill[] weaponSkills, int weaponSpriteID)
         {
             id = Guid.NewGuid();
             WeaponRarityType = weaponRarityType;
             WeaponSkills = weaponSkills;
-            WeaponSprite = weaponSprite;
+            WeaponSpriteID = weaponSpriteID;
         }
     }
 }

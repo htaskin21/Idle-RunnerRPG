@@ -1,6 +1,8 @@
+using System.Linq;
 using Managers;
 using UnityEngine;
 using UnityEngine.UI;
+using Weapon;
 
 namespace UI.Weapon
 {
@@ -26,8 +28,10 @@ namespace UI.Weapon
             _weapon = weapon;
 
             icon.color = Color.white;
-            icon.sprite = weapon.WeaponSprite;
+            icon.sprite = _weaponIconData.Icons[_weapon.WeaponSpriteID];
             _iconFrame.enabled = true;
+
+            _weaponDescriptionTexts.ForEach(x => x.gameObject.SetActive(false));
 
             for (int i = 0; i < weapon.WeaponSkills.Length; i++)
             {
@@ -37,7 +41,7 @@ namespace UI.Weapon
             }
 
             _takeOffWeaponButton.gameObject.SetActive(true);
-            _weaponUIPanel.SetAddButtonStatus();
+            //_weaponUIPanel.SetAddButtonStatus();
         }
 
         public void ResetMainUIRow()
@@ -48,7 +52,7 @@ namespace UI.Weapon
             icon.sprite = _defaultIcon;
             _iconFrame.enabled = false;
 
-            _weaponDescriptionTexts.ForEach(x => gameObject.SetActive(false));
+            _weaponDescriptionTexts.ForEach(x => x.gameObject.SetActive(false));
 
             _takeOffWeaponButton.gameObject.SetActive(false);
             _weaponUIPanel.SetAddButtonStatus();
@@ -57,9 +61,9 @@ namespace UI.Weapon
         public override void OnTakeOff()
         {
             SaveLoadManager.Instance.SaveSelectedWeapon(_weapon, false);
-            //_pet.PetSkill.RemoveSkill(_pet.heroDamageDataSo);
-            //_petUIPanel._petUIRows.FirstOrDefault(x => x.cellIdentifier == _pet.id.ToString()).ActivateAddPetButton();
-            //PetManager.OnTakeOffPet.Invoke(_pet);
+            _weaponUIPanel._weaponUIRows.FirstOrDefault(x => x.cellIdentifier == _weapon.id.ToString())
+                .ToggleAddButton(true);
+            WeaponManager.OnTakeOffWeapon.Invoke(_weapon);
         }
     }
 }

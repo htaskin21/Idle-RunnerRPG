@@ -292,14 +292,14 @@ PrefabInstance:
     - target: {fileID: 4605979539938592617, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 806235525619873780}
     - target: {fileID: 4605979539938592617, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnTakeOff
       objectReference: {fileID: 0}
     - target: {fileID: 4605979539938592617, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UI.Pet.PetUIRow, Assembly-CSharp
+      value: UI.Weapon.WeaponMainUIRow, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4707091939639759312, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
       propertyPath: m_Sprite
@@ -494,8 +494,10 @@ MonoBehaviour:
   - {fileID: 8662499949584425080}
   - {fileID: 8836660601150327149}
   _addWeaponButton: {fileID: 295258428188732648}
-  _takeOffWeaponButton: {fileID: 8475658125833145908}
+  _takeOffWeaponButton: {fileID: 8836551938358402996}
   _sellWeaponButton: {fileID: 8836551938358402996}
+  _sellWeaponCostText: {fileID: 0}
+  _weaponIconData: {fileID: 11400000, guid: 8284a8f5cd11347dbb719db60e2788f0, type: 2}
   _defaultIcon: {fileID: 497528725377894515, guid: e11d885b6583e4820a33942f814f386b, type: 3}
   _weaponUIPanel: {fileID: 0}
   _iconFrame: {fileID: 3010219860398571953}
@@ -585,17 +587,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8475658125833145908 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3518880309352699625, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
-  m_PrefabInstance: {fileID: 4992808460738730205}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8836551938358402996 stripped

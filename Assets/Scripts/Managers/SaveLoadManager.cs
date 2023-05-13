@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Enums;
 using ScriptableObjects;
 using UnityEngine;
@@ -76,10 +77,9 @@ namespace Managers
             }
             else
             {
-                if (weapons.Contains(weapon))
-                {
-                    weapons.Remove(weapon);
-                }
+              var a=  weapons.FirstOrDefault(x=>x.id == weapon.id);
+              weapons.Remove(a);
+
             }
 
             saveFile.Save<List<Weapon.Weapon>>("selectedWeapon", weapons);
