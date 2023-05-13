@@ -35,6 +35,8 @@ namespace UI.Weapon
         [CanBeNull]
         protected IconDataSO _weaponIconData;
 
+        private bool isSelled;
+
 
         public override void SetUIRow(global::Weapon.Weapon weapon, bool isEquipped)
         {
@@ -52,17 +54,12 @@ namespace UI.Weapon
                 _weaponDescriptionTexts[i].gameObject.SetActive(true);
             }
 
-            //DisableAllButtons();
             ToggleAddButton(!isEquipped);
-
-            //var gem = SaveLoadManager.Instance.LoadGem();
-            //UpdateRow(gem);
         }
 
         public override void FillUIRow()
         {
-            //_weapons = SaveLoadManager.Instance.LoadWeapons();
-            //SetButtonState();
+            throw new NotImplementedException();
         }
 
         public override void SetButtonState(double totalGem = 0)
@@ -71,6 +68,11 @@ namespace UI.Weapon
 
             _addWeaponButton.gameObject.SetActive(true);
             _sellWeaponButton.gameObject.SetActive(true);
+        }
+
+        public override void OnBuy()
+        {
+            throw new NotImplementedException();
         }
 
         private void DisableAllButtons()
@@ -105,14 +107,22 @@ namespace UI.Weapon
             _sellWeaponButton.gameObject.SetActive(status);
         }
 
-        public override void OnBuy()
+        public void OnSell()
         {
-            throw new NotImplementedException();
+            SaveLoadManager.Instance.RemoveWeapon(_weapon);
+            EconomyManager.OnCollectGem.Invoke(_weapon.Cost);
+
+            isSelled = true;
+            this.gameObject.SetActive(false);
         }
 
-        public override void UpdateRow()
+        private void OnDisable()
         {
-            //SetButtonState();
+            if (isSelled)
+            {
+                isSelled = false;
+                WeaponManager.OnSellWeapon.Invoke();
+            }
         }
     }
 }

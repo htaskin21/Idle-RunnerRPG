@@ -16,10 +16,16 @@ namespace Weapon
         public static Action<Weapon> OnEquipWeapon;
         public static Action<Weapon> OnTakeOffWeapon;
 
+        public static Action OnSellWeapon;
+        public static Action OnGetWeapon;
+
         private void Awake()
         {
             OnEquipWeapon = delegate(Weapon weapon) { };
             OnTakeOffWeapon = delegate(Weapon weapon) { };
+
+            OnSellWeapon = delegate { };
+            OnGetWeapon = delegate { };
 
             OnEquipWeapon += AddWeaponEffect;
             OnTakeOffWeapon += RemoveWeaponEffect;
@@ -45,5 +51,7 @@ namespace Weapon
                 weaponSkill.RemoveWeapon(_heroDamageDataSo);
             }
         }
+        
+        
     }
 }

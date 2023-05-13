@@ -66,6 +66,7 @@ namespace Weapon
             {
                 var a = CreateWeapon(WeaponRarityType.Common);
                 SaveLoadManager.Instance.SaveWeapon(a);
+                WeaponManager.OnGetWeapon.Invoke();
             }
 
             if (Input.GetKeyDown(KeyCode.L))

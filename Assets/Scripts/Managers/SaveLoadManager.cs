@@ -51,6 +51,22 @@ namespace Managers
 
             saveFile.Sync();
         }
+        
+        public void RemoveWeapon(Weapon.Weapon weapon)
+        {
+            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
+
+            var saveFile = new ES3File("WeaponData.es3");
+
+            weapons = saveFile.Load<List<Weapon.Weapon>>("Weapons", weapons);
+
+            var currentWeapon=  weapons.FirstOrDefault(x=>x.id == weapon.id);
+            weapons.Remove(currentWeapon);
+
+            saveFile.Save<List<Weapon.Weapon>>("Weapons", weapons);
+
+            saveFile.Sync();
+        }
 
         public List<Weapon.Weapon> LoadWeapons()
         {
@@ -77,8 +93,8 @@ namespace Managers
             }
             else
             {
-              var a=  weapons.FirstOrDefault(x=>x.id == weapon.id);
-              weapons.Remove(a);
+              var currentWeapon=  weapons.FirstOrDefault(x=>x.id == weapon.id);
+              weapons.Remove(currentWeapon);
 
             }
 
