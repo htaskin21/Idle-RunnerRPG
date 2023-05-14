@@ -19,17 +19,12 @@ namespace UI.Weapon
 
         public global::Weapon.Weapon CurrentWeapon => _weapon;
 
-        private protected virtual void Start()
-        {
-        }
-
         public void SetMainUIRow(global::Weapon.Weapon weapon)
         {
             _weapon = weapon;
 
             icon.color = Color.white;
             icon.sprite = _weaponIconData.Icons[_weapon.WeaponSpriteID];
-            _iconFrame.enabled = true;
 
             _weaponDescriptionTexts.ForEach(x => x.gameObject.SetActive(false));
 
@@ -41,7 +36,6 @@ namespace UI.Weapon
             }
 
             _takeOffWeaponButton.gameObject.SetActive(true);
-            //_weaponUIPanel.SetAddButtonStatus();
         }
 
         public void ResetMainUIRow()
@@ -53,6 +47,8 @@ namespace UI.Weapon
             _iconFrame.enabled = false;
 
             _weaponDescriptionTexts.ForEach(x => x.gameObject.SetActive(false));
+            _weaponDescriptionTexts[0].text = "EMPTY SLOT";
+            _weaponDescriptionTexts[0].gameObject.SetActive(true);
 
             _takeOffWeaponButton.gameObject.SetActive(false);
             _weaponUIPanel.SetAddButtonStatus();

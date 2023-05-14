@@ -4,6 +4,11 @@ namespace Weapon.WeaponSkills
 {
     public class DPSPercentage : WeaponSkill
     {
+        public DPSPercentage(float percentage)
+        {
+            WeaponSkillPercentage = percentage;
+        }
+
         public override void AddWeapon(HeroDamageDataSO heroDamageDataSo)
         {
             heroDamageDataSo.heroAttack *= WeaponSkillPercentage;

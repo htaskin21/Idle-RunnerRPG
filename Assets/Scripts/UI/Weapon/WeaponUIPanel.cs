@@ -31,20 +31,10 @@ namespace UI.Weapon
             WeaponManager.OnTakeOffWeapon += ResetMainRow;
 
             WeaponManager.OnGetWeapon += LoadData;
-            WeaponManager.OnSellWeapon += XX;
+            WeaponManager.OnSellWeapon += LoadData;
 
             enhancedScroller.Delegate = this;
             base.Start();
-        }
-
-        private void OnEnable()
-        {
-            LoadData();
-        }
-
-        private void XX()
-        {
-            LoadData();
         }
 
         public void LoadData()

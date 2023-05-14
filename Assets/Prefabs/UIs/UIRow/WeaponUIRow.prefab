@@ -276,7 +276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1000 <sprite index=1> '
+  m_text: TAKE OFF
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb6d657d22f8d469abbb045f8cf95242, type: 2}
   m_sharedMaterial: {fileID: -5240181373281596307, guid: eb6d657d22f8d469abbb045f8cf95242, type: 2}

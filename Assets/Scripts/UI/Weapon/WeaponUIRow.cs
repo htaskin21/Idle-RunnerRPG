@@ -112,17 +112,7 @@ namespace UI.Weapon
             SaveLoadManager.Instance.RemoveWeapon(_weapon);
             EconomyManager.OnCollectGem.Invoke(_weapon.Cost);
 
-            isSelled = true;
-            this.gameObject.SetActive(false);
-        }
-
-        private void OnDisable()
-        {
-            if (isSelled)
-            {
-                isSelled = false;
-                WeaponManager.OnSellWeapon.Invoke();
-            }
+            WeaponManager.OnSellWeapon.Invoke();
         }
     }
 }

@@ -51,7 +51,7 @@ namespace Managers
 
             saveFile.Sync();
         }
-        
+
         public void RemoveWeapon(Weapon.Weapon weapon)
         {
             List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
@@ -60,7 +60,7 @@ namespace Managers
 
             weapons = saveFile.Load<List<Weapon.Weapon>>("Weapons", weapons);
 
-            var currentWeapon=  weapons.FirstOrDefault(x=>x.id == weapon.id);
+            var currentWeapon = weapons.FirstOrDefault(x => x.id == weapon.id);
             weapons.Remove(currentWeapon);
 
             saveFile.Save<List<Weapon.Weapon>>("Weapons", weapons);
@@ -93,9 +93,8 @@ namespace Managers
             }
             else
             {
-              var currentWeapon=  weapons.FirstOrDefault(x=>x.id == weapon.id);
-              weapons.Remove(currentWeapon);
-
+                var currentWeapon = weapons.FirstOrDefault(x => x.id == weapon.id);
+                weapons.Remove(currentWeapon);
             }
 
             saveFile.Save<List<Weapon.Weapon>>("selectedWeapon", weapons);
@@ -212,6 +211,32 @@ namespace Managers
             skillUpgradeDictionary = saveFile.Load<Dictionary<int, int>>("skillUpgrade", skillUpgradeDictionary);
 
             return skillUpgradeDictionary;
+        }
+
+        public void SaveHighestHeroLevel(int heroLevel)
+        {
+            var highestHeroLevel = LoadHighestHeroLevel();
+
+            if (heroLevel > highestHeroLevel)
+            {
+                var saveFile = new ES3File("skillUpgradeSaveFile.es3");
+
+                highestHeroLevel = heroLevel;
+                saveFile.Save<int>("HighestHeroLevel", highestHeroLevel);
+
+                saveFile.Sync();
+            }
+        }
+
+        public int LoadHighestHeroLevel()
+        {
+            int highestHeroLevel = 1;
+
+            var saveFile = new ES3File("skillUpgradeSaveFile.es3");
+
+            highestHeroLevel = saveFile.Load<int>("HighestHeroLevel", highestHeroLevel);
+
+            return highestHeroLevel;
         }
 
         public void SaveSpecialAttackUpgrade(int specialAttackID, int skillLevel)

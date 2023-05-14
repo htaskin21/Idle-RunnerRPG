@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &317545634343153929
 RectTransform:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8073801893429462034
 RectTransform:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4707091940336656425, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
       propertyPath: m_text
-      value: CHOOSE PET
+      value: EMPTY SLOT
       objectReference: {fileID: 0}
     - target: {fileID: 4707091940336656425, guid: 26f49630fd4c9498cbd8e4b5b21ae690, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -498,7 +498,7 @@ MonoBehaviour:
   _sellWeaponButton: {fileID: 8836551938358402996}
   _sellWeaponCostText: {fileID: 0}
   _weaponIconData: {fileID: 11400000, guid: 8284a8f5cd11347dbb719db60e2788f0, type: 2}
-  _defaultIcon: {fileID: 497528725377894515, guid: e11d885b6583e4820a33942f814f386b, type: 3}
+  _defaultIcon: {fileID: 3199060926501643115, guid: 635a4249d11a94609a0c779e8f7bc417, type: 3}
   _weaponUIPanel: {fileID: 0}
   _iconFrame: {fileID: 3010219860398571953}
 --- !u!114 &295258427519367412 stripped

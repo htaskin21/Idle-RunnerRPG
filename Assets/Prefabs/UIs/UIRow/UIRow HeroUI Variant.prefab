@@ -216,3 +216,5 @@ MonoBehaviour:
   activeButtonSprite: {fileID: 21300000, guid: 2b9ef8fd07ea648188df59d7013692e4, type: 3}
   deActiveButtonSprite: {fileID: 21300000, guid: 51fb4eb3009c441418d8001b35bfc35b, type: 3}
   _iconDataSo: {fileID: 11400000, guid: 3be454a94ca2940b8b946409354c9cf5, type: 2}
+  _dataReader: {fileID: 0}
+  _levelUpButton: {fileID: 7419736946949870268}

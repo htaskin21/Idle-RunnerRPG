@@ -71,26 +71,25 @@ namespace Weapon.WeaponSkills
             switch (CurrentDamageType)
             {
                 case DamageType.Plant:
-                    elementIcon = "<sprite=4>";
+                    elementIcon = "<sprite=14>";
                     break;
                 case DamageType.Water:
-                    elementIcon = "<sprite=2>";
+                    elementIcon = "<sprite=15>";
                     break;
                 case DamageType.Fire:
-                    elementIcon = "<sprite=1>";
+                    elementIcon = "<sprite=16>";
                     break;
                 case DamageType.Holy:
-                    elementIcon = "<sprite=4>";
+                    elementIcon = "<sprite=12>";
                     break;
                 case DamageType.Lightning:
-                    elementIcon = "<sprite=3>";
+                    elementIcon = "<sprite=13>";
                     break;
                 default:
                     Debug.LogWarning("ElementalDmg GetDescription Boş Geldi");
                     break;
             }
-
-            return $"+{WeaponSkillPercentage}% to {elementIcon}";
+            return $"+{WeaponSkillPercentage}x to {elementIcon}";
         }
     }
 }

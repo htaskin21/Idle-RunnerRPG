@@ -22,33 +22,28 @@ namespace Weapon
 
         private WeaponSkill[] GetWeaponSkills(WeaponRarityType weaponRarityType)
         {
-            var heroLevel = 0;
-
-            var _skillUpgradeDictionary = SaveLoadManager.Instance.LoadSkillUpgrade();
-
-            var level = 1;
-
-
             WeaponSkill[] weaponSkills;
 
             switch (weaponRarityType)
             {
                 case WeaponRarityType.Common:
-                    return weaponSkills = new[] {new UltiMultiplier(heroLevel + 2)};
+                    return weaponSkills = new[] {GetRandomWeaponSkill()};
 
                 case WeaponRarityType.Rare:
-                    return weaponSkills = new[] {new UltiMultiplier(heroLevel + 3), new UltiMultiplier(heroLevel + 4)};
+                    return weaponSkills = new[] {GetRandomWeaponSkill(), GetRandomWeaponSkill()};
 
                 case WeaponRarityType.Epic:
                     return weaponSkills = new[]
                     {
-                        new UltiMultiplier(heroLevel + 5), new UltiMultiplier(heroLevel + 6),
-                        new UltiMultiplier(heroLevel + 7)
+                        GetRandomWeaponSkill(), GetRandomWeaponSkill(),
+                        GetRandomWeaponSkill()
                     };
                 default:
+                    Debug.LogError("Weapon Skills Null Geldi");
                     throw new ArgumentOutOfRangeException();
             }
         }
+
 
         private Weapon CreateWeapon(WeaponRarityType weaponRarityType)
         {
@@ -58,6 +53,39 @@ namespace Weapon
             var w = new Weapon(weaponRarityType, GetWeaponSkills(weaponRarityType), rnd);
 
             return w;
+        }
+
+        private WeaponSkill GetRandomWeaponSkill()
+        {
+            var totalSkillsCount = _weaponSkills.Count;
+            var randomSkillCount = Random.Range(0, totalSkillsCount);
+
+            var percentage = CalculatePercentageByHeroLevel();
+
+            switch (randomSkillCount)
+            {
+                case 0:
+                    return new TapPercentage(percentage);
+                case 1:
+                    return new UltiMultiplier(percentage);
+                case 2:
+                    return new ElementalDmgPercentage(percentage);
+                case 3:
+                    return new DPSPercentage(percentage);
+                default:
+                    return new TapPercentage(percentage);
+            }
+        }
+
+        private float CalculatePercentageByHeroLevel()
+        {
+            var highestHeroLevel = SaveLoadManager.Instance.LoadHighestHeroLevel();
+            highestHeroLevel = Mathf.Clamp(highestHeroLevel, 20, 100);
+
+            var result = Random.Range((float) (highestHeroLevel - 20), (float) highestHeroLevel);
+            result = (float) Math.Round(result, 2);
+
+            return result;
         }
 
         private void Update()

@@ -4,6 +4,11 @@ namespace Weapon.WeaponSkills
 {
     public class TapPercentage : WeaponSkill
     {
+        public TapPercentage(float percentage)
+        {
+            WeaponSkillPercentage = percentage;
+        }
+        
         public override void AddWeapon(HeroDamageDataSO heroDamageDataSo)
         {
             heroDamageDataSo.tapAttack *= WeaponSkillPercentage;
