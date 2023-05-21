@@ -88,6 +88,7 @@ namespace Weapon
             return result;
         }
 
+        //TODO SONRA SİL
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.W))
