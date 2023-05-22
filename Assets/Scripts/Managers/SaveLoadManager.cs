@@ -37,81 +37,49 @@ namespace Managers
             EconomyManager.OnSpendGem += SaveGem;
         }
 
-        public void SaveWeapon(Weapon.Weapon weapon)
+        #region Currency
+
+        private void SaveCoin(double totalCoin)
         {
-            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
+            var saveFile = new ES3File("economySaveFile.es3");
+            var coin = saveFile.Load<double>("totalCoin", 0);
 
-            var saveFile = new ES3File("WeaponData.es3");
+            coin += totalCoin;
 
-            weapons = saveFile.Load<List<Weapon.Weapon>>("Weapons", weapons);
-
-            weapons.Add(weapon);
-
-            saveFile.Save<List<Weapon.Weapon>>("Weapons", weapons);
-
+            saveFile.Save("totalCoin", coin);
             saveFile.Sync();
         }
 
-        public void RemoveWeapon(Weapon.Weapon weapon)
+        public double LoadCoin()
         {
-            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
+            var saveFile = new ES3File("economySaveFile.es3");
+            var coin = saveFile.Load<double>("totalCoin", 0);
 
-            var saveFile = new ES3File("WeaponData.es3");
+            return coin;
+        }
 
-            weapons = saveFile.Load<List<Weapon.Weapon>>("Weapons", weapons);
+        public void SaveGem(int totalGem)
+        {
+            var saveFile = new ES3File("economySaveFile.es3");
+            var gem = saveFile.Load<int>("totalGem", 0);
 
-            var currentWeapon = weapons.FirstOrDefault(x => x.id == weapon.id);
-            weapons.Remove(currentWeapon);
+            gem += totalGem;
 
-            saveFile.Save<List<Weapon.Weapon>>("Weapons", weapons);
-
+            saveFile.Save("totalGem", gem);
             saveFile.Sync();
         }
 
-        public List<Weapon.Weapon> LoadWeapons()
+        public int LoadGem()
         {
-            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
+            var saveFile = new ES3File("economySaveFile.es3");
+            var gem = saveFile.Load<int>("totalGem", 0);
 
-            var saveFile = new ES3File("WeaponData.es3");
-
-            weapons = saveFile.Load<List<Weapon.Weapon>>("Weapons", weapons);
-
-            return weapons;
+            return gem;
         }
 
-        public void SaveSelectedWeapon(Weapon.Weapon weapon, bool isSelected)
-        {
-            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
+        #endregion
 
-            var saveFile = new ES3File("WeaponData.es3");
-
-            weapons = saveFile.Load<List<Weapon.Weapon>>("selectedWeapon", weapons);
-
-            if (isSelected)
-            {
-                weapons.Add(weapon);
-            }
-            else
-            {
-                var currentWeapon = weapons.FirstOrDefault(x => x.id == weapon.id);
-                weapons.Remove(currentWeapon);
-            }
-
-            saveFile.Save<List<Weapon.Weapon>>("selectedWeapon", weapons);
-
-            saveFile.Sync();
-        }
-
-        public List<Weapon.Weapon> LoadSelectedWeapons()
-        {
-            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
-
-            var saveFile = new ES3File("WeaponData.es3");
-
-            weapons = saveFile.Load<List<Weapon.Weapon>>("selectedWeapon", weapons);
-
-            return weapons;
-        }
+        #region In Game
 
         public void SaveGameStartTime(DateTime startTime)
         {
@@ -186,6 +154,10 @@ namespace Managers
 
             return stageProgress;
         }
+
+        #endregion
+
+        #region Skill Upgrade - Special Attack - Hero
 
         public void SaveSkillUpgrade(int skillID, int skillLevel)
         {
@@ -265,6 +237,67 @@ namespace Managers
             return heroSectionDictionary;
         }
 
+        #endregion
+
+        #region Special Attack CoolDown - Duration
+
+        public void SaveSpecialAttackCoolDown(int specialAttackID, DateTime coolDownTime)
+        {
+            Dictionary<int, DateTime> specialAttackCoolDown = new Dictionary<int, DateTime>();
+
+            var saveFile = new ES3File("specialAttackTimeSaveFile.es3");
+
+            specialAttackCoolDown =
+                saveFile.Load<Dictionary<int, DateTime>>("specialAttackCoolDown", specialAttackCoolDown);
+
+            specialAttackCoolDown[specialAttackID] = coolDownTime;
+
+            saveFile.Save<Dictionary<int, DateTime>>("specialAttackCoolDown", specialAttackCoolDown);
+            saveFile.Sync();
+        }
+
+        public Dictionary<int, DateTime> LoadSpecialAttackCoolDown()
+        {
+            Dictionary<int, DateTime> specialAttackCoolDown = new Dictionary<int, DateTime>();
+
+            var saveFile = new ES3File("specialAttackTimeSaveFile.es3");
+
+            specialAttackCoolDown =
+                saveFile.Load<Dictionary<int, DateTime>>("specialAttackCoolDown", specialAttackCoolDown);
+
+            return specialAttackCoolDown;
+        }
+
+        public void SaveSpecialAttackDuration(int specialAttackID, DateTime durationTime)
+        {
+            Dictionary<int, DateTime> specialAttackDuration = new Dictionary<int, DateTime>();
+
+            var saveFile = new ES3File("specialAttackTimeSaveFile.es3");
+
+            specialAttackDuration =
+                saveFile.Load<Dictionary<int, DateTime>>("specialAttackDuration", specialAttackDuration);
+
+            specialAttackDuration[specialAttackID] = durationTime;
+
+            saveFile.Save<Dictionary<int, DateTime>>("specialAttackDuration", specialAttackDuration);
+            saveFile.Sync();
+        }
+
+        public Dictionary<int, DateTime> LoadSpecialAttackDuration()
+        {
+            Dictionary<int, DateTime> specialAttackDuration = new Dictionary<int, DateTime>();
+
+            var saveFile = new ES3File("specialAttackTimeSaveFile.es3");
+
+            specialAttackDuration =
+                saveFile.Load<Dictionary<int, DateTime>>("specialAttackDuration", specialAttackDuration);
+
+            return specialAttackDuration;
+        }
+
+        #endregion
+
+        #region Pet
 
         public void SavePetData(int petID)
         {
@@ -328,97 +361,89 @@ namespace Managers
             return pets;
         }
 
-        public void SaveSpecialAttackCoolDown(int specialAttackID, DateTime coolDownTime)
+        #endregion
+
+        #region Weapon
+
+        public void SaveWeapon(Weapon.Weapon weapon)
         {
-            Dictionary<int, DateTime> specialAttackCoolDown = new Dictionary<int, DateTime>();
+            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
 
-            var saveFile = new ES3File("specialAttackTimeSaveFile.es3");
+            var saveFile = new ES3File("WeaponData.es3");
 
-            specialAttackCoolDown =
-                saveFile.Load<Dictionary<int, DateTime>>("specialAttackCoolDown", specialAttackCoolDown);
+            weapons = saveFile.Load<List<Weapon.Weapon>>("Weapons", weapons);
 
-            specialAttackCoolDown[specialAttackID] = coolDownTime;
+            weapons.Add(weapon);
 
-            saveFile.Save<Dictionary<int, DateTime>>("specialAttackCoolDown", specialAttackCoolDown);
+            saveFile.Save<List<Weapon.Weapon>>("Weapons", weapons);
+
             saveFile.Sync();
         }
 
-        public Dictionary<int, DateTime> LoadSpecialAttackCoolDown()
+        public void RemoveWeapon(Weapon.Weapon weapon)
         {
-            Dictionary<int, DateTime> specialAttackCoolDown = new Dictionary<int, DateTime>();
+            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
 
-            var saveFile = new ES3File("specialAttackTimeSaveFile.es3");
+            var saveFile = new ES3File("WeaponData.es3");
 
-            specialAttackCoolDown =
-                saveFile.Load<Dictionary<int, DateTime>>("specialAttackCoolDown", specialAttackCoolDown);
+            weapons = saveFile.Load<List<Weapon.Weapon>>("Weapons", weapons);
 
-            return specialAttackCoolDown;
-        }
+            var currentWeapon = weapons.FirstOrDefault(x => x.id == weapon.id);
+            weapons.Remove(currentWeapon);
 
-        public void SaveSpecialAttackDuration(int specialAttackID, DateTime durationTime)
-        {
-            Dictionary<int, DateTime> specialAttackDuration = new Dictionary<int, DateTime>();
+            saveFile.Save<List<Weapon.Weapon>>("Weapons", weapons);
 
-            var saveFile = new ES3File("specialAttackTimeSaveFile.es3");
-
-            specialAttackDuration =
-                saveFile.Load<Dictionary<int, DateTime>>("specialAttackDuration", specialAttackDuration);
-
-            specialAttackDuration[specialAttackID] = durationTime;
-
-            saveFile.Save<Dictionary<int, DateTime>>("specialAttackDuration", specialAttackDuration);
             saveFile.Sync();
         }
 
-        public Dictionary<int, DateTime> LoadSpecialAttackDuration()
+        public List<Weapon.Weapon> LoadWeapons()
         {
-            Dictionary<int, DateTime> specialAttackDuration = new Dictionary<int, DateTime>();
+            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
 
-            var saveFile = new ES3File("specialAttackTimeSaveFile.es3");
+            var saveFile = new ES3File("WeaponData.es3");
 
-            specialAttackDuration =
-                saveFile.Load<Dictionary<int, DateTime>>("specialAttackDuration", specialAttackDuration);
+            weapons = saveFile.Load<List<Weapon.Weapon>>("Weapons", weapons);
 
-            return specialAttackDuration;
+            return weapons;
         }
 
-        private void SaveCoin(double totalCoin)
+        public void SaveSelectedWeapon(Weapon.Weapon weapon, bool isSelected)
         {
-            var saveFile = new ES3File("economySaveFile.es3");
-            var coin = saveFile.Load<double>("totalCoin", 0);
+            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
 
-            coin += totalCoin;
+            var saveFile = new ES3File("WeaponData.es3");
 
-            saveFile.Save("totalCoin", coin);
+            weapons = saveFile.Load<List<Weapon.Weapon>>("selectedWeapon", weapons);
+
+            if (isSelected)
+            {
+                weapons.Add(weapon);
+            }
+            else
+            {
+                var currentWeapon = weapons.FirstOrDefault(x => x.id == weapon.id);
+                weapons.Remove(currentWeapon);
+            }
+
+            saveFile.Save<List<Weapon.Weapon>>("selectedWeapon", weapons);
+
             saveFile.Sync();
         }
 
-        public double LoadCoin()
+        public List<Weapon.Weapon> LoadSelectedWeapons()
         {
-            var saveFile = new ES3File("economySaveFile.es3");
-            var coin = saveFile.Load<double>("totalCoin", 0);
+            List<Weapon.Weapon> weapons = new List<Weapon.Weapon>();
 
-            return coin;
+            var saveFile = new ES3File("WeaponData.es3");
+
+            weapons = saveFile.Load<List<Weapon.Weapon>>("selectedWeapon", weapons);
+
+            return weapons;
         }
 
-        public void SaveGem(int totalGem)
-        {
-            var saveFile = new ES3File("economySaveFile.es3");
-            var gem = saveFile.Load<int>("totalGem", 0);
+        #endregion
 
-            gem += totalGem;
-
-            saveFile.Save("totalGem", gem);
-            saveFile.Sync();
-        }
-
-        public int LoadGem()
-        {
-            var saveFile = new ES3File("economySaveFile.es3");
-            var gem = saveFile.Load<int>("totalGem", 0);
-
-            return gem;
-        }
+        #region Potion - Boost
 
         public void SavePotion(PotionType potionType, int amount)
         {
@@ -466,5 +491,7 @@ namespace Managers
 
             return boostTime;
         }
+
+        #endregion
     }
 }
